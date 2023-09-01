@@ -1,6 +1,19 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Spatial Data Management
 
-This repo is for the _Spatial Data Management_ course (GEOG-414) that I teach in Fall 2023 at the University of Tennessee, Knoxville.
+This website is for the _Spatial Data Management_ course (GEOG-414) that I teach in Fall 2023 at the University of Tennessee, Knoxville.
 
 ## Recommended Textbooks
 
