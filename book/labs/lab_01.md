@@ -15,12 +15,12 @@ kernelspec:
 
 **Firstname Lastname**
 
-Install [leafmap](https://leafmap.org) and create a Jupyter Notebook. Copy and paste the following code cell to your notebook. Change the text `Made by Your Name` to your name. Upload the logo to your own image if you wish. Then run the code cell to generate an interactive map. Note that you name must be visible on the map. Take a screenshot of your map and save it as an image. Upload the screenshot to Canvas.
+Install [leafmap](https://leafmap.org) and create a Jupyter Notebook. Copy and paste the following code cell to your notebook. Change the text `Made by Your Name` to your name. Update the logo to your own image if you wish. Then run the code cell to generate an interactive map. Note that you name must be visible on the map. Take a screenshot of your map and save it as an image. Upload the screenshot to Canvas.
 
 ```{code-cell} ipython3
 import leafmap
 # Creat an interactive map
-m = leafmap.Map(center=[0, 0], zoom=2, height='600px')
+m = leafmap.Map(center=[20, 0], zoom=2, height='600px')
 # Add basemap
 m.add_basemap("CartoDB.DarkMatter")
 # Add text to the map
