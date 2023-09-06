@@ -1,0 +1,1158 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>23. SQL Basics &#8212; Spatial Data Management with Earth Engine</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/postgis/sql_basics';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/postgis/sql_basics.html" />
+    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24. Introduction to PostGIS" href="postgis_intro.html" />
+    <link rel="prev" title="22. Installation" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/software.html">Software</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/01_getting_started.html">1. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/02_variables_data_types.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/03_introducing_lists.html">3. Introducing List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/04_working_with_lists.html">4. Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/05_if_statements.html">5. Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/06_dictionaries.html">6. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/07_user_input_while_loops.html">7. Looping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/08_functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/09_classes.html">9. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/10_files_and_exceptions.html">10. Files and Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Earth Engine</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gee/01_introduction.html">11. Introducing GEE and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/02_maps.html">12. Creating Interactive Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/03_gee_data.html">13. Using Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/04_local_data.html">14. Using Local Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/05_data_viz.html">15. Visualizing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/06_data_analysis.html">16. Analyzing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/07_data_export.html">17. Exporting Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/08_cartoee.html">18. Making Maps with Cartoee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/09_timelapse.html">19. Creating Timelapse Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/10_webapps.html">20. Building Interactive Web Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/11_applications.html">21. Earth Engine Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">22. Installation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">24. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">25. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">26. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">27. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">28. Using GeoPandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/postgis/sql_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/postgis/sql_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/postgis/sql_basics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/postgis/sql_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/postgis/sql_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/book/postgis/sql_basics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SQL Basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">23.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">23.2. The SQL SELECT statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">23.3. The WHERE Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">23.4. SQL Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">23.4.1. SQL Inner Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">23.4.2. SQL Left Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">23.4.3. SQL Right Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">23.4.4. SQL Full Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">23.4.5. SQL Union</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">23.5. Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">23.5.1. Group By</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">23.5.2. Having</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">23.6. Conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">23.7. Saving results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">23.8. SQL Comments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-coments">23.8.1. Single line coments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">23.8.2. Multi-line comments</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sql-basics">
+<h1><span class="section-number">23. </span>SQL Basics<a class="headerlink" href="#sql-basics" title="Permalink to this heading">#</a></h1>
+<p><strong>Setting up the conda env:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">ipython</span><span class="o">-</span><span class="n">sql</span> <span class="n">sqlalchemy</span> <span class="n">psycopg2</span> <span class="n">notebook</span> <span class="n">pandas</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+<p><strong>Sample dataset:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/giswqs/postgis/blob/master/data/cities.csv">cities.csv</a></p></li>
+<li><p><a class="reference external" href="https://raw.githubusercontent.com/giswqs/postgis/master/data/countries.csv">countries.csv</a></p></li>
+</ul>
+<section id="connecting-to-the-database">
+<h2><span class="section-number">23.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;sdb&quot;</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_USER&#39;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_PASSWORD&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">connection_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%sql $connection_string
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-sql-select-statement">
+<h2><span class="section-number">23.2. </span>The SQL SELECT statement<a class="headerlink" href="#the-sql-select-statement" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">country</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">country</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">DISTINCT</span> <span class="n">country</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">MAX</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">SUM</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">AVG</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">country</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">country</span> <span class="n">ASC</span><span class="p">,</span> <span class="n">population</span> <span class="n">DESC</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-where-clause">
+<h2><span class="section-number">23.3. </span>The WHERE Clause<a class="headerlink" href="#the-where-clause" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span> <span class="n">OR</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;CAN&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span> <span class="n">AND</span> <span class="n">population</span><span class="o">&gt;</span><span class="mi">1000000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">LIKE</span> <span class="s1">&#39;U%&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">LIKE</span> <span class="s1">&#39;%A&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">LIKE</span> <span class="s1">&#39;_S_&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">IN</span> <span class="p">(</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;CAN&#39;</span><span class="p">,</span> <span class="s1">&#39;CHN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">population</span> <span class="n">BETWEEN</span> <span class="mi">1000000</span> <span class="n">AND</span> <span class="mi">10000000</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-joins">
+<h2><span class="section-number">23.4. </span>SQL Joins<a class="headerlink" href="#sql-joins" title="Permalink to this heading">#</a></h2>
+<p>Reference: <a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp">https://www.w3schools.com/sql/sql_join.asp</a></p>
+<p>Here are the different types of the JOINs in SQL:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(INNER)</span> <span class="pre">JOIN</span></code>: Returns records that have matching values in both tables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">(OUTER)</span> <span class="pre">JOIN</span></code>: Returns all records from the left table, and the matched records from the right table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">(OUTER)</span> <span class="pre">JOIN</span></code>: Returns all records from the right table, and the matched records from the left table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">(OUTER)</span> <span class="pre">JOIN</span></code>: Returns all records when there is a match in either left or right table</p></li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/mITYzuS.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">countries</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sql-inner-join">
+<h3><span class="section-number">23.4.1. </span>SQL Inner Join<a class="headerlink" href="#sql-inner-join" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-left-join">
+<h3><span class="section-number">23.4.2. </span>SQL Left Join<a class="headerlink" href="#sql-left-join" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-right-join">
+<h3><span class="section-number">23.4.3. </span>SQL Right Join<a class="headerlink" href="#sql-right-join" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">RIGHT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-full-join">
+<h3><span class="section-number">23.4.4. </span>SQL Full Join<a class="headerlink" href="#sql-full-join" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">FULL</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-union">
+<h3><span class="section-number">23.4.5. </span>SQL Union<a class="headerlink" href="#sql-union" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">country</span> <span class="n">FROM</span> <span class="n">cities</span>
+<span class="n">UNION</span> 
+<span class="n">SELECT</span> <span class="s2">&quot;Alpha3_code&quot;</span> <span class="n">FROM</span> <span class="n">countries</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aggregation">
+<h2><span class="section-number">23.5. </span>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this heading">#</a></h2>
+<section id="group-by">
+<h3><span class="section-number">23.5.1. </span>Group By<a class="headerlink" href="#group-by" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">country</span> 
+<span class="n">FROM</span> <span class="n">cities</span> 
+<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">country</span> 
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="having">
+<h3><span class="section-number">23.5.2. </span>Having<a class="headerlink" href="#having" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">country</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">country</span>
+<span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span>
+<span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span>
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conditional-statements">
+<h2><span class="section-number">23.6. </span>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span>
+<span class="n">CASE</span>
+    <span class="n">WHEN</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">10000000</span> <span class="n">THEN</span> <span class="s1">&#39;Megacity&#39;</span>
+    <span class="n">WHEN</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">1000000</span> <span class="n">THEN</span> <span class="s1">&#39;Large city&#39;</span>
+    <span class="n">ELSE</span> <span class="s1">&#39;Small city&#39;</span>
+<span class="n">END</span> <span class="n">AS</span> <span class="n">category</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-results">
+<h2><span class="section-number">23.7. </span>Saving results<a class="headerlink" href="#saving-results" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span>
+<span class="n">INTO</span> <span class="n">cities_new</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">cities_usa</span><span class="p">;</span>
+
+<span class="n">SELECT</span> <span class="o">*</span>
+<span class="n">INTO</span> <span class="n">cities_usa</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+<span class="n">WHERE</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;USA&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+
+<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">cities_usa</span>
+<span class="n">SELECT</span> <span class="o">*</span>
+<span class="n">FROM</span> <span class="n">cities</span>
+<span class="n">WHERE</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;CAN&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-comments">
+<h2><span class="section-number">23.8. </span>SQL Comments<a class="headerlink" href="#sql-comments" title="Permalink to this heading">#</a></h2>
+<section id="single-line-coments">
+<h3><span class="section-number">23.8.1. </span>Single line coments<a class="headerlink" href="#single-line-coments" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span> <span class="o">--</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">comment</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-line-comments">
+<h3><span class="section-number">23.8.2. </span>Multi-line comments<a class="headerlink" href="#multi-line-comments" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+
+<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">country</span> 
+<span class="n">FROM</span> <span class="n">cities</span> 
+<span class="o">/*</span>
+ <span class="o">*</span> <span class="n">Adding</span> <span class="n">Group</span> <span class="n">by</span>
+ <span class="o">*</span> <span class="n">Adding</span> <span class="n">Order</span> <span class="n">by</span>
+ <span class="o">*/</span>
+<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">country</span> 
+<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+<span class="n">LIMIT</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/postgis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Installation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="postgis_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Introduction to PostGIS</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">23.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">23.2. The SQL SELECT statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">23.3. The WHERE Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">23.4. SQL Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">23.4.1. SQL Inner Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">23.4.2. SQL Left Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">23.4.3. SQL Right Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">23.4.4. SQL Full Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">23.4.5. SQL Union</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">23.5. Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">23.5.1. Group By</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">23.5.2. Having</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">23.6. Conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">23.7. Saving results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">23.8. SQL Comments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-coments">23.8.1. Single line coments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">23.8.2. Multi-line comments</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
