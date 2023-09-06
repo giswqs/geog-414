@@ -535,7 +535,7 @@ document.write(`
 <h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">11.2. </span>What is Geospatial Data Science</a><a class="headerlink" href="#what-is-geospatial-data-science" title="Permalink to this heading">#</a></h2>
 <p>Before introducing geospatial data science, we need to understand what <strong>data science</strong> is. The term “data science” has gained a lot of attention during the past decade, along with related terms such as <strong>big data</strong>, <strong>data analytics</strong>, and <strong>machine learning</strong>. According to <a class="reference external" href="https://bit.ly/40lfnpW">Google Trends</a>, the online search interest over time in “data science” has experienced a rapid increase since 2016 (see <a class="reference internal" href="#ch01-google-trends"><span class="std std-numref">Fig. 11.1</span></a>). When we googled “data science”, 4.1 billion records were returned, compared to 7.6 billion on “big data”, 2.6 billion on “machine learning”, and 1.9 billion on “data analytics”. Interestingly, the interest in “big data” has been decreasing since 2018, while the interests in “data science” and “machine learning” continue to increase.</p>
 <figure class="align-default" id="ch01-google-trends">
-<a class="reference internal image-reference" href="book/gee/images/ch01_google_trends.jpg"><img alt="book/gee/images/ch01_google_trends.jpg" src="book/gee/images/ch01_google_trends.jpg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/ch01_google_trends.jpg"><img alt="../../_images/ch01_google_trends.jpg" src="../../_images/ch01_google_trends.jpg" style="width: 100%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 11.1 </span><span class="caption-text">Online search interest trends on data science-related keywords by Google as of March 28, 2022. The numbers on the vertical axis represent search interest relative to the highest point on the chart for the given region (worldwide) and time (2004-2022). A value of 100 is the peak popularity for the term. A value of 50 means that the term is half as popular. A score of 0 means there was not enough data for this term.</span><a class="headerlink" href="#ch01-google-trends" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -547,14 +547,14 @@ document.write(`
 <h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">11.3. </span>What is Google Earth Engine</a><a class="headerlink" href="#what-is-google-earth-engine" title="Permalink to this heading">#</a></h2>
 <p>Google Earth Engine (GEE) is a cloud computing platform with a multi-petabyte <a class="reference external" href="https://developers.google.com/earth-engine/datasets">data catalog</a> of satellite imagery and geospatial datasets <span id="id5">[]</span>. During the past few years, GEE has become very popular in the geospatial community, and it has empowered numerous environmental applications at local, regional, and global scales <span id="id6">[]</span>. Since GEE became publicly available in 2010, there has been an exponential growth in the number of peer-reviewed journal publications empowered by GEE (see <a class="reference internal" href="#ch01-gee-pubs"><span class="std std-numref">Fig. 11.2</span></a>). Based on the most recent bibliometric analysis, there are 1,077 peer-reviewed journal publications with the word “Google Earth Engine” in the title and 2,969 publications with the word “Google Earth Engine” in either the title or abstract. In 2022, the number of publications with “Google Earth Engine” in the title or abstract reached 1,150, which is more than a 280-fold increase from the year 2014 with only 4 publications.</p>
 <figure class="align-default" id="ch01-gee-pubs">
-<a class="reference internal image-reference" href="book/gee/images/ch01_gee_pubs.jpg"><img alt="book/gee/images/ch01_gee_pubs.jpg" src="book/gee/images/ch01_gee_pubs.jpg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/ch01_gee_pubs.jpg"><img alt="../../_images/ch01_gee_pubs.jpg" src="../../_images/ch01_gee_pubs.jpg" style="width: 100%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 11.2 </span><span class="caption-text">The number of journal publications empowered by Google Earth Engine.</span><a class="headerlink" href="#ch01-gee-pubs" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To use Earth Engine, you must first <a class="reference external" href="https://code.earthengine.google.com/register">sign up for an Earth Engine account</a> (<a class="reference internal" href="#ch01-gee-signup"><span class="std std-numref">Fig. 11.3</span></a>). You cannot use Google Earth Engine unless your application has been approved. Once you receive the application approval email, you can log in to the <a class="reference external" href="https://code.earthengine.google.com">Earth Engine JavaScript Code Editor</a> to get familiar with the JavaScript API.</p>
 <figure class="align-default" id="ch01-gee-signup">
-<a class="reference internal image-reference" href="book/gee/images/ch01_gee_signup.jpg"><img alt="book/gee/images/ch01_gee_signup.jpg" src="book/gee/images/ch01_gee_signup.jpg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/ch01_gee_signup.jpg"><img alt="../../_images/ch01_gee_signup.jpg" src="../../_images/ch01_gee_signup.jpg" style="width: 100%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 11.3 </span><span class="caption-text">Signing up for an Earth Engine account.</span><a class="headerlink" href="#ch01-gee-signup" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -565,7 +565,7 @@ document.write(`
 <p>GEE provides users with both JavaScript and Python APIs for making computational requests to the Earth Engine servers. While the GEE JavaScript API has robust <a class="reference external" href="https://developers.google.com/earth-engine">documentation</a> and an interactive IDE (i.e., <a class="reference external" href="https://code.earthengine.google.com">GEE JavaScript Code Editor</a>), the GEE Python API has relatively limited functionality for visualizing results interactively, and there is a lack of documentation. The <strong>geemap</strong> Python package was created to fill this gap <span id="id7">[]</span>. It is built upon a number of open-source Python libraries, such as the <a class="reference external" href="https://pypi.org/project/earthengine-api">earthengine-api</a>, <a class="reference external" href="https://python-visualization.github.io/folium">folium</a>, <a class="reference external" href="https://github.com/jupyter-widgets/ipyleaflet">ipyleaflet</a>, and <a class="reference external" href="https://github.com/jupyter-widgets/ipywidgets">ipywidgets</a> packages. Geemap enables users to analyze and visualize Earth Engine datasets interactively within a Jupyter environment with minimal coding (see <a class="reference internal" href="#ch01-geemap-gui"><span class="std std-numref">Fig. 11.4</span></a>).</p>
 <p><strong>Geemap</strong> is intended for students and researchers who would like to utilize the Python ecosystem of diverse libraries and tools to explore Google Earth Engine. It is also designed for existing GEE users who would like to transition from the GEE JavaScript API to the Python API. Geemap provides an interactive graphical user interface for converting GEE JavaScript projects to Python scripts without coding. It can save users a lot of time and effort by providing a simple interface for exploring and visualizing Earth Engine datasets.</p>
 <figure class="align-default" id="ch01-geemap-gui">
-<a class="reference internal image-reference" href="book/gee/images/ch01_geemap_gui.jpg"><img alt="book/gee/images/ch01_geemap_gui.jpg" src="book/gee/images/ch01_geemap_gui.jpg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/ch01_geemap_gui.jpg"><img alt="../../_images/ch01_geemap_gui.jpg" src="../../_images/ch01_geemap_gui.jpg" style="width: 100%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 11.4 </span><span class="caption-text">The geemap graphical user interface built upon ipyleaflet and ipywidgets.</span><a class="headerlink" href="#ch01-geemap-gui" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -585,14 +585,14 @@ conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <p>First, open the <strong>Anaconda Prompt</strong> or <strong>Terminal</strong> and type “conda create -n gee python”. Press <strong>Enter</strong> to create a new conda environment named <code class="docutils literal notranslate"><span class="pre">gee</span></code> (see <a class="reference internal" href="#ch01-conda-create"><span class="std std-numref">Fig. 11.5</span></a>).</p>
 <figure class="align-default" id="ch01-conda-create">
-<img alt="book/gee/images/ch01_conda_create.jpg" src="book/gee/images/ch01_conda_create.jpg" />
+<img alt="../../_images/ch01_conda_create.jpg" src="../../_images/ch01_conda_create.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.5 </span><span class="caption-text">Creating a new conda environment named <code class="docutils literal notranslate"><span class="pre">gee</span></code>.</span><a class="headerlink" href="#ch01-conda-create" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Next, activate the new conda environment by typing “conda activate gee” and press <strong>Enter</strong>. Then, install geemap into the environment we just activated by typing “conda install -c conda-forge geemap” and press <strong>Enter</strong> (see <a class="reference internal" href="#ch01-conda-geemap"><span class="std std-numref">Fig. 11.6</span></a>).</p>
 <figure class="align-default" id="ch01-conda-geemap">
-<img alt="book/gee/images/ch01_conda_geemap.jpg" src="book/gee/images/ch01_conda_geemap.jpg" />
+<img alt="../../_images/ch01_conda_geemap.jpg" src="../../_images/ch01_conda_geemap.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.6 </span><span class="caption-text">Activating the new conda environment and installing geemap.</span><a class="headerlink" href="#ch01-conda-geemap" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -605,14 +605,14 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <p>To install Mamba, type “conda install -c conda-forge mamba” and press <strong>Enter</strong> (see <a class="reference internal" href="#ch01-install-mamba"><span class="std std-numref">Fig. 11.7</span></a>).</p>
 <figure class="align-default" id="ch01-install-mamba">
-<img alt="book/gee/images/ch01_install_mamba.jpg" src="book/gee/images/ch01_install_mamba.jpg" />
+<img alt="../../_images/ch01_install_mamba.jpg" src="../../_images/ch01_install_mamba.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.7 </span><span class="caption-text">Installing the Mamba package manager.</span><a class="headerlink" href="#ch01-install-mamba" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Once Mamba is installed in a conda environment, you can then simply replace any <code class="docutils literal notranslate"><span class="pre">conda</span></code> command with <code class="docutils literal notranslate"><span class="pre">mamba</span></code>. For example, to install pygis, type “mamba install -c conda-forge pygis” and press <strong>Enter</strong> (see <a class="reference internal" href="#ch01-install-pygis"><span class="std std-numref">Fig. 11.8</span></a>).</p>
 <figure class="align-default" id="ch01-install-pygis">
-<img alt="book/gee/images/ch01_install_pygis.jpg" src="book/gee/images/ch01_install_pygis.jpg" />
+<img alt="../../_images/ch01_install_pygis.jpg" src="../../_images/ch01_install_pygis.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.8 </span><span class="caption-text">Installing optional dependencies of geemap through the pygis package.</span><a class="headerlink" href="#ch01-install-pygis" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -692,7 +692,7 @@ pip<span class="w"> </span>install<span class="w"> </span>.
 </div>
 <p>JupyterLab will open as a new tab in the browser. Click the <strong>Python 3</strong> icon in the top left corner of the JupyterLab <strong>Launcher</strong> window (see <a class="reference internal" href="#ch01-jupyterlab"><span class="std std-numref">Fig. 11.9</span></a>) or go to <strong>File -&gt; New -&gt; Notebook</strong> to create a new notebook. Select the newly created notebook in the JupyterLab File Browser tab and press <strong>F2</strong> to rename the notebook, e.g., <strong>chapter01.ipynb</strong>.</p>
 <figure class="align-default" id="ch01-jupyterlab">
-<img alt="book/gee/images/ch01_jupyterlab.jpg" src="book/gee/images/ch01_jupyterlab.jpg" />
+<img alt="../../_images/ch01_jupyterlab.jpg" src="../../_images/ch01_jupyterlab.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.9 </span><span class="caption-text">The JupyterLab user interface.</span><a class="headerlink" href="#ch01-jupyterlab" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -737,35 +737,35 @@ pip<span class="w"> </span>install<span class="w"> </span>.
 </div>
 <p>After running the above script, a new tab will open in the browser asking you to sign in to your Earth Engine account. After signing in, you will be asked to authorize the Google Earth Engine Authenticator. If this is the first time you are authenticating Earth Engine, click <strong>CHOOSE PROJECT</strong> to select a Cloud Project to use for Earth Engine (see <a class="reference internal" href="#ch01-generate-token"><span class="std std-numref">Fig. 11.10</span></a>).</p>
 <figure class="align-default" id="ch01-generate-token">
-<img alt="book/gee/images/ch01_generate_token.jpg" src="book/gee/images/ch01_generate_token.jpg" />
+<img alt="../../_images/ch01_generate_token.jpg" src="../../_images/ch01_generate_token.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.10 </span><span class="caption-text">Earth Engine Notebook Authenticator.</span><a class="headerlink" href="#ch01-generate-token" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>You can either choose an existing Cloud Project or create a new one. If you choose to create a new Cloud Project, enter a project name, e.g., <code class="docutils literal notranslate"><span class="pre">ee-your-username</span></code> and click the blue <strong>SELECT</strong> button to create a new Cloud Project. If a red warning message appears at the bottom of the page, click on the <strong>Cloud Terms of Service</strong> link to accept the terms of service and then click the <strong>SELECT</strong> button again (see <a class="reference internal" href="#ch01-create-project"><span class="std std-numref">Fig. 11.11</span></a>).</p>
 <figure class="align-default" id="ch01-create-project">
-<img alt="book/gee/images/ch01_create_project.jpg" src="book/gee/images/ch01_create_project.jpg" />
+<img alt="../../_images/ch01_create_project.jpg" src="../../_images/ch01_create_project.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.11 </span><span class="caption-text">Creating a new Cloud Project.</span><a class="headerlink" href="#ch01-create-project" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>After selecting a Cloud Project, click the <strong>GENERATE TOKEN</strong> button to generate a new token. You will be asked to choose your Earth Engine account for the Notebook Client (see <a class="reference internal" href="#ch01-choose-account"><span class="std std-numref">Fig. 11.12</span></a>).</p>
 <figure class="align-default" id="ch01-choose-account">
-<img alt="book/gee/images/ch01_choose_account.jpg" src="book/gee/images/ch01_choose_account.jpg" />
+<img alt="../../_images/ch01_choose_account.jpg" src="../../_images/ch01_choose_account.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.12 </span><span class="caption-text">Choosing an account for the Earth Engine Notebook Client.</span><a class="headerlink" href="#ch01-choose-account" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Click the <strong>Allow</strong> button to allow the Notebook Client to access your Earth Engine account (see <a class="reference internal" href="#ch01-notebook-client"><span class="std std-numref">Fig. 11.13</span></a>).</p>
 <figure class="align-default" id="ch01-notebook-client">
-<img alt="book/gee/images/ch01_notebook_client.jpg" src="book/gee/images/ch01_notebook_client.jpg" />
+<img alt="../../_images/ch01_notebook_client.jpg" src="../../_images/ch01_notebook_client.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.13 </span><span class="caption-text">Choosing an account for the Earth Engine Notebook Client.</span><a class="headerlink" href="#ch01-notebook-client" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>An authentication code will be generated and displayed on the page. Copy the authorization code and paste it into the notebook cell asking for the verification code. Press <strong>Enter</strong> and the <code class="docutils literal notranslate"><span class="pre">Successfully</span> <span class="pre">saved</span> <span class="pre">authorization</span> <span class="pre">token</span></code> message should appear beneath the authorization code you entered (see <a class="reference internal" href="#ch01-auth-code"><span class="std std-numref">Fig. 11.14</span></a>).</p>
 <figure class="align-default" id="ch01-auth-code">
-<img alt="book/gee/images/ch01_auth_code.jpg" src="book/gee/images/ch01_auth_code.jpg" />
+<img alt="../../_images/ch01_auth_code.jpg" src="../../_images/ch01_auth_code.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.14 </span><span class="caption-text">Copying the authentication code.</span><a class="headerlink" href="#ch01-auth-code" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -815,7 +815,7 @@ pip<span class="w"> </span>install<span class="w"> </span>.
 </div>
 <p>Follow the on-screen instructions to authenticate Earth Engine. After that, you should be able to see the interactive map displayed beneath the code cell (see <a class="reference internal" href="#ch01-colab"><span class="std std-numref">Fig. 11.15</span></a>).</p>
 <figure class="align-default" id="ch01-colab">
-<a class="reference internal image-reference" href="book/gee/images/ch01_colab.jpg"><img alt="book/gee/images/ch01_colab.jpg" src="book/gee/images/ch01_colab.jpg" style="width: 100%;" /></a>
+<a class="reference internal image-reference" href="../../_images/ch01_colab.jpg"><img alt="../../_images/ch01_colab.jpg" src="../../_images/ch01_colab.jpg" style="width: 100%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 11.15 </span><span class="caption-text">The interactive map displayed in Google Colab.</span><a class="headerlink" href="#ch01-colab" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -836,7 +836,7 @@ pip<span class="w"> </span>install<span class="w"> </span>.
 </div>
 </div>
 <figure class="align-default" id="ch01-vpn-proxy">
-<img alt="book/gee/images/ch01_vpn_proxy.jpg" src="book/gee/images/ch01_vpn_proxy.jpg" />
+<img alt="../../_images/ch01_vpn_proxy.jpg" src="../../_images/ch01_vpn_proxy.jpg" />
 <figcaption>
 <p><span class="caption-number">Fig. 11.16 </span><span class="caption-text">Using geemap with a VPN.</span><a class="headerlink" href="#ch01-vpn-proxy" title="Permalink to this image">#</a></p>
 </figcaption>
