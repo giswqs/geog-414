@@ -10,20 +10,20 @@ parts:
       - file: book/preface/instructor
       - file: book/preface/syllabus
       - file: book/preface/software
-  # - caption: Python Basics
-  #   numbered: true
-  #   maxdepth: 2
-  #   chapters:
-  #     - file: book/python/01_getting_started
-  #     - file: book/python/02_variables_data_types
-  #     - file: book/python/03_introducing_lists
-  #     - file: book/python/04_working_with_lists
-  #     - file: book/python/05_if_statements
-  #     - file: book/python/06_dictionaries
-  #     - file: book/python/07_user_input_while_loops
-  #     - file: book/python/08_functions
-  #     - file: book/python/09_classes
-  #     - file: book/python/10_files_and_exceptions
+  - caption: Python Basics
+    numbered: true
+    maxdepth: 2
+    chapters:
+      - file: book/python/01_getting_started
+      - file: book/python/02_variables_data_types
+      - file: book/python/03_introducing_lists
+      - file: book/python/04_working_with_lists
+      - file: book/python/05_if_statements
+      - file: book/python/06_dictionaries
+      - file: book/python/07_user_input_while_loops
+      - file: book/python/08_functions
+      - file: book/python/09_classes
+      - file: book/python/10_files_and_exceptions
   # - caption: Earth Engine
   #   numbered: true
   #   maxdepth: 2
