@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.11.5
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3
   language: python
@@ -17,7 +17,7 @@ kernelspec:
 
 Install [leafmap](https://leafmap.org) and create a Jupyter Notebook. Copy and paste the following code cell to your notebook. Change the text `Made by Your Name` to your name. Update the logo to your own image if you wish. Then run the code cell to generate an interactive map. Note that you name must be visible on the map. Take a screenshot of your map and save it as an image. Upload the screenshot to Canvas.
 
-```{code-cell} ipython3
+```{code-cell}
 import leafmap
 # Creat an interactive map
 m = leafmap.Map(center=[20, 0], zoom=2, height='600px')
