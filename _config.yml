@@ -69,7 +69,15 @@ sphinx:
           colab_url: "https://colab.research.google.com",
         }
     bibtex_reference_style: author_year
-
+    rediraffe_branch: "master"
+    rediraffe_redirects:
+      content-types/index.md: file-types/index.md
+      content-types/markdown.md: file-types/markdown.md
+      content-types/notebooks.ipynb: file-types/notebooks.ipynb
+      content-types/myst-notebooks.md: file-types/myst-notebooks.md
+      content-types/jupytext.md: file-types/jupytext.Rmd
+      content-types/restructuredtext.md: file-types/restructuredtext.md
+      customize/toc.md: structure/toc.md
 # Define the name of the latex output file for PDF builds
 # latex:
 #   latex_documents:
