@@ -59,7 +59,7 @@ parts:
       - file: book/labs/lab_02
       - file: book/labs/lab_03
       - file: book/labs/lab_04
-      # - file: book/labs/lab_05
+      - file: book/labs/lab_05
       # - file: book/labs/lab_06
       # - file: book/labs/lab_07
       # - file: book/labs/lab_08
