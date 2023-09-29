@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 4 &#8212; Spatial Data Management with Earth Engine</title>
+    <title>Lab 5 &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -62,13 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_04';</script>
-    <link rel="canonical" href="https://geog-414.gishub.org/book/labs/lab_04.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_05';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/labs/lab_05.html" />
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab 5" href="lab_05.html" />
-    <link rel="prev" title="Lab 3" href="lab_03.html" />
+    <link rel="prev" title="Lab 4" href="lab_04.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -209,8 +208,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="lab_01.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_02.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_03.html">Lab 3</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 4</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab_05.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_04.html">Lab 4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 5</a></li>
 </ul>
 
     </div>
@@ -265,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/labs/lab_04.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/labs/lab_05.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -283,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_04.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_05.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/labs/lab_04.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/labs/lab_05.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -348,7 +347,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_04.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_05.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -378,7 +377,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/labs/lab_04.ipynb" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_05.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -395,7 +394,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/labs/lab_04.md" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_05.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -477,7 +476,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 4</h1>
+    <h1>Lab 5</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -487,12 +486,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-5">Questions 5</a></li>
 </ul>
             </nav>
         </div>
@@ -504,8 +502,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-4">
-<h1>Lab 4<a class="headerlink" href="#lab-4" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-5">
+<h1>Lab 5<a class="headerlink" href="#lab-5" title="Permalink to this heading">#</a></h1>
 <p><strong>Firstname Lastname</strong></p>
 <p><strong>Submission instructions</strong></p>
 <p>Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.</p>
@@ -524,75 +522,65 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="datasets">
-<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading">#</a></h2>
-<p>The datasets being used in the lab are listed below:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/TIGER_2018_Counties">TIGER: US Census Counties</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC09_C02_T1_L2">Landsat-9</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR">Sentinel-2</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USDA_NAIP_DOQQ">NAIP</a></p></li>
-</ul>
-</section>
 <section id="question-1">
 <h2>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h2>
-<p>Write a program to find out how many counties are named <code class="docutils literal notranslate"><span class="pre">Knox</span></code> in the US.</p>
+<p>Visualize the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USGS_WBD_2017_HUC04">USGS Watershed Boundary Dataset</a> with outline color only, no fill color.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="" src="https://i.imgur.com/3Jg9P6X.png" /></p>
+<p><img alt="" src="https://i.imgur.com/PLlNFq3.png" /></p>
 </section>
 <section id="question-2">
 <h2>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h2>
-<p>Display Knox county of Tennesse with outline only (no fill color) on the map. (Hint: The <code class="docutils literal notranslate"><span class="pre">STATEFP</span></code> of Tennessee is <code class="docutils literal notranslate"><span class="pre">47</span></code>)</p>
+<p>Filter the USGS Watershed Boundary dataset and select the watershed that intersects the county of your choice.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="" src="https://i.imgur.com/28Iaw9b.png" /></p>
+<p><img alt="" src="https://i.imgur.com/F2QfqZu.png" /></p>
 </section>
 <section id="question-3">
 <h2>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h2>
-<p>Use <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC09_C02_T1_L2">Landsat-9</a> data to create a cloud-free imagery for Knox County, TN. Display the imagery on the map with a proper band combination.</p>
+<p>Clip the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USGS_3DEP_10m">USGS 3DEP 10m DEM</a> with the watershed that intersects the county of your choice. Display the DEM with a proper color palette and color bar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="" src="https://i.imgur.com/m72amN0.png" /></p>
+<p><img alt="" src="https://i.imgur.com/okR39pf.png" /></p>
 </section>
 <section id="question-4">
 <h2>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h2>
-<p>Use <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR">Sentinel-2</a> data to create a cloud-free imagery for Knox County, TN. Display the imagery on the map with a proper band combination.</p>
+<p>Use the <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USGS_NLCD_RELEASES_2019_REL_NLCD">USGS National Land Cover Database</a> and <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/TIGER_2018_States">US Census States</a> to create a split-panel map for visualizing land cover change (2001-2019) for a US state of your choice. Make sure you add the NLCD legend to the map.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="" src="https://i.imgur.com/vM1M8Gc.png" /></p>
+<p><img alt="" src="https://i.imgur.com/Au7Q5Ln.png" /></p>
 </section>
-<section id="question-5">
-<h2>Question 5<a class="headerlink" href="#question-5" title="Permalink to this heading">#</a></h2>
-<p>Use <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USDA_NAIP_DOQQ">NAIP</a> imagery to create a cloud-free imagery for Knox County, TN. Display the imagery on the map with a proper band combination.</p>
+<section id="questions-5">
+<h2>Questions 5<a class="headerlink" href="#questions-5" title="Permalink to this heading">#</a></h2>
+<p>Download OpenStreetMap data for a city of your choice and visualize the city boundary and restaurants in the city.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="" src="https://i.imgur.com/iZSGqGS.png" /></p>
+<p><img alt="" src="https://i.imgur.com/AUlO1CV.png" /></p>
 </section>
 </section>
 
@@ -627,22 +615,13 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lab_03.html"
+       href="lab_04.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 3</p>
+        <p class="prev-next-title">Lab 4</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="lab_05.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 5</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -659,12 +638,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-5">Questions 5</a></li>
 </ul>
   </nav></div>
 
