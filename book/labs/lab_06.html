@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 1 &#8212; Spatial Data Management with Earth Engine</title>
+    <title>Lab 6 &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -62,13 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_01';</script>
-    <link rel="canonical" href="https://geog-414.gishub.org/book/labs/lab_01.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_06';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/labs/lab_06.html" />
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab 2" href="lab_02.html" />
-    <link rel="prev" title="Submission Instructions" href="README.html" />
+    <link rel="prev" title="Lab 5" href="lab_05.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -206,12 +205,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="README.html">Submission Instructions</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_01.html">Lab 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_02.html">Lab 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_03.html">Lab 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_04.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_05.html">Lab 5</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab_06.html">Lab 6</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 6</a></li>
 </ul>
 
     </div>
@@ -266,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/labs/lab_01.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/labs/lab_06.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -284,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_01.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_06.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/labs/lab_01.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/labs/lab_06.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +348,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_01.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_06.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -379,7 +378,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/labs/lab_01.ipynb" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_06.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -396,7 +395,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/labs/lab_01.md" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_06.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -465,7 +464,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -476,11 +477,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 1</h1>
+    <h1>Lab 6</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -490,34 +503,92 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-1">
-<h1>Lab 1<a class="headerlink" href="#lab-1" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-6">
+<h1>Lab 6<a class="headerlink" href="#lab-6" title="Permalink to this heading">#</a></h1>
 <p><strong>Firstname Lastname</strong></p>
-<p>Install <a class="reference external" href="https://leafmap.org">leafmap</a> and create a Jupyter Notebook. Copy and paste the following code cell to your notebook. Change the text <code class="docutils literal notranslate"><span class="pre">Made</span> <span class="pre">by</span> <span class="pre">Your</span> <span class="pre">Name</span></code> to your name. Update the logo to your own image if you wish. Then run the code cell to generate an interactive map. Note that you name must be visible on the map. Take a screenshot of your map and save it as an image. Upload the screenshot to Canvas.</p>
+<p><strong>Submission instructions</strong></p>
+<p>Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">leafmap</span>
-<span class="c1"># Creat an interactive map</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;600px&#39;</span><span class="p">)</span>
-<span class="c1"># Add basemap</span>
-<span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s2">&quot;CartoDB.DarkMatter&quot;</span><span class="p">)</span>
-<span class="c1"># Add text to the map</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Made by Your Name&quot;</span>
-<span class="n">m</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomright&#39;</span><span class="p">)</span>
-<span class="c1"># Add a logo to the map</span>
-<span class="n">logo</span> <span class="o">=</span> <span class="s1">&#39;https://i.imgur.com/at4Qprk.png&#39;</span>
-<span class="n">m</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">logo</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomright&#39;</span><span class="p">)</span>
-<span class="c1"># Add GeoJSON data to the map</span>
-<span class="n">cables</span> <span class="o">=</span> <span class="s1">&#39;https://open.gishub.org/data/vector/cables.geojson&#39;</span>
-<span class="n">callback</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">feat</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">feat</span><span class="p">[</span><span class="s2">&quot;properties&quot;</span><span class="p">][</span><span class="s2">&quot;color&quot;</span><span class="p">],</span> <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<span class="n">m</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">cables</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Cable lines&quot;</span><span class="p">,</span> <span class="n">style_callback</span><span class="o">=</span><span class="n">callback</span><span class="p">)</span>
-<span class="c1"># Display the map</span>
-<span class="n">m</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span>
+<span class="kn">import</span> <span class="nn">geemap</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p><img alt="" src="https://i.imgur.com/ZfZCdhL.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">ee_initialize</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="question-1">
+<h2>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h2>
+<p>Create a map to visualize <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/NOAA_GFS0P25">NOAA GFS Temperature Data</a> and add a color bar and <a class="reference external" href="https://i.imgur.com/spILFEi.png">NOAA logo</a> to the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://i.imgur.com/bBoRswR.png" /></p>
+</section>
+<section id="question-2">
+<h2>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h2>
+<p><strong>Linked Maps:</strong> Create a 2*2 linked map to visualize the Landsat imagery (<code class="docutils literal notranslate"><span class="pre">ee.Image('LANDSAT/LE7_TOA_5YEAR/1999_2003')</span></code>) with different band combinations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://i.imgur.com/Xp15uOo.png" /></p>
+</section>
+<section id="question-3">
+<h2>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h2>
+<p><strong>Timeseries Inspector:</strong> Create a map with timeseries inspector to visualize <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USDA_NASS_CDL">USDA NASS Cropland Data Layers</a> from 2010 to 2022. Add your name and <a class="reference external" href="https://i.imgur.com/tzH2dNr.png">USDA logo</a> to the map.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://i.imgur.com/gW1XPhL.png" /></p>
+</section>
+<section id="question-4">
+<h2>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h2>
+<p><strong>Time slider:</strong> Create a map with the time slider to visualize <a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR">Sentinel-2</a> for Knoxville, TN.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://i.imgur.com/rJe2rvP.png" /></p>
+</section>
+<section id="question-5">
+<h2>Question 5<a class="headerlink" href="#question-5" title="Permalink to this heading">#</a></h2>
+<p><strong>Split-panel Map:</strong> Use the following datasets to create a split-panel map for visualizing the ESA land cover data in the US. Add the ESA land cover legend to the map (Hint: the built-in legend for ESA land cover is <code class="docutils literal notranslate"><span class="pre">ESA_WorldCover</span></code>).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/TIGER_2018_States">US Census States</a>: <code class="docutils literal notranslate"><span class="pre">ee.FeatureCollection(&quot;TIGER/2018/States&quot;)</span></code></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/ESA_WorldCover_v100">ESA WorldCover 10m</a>: <code class="docutils literal notranslate"><span class="pre">ee.ImageCollection(&quot;ESA/WorldCover/v100&quot;)</span></code></p></li>
+<li><p>Landsat: <code class="docutils literal notranslate"><span class="pre">LANDSAT/LE7_TOA_5YEAR/1999_2003</span></code></p></li>
+</ul>
+<p>Currently, the split-map control of ipyleaflet plotting backend has a bug (<a class="reference external" href="https://github.com/jupyter-widgets/ipyleaflet/issues/1066">source</a>). Use the folium plotting backend instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="https://i.imgur.com/y0GW6k8.png" /></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -551,22 +622,13 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="README.html"
+       href="lab_05.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Submission Instructions</p>
+        <p class="prev-next-title">Lab 5</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="lab_02.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 2</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -574,6 +636,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-4">Question 4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-5">Question 5</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
