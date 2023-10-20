@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. SQL Basics" href="02_sql_basics.html" />
+    <link rel="next" title="24. SQL Basics" href="02_sql_basics.html" />
     <link rel="prev" title="21. Earth Engine Applications" href="../gee/11_applications.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -196,17 +196,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">DuckDB</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_sql_basics.html">23. SQL Basics</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="02_sql_basics.html">24. SQL Basics</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">24. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">25. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">26. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">27. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">28. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">29. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">30. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">25. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">26. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">27. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">28. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">29. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">30. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">31. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -428,6 +429,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">22. Introduction</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-databases">22.1. Spatial databases</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duckdb">22.2. DuckDB</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">22.3. Installation</a><ul class="nav section-nav flex-column">
@@ -436,8 +438,15 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-vs-code">22.4. Setting up VS Code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">22.5. References</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#head-select-the-text-and-press-ctrl-enter-if-the-keyboard-shortcut-is-working-you-should-see-the-following-output-in-the-terminal">23. &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Select the text and press <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code>. If the keyboard shortcut is working, you should see the following output in the terminal:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">23.1. References</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -514,10 +523,14 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
 <section id="setting-up-vs-code">
 <h2><span class="section-number">22.4. </span>Setting up VS Code<a class="headerlink" href="#setting-up-vs-code" title="Permalink to this heading">#</a></h2>
 <p>To make it easier to run DuckDB commands and SQL queries, it is recommended that you create a keyboard shortcut to run selected text in VS Code. To do this, open VS Code and press <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> to open the Command Palette. Then, search for “Preferences: Open Keyboard Shortcuts (JSON)” and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>. This will open the <code class="docutils literal notranslate"><span class="pre">keybindings.json</span></code> file. Add the following keyboard binding within the square brackets:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ctrl+enter&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;workbench.action.terminal.runSelectedText&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">}</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>    {
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+        &quot;key&quot;: &quot;ctrl+enter&quot;,
+=======
+        &quot;key&quot;: &quot;shift+ctrl+enter&quot;,
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 8b22d36 (Add SQL basics)
+        &quot;command&quot;: &quot;workbench.action.terminal.runSelectedText&quot;,
+    }
 </pre></div>
 </div>
 <p>Click the Terminal tab at the bottom of the VS Code window and run the following command:</p>
@@ -528,12 +541,31 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">duckdb_extensions</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Select the text and press <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code>. If the keyboard shortcut is working, you should see the following output in the terminal:</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="head-select-the-text-and-press-ctrl-enter-if-the-keyboard-shortcut-is-working-you-should-see-the-following-output-in-the-terminal">
+<h1><span class="section-number">23. </span>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Select the text and press <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code>. If the keyboard shortcut is working, you should see the following output in the terminal:<a class="headerlink" href="#head-select-the-text-and-press-ctrl-enter-if-the-keyboard-shortcut-is-working-you-should-see-the-following-output-in-the-terminal" title="Permalink to this heading">#</a></h1>
+<p>Select the text and press <code class="docutils literal notranslate"><span class="pre">Shift+Ctrl+Enter</span></code>. If the keyboard shortcut is working, you should see the following output in the terminal:</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>8b22d36 (Add SQL basics)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <p><img alt="" src="https://i.imgur.com/5mGW8hj.png" /></p>
 <p>To stop the DuckDB process, press <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> in the terminal. To exit the terminal, press <code class="docutils literal notranslate"><span class="pre">Ctrl+D</span></code>.</p>
-</section>
 <section id="references">
-<h2><span class="section-number">22.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">23.1. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://towardsdatascience.com/forget-about-sqlite-use-duckdb-instead-and-thank-me-later-df76ee9bb777">Forget about SQLite, Use DuckDB Instead — And Thank Me Later</a></p></li>
 <li><p><a class="reference external" href="https://medium.com/radiant-earth-insights/duckdb-the-indispensable-geospatial-tool-you-didnt-know-you-were-missing-5fe11c5633e5">DuckDB: The indispensable geospatial tool you didn’t know you were missing</a></p></li>
@@ -587,7 +619,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">23. </span>SQL Basics</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>SQL Basics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -606,6 +638,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">22. Introduction</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-databases">22.1. Spatial databases</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duckdb">22.2. DuckDB</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">22.3. Installation</a><ul class="nav section-nav flex-column">
@@ -614,8 +647,15 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-vs-code">22.4. Setting up VS Code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">22.5. References</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#head-select-the-text-and-press-ctrl-enter-if-the-keyboard-shortcut-is-working-you-should-see-the-following-output-in-the-terminal">23. &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Select the text and press <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code>. If the keyboard shortcut is working, you should see the following output in the terminal:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">23.1. References</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

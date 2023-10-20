@@ -84,7 +84,11 @@ To make it easier to run DuckDB commands and SQL queries, it is recommended that
 
 ```json
     {
+<<<<<<< HEAD
         "key": "ctrl+enter",
+=======
+        "key": "shift+ctrl+enter",
+>>>>>>> 8b22d36 (Add SQL basics)
         "command": "workbench.action.terminal.runSelectedText",
     }
 ```
@@ -101,7 +105,11 @@ To test if the keyboard shortcut is working, create a new file with the `.sql` e
 SELECT * FROM duckdb_extensions();
 ```
 
+<<<<<<< HEAD
 Select the text and press `Ctrl+Enter`. If the keyboard shortcut is working, you should see the following output in the terminal:
+=======
+Select the text and press `Shift+Ctrl+Enter`. If the keyboard shortcut is working, you should see the following output in the terminal:
+>>>>>>> 8b22d36 (Add SQL basics)
 
 ![](https://i.imgur.com/5mGW8hj.png)
 
