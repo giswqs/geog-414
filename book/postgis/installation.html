@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>22. Installation &#8212; Spatial Data Management with Earth Engine</title>
+    <title>23. Installation &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. SQL Basics" href="sql_basics.html" />
-    <link rel="prev" title="21. Earth Engine Applications" href="../gee/11_applications.html" />
+    <link rel="next" title="24. SQL Basics" href="sql_basics.html" />
+    <link rel="prev" title="22. Introduction" href="../duckdb/01_duckdb_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,15 +193,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../gee/10_webapps.html">20. Building Interactive Web Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gee/11_applications.html">21. Earth Engine Applications</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DuckDB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/01_duckdb_intro.html">22. Introduction</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">23. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">24. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometries.html">25. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">26. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projection.html">27. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopandas.html">28. Using GeoPandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">24. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">25. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">26. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">27. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">28. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">29. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -489,8 +493,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ipython-sql">22.1. Using ipython-sql</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlalchemy">22.2. Using sqlalchemy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ipython-sql">23.1. Using ipython-sql</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlalchemy">23.2. Using sqlalchemy</a></li>
 </ul>
             </nav>
         </div>
@@ -503,7 +507,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="installation">
-<h1><span class="section-number">22. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">23. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -515,7 +519,7 @@ document.write(`
 <li><p><a class="reference external" href="https://github.com/giswqs/postgis/blob/master/data/cities.csv">cities.csv</a></p></li>
 </ul>
 <section id="using-ipython-sql">
-<h2><span class="section-number">22.1. </span>Using ipython-sql<a class="headerlink" href="#using-ipython-sql" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">23.1. </span>Using ipython-sql<a class="headerlink" href="#using-ipython-sql" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
@@ -574,7 +578,7 @@ document.write(`
 </div>
 </section>
 <section id="using-sqlalchemy">
-<h2><span class="section-number">22.2. </span>Using sqlalchemy<a class="headerlink" href="#using-sqlalchemy" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">23.2. </span>Using sqlalchemy<a class="headerlink" href="#using-sqlalchemy" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
@@ -659,12 +663,12 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../gee/11_applications.html"
+       href="../duckdb/01_duckdb_intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">21. </span>Earth Engine Applications</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Introduction</p>
       </div>
     </a>
     <a class="right-next"
@@ -672,7 +676,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">23. </span>SQL Basics</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>SQL Basics</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -691,8 +695,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ipython-sql">22.1. Using ipython-sql</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlalchemy">22.2. Using sqlalchemy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-ipython-sql">23.1. Using ipython-sql</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-sqlalchemy">23.2. Using sqlalchemy</a></li>
 </ul>
   </nav></div>
 

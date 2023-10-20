@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>23. SQL Basics &#8212; Spatial Data Management with Earth Engine</title>
+    <title>24. SQL Basics &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="24. Introduction to PostGIS" href="postgis_intro.html" />
-    <link rel="prev" title="22. Installation" href="installation.html" />
+    <link rel="next" title="25. Introduction to PostGIS" href="postgis_intro.html" />
+    <link rel="prev" title="23. Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,15 +193,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../gee/10_webapps.html">20. Building Interactive Web Apps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gee/11_applications.html">21. Earth Engine Applications</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DuckDB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/01_duckdb_intro.html">22. Introduction</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">22. Installation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">24. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometries.html">25. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">26. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projection.html">27. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopandas.html">28. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">23. Installation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">25. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">26. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">27. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">28. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">29. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -489,27 +493,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">23.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">23.2. The SQL SELECT statement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">23.3. The WHERE Clause</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">23.4. SQL Joins</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">23.4.1. SQL Inner Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">23.4.2. SQL Left Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">23.4.3. SQL Right Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">23.4.4. SQL Full Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">23.4.5. SQL Union</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">24.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">24.2. The SQL SELECT statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">24.3. The WHERE Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">24.4. SQL Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">24.4.1. SQL Inner Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">24.4.2. SQL Left Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">24.4.3. SQL Right Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">24.4.4. SQL Full Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">24.4.5. SQL Union</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">23.5. Aggregation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">23.5.1. Group By</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">23.5.2. Having</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">24.5. Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">24.5.1. Group By</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">24.5.2. Having</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">23.6. Conditional statements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">23.7. Saving results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">23.8. SQL Comments</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-coments">23.8.1. Single line coments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">23.8.2. Multi-line comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">24.6. Conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">24.7. Saving results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">24.8. SQL Comments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-coments">24.8.1. Single line coments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">24.8.2. Multi-line comments</a></li>
 </ul>
 </li>
 </ul>
@@ -524,7 +528,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sql-basics">
-<h1><span class="section-number">23. </span>SQL Basics<a class="headerlink" href="#sql-basics" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">24. </span>SQL Basics<a class="headerlink" href="#sql-basics" title="Permalink to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -537,7 +541,7 @@ document.write(`
 <li><p><a class="reference external" href="https://raw.githubusercontent.com/giswqs/postgis/master/data/countries.csv">countries.csv</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">23.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
@@ -587,7 +591,7 @@ document.write(`
 </div>
 </section>
 <section id="the-sql-select-statement">
-<h2><span class="section-number">23.2. </span>The SQL SELECT statement<a class="headerlink" href="#the-sql-select-statement" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.2. </span>The SQL SELECT statement<a class="headerlink" href="#the-sql-select-statement" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
@@ -680,7 +684,7 @@ document.write(`
 </div>
 </section>
 <section id="the-where-clause">
-<h2><span class="section-number">23.3. </span>The WHERE Clause<a class="headerlink" href="#the-where-clause" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.3. </span>The WHERE Clause<a class="headerlink" href="#the-where-clause" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -755,7 +759,7 @@ document.write(`
 </div>
 </section>
 <section id="sql-joins">
-<h2><span class="section-number">23.4. </span>SQL Joins<a class="headerlink" href="#sql-joins" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.4. </span>SQL Joins<a class="headerlink" href="#sql-joins" title="Permalink to this heading">#</a></h2>
 <p>Reference: <a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp">https://www.w3schools.com/sql/sql_join.asp</a></p>
 <p>Here are the different types of the JOINs in SQL:</p>
 <ul class="simple">
@@ -802,7 +806,7 @@ document.write(`
 </div>
 </div>
 <section id="sql-inner-join">
-<h3><span class="section-number">23.4.1. </span>SQL Inner Join<a class="headerlink" href="#sql-inner-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.4.1. </span>SQL Inner Join<a class="headerlink" href="#sql-inner-join" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -823,7 +827,7 @@ document.write(`
 </div>
 </section>
 <section id="sql-left-join">
-<h3><span class="section-number">23.4.2. </span>SQL Left Join<a class="headerlink" href="#sql-left-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.4.2. </span>SQL Left Join<a class="headerlink" href="#sql-left-join" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -835,7 +839,7 @@ document.write(`
 </div>
 </section>
 <section id="sql-right-join">
-<h3><span class="section-number">23.4.3. </span>SQL Right Join<a class="headerlink" href="#sql-right-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.4.3. </span>SQL Right Join<a class="headerlink" href="#sql-right-join" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -847,7 +851,7 @@ document.write(`
 </div>
 </section>
 <section id="sql-full-join">
-<h3><span class="section-number">23.4.4. </span>SQL Full Join<a class="headerlink" href="#sql-full-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.4.4. </span>SQL Full Join<a class="headerlink" href="#sql-full-join" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -859,7 +863,7 @@ document.write(`
 </div>
 </section>
 <section id="sql-union">
-<h3><span class="section-number">23.4.5. </span>SQL Union<a class="headerlink" href="#sql-union" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.4.5. </span>SQL Union<a class="headerlink" href="#sql-union" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -874,9 +878,9 @@ document.write(`
 </section>
 </section>
 <section id="aggregation">
-<h2><span class="section-number">23.5. </span>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.5. </span>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this heading">#</a></h2>
 <section id="group-by">
-<h3><span class="section-number">23.5.1. </span>Group By<a class="headerlink" href="#group-by" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.5.1. </span>Group By<a class="headerlink" href="#group-by" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -904,7 +908,7 @@ document.write(`
 </div>
 </section>
 <section id="having">
-<h3><span class="section-number">23.5.2. </span>Having<a class="headerlink" href="#having" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.5.2. </span>Having<a class="headerlink" href="#having" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
@@ -935,7 +939,7 @@ document.write(`
 </section>
 </section>
 <section id="conditional-statements">
-<h2><span class="section-number">23.6. </span>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.6. </span>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -953,7 +957,7 @@ document.write(`
 </div>
 </section>
 <section id="saving-results">
-<h2><span class="section-number">23.7. </span>Saving results<a class="headerlink" href="#saving-results" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.7. </span>Saving results<a class="headerlink" href="#saving-results" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -993,9 +997,9 @@ document.write(`
 </div>
 </section>
 <section id="sql-comments">
-<h2><span class="section-number">23.8. </span>SQL Comments<a class="headerlink" href="#sql-comments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">24.8. </span>SQL Comments<a class="headerlink" href="#sql-comments" title="Permalink to this heading">#</a></h2>
 <section id="single-line-coments">
-<h3><span class="section-number">23.8.1. </span>Single line coments<a class="headerlink" href="#single-line-coments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.8.1. </span>Single line coments<a class="headerlink" href="#single-line-coments" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1007,7 +1011,7 @@ document.write(`
 </div>
 </section>
 <section id="multi-line-comments">
-<h3><span class="section-number">23.8.2. </span>Multi-line comments<a class="headerlink" href="#multi-line-comments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">24.8.2. </span>Multi-line comments<a class="headerlink" href="#multi-line-comments" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -1065,7 +1069,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Installation</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Installation</p>
       </div>
     </a>
     <a class="right-next"
@@ -1073,7 +1077,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">24. </span>Introduction to PostGIS</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Introduction to PostGIS</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1092,27 +1096,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">23.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">23.2. The SQL SELECT statement</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">23.3. The WHERE Clause</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">23.4. SQL Joins</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">23.4.1. SQL Inner Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">23.4.2. SQL Left Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">23.4.3. SQL Right Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">23.4.4. SQL Full Join</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">23.4.5. SQL Union</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">24.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">24.2. The SQL SELECT statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">24.3. The WHERE Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">24.4. SQL Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">24.4.1. SQL Inner Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">24.4.2. SQL Left Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">24.4.3. SQL Right Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">24.4.4. SQL Full Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">24.4.5. SQL Union</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">23.5. Aggregation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">23.5.1. Group By</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">23.5.2. Having</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">24.5. Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">24.5.1. Group By</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">24.5.2. Having</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">23.6. Conditional statements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">23.7. Saving results</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">23.8. SQL Comments</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-coments">23.8.1. Single line coments</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">23.8.2. Multi-line comments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">24.6. Conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">24.7. Saving results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">24.8. SQL Comments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-coments">24.8.1. Single line coments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">24.8.2. Multi-line comments</a></li>
 </ul>
 </li>
 </ul>
