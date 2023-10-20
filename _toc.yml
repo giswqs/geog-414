@@ -44,6 +44,7 @@ parts:
     maxdepth: 2
     chapters:
       - file: book/duckdb/01_duckdb_intro
+      - file: book/duckdb/02_sql_basics
 
   - caption: PostGIS
     numbered: true

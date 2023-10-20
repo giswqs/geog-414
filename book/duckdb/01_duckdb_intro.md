@@ -80,11 +80,11 @@ If the installation was successful, you should see the version number of the Duc
 
 ## Setting up VS Code
 
-To make it easier to run DuckDB commands and SQL queries, it is recommended that yout create a keyboard shortcut to run selected text in VS Code. To do this, open VS Code and press `Ctrl+Shift+P` to open the Command Palette. Then, search for "Preferences: Open Keyboard Shortcuts (JSON)" and press `Enter`. This will open the `keybindings.json` file. Add the following keyboard binding within the square brackets:
+To make it easier to run DuckDB commands and SQL queries, it is recommended that you create a keyboard shortcut to run selected text in VS Code. To do this, open VS Code and press `Ctrl+Shift+P` to open the Command Palette. Then, search for "Preferences: Open Keyboard Shortcuts (JSON)" and press `Enter`. This will open the `keybindings.json` file. Add the following keyboard binding within the square brackets:
 
 ```json
     {
-        "key": "shift+enter",
+        "key": "ctrl+enter",
         "command": "workbench.action.terminal.runSelectedText",
     }
 ```
@@ -101,7 +101,7 @@ To test if the keyboard shortcut is working, create a new file with the `.sql` e
 SELECT * FROM duckdb_extensions();
 ```
 
-Select the text and press `Shift+Enter`. If the keyboard shortcut is working, you should see the following output in the terminal:
+Select the text and press `Ctrl+Enter`. If the keyboard shortcut is working, you should see the following output in the terminal:
 
 ![](https://i.imgur.com/5mGW8hj.png)
 
