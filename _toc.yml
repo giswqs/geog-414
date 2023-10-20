@@ -39,6 +39,12 @@ parts:
       - file: book/gee/09_timelapse
       - file: book/gee/10_webapps
       - file: book/gee/11_applications
+  - caption: DuckDB
+    numbered: true
+    maxdepth: 2
+    chapters:
+      - file: book/duckdb/01_duckdb_intro
+
   - caption: PostGIS
     numbered: true
     maxdepth: 2
