@@ -45,6 +45,7 @@ parts:
     chapters:
       - file: book/duckdb/01_duckdb_intro
       - file: book/duckdb/02_sql_basics
+      - file: book/duckdb/03_python_api
 
   - caption: PostGIS
     numbered: true
