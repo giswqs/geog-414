@@ -60,11 +60,11 @@ con.sql('SELECT 42').show()
 ```
 
 ```{code-cell} ipython3
-con.read_csv('https://open.gishub.org/data/duckdb/cities.csv')     
+con.read_csv('https://open.gishub.org/data/duckdb/cities.csv')
 ```
 
 ```{code-cell} ipython3
-con.read_csv('https://open.gishub.org/data/duckdb/countries.csv') 
+con.read_csv('https://open.gishub.org/data/duckdb/countries.csv')
 ```
 
 ## DataFrames
@@ -88,15 +88,15 @@ df.head()
 DuckDB supports converting query results efficiently to a variety of formats. See the [result conversion page](https://duckdb.org/docs/api/python/result_conversion) for more information.
 
 ```{code-cell} ipython3
-con.sql('SELECT 42').fetchall()   # Python objects
+con.sql('SELECT 42').fetchall()  # Python objects
 ```
 
 ```{code-cell} ipython3
-con.sql('SELECT 42').df()         # Pandas DataFrame
+con.sql('SELECT 42').df()  # Pandas DataFrame
 ```
 
 ```{code-cell} ipython3
-con.sql('SELECT 42').fetchnumpy() # NumPy Arrays
+con.sql('SELECT 42').fetchnumpy()  # NumPy Arrays
 ```
 
 ## Writing Data to Disk
@@ -104,9 +104,9 @@ con.sql('SELECT 42').fetchnumpy() # NumPy Arrays
 DuckDB supports writing Relation objects directly to disk in a variety of formats. The [COPY](https://duckdb.org/docs/sql/statements/copy) statement can be used to write data to disk using SQL as an alternative.
 
 ```{code-cell} ipython3
-con.sql('SELECT 42').write_parquet('out.parquet') # Write to a Parquet file
-con.sql('SELECT 42').write_csv('out.csv')         # Write to a CSV file
-con.sql("COPY (SELECT 42) TO 'out.parquet'")      # Copy to a parquet file
+con.sql('SELECT 42').write_parquet('out.parquet')  # Write to a Parquet file
+con.sql('SELECT 42').write_csv('out.csv')  # Write to a CSV file
+con.sql("COPY (SELECT 42) TO 'out.parquet'")  # Copy to a parquet file
 ```
 
 ## Persistent Storage
@@ -117,7 +117,9 @@ By default DuckDB operates on an **in-memory** database. That means that any tab
 # create a connection to a file called 'file.db'
 con = duckdb.connect('file.db')
 # create a table and load data into it
-con.sql('CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://open.gishub.org/data/duckdb/cities.csv")')
+con.sql(
+    'CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://open.gishub.org/data/duckdb/cities.csv")'
+)
 # query the table
 con.table('cities').show()
 # Note: connections also closed implicitly when they go out of scope
@@ -132,7 +134,9 @@ You can also use a context manager to ensure that the connection is closed:
 
 ```{code-cell} ipython3
 with duckdb.connect('file.db') as con:
-    con.sql('CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://open.gishub.org/data/duckdb/cities.csv")')
+    con.sql(
+        'CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://open.gishub.org/data/duckdb/cities.csv")'
+    )
     con.table('cities').show()
     # the context manager closes the connection automatically
 ```
