@@ -573,21 +573,21 @@ document.write(`
 <p>DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the <a class="reference external" href="https://duckdb.org/docs/api/python/data_ingestion">data ingestion page</a> for more information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://open.gishub.org/data/duckdb/cities.csv&#39;</span><span class="p">)</span>     
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://open.gishub.org/data/duckdb/cities.csv&#39;</span><span class="p">)</span>     
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://open.gishub.org/data/duckdb/countries.csv&#39;</span><span class="p">)</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://open.gishub.org/data/duckdb/countries.csv&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -599,7 +599,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">]})</span>
-<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM pandas_df&#39;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM pandas_df&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -607,7 +607,7 @@ document.write(`
 <p>DuckDB can also ingest data from remote sources (e.g., HTTP, S3) and return a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://open.gishub.org/data/duckdb/cities.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://open.gishub.org/data/duckdb/cities.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -619,21 +619,21 @@ document.write(`
 <p>DuckDB supports converting query results efficiently to a variety of formats. See the <a class="reference external" href="https://duckdb.org/docs/api/python/result_conversion">result conversion page</a> for more information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>   <span class="c1"># Python objects</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>   <span class="c1"># Python objects</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>         <span class="c1"># Pandas DataFrame</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>         <span class="c1"># Pandas DataFrame</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchnumpy</span><span class="p">()</span> <span class="c1"># NumPy Arrays</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fetchnumpy</span><span class="p">()</span> <span class="c1"># NumPy Arrays</span>
 </pre></div>
 </div>
 </div>
@@ -644,9 +644,9 @@ document.write(`
 <p>DuckDB supports writing Relation objects directly to disk in a variety of formats. The <a class="reference external" href="https://duckdb.org/docs/sql/statements/copy">COPY</a> statement can be used to write data to disk using SQL as an alternative.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_parquet</span><span class="p">(</span><span class="s1">&#39;out.parquet&#39;</span><span class="p">)</span> <span class="c1"># Write to a Parquet file</span>
-<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_csv</span><span class="p">(</span><span class="s1">&#39;out.csv&#39;</span><span class="p">)</span>         <span class="c1"># Write to a CSV file</span>
-<span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT 42) TO &#39;out.parquet&#39;&quot;</span><span class="p">)</span>      <span class="c1"># Copy to a parquet file</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_parquet</span><span class="p">(</span><span class="s1">&#39;out.parquet&#39;</span><span class="p">)</span> <span class="c1"># Write to a Parquet file</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_csv</span><span class="p">(</span><span class="s1">&#39;out.csv&#39;</span><span class="p">)</span>         <span class="c1"># Write to a CSV file</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT 42) TO &#39;out.parquet&#39;&quot;</span><span class="p">)</span>      <span class="c1"># Copy to a parquet file</span>
 </pre></div>
 </div>
 </div>
@@ -660,7 +660,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a connection to a file called &#39;file.db&#39;</span>
 <span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;file.db&#39;</span><span class="p">)</span>
 <span class="c1"># create a table and load data into it</span>
-<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto(</span><span class="se">\&#39;</span><span class="s1">https://open.gishub.org/data/duckdb/cities.csv</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto(&quot;https://open.gishub.org/data/duckdb/cities.csv&quot;)&#39;</span><span class="p">)</span>
 <span class="c1"># query the table</span>
 <span class="n">con</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;cities&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1"># Note: connections also closed implicitly when they go out of scope</span>
@@ -680,7 +680,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;file.db&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
-    <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto(</span><span class="se">\&#39;</span><span class="s1">https://open.gishub.org/data/duckdb/cities.csv</span><span class="se">\&#39;</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto(&quot;https://open.gishub.org/data/duckdb/cities.csv&quot;)&#39;</span><span class="p">)</span>
     <span class="n">con</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s1">&#39;cities&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="c1"># the context manager closes the connection automatically</span>
 </pre></div>
@@ -692,6 +692,21 @@ document.write(`
 <h2><span class="section-number">24.11. </span>Connection Object and Module<a class="headerlink" href="#connection-object-and-module" title="Permalink to this heading">#</a></h2>
 <p>The connection object and the <code class="docutils literal notranslate"><span class="pre">duckdb</span></code> module can be used interchangeably – they support the same methods. The only difference is that when using the <code class="docutils literal notranslate"><span class="pre">duckdb</span></code> module a global in-memory database is used.</p>
 <p>Note that if you are developing a package designed for others to use, and use DuckDB in the package, it is recommend that you create connection objects instead of using the methods on the <code class="docutils literal notranslate"><span class="pre">duckdb</span></code> module. That is because the <code class="docutils literal notranslate"><span class="pre">duckdb</span></code> module uses a shared global database – which can cause hard to debug issues if used from within multiple different packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">duckdb</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">&#39;SELECT 42&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="references">
 <h2><span class="section-number">24.12. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
