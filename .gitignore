@@ -4,3 +4,4 @@ private/
 **/*.db
 **/*.csv
 **/*.parquet
+**/cities.*
