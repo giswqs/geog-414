@@ -107,6 +107,12 @@ Select the text and press `Shift+Ctrl+Enter`. If the keyboard shortcut is workin
 
 To stop the DuckDB process, press `Ctrl+C` in the terminal. To exit the terminal, press `Ctrl+D`.
 
+### DBeaver SQL IDE
+
+[DBeaver](https://dbeaver.io) is a powerful and popular desktop sql editor and integrated development environment (IDE). It has both an open source and enterprise version. It is useful for visually inspecting the available tables in DuckDB and for quickly building complex queries. To install DBeaver, go to <https://dbeaver.io/download> and download the Community Edition for your operating system. Once installed, follow the instructions [here](https://duckdb.org/docs/guides/sql_editors/dbeaver.html) to connect to DuckDB. You can then run SQL queries in DBeaver and view the results in a table format.
+
+![](https://i.imgur.com/59clo36.png)
+
 ## References
 
 - [Forget about SQLite, Use DuckDB Instead — And Thank Me Later](https://towardsdatascience.com/forget-about-sqlite-use-duckdb-instead-and-thank-me-later-df76ee9bb777)
