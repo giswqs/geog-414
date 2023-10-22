@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>33. Using GeoPandas &#8212; Spatial Data Management with Earth Engine</title>
+    <title>34. Using GeoPandas &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -68,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Submission Instructions" href="../labs/README.html" />
-    <link rel="prev" title="32. Projecting Data" href="projection.html" />
+    <link rel="prev" title="33. Projecting Data" href="projection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -200,16 +200,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/03_python_api.html">24. Python API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/04_data_import.html">25. Data Import</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/05_data_export.html">26. Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/06_geometries.html">27. Working with Geometries</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">27. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">28. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">29. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometries.html">30. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">31. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projection.html">32. Projecting Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">33. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">28. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">29. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">30. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">31. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">32. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">33. Projecting Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -497,15 +498,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">33.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-postgis">33.2. Reading data from PostGIS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">33.3. Writing files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">33.4. Measuring area</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-bounary">33.5. Getting polygon bounary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-centroid">33.6. Getting polygon centroid</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-maps">33.7. Making maps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-data">33.8. Reprojecting data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interative-map">33.9. Displaying data on an interative map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">34.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-postgis">34.2. Reading data from PostGIS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">34.3. Writing files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">34.4. Measuring area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-bounary">34.5. Getting polygon bounary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-centroid">34.6. Getting polygon centroid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-maps">34.7. Making maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-data">34.8. Reprojecting data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interative-map">34.9. Displaying data on an interative map</a></li>
 </ul>
             </nav>
         </div>
@@ -518,7 +519,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="using-geopandas">
-<h1><span class="section-number">33. </span>Using GeoPandas<a class="headerlink" href="#using-geopandas" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">34. </span>Using GeoPandas<a class="headerlink" href="#using-geopandas" title="Permalink to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">geo</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">geo</span>
@@ -537,7 +538,7 @@ document.write(`
 <li><p><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/sql-and-enterprise-geodatabases.htm">Using SQL with Geodatabases</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">33.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -587,7 +588,7 @@ document.write(`
 </div>
 </section>
 <section id="reading-data-from-postgis">
-<h2><span class="section-number">33.2. </span>Reading data from PostGIS<a class="headerlink" href="#reading-data-from-postgis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.2. </span>Reading data from PostGIS<a class="headerlink" href="#reading-data-from-postgis" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
@@ -625,7 +626,7 @@ document.write(`
 </div>
 </section>
 <section id="writing-files">
-<h2><span class="section-number">33.3. </span>Writing files<a class="headerlink" href="#writing-files" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.3. </span>Writing files<a class="headerlink" href="#writing-files" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Downloads&#39;</span><span class="p">)</span>
@@ -660,7 +661,7 @@ document.write(`
 </div>
 </section>
 <section id="measuring-area">
-<h2><span class="section-number">33.4. </span>Measuring area<a class="headerlink" href="#measuring-area" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.4. </span>Measuring area<a class="headerlink" href="#measuring-area" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
@@ -678,7 +679,7 @@ document.write(`
 </div>
 </section>
 <section id="getting-polygon-bounary">
-<h2><span class="section-number">33.5. </span>Getting polygon bounary<a class="headerlink" href="#getting-polygon-bounary" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.5. </span>Getting polygon bounary<a class="headerlink" href="#getting-polygon-bounary" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;boundary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">boundary</span>
@@ -689,7 +690,7 @@ document.write(`
 </div>
 </section>
 <section id="getting-polygon-centroid">
-<h2><span class="section-number">33.6. </span>Getting polygon centroid<a class="headerlink" href="#getting-polygon-centroid" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.6. </span>Getting polygon centroid<a class="headerlink" href="#getting-polygon-centroid" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;centroid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">centroid</span>
@@ -700,7 +701,7 @@ document.write(`
 </div>
 </section>
 <section id="making-maps">
-<h2><span class="section-number">33.7. </span>Making maps<a class="headerlink" href="#making-maps" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.7. </span>Making maps<a class="headerlink" href="#making-maps" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -740,7 +741,7 @@ document.write(`
 </div>
 </section>
 <section id="reprojecting-data">
-<h2><span class="section-number">33.8. </span>Reprojecting data<a class="headerlink" href="#reprojecting-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.8. </span>Reprojecting data<a class="headerlink" href="#reprojecting-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM nyc_neighborhoods&#39;</span>
@@ -778,7 +779,7 @@ document.write(`
 </div>
 </section>
 <section id="displaying-data-on-an-interative-map">
-<h2><span class="section-number">33.9. </span>Displaying data on an interative map<a class="headerlink" href="#displaying-data-on-an-interative-map" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.9. </span>Displaying data on an interative map<a class="headerlink" href="#displaying-data-on-an-interative-map" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geemap</span>
@@ -960,7 +961,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">32. </span>Projecting Data</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>Projecting Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -987,15 +988,15 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">33.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-postgis">33.2. Reading data from PostGIS</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">33.3. Writing files</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">33.4. Measuring area</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-bounary">33.5. Getting polygon bounary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-centroid">33.6. Getting polygon centroid</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-maps">33.7. Making maps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-data">33.8. Reprojecting data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interative-map">33.9. Displaying data on an interative map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">34.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-postgis">34.2. Reading data from PostGIS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">34.3. Writing files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">34.4. Measuring area</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-bounary">34.5. Getting polygon bounary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-centroid">34.6. Getting polygon centroid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-maps">34.7. Making maps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-data">34.8. Reprojecting data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interative-map">34.9. Displaying data on an interative map</a></li>
 </ul>
   </nav></div>
 
