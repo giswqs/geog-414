@@ -1,3 +1,7 @@
 _build/
 private/
 **/.ipynb_checkpoints/
+**/*.db
+**/*.csv
+**/*.parquet
+**/cities.*
