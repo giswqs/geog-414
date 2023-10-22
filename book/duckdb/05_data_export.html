@@ -498,10 +498,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">26.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">26.2. Datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">26.3. Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import">26.4. Library Import</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-extensions">26.5. Installing Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">26.2. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import">26.3. Library Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-extensions">26.4. Installing Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-data">26.5. Sample Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-dataframes">26.6. To DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-csv">26.7. To CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-json">26.8. To JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-excel">26.9. To Excel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-parquet">26.10. To Parquet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-geojson">26.11. To GeoJSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-shapefile">26.12. To Shapefile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-geopackage">26.13. To GeoPackage</a></li>
 </ul>
             </nav>
         </div>
@@ -517,17 +525,10 @@ document.write(`
 <h1><span class="section-number">26. </span>Data Export<a class="headerlink" href="#data-export" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2><span class="section-number">26.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="datasets">
-<h2><span class="section-number">26.2. </span>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading">#</a></h2>
-<p>The following datasets are used in this notebook. You don’t need to download them, they can be accessed directly from the notebook.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://open.gishub.org/data/duckdb/cities.csv">cities.csv</a></p></li>
-<li><p><a class="reference external" href="https://open.gishub.org/data/duckdb/countries.csv">countries.csv</a></p></li>
-</ul>
+<p>This notebook demonstrates how to export data from the database to various formats, including Pandas DataFrames, CSV, JSON, Excel, Parquet, GeoJSON, Shapefile, and GeoPackage.</p>
 </section>
 <section id="installation">
-<h2><span class="section-number">26.3. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">26.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <p>Uncomment the following cell to install the required packages if needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -538,7 +539,7 @@ document.write(`
 </div>
 </section>
 <section id="library-import">
-<h2><span class="section-number">26.4. </span>Library Import<a class="headerlink" href="#library-import" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">26.3. </span>Library Import<a class="headerlink" href="#library-import" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
@@ -549,8 +550,163 @@ document.write(`
 </div>
 </section>
 <section id="installing-extensions">
-<h2><span class="section-number">26.5. </span>Installing Extensions<a class="headerlink" href="#installing-extensions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">26.4. </span>Installing Extensions<a class="headerlink" href="#installing-extensions" title="Permalink to this heading">#</a></h2>
 <p>DuckDB’s Python API provides functions for installing and loading extensions, which perform the equivalent operations to running the <code class="docutils literal notranslate"><span class="pre">INSTALL</span></code> and <code class="docutils literal notranslate"><span class="pre">LOAD</span></code> SQL commands, respectively. An example that installs and loads the <a class="reference external" href="https://duckdb.org/docs/extensions/httpfs">httpfs extension</a> looks like follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">install_extension</span><span class="p">(</span><span class="s2">&quot;httpfs&quot;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="s2">&quot;httpfs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">install_extension</span><span class="p">(</span><span class="s2">&quot;spatial&quot;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="s2">&quot;spatial&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sample-data">
+<h2><span class="section-number">26.5. </span>Sample Data<a class="headerlink" href="#sample-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CREATE TABLE IF NOT EXISTS cities AS</span>
+<span class="sd">SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) </span>
+<span class="sd">AS geometry FROM &#39;https://open.gishub.org/data/duckdb/cities.parquet&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s2">&quot;cities&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-dataframes">
+<h2><span class="section-number">26.6. </span>To DataFrames<a class="headerlink" href="#to-dataframes" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">table</span><span class="p">(</span><span class="s2">&quot;cities&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-csv">
+<h2><span class="section-number">26.7. </span>To CSV<a class="headerlink" href="#to-csv" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY cities TO &#39;cities.csv&#39; (HEADER, DELIMITER &#39;,&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.csv&#39; (HEADER, DELIMITER &#39;,&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-json">
+<h2><span class="section-number">26.8. </span>To JSON<a class="headerlink" href="#to-json" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY cities TO &#39;cities.json&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.json&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-excel">
+<h2><span class="section-number">26.9. </span>To Excel<a class="headerlink" href="#to-excel" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * EXCLUDE geometry FROM cities) TO &#39;cities.xlsx&#39; WITH (FORMAT GDAL, DRIVER &#39;XLSX&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-parquet">
+<h2><span class="section-number">26.10. </span>To Parquet<a class="headerlink" href="#to-parquet" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY cities TO &#39;cities.parquet&#39; (FORMAT PARQUET)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.parquet&#39; (FORMAT PARQUET)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-geojson">
+<h2><span class="section-number">26.11. </span>To GeoJSON<a class="headerlink" href="#to-geojson" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY cities TO &#39;cities.geojson&#39; WITH (FORMAT GDAL, DRIVER &#39;GeoJSON&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.geojson&#39; WITH (FORMAT GDAL, DRIVER &#39;GeoJSON&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-shapefile">
+<h2><span class="section-number">26.12. </span>To Shapefile<a class="headerlink" href="#to-shapefile" title="Permalink to this heading">#</a></h2>
+<p>Doens’t work on Linux.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># con.sql(&quot;COPY cities TO &#39;cities.shp&#39; WITH (FORMAT GDAL, DRIVER &#39;ESRI Shapefile&#39;)&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="to-geopackage">
+<h2><span class="section-number">26.13. </span>To GeoPackage<a class="headerlink" href="#to-geopackage" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY cities TO &#39;cities.gpkg&#39; WITH (FORMAT GDAL, DRIVER &#39;GPKG&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -618,10 +774,18 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">26.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">26.2. Datasets</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">26.3. Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import">26.4. Library Import</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-extensions">26.5. Installing Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">26.2. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import">26.3. Library Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-extensions">26.4. Installing Extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-data">26.5. Sample Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-dataframes">26.6. To DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-csv">26.7. To CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-json">26.8. To JSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-excel">26.9. To Excel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-parquet">26.10. To Parquet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-geojson">26.11. To GeoJSON</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-shapefile">26.12. To Shapefile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-geopackage">26.13. To GeoPackage</a></li>
 </ul>
   </nav></div>
 
