@@ -48,6 +48,7 @@ parts:
       - file: book/duckdb/03_python_api
       - file: book/duckdb/04_data_import
       - file: book/duckdb/05_data_export
+      - file: book/duckdb/06_geometries
 
   - caption: PostGIS
     numbered: true

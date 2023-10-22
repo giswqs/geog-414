@@ -7,3 +7,4 @@ private/
 **/*.json
 **/*.geojson
 **/cities.*
+**/nyc*
