@@ -481,6 +481,7 @@ document.write(`
 <p>DuckDB is a great option if you’re looking for a serverless data analytics database management system.</p>
 <p><img alt="" src="https://i.imgur.com/BEDGstx.png" /></p>
 <p><img alt="" src="https://i.imgur.com/mFpqp5I.png" /></p>
+<p>To me, DuckDB feels like the <a class="reference external" href="https://tenor.com/view/breeze-nicolas-cage-con-air-smile-gif-14443307">fresh air</a> in the database space. It is a modern database that is built from the ground up to be fast, lightweight, and easy to use. It is also open source and free to use. It has a <a class="reference external" href="https://duckdb.org/docs/extensions/spatial.html">spatial extension</a> that allows you to perform spatial queries and analysis.</p>
 </section>
 <section id="installation">
 <h2><span class="section-number">22.3. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
@@ -507,8 +508,12 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </pre></div>
 </div>
 <p>You can also install the packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>duckdb<span class="w"> </span>duckdb-engine<span class="w"> </span>jupysql<span class="w"> </span>leafmap
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%pip install duckdb duckdb-engine jupysql leafmap
 </pre></div>
+</div>
+</div>
 </div>
 <p>To test if the installation was successful, open a new terminal and run the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>geo

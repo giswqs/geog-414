@@ -37,6 +37,8 @@ DuckDB is a great option if you’re looking for a serverless data analytics dat
 
 ![](https://i.imgur.com/mFpqp5I.png)
 
+To me, DuckDB feels like the [fresh air](https://tenor.com/view/breeze-nicolas-cage-con-air-smile-gif-14443307) in the database space. It is a modern database that is built from the ground up to be fast, lightweight, and easy to use. It is also open source and free to use. It has a [spatial extension](https://duckdb.org/docs/extensions/spatial.html) that allows you to perform spatial queries and analysis.
+
 ## Installation
 
 ### Command line
@@ -65,8 +67,8 @@ mamba install -c conda-forge python-duckdb duckdb-engine jupysql leafmap
 
 You can also install the packages using `pip`:
 
-```bash
-pip install duckdb duckdb-engine jupysql leafmap
+```{code-cell}
+%pip install duckdb duckdb-engine jupysql leafmap
 ```
 
 To test if the installation was successful, open a new terminal and run the following command:
