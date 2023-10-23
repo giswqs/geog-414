@@ -54,7 +54,7 @@ con.load_extension("spatial")
 
 ```{code-cell} ipython3
 con.sql(
-"""
+    """
 CREATE TABLE IF NOT EXISTS cities AS
 SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) 
 AS geometry FROM 'https://open.gishub.org/data/duckdb/cities.parquet'
@@ -79,7 +79,9 @@ con.sql("COPY cities TO 'cities.csv' (HEADER, DELIMITER ',')")
 ```
 
 ```{code-cell} ipython3
-con.sql("COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.csv' (HEADER, DELIMITER ',')")
+con.sql(
+    "COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.csv' (HEADER, DELIMITER ',')"
+)
 ```
 
 ## To JSON
@@ -95,7 +97,9 @@ con.sql("COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.json'")
 ## To Excel
 
 ```{code-cell} ipython3
-con.sql("COPY (SELECT * EXCLUDE geometry FROM cities) TO 'cities.xlsx' WITH (FORMAT GDAL, DRIVER 'XLSX')")
+con.sql(
+    "COPY (SELECT * EXCLUDE geometry FROM cities) TO 'cities.xlsx' WITH (FORMAT GDAL, DRIVER 'XLSX')"
+)
 ```
 
 ## To Parquet
@@ -105,7 +109,9 @@ con.sql("COPY cities TO 'cities.parquet' (FORMAT PARQUET)")
 ```
 
 ```{code-cell} ipython3
-con.sql("COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.parquet' (FORMAT PARQUET)")
+con.sql(
+    "COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.parquet' (FORMAT PARQUET)"
+)
 ```
 
 ## To GeoJSON
@@ -115,7 +121,9 @@ con.sql("COPY cities TO 'cities.geojson' WITH (FORMAT GDAL, DRIVER 'GeoJSON')")
 ```
 
 ```{code-cell} ipython3
-con.sql("COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.geojson' WITH (FORMAT GDAL, DRIVER 'GeoJSON')")
+con.sql(
+    "COPY (SELECT * FROM cities WHERE country='USA') TO 'cities_us.geojson' WITH (FORMAT GDAL, DRIVER 'GeoJSON')"
+)
 ```
 
 ## To Shapefile

@@ -49,6 +49,7 @@ parts:
       - file: book/duckdb/04_data_import
       - file: book/duckdb/05_data_export
       - file: book/duckdb/06_geometries
+      - file: book/duckdb/07_spatial_relationships
 
   - caption: PostGIS
     numbered: true
