@@ -201,16 +201,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="04_data_import.html">25. Data Import</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">26. Data Export</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_geometries.html">27. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_spatial_relationships.html">28. Spatial Relationships</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">28. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">29. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">30. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">31. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">32. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">33. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">34. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">29. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">30. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">31. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">32. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">33. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">34. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">35. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -582,7 +583,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">CREATE TABLE IF NOT EXISTS cities AS</span>
 <span class="sd">SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) </span>
 <span class="sd">AS geometry FROM &#39;https://open.gishub.org/data/duckdb/cities.parquet&#39;</span>
@@ -621,7 +622,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.csv&#39; (HEADER, DELIMITER &#39;,&#39;)&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.csv&#39; (HEADER, DELIMITER &#39;,&#39;)&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -648,7 +651,9 @@ document.write(`
 <h2><span class="section-number">26.9. </span>To Excel<a class="headerlink" href="#to-excel" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * EXCLUDE geometry FROM cities) TO &#39;cities.xlsx&#39; WITH (FORMAT GDAL, DRIVER &#39;XLSX&#39;)&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="s2">&quot;COPY (SELECT * EXCLUDE geometry FROM cities) TO &#39;cities.xlsx&#39; WITH (FORMAT GDAL, DRIVER &#39;XLSX&#39;)&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -665,7 +670,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.parquet&#39; (FORMAT PARQUET)&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.parquet&#39; (FORMAT PARQUET)&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -682,7 +689,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.geojson&#39; WITH (FORMAT GDAL, DRIVER &#39;GeoJSON&#39;)&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="s2">&quot;COPY (SELECT * FROM cities WHERE country=&#39;USA&#39;) TO &#39;cities_us.geojson&#39; WITH (FORMAT GDAL, DRIVER &#39;GeoJSON&#39;)&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
