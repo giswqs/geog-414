@@ -13,8 +13,6 @@ kernelspec:
 
 # Lab 6
 
-**Firstname Lastname**
-
 **Submission instructions**
 
 Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.
@@ -30,7 +28,7 @@ geemap.ee_initialize()
 
 ## Question 1
 
-Create a map to visualize [NOAA GFS Temperature Data](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GFS0P25) and add a color bar and [NOAA logo](https://i.imgur.com/spILFEi.png) to the map. 
+Create a map to visualize [NOAA GFS Temperature Data](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GFS0P25) and add a color bar and [NOAA logo](https://i.imgur.com/spILFEi.png) to the map.
 
 ```{code-cell} ipython3
 # Add your code here.
@@ -42,7 +40,7 @@ Create a map to visualize [NOAA GFS Temperature Data](https://developers.google.
 
 ## Question 2
 
-**Linked Maps:** Create a 2*2 linked map to visualize the Landsat imagery (`ee.Image('LANDSAT/LE7_TOA_5YEAR/1999_2003')`) with different band combinations.
+**Linked Maps:** Create a 2\*2 linked map to visualize the Landsat imagery (`ee.Image('LANDSAT/LE7_TOA_5YEAR/1999_2003')`) with different band combinations.
 
 ```{code-cell} ipython3
 # Add your code here.

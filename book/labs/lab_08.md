@@ -13,8 +13,6 @@ kernelspec:
 
 # Lab 8
 
-**Firstname Lastname**
-
 **Submission requirements**
 
 1. An HTML version of your notebook (VS Code > Notebook > Export > HTML). The HTML file must show the output of your code.

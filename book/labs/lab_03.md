@@ -13,8 +13,6 @@ kernelspec:
 
 # Lab 3
 
-**Firstname Lastname**
-
 **Submission instructions**
 
 Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.
@@ -35,7 +33,7 @@ print(f"Submitted time: {now}")
 
 ## Question 1
 
-Find a DEM dataset in the [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/), clip the DEM to your home state, and display the DEM with a proper color palette on the map. For example, the sample map below shows the DEM of the state of Colorado. 
+Find a DEM dataset in the [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/), clip the DEM to your home state, and display the DEM with a proper color palette on the map. For example, the sample map below shows the DEM of the state of Colorado.
 
 ```{code-cell} ipython3
 import ee
@@ -52,7 +50,7 @@ import geemap
 
 ## Question 2
 
-Use [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2) or [Landsat-9 data](https://developers.google.com/earth-engine/datasets/catalog/landsat-9), create a cloud-free imagery of the year 2021 for your home state. Display the imagery on the map with a proper band combination. For example, the sample map below shows a cloud-free false-color composite of Sentinel-2 imagery of the year 2021 for the state of Colorado. 
+Use [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sentinel-2) or [Landsat-9 data](https://developers.google.com/earth-engine/datasets/catalog/landsat-9), create a cloud-free imagery of the year 2021 for your home state. Display the imagery on the map with a proper band combination. For example, the sample map below shows a cloud-free false-color composite of Sentinel-2 imagery of the year 2021 for the state of Colorado.
 
 ```{code-cell} ipython3
 # Add your code here.

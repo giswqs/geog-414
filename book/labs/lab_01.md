@@ -13,8 +13,6 @@ kernelspec:
 
 # Lab 1
 
-**Firstname Lastname**
-
 Install [leafmap](https://leafmap.org) and create a Jupyter Notebook. Copy and paste the following code cell to your notebook. Change the text `Made by Your Name` to your name. Update the logo to your own image if you wish. Then run the code cell to generate an interactive map. Note that you name must be visible on the map. Take a screenshot of your map and save it as an image. Upload the screenshot to Canvas.
 
 ```{code-cell}

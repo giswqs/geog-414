@@ -22,7 +22,7 @@ This notebook demonstrates how to export data from the database to various forma
 Uncomment the following cell to install the required packages if needed.
 
 ```{code-cell} ipython3
-# %pip install duckdb duckdb-engine jupysql
+# %pip install duckdb
 ```
 
 ## Library Import

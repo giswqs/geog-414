@@ -13,8 +13,6 @@ kernelspec:
 
 # Lab 5
 
-**Firstname Lastname**
-
 **Submission instructions**
 
 Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.
@@ -40,7 +38,7 @@ Visualize the [USGS Watershed Boundary Dataset](https://developers.google.com/ea
 
 +++
 
-## Question 2 
+## Question 2
 
 Filter the USGS Watershed Boundary dataset and select the watershed that intersects the county of your choice.
 
