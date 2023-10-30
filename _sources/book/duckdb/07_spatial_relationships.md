@@ -15,6 +15,8 @@ kernelspec:
 
 ## Introduction
 
+This notebook demonstrates how to analyze spatial relationships between features in a dataset. 
+
 ## Installation
 
 Uncomment the following cell to install the required packages if needed.

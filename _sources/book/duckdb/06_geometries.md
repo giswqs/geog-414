@@ -15,6 +15,8 @@ kernelspec:
 
 ## Introduction
 
+This notebook demonstrates how to work with geometries in DuckDB.
+
 ## Installation
 
 Uncomment the following cell to install the required packages if needed.

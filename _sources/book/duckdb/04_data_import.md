@@ -15,6 +15,7 @@ kernelspec:
 
 ## Introduction
 
+This notebook shows how to import data into a DuckDB database. It uses the `duckdb` Python package to connect to a DuckDB database and import data from various formats, including CSV, JSON, DataFrame, parquet, GeoJSON, Shapefile, GeoParquet, and more.
 
 ## Datasets
 
