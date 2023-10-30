@@ -28,7 +28,7 @@ The following datasets are used in this notebook. You don't need to download the
 Uncomment the following cell to install the required packages if needed.
 
 ```{code-cell} ipython3
-# %pip install duckdb duckdb-engine jupysql leafmap
+# %pip install duckdb leafmap
 ```
 
 ## Library Import

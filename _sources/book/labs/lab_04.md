@@ -13,8 +13,6 @@ kernelspec:
 
 # Lab 4
 
-**Firstname Lastname**
-
 **Submission instructions**
 
 Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.
