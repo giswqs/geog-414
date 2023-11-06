@@ -22,7 +22,7 @@ This notebook demonstrates how to work with geometries in DuckDB.
 Uncomment the following cell to install the required packages if needed.
 
 ```{code-cell} ipython3
-# %pip install duckdb duckdb-engine jupysql
+# %pip install duckdb leafmap
 ```
 
 ## Library Import and Configuration
@@ -30,21 +30,11 @@ Uncomment the following cell to install the required packages if needed.
 ```{code-cell} ipython3
 import duckdb
 import leafmap
-import pandas as pd
-
-# Import jupysql Jupyter extension to create SQL cells
-%load_ext sql
-```
-
-Set configurations on jupysql to directly output data to Pandas and to simplify the output that is printed to the notebook.
-
-```{code-cell} ipython3
-%config SqlMagic.autopandas = True
-%config SqlMagic.feedback = False
-%config SqlMagic.displaycon = False
 ```
 
 ## Sample Data
+
+The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.
 
 ```{code-cell} ipython3
 url = "https://open.gishub.org/data/duckdb/nyc_data.db.zip"
@@ -56,44 +46,47 @@ leafmap.download_file(url, unzip=True)
 Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may either connect to an in memory DuckDB, or a file backed db.
 
 ```{code-cell} ipython3
-# %sql duckdb:///:memory:
-%sql duckdb:///nyc_data.db
+con = duckdb.connect("nyc_data.db")
 ```
 
 ```{code-cell} ipython3
-%%sql
+con.install_extension("spatial")
+con.load_extension("spatial")
+```
 
-INSTALL spatial;
-LOAD spatial;
+```{code-cell} ipython3
+con.sql("SHOW TABLES;")
 ```
 
 ## Creating samples
 
 ```{code-cell} ipython3
-%%sql
+con.sql("""
 
-CREATE TABLE samples (name VARCHAR, geom GEOMETRY);
+CREATE or REPLACE TABLE samples (name VARCHAR, geom GEOMETRY);
 
 INSERT INTO samples VALUES
-  ('Point', ST_GeomFromText('POINT(0 0)')),
+  ('Point', ST_GeomFromText('POINT(-100 40)')),
   ('Linestring', ST_GeomFromText('LINESTRING(0 0, 1 1, 2 1, 2 2)')),
   ('Polygon', ST_GeomFromText('POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))')),
   ('PolygonWithHole', ST_GeomFromText('POLYGON((0 0, 10 0, 10 10, 0 10, 0 0),(1 1, 1 2, 2 2, 2 1, 1 1))')),
   ('Collection', ST_GeomFromText('GEOMETRYCOLLECTION(POINT(2 0),POLYGON((0 0, 1 0, 1 1, 0 1, 0 0)))'));
 
 SELECT * FROM samples;
+          
+  """)
 ```
 
 ```{code-cell} ipython3
-%%sql
-
-SELECT name, ST_AsText(geom) FROM samples;
+con.sql("SELECT name, ST_AsText(geom) AS geometry FROM samples;")
 ```
 
 ```{code-cell} ipython3
-%%sql 
-
+con.sql("""
+        
 COPY samples TO 'samples.geojson' (FORMAT GDAL, DRIVER GeoJSON);
+        
+""")
 ```
 
 ## Points
@@ -103,11 +96,13 @@ COPY samples TO 'samples.geojson' (FORMAT GDAL, DRIVER GeoJSON);
 A spatial point represents a single location on the Earth. This point is represented by a single coordinate (including either 2-, 3- or 4-dimensions). Points are used to represent objects when the exact details, such as shape and size, are not important at the target scale. For example, cities on a map of the world can be described as points, while a map of a single state might represent cities as polygons.
 
 ```{code-cell} ipython3
-%%sql
+con.sql("""
 
 SELECT ST_AsText(geom)
   FROM samples
   WHERE name = 'Point';
+        
+""")
 ```
 
 Some of the specific spatial functions for working with points are:
@@ -118,25 +113,31 @@ Some of the specific spatial functions for working with points are:
 So, we can read the ordinates from a point like this:
 
 ```{code-cell} ipython3
-%%sql
+con.sql("""
 
 SELECT ST_X(geom), ST_Y(geom)
   FROM samples
   WHERE name = 'Point';
+        
+""")
 ```
 
 ```{code-cell} ipython3
-%%sql 
+con.sql("""
 
 SELECT * FROM nyc_subway_stations
+        
+""")
 ```
 
 ```{code-cell} ipython3
-%%sql
+con.sql("""
 
 SELECT name, ST_AsText(geom)
   FROM nyc_subway_stations
   LIMIT 10;
+        
+""")
 ```
 
 ## Linestrings
@@ -160,11 +161,13 @@ The following SQL query will return the geometry associated with one
 linestring (in the `ST_AsText` column).
 
 ```{code-cell} ipython3
-%%sql
-
+con.sql("""
+        
 SELECT ST_AsText(geom)
   FROM samples
   WHERE name = 'Linestring';
+        
+""")
 ```
 
 Some of the specific spatial functions for working with linestrings are:
@@ -178,11 +181,13 @@ Some of the specific spatial functions for working with linestrings are:
 So, the length of our linestring is:
 
 ```{code-cell} ipython3
-%%sql 
+con.sql("""
 
 SELECT ST_Length(geom)
   FROM samples
   WHERE name = 'Linestring';
+        
+""")
 ```
 
 ## Polygons
@@ -206,11 +211,13 @@ The following SQL query will return the geometry associated with one
 polygon (in the `ST_AsText` column).
 
 ```{code-cell} ipython3
-%%sql
+con.sql("""
 
 SELECT ST_AsText(geom)
   FROM samples
   WHERE name LIKE 'Polygon%';
+        
+""")
 ```
 
 Some of the specific spatial functions for working with polygons are:
@@ -226,11 +233,13 @@ Some of the specific spatial functions for working with polygons are:
 We can calculate the area of our polygons using the area function:
 
 ```{code-cell} ipython3
-%%sql
-
+con.sql("""
+        
 SELECT name, ST_Area(geom)
   FROM samples
   WHERE name LIKE 'Polygon%';
+        
+""")
 ```
 
 ## Collections
@@ -253,9 +262,45 @@ side of the right-of-way.
 Our example collection contains a polygon and a point:
 
 ```{code-cell} ipython3
-%%sql
+con.sql("""
 
 SELECT name, ST_AsText(geom)
   FROM samples
   WHERE name = 'Collection';
+        
+""")
+```
+
+## Data Visualization
+
+```{code-cell} ipython3
+con.sql("SHOW TABLES;")
+```
+
+```{code-cell} ipython3
+subway_stations_df = con.sql("SELECT * EXCLUDE geom, ST_AsText(geom) as geometry FROM nyc_subway_stations").df()
+subway_stations_df.head()
+```
+
+```{code-cell} ipython3
+subway_stations_gdf = leafmap.df_to_gdf(subway_stations_df, src_crs="EPSG:26918", dst_crs="EPSG:4326")
+subway_stations_gdf.head()
+```
+
+```{code-cell} ipython3
+subway_stations_gdf.explore()
+```
+
+```{code-cell} ipython3
+nyc_streets_df = con.sql("SELECT * EXCLUDE geom, ST_AsText(geom) as geometry FROM nyc_streets").df()
+nyc_streets_df.head()
+```
+
+```{code-cell} ipython3
+nyc_streets_gdf = leafmap.df_to_gdf(nyc_streets_df, src_crs="EPSG:26918", dst_crs="EPSG:4326")
+nyc_streets_gdf.head()
+```
+
+```{code-cell} ipython3
+nyc_streets_gdf.explore()
 ```
