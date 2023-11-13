@@ -537,7 +537,7 @@ document.write(`
 <p>Uncomment the following cell to install the required packages if needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb duckdb-engine jupysql</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb leafmap</span>
 </pre></div>
 </div>
 </div>
@@ -549,19 +549,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
 <span class="kn">import</span> <span class="nn">leafmap</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Import jupysql Jupyter extension to create SQL cells</span>
-<span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">autopandas</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">feedback</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="o">%</span><span class="n">config</span> <span class="n">SqlMagic</span><span class="o">.</span><span class="n">displaycon</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -569,6 +556,7 @@ document.write(`
 </section>
 <section id="sample-data">
 <h2><span class="section-number">28.4. </span>Sample Data<a class="headerlink" href="#sample-data" title="Permalink to this heading">#</a></h2>
+<p>The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/duckdb/nyc_data.db.zip&quot;</span>
@@ -583,27 +571,29 @@ document.write(`
 <p>Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may either connect to an in memory DuckDB, or a file backed db.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %sql duckdb:///:memory:</span>
-<span class="o">%</span><span class="n">sql</span> <span class="n">duckdb</span><span class="p">:</span><span class="o">///</span><span class="n">nyc_data</span><span class="o">.</span><span class="n">db</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;nyc_data.db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">INSTALL</span> <span class="n">spatial</span><span class="p">;</span>
-<span class="n">LOAD</span> <span class="n">spatial</span><span class="p">;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">install_extension</span><span class="p">(</span><span class="s1">&#39;spatial&#39;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="s1">&#39;spatial&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
-
-<span class="n">SELECT</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">nyc_subway_stations</span> <span class="n">LIMIT</span> <span class="mi">5</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SHOW TABLES;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT * from nyc_subway_stations LIMIT 5&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -637,11 +627,11 @@ the first shape.</p>
 St’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">ST_AsText</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-<span class="n">FROM</span> <span class="n">nyc_subway_stations</span>
-<span class="n">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Broad St&#39;</span><span class="p">;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, geom, ST_AsText(geom)</span>
+<span class="s2">FROM nyc_subway_stations</span>
+<span class="s2">WHERE name = &#39;Broad St&#39;;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -650,11 +640,11 @@ St’.</p>
 <code class="docutils literal notranslate"><span class="pre">ST_Equals</span></code> test:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span> <span class="n">name</span>
-<span class="n">FROM</span> <span class="n">nyc_subway_stations</span>
-<span class="n">WHERE</span> <span class="n">ST_Equals</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">ST_GeomFromHEXWKB</span><span class="p">(</span><span class="s1">&#39;0101000020266900000EEBD4CF27CF2141BC17D69516315141&#39;</span><span class="p">));</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name</span>
+<span class="s2">FROM nyc_subway_stations</span>
+<span class="s2">WHERE ST_Equals(geom, ST_GeomFromText(&#39;POINT (583571.9059213118 4506714.341192182)&#39;));</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -693,22 +683,29 @@ neighborhood using the <code class="docutils literal notranslate"><span class="p
 function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ST_AsText</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-<span class="n">FROM</span> <span class="n">nyc_subway_stations</span>
-<span class="n">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Broad St&#39;</span><span class="p">;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, ST_AsText(geom)</span>
+<span class="s2">FROM nyc_subway_stations</span>
+<span class="s2">WHERE name = &#39;Broad St&#39;;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">boroname</span>
-<span class="n">FROM</span> <span class="n">nyc_neighborhoods</span>
-<span class="n">WHERE</span> <span class="n">ST_Intersects</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(583571 4506714)&#39;</span><span class="p">));</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_neighborhoods LIMIT 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, boroname</span>
+<span class="s2">FROM nyc_neighborhoods</span>
+<span class="s2">WHERE ST_Intersects(geom, ST_GeomFromText(&#39;POINT(583571 4506714)&#39;));</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -746,11 +743,11 @@ geometries and returns it as a float. This is useful for actually
 reporting back the distance between objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span> <span class="n">ST_Distance</span><span class="p">(</span>
-  <span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(0 5)&#39;</span><span class="p">),</span>
-  <span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;LINESTRING(-2 2, 2 2)&#39;</span><span class="p">));</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT ST_Distance(</span>
+<span class="s2">  ST_GeomFromText(&#39;POINT(0 5)&#39;),</span>
+<span class="s2">  ST_GeomFromText(&#39;LINESTRING(-2 2, 2 2)&#39;)) as dist;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -766,15 +763,22 @@ distance relationship.</p>
 nearby (within 10 meters of) the subway stop:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
-
-<span class="n">SELECT</span> <span class="n">name</span>
-<span class="n">FROM</span> <span class="n">nyc_streets</span>
-<span class="n">WHERE</span> <span class="n">ST_DWithin</span><span class="p">(</span>
-        <span class="n">geom</span><span class="p">,</span>
-        <span class="n">ST_GeomFromText</span><span class="p">(</span><span class="s1">&#39;POINT(583571 4506714)&#39;</span><span class="p">),</span>
-        <span class="mi">10</span>
-      <span class="p">);</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_streets LIMIT 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name</span>
+<span class="s2">FROM nyc_streets</span>
+<span class="s2">WHERE ST_DWithin(</span>
+<span class="s2">        geom,</span>
+<span class="s2">        ST_GeomFromText(&#39;POINT(583571 4506714)&#39;),</span>
+<span class="s2">        10</span>
+<span class="s2">      );</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

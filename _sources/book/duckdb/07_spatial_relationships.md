@@ -22,7 +22,7 @@ This notebook demonstrates how to analyze spatial relationships between features
 Uncomment the following cell to install the required packages if needed.
 
 ```{code-cell} ipython3
-# %pip install duckdb duckdb-engine jupysql
+# %pip install duckdb leafmap
 ```
 
 ## Library Import and Configuration
@@ -30,19 +30,11 @@ Uncomment the following cell to install the required packages if needed.
 ```{code-cell} ipython3
 import duckdb
 import leafmap
-import pandas as pd
-
-# Import jupysql Jupyter extension to create SQL cells
-%load_ext sql
-```
-
-```{code-cell} ipython3
-%config SqlMagic.autopandas = True
-%config SqlMagic.feedback = False
-%config SqlMagic.displaycon = False
 ```
 
 ## Sample Data
+
+The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.
 
 ```{code-cell} ipython3
 url = "https://open.gishub.org/data/duckdb/nyc_data.db.zip"
@@ -54,21 +46,20 @@ leafmap.download_file(url, unzip=True)
 Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may either connect to an in memory DuckDB, or a file backed db.
 
 ```{code-cell} ipython3
-# %sql duckdb:///:memory:
-%sql duckdb:///nyc_data.db
+con = duckdb.connect('nyc_data.db')
 ```
 
 ```{code-cell} ipython3
-%%sql
-
-INSTALL spatial;
-LOAD spatial;
+con.install_extension('spatial')
+con.load_extension('spatial')
 ```
 
 ```{code-cell} ipython3
-%%sql 
+con.sql("SHOW TABLES;")
+```
 
-SELECT * from nyc_subway_stations LIMIT 5
+```{code-cell} ipython3
+con.sql("SELECT * from nyc_subway_stations LIMIT 5")
 ```
 
 ## Spatial Relationships
@@ -107,22 +98,22 @@ First, let\'s retrieve a representation of a point from our
 St\'.
 
 ```{code-cell} ipython3
-%%sql
-
+con.sql("""
 SELECT name, geom, ST_AsText(geom)
 FROM nyc_subway_stations
 WHERE name = 'Broad St';
+""")
 ```
 
 Then, plug the geometry representation back into an
 `ST_Equals` test:
 
 ```{code-cell} ipython3
-%%sql
-
+con.sql("""
 SELECT name
 FROM nyc_subway_stations
-WHERE ST_Equals(geom, ST_GeomFromHEXWKB('0101000020266900000EEBD4CF27CF2141BC17D69516315141'));
+WHERE ST_Equals(geom, ST_GeomFromText('POINT (583571.9059213118 4506714.341192182)'));
+""")
 ```
 
 ## ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps
@@ -167,19 +158,23 @@ neighborhood using the `ST_Intersects`
 function:
 
 ```{code-cell} ipython3
-%%sql
-
+con.sql("""
 SELECT name, ST_AsText(geom)
 FROM nyc_subway_stations
 WHERE name = 'Broad St';
+""")
 ```
 
 ```{code-cell} ipython3
-%%sql
+con.sql("FROM nyc_neighborhoods LIMIT 5")
+```
 
+```{code-cell} ipython3
+con.sql("""
 SELECT name, boroname
 FROM nyc_neighborhoods
 WHERE ST_Intersects(geom, ST_GeomFromText('POINT(583571 4506714)'));
+""")
 ```
 
 ## ST_Touches
@@ -220,11 +215,11 @@ geometries and returns it as a float. This is useful for actually
 reporting back the distance between objects.
 
 ```{code-cell} ipython3
-%%sql
-
+con.sql("""
 SELECT ST_Distance(
   ST_GeomFromText('POINT(0 5)'),
-  ST_GeomFromText('LINESTRING(-2 2, 2 2)'));
+  ST_GeomFromText('LINESTRING(-2 2, 2 2)')) as dist;
+""")
 ```
 
 For testing whether two objects are within a distance of one another,
@@ -240,8 +235,11 @@ Using our Broad Street subway station again, we can find the streets
 nearby (within 10 meters of) the subway stop:
 
 ```{code-cell} ipython3
-%%sql
+con.sql("FROM nyc_streets LIMIT 5")
+```
 
+```{code-cell} ipython3
+con.sql("""
 SELECT name
 FROM nyc_streets
 WHERE ST_DWithin(
@@ -249,6 +247,7 @@ WHERE ST_DWithin(
         ST_GeomFromText('POINT(583571 4506714)'),
         10
       );
+""")
 ```
 
 And we can verify the answer on a map. The Broad St station is actually
