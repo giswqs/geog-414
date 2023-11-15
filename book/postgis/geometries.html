@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>33. Working with Geometries &#8212; Spatial Data Management with Earth Engine</title>
+    <title>34. Working with Geometries &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34. Spatial Relationships" href="spatial_relationships.html" />
-    <link rel="prev" title="32. Introduction to PostGIS" href="postgis_intro.html" />
+    <link rel="next" title="35. Spatial Relationships" href="spatial_relationships.html" />
+    <link rel="prev" title="33. Introduction to PostGIS" href="postgis_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -204,16 +204,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/06_geometries.html">27. Working with Geometries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/07_spatial_relationships.html">28. Spatial Relationships</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/08_data_viz.html">29. Data Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">30. Spatial Joins</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">30. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">31. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">32. Introduction to PostGIS</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">33. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">34. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projection.html">35. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopandas.html">36. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">31. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">32. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">33. Introduction to PostGIS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">35. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">36. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">37. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -503,16 +504,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">33.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-geometries">33.2. Creating geometries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-tables">33.3. Metadata tables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">33.4. Points</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linestrings">33.5. Linestrings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polygons">33.6. Polygons</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">33.7. Collections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-input-and-output">33.8. Geometry Input and Output</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-from-text">33.9. Casting from Text</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">33.10. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">34.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-geometries">34.2. Creating geometries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-tables">34.3. Metadata tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">34.4. Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linestrings">34.5. Linestrings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polygons">34.6. Polygons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">34.7. Collections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-input-and-output">34.8. Geometry Input and Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-from-text">34.9. Casting from Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">34.10. Function List</a></li>
 </ul>
             </nav>
         </div>
@@ -525,7 +526,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-geometries">
-<h1><span class="section-number">33. </span>Working with Geometries<a class="headerlink" href="#working-with-geometries" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">34. </span>Working with Geometries<a class="headerlink" href="#working-with-geometries" title="Permalink to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -542,7 +543,7 @@ document.write(`
 <li><p><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/sql-and-enterprise-geodatabases.htm">Using SQL with Geodatabases</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">33.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
@@ -592,7 +593,7 @@ document.write(`
 </div>
 </section>
 <section id="creating-geometries">
-<h2><span class="section-number">33.2. </span>Creating geometries<a class="headerlink" href="#creating-geometries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.2. </span>Creating geometries<a class="headerlink" href="#creating-geometries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
@@ -613,7 +614,7 @@ document.write(`
 </div>
 </section>
 <section id="metadata-tables">
-<h2><span class="section-number">33.3. </span>Metadata tables<a class="headerlink" href="#metadata-tables" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.3. </span>Metadata tables<a class="headerlink" href="#metadata-tables" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
@@ -644,7 +645,7 @@ document.write(`
 </div>
 </section>
 <section id="points">
-<h2><span class="section-number">33.4. </span>Points<a class="headerlink" href="#points" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.4. </span>Points<a class="headerlink" href="#points" title="Permalink to this heading">#</a></h2>
 <p><img alt="" src="https://postgis.net/workshops/postgis-intro/_images/points.png" /></p>
 <p>A spatial point represents a single location on the Earth. This point is represented by a single coordinate (including either 2-, 3- or 4-dimensions). Points are used to represent objects when the exact details, such as shape and size, are not important at the target scale. For example, cities on a map of the world can be described as points, while a map of a single state might represent cities as polygons.</p>
 <div class="cell docutils container">
@@ -688,7 +689,7 @@ document.write(`
 </div>
 </section>
 <section id="linestrings">
-<h2><span class="section-number">33.5. </span>Linestrings<a class="headerlink" href="#linestrings" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.5. </span>Linestrings<a class="headerlink" href="#linestrings" title="Permalink to this heading">#</a></h2>
 <p><img alt="" src="https://postgis.net/workshops/postgis-intro/_images/lines.png" /></p>
 <p>A <strong>linestring</strong> is a path between locations. It takes the form of an
 ordered series of two or more points. Roads and rivers are typically
@@ -735,7 +736,7 @@ linestring</p></li>
 </div>
 </section>
 <section id="polygons">
-<h2><span class="section-number">33.6. </span>Polygons<a class="headerlink" href="#polygons" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.6. </span>Polygons<a class="headerlink" href="#polygons" title="Permalink to this heading">#</a></h2>
 <p><img alt="" src="https://postgis.net/workshops/postgis-intro/_images/polygons.png" /></p>
 <p>A polygon is a representation of an area. The outer boundary of the
 polygon is represented by a ring. This ring is a linestring that is both
@@ -783,7 +784,7 @@ a linestring</p></li>
 </div>
 </section>
 <section id="collections">
-<h2><span class="section-number">33.7. </span>Collections<a class="headerlink" href="#collections" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.7. </span>Collections<a class="headerlink" href="#collections" title="Permalink to this heading">#</a></h2>
 <p>There are four collection types, which group multiple simple geometries
 into sets.</p>
 <ul class="simple">
@@ -820,7 +821,7 @@ collection</p></li>
 </ul>
 </section>
 <section id="geometry-input-and-output">
-<h2><span class="section-number">33.8. </span>Geometry Input and Output<a class="headerlink" href="#geometry-input-and-output" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.8. </span>Geometry Input and Output<a class="headerlink" href="#geometry-input-and-output" title="Permalink to this heading">#</a></h2>
 <p>Within the database, geometries are stored on disk in a format only used
 by the PostGIS program. In order for external programs to insert and
 retrieve useful geometries, they need to be converted into a format that
@@ -891,7 +892,7 @@ inputs:</p>
 </div>
 </section>
 <section id="casting-from-text">
-<h2><span class="section-number">33.9. </span>Casting from Text<a class="headerlink" href="#casting-from-text" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.9. </span>Casting from Text<a class="headerlink" href="#casting-from-text" title="Permalink to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">WKT</span></code> strings we’ve see so far have been of type ‘text’ and we have
 been converting them to type ‘geometry’ using PostGIS functions like
 <code class="docutils literal notranslate"><span class="pre">ST_GeomFromText()</span></code>.</p>
@@ -930,7 +931,7 @@ converts a double into a text string.</p>
 </div>
 </section>
 <section id="function-list">
-<h2><span class="section-number">33.10. </span>Function List<a class="headerlink" href="#function-list" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.10. </span>Function List<a class="headerlink" href="#function-list" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://postgis.net/docs/ST_Area.html">ST_Area</a>: Returns the area of the surface if it is a polygon or
 multi-polygon. For “geometry” type area is in SRID units. For
 “geography” area is in square meters.</p>
@@ -1011,7 +1012,7 @@ reference and geogra</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">32. </span>Introduction to PostGIS</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>Introduction to PostGIS</p>
       </div>
     </a>
     <a class="right-next"
@@ -1019,7 +1020,7 @@ reference and geogra</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34. </span>Spatial Relationships</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Spatial Relationships</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1038,16 +1039,16 @@ reference and geogra</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">33.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-geometries">33.2. Creating geometries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-tables">33.3. Metadata tables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">33.4. Points</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linestrings">33.5. Linestrings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polygons">33.6. Polygons</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">33.7. Collections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-input-and-output">33.8. Geometry Input and Output</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-from-text">33.9. Casting from Text</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">33.10. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">34.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-geometries">34.2. Creating geometries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metadata-tables">34.3. Metadata tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">34.4. Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linestrings">34.5. Linestrings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polygons">34.6. Polygons</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections">34.7. Collections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-input-and-output">34.8. Geometry Input and Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casting-from-text">34.9. Casting from Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">34.10. Function List</a></li>
 </ul>
   </nav></div>
 
