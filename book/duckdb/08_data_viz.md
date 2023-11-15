@@ -21,7 +21,7 @@ kernelspec:
 import leafmap
 ```
 
-Visualizing point data.
+## Visualizing point data
 
 ```{code-cell} ipython3
 url = 'https://open.gishub.org/data/duckdb/cities.parquet'
@@ -46,7 +46,7 @@ Visualize the GeoDataFrame using [lonboard](https://github.com/developmentseed/l
 leafmap.view_vector(gdf, get_radius=20000, get_fill_color='blue')
 ```
 
-Visualizing polygon data.
+## Visualizing polygon data
 
 ```{code-cell} ipython3
 url = 'https://data.source.coop/giswqs/nwi/wetlands/DC_Wetlands.parquet'
@@ -99,3 +99,20 @@ leafmap.Legend(title="Wetland Type", legend_dict=color_map)
 ```
 
 ![legend](https://i.imgur.com/fxzHHFN.png)
+
++++
+
+## Visualizing multiple layers
+
+```{code-cell} ipython3
+import leafmap.deckgl as leafmap
+```
+
+```{code-cell} ipython3
+m = leafmap.Map()
+countries = 'https://open.gishub.org/data/duckdb/countries.geojson'
+cities = 'https://open.gishub.org/data/duckdb/cities.geojson'
+m.add_vector(countries, get_fill_color='blue', opacity=0.1)
+m.add_vector(cities, get_radius=20000, get_fill_color='red', opacity=0.5)
+m
+```
