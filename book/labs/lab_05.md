@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.15.0
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -38,7 +38,7 @@ Visualize the [USGS Watershed Boundary Dataset](https://developers.google.com/ea
 
 +++
 
-## Question 2
+## Question 2 
 
 Filter the USGS Watershed Boundary dataset and select the watershed that intersects the county of your choice.
 
