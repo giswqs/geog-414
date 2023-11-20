@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 7 &#8212; Spatial Data Management with Earth Engine</title>
+    <title>Lab 10 &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -62,13 +62,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_07';</script>
-    <link rel="canonical" href="https://geog-414.gishub.org/book/labs/lab_07.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/labs/lab_10';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/labs/lab_10.html" />
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Lab 8" href="lab_08.html" />
-    <link rel="prev" title="Lab 6" href="lab_06.html" />
+    <link rel="prev" title="Lab 9" href="lab_09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -228,10 +227,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="lab_04.html">Lab 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_05.html">Lab 5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_06.html">Lab 6</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab_07.html">Lab 7</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_08.html">Lab 8</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lab_09.html">Lab 9</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lab_10.html">Lab 10</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lab 10</a></li>
 </ul>
 
     </div>
@@ -286,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/labs/lab_07.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/labs/lab_10.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_07.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_10.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -352,7 +351,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/labs/lab_07.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/labs/lab_10.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +368,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_07.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/labs/lab_10.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/labs/lab_07.ipynb" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_10.ipynb" target="_blank"
    class="btn btn-sm btn-download-notebook-button dropdown-item"
    title="Download notebook file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -416,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/labs/lab_07.md" target="_blank"
+      <li><a href="../../_sources/book/labs/lab_10.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -498,7 +497,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Lab 7</h1>
+    <h1>Lab 10</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -508,7 +507,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
@@ -525,45 +524,45 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="lab-7">
-<h1>Lab 7<a class="headerlink" href="#lab-7" title="Permalink to this heading">#</a></h1>
-<p><strong>Submission instructions</strong></p>
-<p>Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-10">
+<h1>Lab 10<a class="headerlink" href="#lab-10" title="Permalink to this heading">#</a></h1>
+<p><strong>Submission requirements</strong></p>
+<ol class="arabic simple">
+<li><p><strong>HTML Version:</strong> Submit an HTML version of your notebook. Ensure all code outputs are visible. (Export via VS Code: Notebook &gt; Export &gt; HTML).</p></li>
+<li><p><strong>Colab Link:</strong> Provide a link to your notebook hosted on Google Colab for interactive review.</p></li>
+</ol>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>Uncomment and run the following cell to install the required packages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ee</span>
-<span class="kn">import</span> <span class="nn">geemap</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb leafmap lonboard</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">ee_initialize</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
+<span class="kn">import</span> <span class="nn">leafmap</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="datasets">
-<h2>Datasets<a class="headerlink" href="#datasets" title="Permalink to this heading">#</a></h2>
-<p>The datasets being used in the lab are listed below:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/TIGER_2018_Counties">TIGER: US Census Counties</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC09_C02_T1_L2">Landsat-9</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR">Sentinel-2</a></p></li>
-<li><p><a class="reference external" href="https://developers.google.com/earth-engine/datasets/catalog/USDA_NAIP_DOQQ">NAIP</a></p></li>
-</ul>
 </section>
 <section id="question-1">
 <h2>Question 1<a class="headerlink" href="#question-1" title="Permalink to this heading">#</a></h2>
-<p>Create a fishnet with a 4-degree interval based on the extent of <code class="docutils literal notranslate"><span class="pre">[-112.5439,</span> <span class="pre">34.0891,</span> <span class="pre">-85.0342,</span> <span class="pre">49.6858]</span></code>. Use the fishnet to download the Landsat 7 image tiles by the fishnet using the <code class="docutils literal notranslate"><span class="pre">geemap.download_ee_image_tiles()</span></code> function. Relevant Earth Engine assets:</p>
+<p>Download the <a class="reference external" href="https://github.com/opengeos/data/raw/main/duckdb/nyc_data.zip">nyc_data.zip</a> dataset using leafmap. The zip file contains the following datasets. Create a new DuckDB database and import the datasets into the database. Each dataset should be imported into a separate table.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">ee.Image('LANDSAT/LE7_TOA_5YEAR/1999_2003')</span></code></p></li>
+<li><p>nyc_census_blocks</p></li>
+<li><p>nyc_homicides</p></li>
+<li><p>nyc_neighborhoods</p></li>
+<li><p>nyc_streets</p></li>
+<li><p>nyc_subway_stations</p></li>
 </ul>
-<p><img alt="" src="https://i.imgur.com/L1IH3fq.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -571,11 +570,10 @@ document.write(`
 </section>
 <section id="question-2">
 <h2>Question 2<a class="headerlink" href="#question-2" title="Permalink to this heading">#</a></h2>
-<p>Create annual cloud-free Landsat imagery for the years 2017-2023 for a US county of your choice. Download the images to your computer.</p>
-<p><img alt="" src="https://i.imgur.com/MN2UXHx.png" /></p>
+<p>Visualize the <code class="docutils literal notranslate"><span class="pre">nyc_subway_stations</span></code> and <code class="docutils literal notranslate"><span class="pre">nyc_streets</span></code> datasets on the same map using leafmap and lonboard.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -583,11 +581,10 @@ document.write(`
 </section>
 <section id="question-3">
 <h2>Question 3<a class="headerlink" href="#question-3" title="Permalink to this heading">#</a></h2>
-<p>Create annual cloud-free Sentinel-2 imagery for the years 2017-2023 for a US county of your choice. Download the images to your computer. You can download a coarse resolution image to speed up the download process. Narrow down the date range (e.g., summer months) to reduce the number of images, which can avoid memory errors.</p>
-<p><img alt="" src="https://i.imgur.com/r5RQlEJ.png" /></p>
+<p>Find out what neighborhood the <code class="docutils literal notranslate"><span class="pre">BLUE</span></code> subway stations are in.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -595,11 +592,10 @@ document.write(`
 </section>
 <section id="question-4">
 <h2>Question 4<a class="headerlink" href="#question-4" title="Permalink to this heading">#</a></h2>
-<p>Create annual cloud-free NAIP imagery for the years 2010-2023 for a US county of your choice. Download the images to your computer. You can download a coarse resolution image to speed up the download process.</p>
-<p><img alt="" src="https://i.imgur.com/h66FC8h.png" /></p>
+<p>Find out what streets are within 200 meters of the <code class="docutils literal notranslate"><span class="pre">BLUE</span></code> subway stations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -607,11 +603,10 @@ document.write(`
 </section>
 <section id="question-5">
 <h2>Question 5<a class="headerlink" href="#question-5" title="Permalink to this heading">#</a></h2>
-<p>Download a US county of your choice and save it as a shapefile or GeoJSON file.</p>
-<p><img alt="" src="https://i.imgur.com/PuK2Vp3.png" /></p>
+<p>Visualize the <code class="docutils literal notranslate"><span class="pre">BLUE</span></code> subway stations and the streets within 200 meters of the <code class="docutils literal notranslate"><span class="pre">BLUE</span></code> subway stations on the same map using leafmap and lonboard.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add your code here</span>
 </pre></div>
 </div>
 </div>
@@ -650,22 +645,13 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lab_06.html"
+       href="lab_09.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Lab 6</p>
+        <p class="prev-next-title">Lab 9</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="lab_08.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 8</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -682,7 +668,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>

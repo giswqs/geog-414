@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.15.0
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -28,7 +28,7 @@ geemap.ee_initialize()
 
 ## Question 1
 
-Create a map to visualize [NOAA GFS Temperature Data](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GFS0P25) and add a color bar and [NOAA logo](https://i.imgur.com/spILFEi.png) to the map.
+Create a map to visualize [NOAA GFS Temperature Data](https://developers.google.com/earth-engine/datasets/catalog/NOAA_GFS0P25) and add a color bar and [NOAA logo](https://i.imgur.com/spILFEi.png) to the map. 
 
 ```{code-cell} ipython3
 # Add your code here.
@@ -40,7 +40,7 @@ Create a map to visualize [NOAA GFS Temperature Data](https://developers.google.
 
 ## Question 2
 
-**Linked Maps:** Create a 2\*2 linked map to visualize the Landsat imagery (`ee.Image('LANDSAT/LE7_TOA_5YEAR/1999_2003')`) with different band combinations.
+**Linked Maps:** Create a 2*2 linked map to visualize the Landsat imagery (`ee.Image('LANDSAT/LE7_TOA_5YEAR/1999_2003')`) with different band combinations.
 
 ```{code-cell} ipython3
 # Add your code here.
