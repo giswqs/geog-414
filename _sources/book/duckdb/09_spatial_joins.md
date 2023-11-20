@@ -216,7 +216,7 @@ url = 'https://open.gishub.org/data/duckdb/cities.parquet'
 con.sql(f"SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) AS geometry FROM '{url}'")
 ```
 
-Let's convert the data from EPSG:4326 to EPSG:4326 (CONUS Albers).
+Let's convert the data from EPSG:4326 to [EPSG:5070](https://epsg.io/5070-1252) (NAD83 / Conus Albers).
 
 ```{code-cell} ipython3
 con.sql(f"""
