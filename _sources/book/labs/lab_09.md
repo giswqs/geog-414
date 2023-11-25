@@ -69,7 +69,7 @@ Show the top 10 countries with the largest population.
 # Add your code here
 ```
 
-Select countries in Europe with a population greater than 100 million and order them by population in descending order.
+Select countries in Europe with a population greater than 10 million and order them by population in descending order.
 
 ```{code-cell} ipython3
 # Add your code here
