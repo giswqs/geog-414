@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-**Visualizing PMTiles**
+# Visualizing PMTiles
 
 [PMTiles](https://github.com/protomaps/PMTiles) is a single-file archive format for tiled data. A PMTiles archive can be hosted on a common storage platform such as S3, and enables low-cost, zero-maintenance map applications that are "serverless" - free of a custom tile backend or third party provider.
 
@@ -41,11 +41,11 @@ The [PMTiles Viewer](https://protomaps.github.io/PMTiles) can be used to view th
 
 ## Remote PMTiles
 
-PMTiles can be hosted on a cloud storage platform or locally. In this section, we will visualize a PMTiles hosted on a remote server. 
+PMTiles can be hosted on a cloud storage platform or locally. In this section, we will visualize a PMTiles hosted on a remote server.
 
 ### Protomaps sample data
 
-The [PMTiles Viewer](https://protomaps.github.io/PMTiles) provides a list of sample PMTiles archives. We will use the [ODbL_firenze.pmtiles](https://protomaps.github.io/PMTiles/protomaps(vector)ODbL_firenze.pmtiles). First, let's inspect the metadata of the PMTiles archive.
+The [PMTiles Viewer](https://protomaps.github.io/PMTiles) provides a list of sample PMTiles archives. We will use the [ODbL_firenze.pmtiles](<https://protomaps.github.io/PMTiles/protomaps(vector)ODbL_firenze.pmtiles>). First, let's inspect the metadata of the PMTiles archive.
 
 ```{code-cell} ipython3
 url = "https://protomaps.github.io/PMTiles/protomaps(vector)ODbL_firenze.pmtiles"
@@ -82,9 +82,9 @@ style
 m = leafmap.Map()
 m.add_basemap('CartoDB.DarkMatter')
 m.add_pmtiles(
-    url, 
-    name='PMTiles', 
-    style=style, 
+    url,
+    name='PMTiles',
+    style=style,
     zoom_to_layer=True,
     tooltip=False,
 )
@@ -277,15 +277,15 @@ Convert vector to PMTiles.
 ```{code-cell} ipython3
 pmtiles = 'buildings.pmtiles'
 leafmap.geojson_to_pmtiles(
-    'buildings.geojson', 
-    pmtiles, 
-    layer_name='buildings', 
-    overwrite=True, 
+    'buildings.geojson',
+    pmtiles,
+    layer_name='buildings',
+    overwrite=True,
     quiet=True
 )
 ```
 
-Start a HTTP Sever 
+Start a HTTP Sever
 
 ```{code-cell} ipython3
 leafmap.start_server(port=8000)
