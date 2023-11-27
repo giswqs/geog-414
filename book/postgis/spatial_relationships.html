@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>38. Spatial Relationships &#8212; Spatial Data Management with Earth Engine</title>
+    <title>43. Spatial Relationships &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39. Projecting Data" href="projection.html" />
-    <link rel="prev" title="37. Working with Geometries" href="geometries.html" />
+    <link rel="next" title="44. Projecting Data" href="projection.html" />
+    <link rel="prev" title="42. Working with Geometries" href="geometries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,16 +208,21 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">33. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/10_pmtiles.html">34. Installation</a></li>
+
+
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">34. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">35. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">36. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometries.html">37. Working with Geometries</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">38. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projection.html">39. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopandas.html">40. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">39. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">40. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">41. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">42. Working with Geometries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">43. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">44. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">45. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -508,14 +513,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">38.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">38.2. Spatial Relationships</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-equals">38.3. ST_Equals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps">38.4. ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-touches">38.5. ST_Touches</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-within-and-st-contains">38.6. ST_Within and ST_Contains</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-distance-and-st-dwithin">38.7. ST_Distance and ST_DWithin</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">38.8. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">43.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">43.2. Spatial Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-equals">43.3. ST_Equals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps">43.4. ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-touches">43.5. ST_Touches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-within-and-st-contains">43.6. ST_Within and ST_Contains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-distance-and-st-dwithin">43.7. ST_Distance and ST_DWithin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">43.8. Function List</a></li>
 </ul>
             </nav>
         </div>
@@ -528,7 +533,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="spatial-relationships">
-<h1><span class="section-number">38. </span>Spatial Relationships<a class="headerlink" href="#spatial-relationships" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">43. </span>Spatial Relationships<a class="headerlink" href="#spatial-relationships" title="Permalink to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -546,7 +551,7 @@ document.write(`
 <li><p><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/relational-functions-for-st-geometry.htm">Relational functions for ST_Geometry</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">38.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
@@ -596,7 +601,7 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h2><span class="section-number">38.2. </span>Spatial Relationships<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.2. </span>Spatial Relationships<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>So far we have only used spatial functions that measure (<code class="docutils literal notranslate"><span class="pre">ST_Area</span></code>,
 <code class="docutils literal notranslate"><span class="pre">ST_Length</span></code>), serialize (<code class="docutils literal notranslate"><span class="pre">ST_GeomFromText</span></code>) or deserialize (<code class="docutils literal notranslate"><span class="pre">ST_AsGML</span></code>)
 geometries. What these functions have in common is that they only work
@@ -612,7 +617,7 @@ lines.</p>
 geometries.</p>
 </section>
 <section id="st-equals">
-<h2><span class="section-number">38.3. </span>ST_Equals<a class="headerlink" href="#st-equals" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.3. </span>ST_Equals<a class="headerlink" href="#st-equals" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Equals(geometry</span> <span class="pre">A,</span> <span class="pre">geometry</span> <span class="pre">B)</span></code>tests the spatial equality of two geometries.</p>
 <p><img alt="" src="https://postgis.net/workshops/postgis-intro/_images/st_equals.png" /></p>
 <p>ST_Equals returns TRUE if two geometries of the same type have identical
@@ -647,7 +652,7 @@ St’.</p>
 </div>
 </section>
 <section id="st-intersects-st-disjoint-st-crosses-and-st-overlaps">
-<h2><span class="section-number">38.4. </span>ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps<a class="headerlink" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.4. </span>ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps<a class="headerlink" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Intersects</span></code>,
 <code class="docutils literal notranslate"><span class="pre">ST_Crosses</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">ST_Overlaps</span></code> test whether the
@@ -701,7 +706,7 @@ function:</p>
 </div>
 </section>
 <section id="st-touches">
-<h2><span class="section-number">38.5. </span>ST_Touches<a class="headerlink" href="#st-touches" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.5. </span>ST_Touches<a class="headerlink" href="#st-touches" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Touches</span></code> tests whether two
 geometries touch at their boundaries, but do not intersect in their
 interiors</p>
@@ -711,7 +716,7 @@ returns TRUE if either of the geometries’ boundaries intersect or if
 only one of the geometry’s interiors intersects the other’s boundary.</p>
 </section>
 <section id="st-within-and-st-contains">
-<h2><span class="section-number">38.6. </span>ST_Within and ST_Contains<a class="headerlink" href="#st-within-and-st-contains" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.6. </span>ST_Within and ST_Contains<a class="headerlink" href="#st-within-and-st-contains" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Within</span></code> and
 <code class="docutils literal notranslate"><span class="pre">ST_Contains</span></code> test whether one
 geometry is fully within the other.</p>
@@ -724,7 +729,7 @@ returns TRUE if the second geometry is completely contained by the first
 geometry.</p>
 </section>
 <section id="st-distance-and-st-dwithin">
-<h2><span class="section-number">38.7. </span>ST_Distance and ST_DWithin<a class="headerlink" href="#st-distance-and-st-dwithin" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.7. </span>ST_Distance and ST_DWithin<a class="headerlink" href="#st-distance-and-st-dwithin" title="Permalink to this heading">#</a></h2>
 <p>An extremely common GIS question is “find all the stuff within distance
 X of this other stuff”.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ST_Distance(geometry</span> <span class="pre">A,</span> <span class="pre">geometry</span> <span class="pre">B)</span></code> calculates the <em>shortest</em> distance between two
@@ -770,7 +775,7 @@ at the intersection of Wall, Broad and Nassau Streets.</p>
 <p><img alt="image" src="https://postgis.net/workshops/postgis-intro/_images/broad_st.jpg" /></p>
 </section>
 <section id="function-list">
-<h2><span class="section-number">38.8. </span>Function List<a class="headerlink" href="#function-list" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">43.8. </span>Function List<a class="headerlink" href="#function-list" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="http://postgis.net/docs/ST_Contains.html">ST_Contains(geometry A, geometry
 B)</a>: Returns true if and only
 if no points of B lie in the exterior of A, and at least one point of
@@ -846,7 +851,7 @@ geometry A is completely inside geometry B</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">37. </span>Working with Geometries</p>
+        <p class="prev-next-title"><span class="section-number">42. </span>Working with Geometries</p>
       </div>
     </a>
     <a class="right-next"
@@ -854,7 +859,7 @@ geometry A is completely inside geometry B</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39. </span>Projecting Data</p>
+        <p class="prev-next-title"><span class="section-number">44. </span>Projecting Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -873,14 +878,14 @@ geometry A is completely inside geometry B</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">38.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">38.2. Spatial Relationships</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-equals">38.3. ST_Equals</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps">38.4. ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-touches">38.5. ST_Touches</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-within-and-st-contains">38.6. ST_Within and ST_Contains</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-distance-and-st-dwithin">38.7. ST_Distance and ST_DWithin</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">38.8. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">43.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">43.2. Spatial Relationships</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-equals">43.3. ST_Equals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps">43.4. ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-touches">43.5. ST_Touches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-within-and-st-contains">43.6. ST_Within and ST_Contains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#st-distance-and-st-dwithin">43.7. ST_Distance and ST_DWithin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">43.8. Function List</a></li>
 </ul>
   </nav></div>
 
