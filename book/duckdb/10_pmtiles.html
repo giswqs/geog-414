@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>34. Installation &#8212; Spatial Data Management with Earth Engine</title>
+    <title>34. Visualizing PMTiles &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39. Installation" href="../postgis/installation.html" />
+    <link rel="next" title="35. Installation" href="../postgis/installation.html" />
     <link rel="prev" title="33. Spatial Joins" href="09_spatial_joins.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -208,21 +208,17 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <li class="toctree-l1"><a class="reference internal" href="09_spatial_joins.html">33. Spatial Joins</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Installation</a></li>
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Visualizing PMTiles</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">39. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">40. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">41. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">42. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">43. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">44. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">45. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">35. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">36. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">37. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">38. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">39. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">40. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">41. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -503,7 +499,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installation</h1>
+    <h1>Visualizing PMTiles</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -513,18 +509,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">34. Installation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">35. Import libraries</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pmtiles-viewer">36. PMTiles Viewer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-pmtiles">37. Remote PMTiles</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protomaps-sample-data">37.1. Protomaps sample data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overture-data">37.2. Overture data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-cooperative">37.3. Source Cooperative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">34.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">34.2. Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmtiles-viewer">34.3. PMTiles Viewer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-pmtiles">34.4. Remote PMTiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protomaps-sample-data">34.4.1. Protomaps sample data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overture-data">34.4.2. Overture data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-cooperative">34.4.3. Source Cooperative</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-pmtiles">38. Local PMTiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-pmtiles">34.5. Local PMTiles</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -535,10 +530,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <p><strong>Visualizing PMTiles</strong></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="visualizing-pmtiles">
+<h1><span class="section-number">34. </span>Visualizing PMTiles<a class="headerlink" href="#visualizing-pmtiles" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://github.com/protomaps/PMTiles">PMTiles</a> is a single-file archive format for tiled data. A PMTiles archive can be hosted on a common storage platform such as S3, and enables low-cost, zero-maintenance map applications that are “serverless” - free of a custom tile backend or third party provider.</p>
 <section id="installation">
-<h1><span class="section-number">34. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">34.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
 <p>Uncomment and run the following cell to install the dependencies.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -549,7 +545,7 @@ document.write(`
 </div>
 </section>
 <section id="import-libraries">
-<h1><span class="section-number">35. </span>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">34.2. </span>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <p>Currently, ipyleaflet does not support PMTiles. We will use folium mapping backend with leafmap.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -560,14 +556,14 @@ document.write(`
 </div>
 </section>
 <section id="pmtiles-viewer">
-<h1><span class="section-number">36. </span>PMTiles Viewer<a class="headerlink" href="#pmtiles-viewer" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">34.3. </span>PMTiles Viewer<a class="headerlink" href="#pmtiles-viewer" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://protomaps.github.io/PMTiles">PMTiles Viewer</a> can be used to view the contents of a PMTiles archive using a web browser. This is a useful tool for visualizing the contents of a PMTiles archive without writing any code. However, you can’t use it with Jupyter notebook.</p>
 </section>
 <section id="remote-pmtiles">
-<h1><span class="section-number">37. </span>Remote PMTiles<a class="headerlink" href="#remote-pmtiles" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">34.4. </span>Remote PMTiles<a class="headerlink" href="#remote-pmtiles" title="Permalink to this heading">#</a></h2>
 <p>PMTiles can be hosted on a cloud storage platform or locally. In this section, we will visualize a PMTiles hosted on a remote server.</p>
 <section id="protomaps-sample-data">
-<h2><span class="section-number">37.1. </span>Protomaps sample data<a class="headerlink" href="#protomaps-sample-data" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">34.4.1. </span>Protomaps sample data<a class="headerlink" href="#protomaps-sample-data" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://protomaps.github.io/PMTiles">PMTiles Viewer</a> provides a list of sample PMTiles archives. We will use the <a class="reference external" href="https://protomaps.github.io/PMTiles/protomaps(vector)ODbL_firenze.pmtiles">ODbL_firenze.pmtiles</a>. First, let’s inspect the metadata of the PMTiles archive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -616,9 +612,9 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">leafmap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="s1">&#39;CartoDB.DarkMatter&#39;</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_pmtiles</span><span class="p">(</span>
-    <span class="n">url</span><span class="p">,</span> 
-    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PMTiles&#39;</span><span class="p">,</span> 
-    <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span> 
+    <span class="n">url</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;PMTiles&#39;</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="n">style</span><span class="p">,</span>
     <span class="n">zoom_to_layer</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">tooltip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
@@ -669,7 +665,7 @@ document.write(`
 </div>
 </section>
 <section id="overture-data">
-<h2><span class="section-number">37.2. </span>Overture data<a class="headerlink" href="#overture-data" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">34.4.2. </span>Overture data<a class="headerlink" href="#overture-data" title="Permalink to this heading">#</a></h3>
 <p>You can also visualize <a class="reference external" href="https://overturemaps.org/">Overture data</a>. First, let’s inspect the metadata of the PMTiles archive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -756,7 +752,7 @@ document.write(`
 </div>
 </section>
 <section id="source-cooperative">
-<h2><span class="section-number">37.3. </span>Source Cooperative<a class="headerlink" href="#source-cooperative" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">34.4.3. </span>Source Cooperative<a class="headerlink" href="#source-cooperative" title="Permalink to this heading">#</a></h3>
 <p><a class="reference external" href="https://source.coop">Source Cooperative</a> hosts a variety of open geospatial data in PMTiles format. In this example, we will visualize the <a class="reference external" href="https://beta.source.coop/repositories/vida/google-microsoft-open-buildings/description">Google-Microsoft Open Buildings</a> dataset (193.9 GB). First, let’s inspect the metadata of the PMTiles archive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -816,7 +812,7 @@ document.write(`
 </section>
 </section>
 <section id="local-pmtiles">
-<h1><span class="section-number">38. </span>Local PMTiles<a class="headerlink" href="#local-pmtiles" title="Permalink to this heading">#</a></h1>
+<h2><span class="section-number">34.5. </span>Local PMTiles<a class="headerlink" href="#local-pmtiles" title="Permalink to this heading">#</a></h2>
 <p>tippecanoe is required to convert vector data to pmtiles. Install it with <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">tippecanoe</span></code>.</p>
 <p>Download <a class="reference external" href="https://github.com/opengeos/open-data/blob/main/datasets/libya/Derna_buildings.geojson">building footprints</a> of Derna, Libya.</p>
 <div class="cell docutils container">
@@ -832,10 +828,10 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pmtiles</span> <span class="o">=</span> <span class="s1">&#39;buildings.pmtiles&#39;</span>
 <span class="n">leafmap</span><span class="o">.</span><span class="n">geojson_to_pmtiles</span><span class="p">(</span>
-    <span class="s1">&#39;buildings.geojson&#39;</span><span class="p">,</span> 
-    <span class="n">pmtiles</span><span class="p">,</span> 
-    <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;buildings&#39;</span><span class="p">,</span> 
-    <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="s1">&#39;buildings.geojson&#39;</span><span class="p">,</span>
+    <span class="n">pmtiles</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;buildings&#39;</span><span class="p">,</span>
+    <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
@@ -894,6 +890,7 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -939,7 +936,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39. </span>Installation</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Installation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -958,18 +955,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">34. Installation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">35. Import libraries</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pmtiles-viewer">36. PMTiles Viewer</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-pmtiles">37. Remote PMTiles</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#protomaps-sample-data">37.1. Protomaps sample data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overture-data">37.2. Overture data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-cooperative">37.3. Source Cooperative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">34.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">34.2. Import libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmtiles-viewer">34.3. PMTiles Viewer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-pmtiles">34.4. Remote PMTiles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#protomaps-sample-data">34.4.1. Protomaps sample data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overture-data">34.4.2. Overture data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-cooperative">34.4.3. Source Cooperative</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#local-pmtiles">38. Local PMTiles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-pmtiles">34.5. Local PMTiles</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
