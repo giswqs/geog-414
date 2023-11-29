@@ -53,6 +53,7 @@ parts:
       - file: book/duckdb/08_data_viz
       - file: book/duckdb/09_spatial_joins
       - file: book/duckdb/10_pmtiles
+      - file: book/duckdb/11_data_analysis
 
   - caption: PostGIS
     numbered: true
