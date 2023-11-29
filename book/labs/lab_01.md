@@ -18,7 +18,7 @@ kernelspec:
 ## Submission requirements
 
 1. Upload a screenshot of your map for each question.
-2. Provide a link to your notebook on Colab.
+2. Provide a link to your notebook on Colab. See instructions [here](https://geog-414.gishub.org/book/labs/instructions.html).
 
 ## Question 1
 

@@ -13,21 +13,13 @@ kernelspec:
 
 # Lab 3
 
-**Submission instructions**
 
-Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_03.ipynb)
 
-```{code-cell} ipython3
-from datetime import datetime
+## Submission requirements
 
-now = datetime.now()
-print(f"Submitted time: {now}")
-```
-
-## Readings
-
-- [3.3 Earth Engine data types](https://book.geemap.org/chapters/03_gee_data.html#earth-engine-data-types)
-- [3.4. Earth Engine Data Catalog](https://book.geemap.org/chapters/03_gee_data.html#earth-engine-data-catalog)
+1. Upload a screenshot of your map for each question.
+2. Provide a link to your notebook on Colab. See instructions [here](https://geog-414.gishub.org/book/labs/instructions.html).
 
 +++
 
@@ -36,15 +28,10 @@ print(f"Submitted time: {now}")
 Find a DEM dataset in the [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/), clip the DEM to your home state, and display the DEM with a proper color palette on the map. For example, the sample map below shows the DEM of the state of Colorado. 
 
 ```{code-cell} ipython3
-import ee
-import geemap
-```
-
-```{code-cell} ipython3
 # Add your code here.
 ```
 
-![](https://i.imgur.com/RhUy93b.png)
+![](https://i.imgur.com/OLeSt7n.png)
 
 +++
 
@@ -56,4 +43,4 @@ Use [Sentinel-2](https://developers.google.com/earth-engine/datasets/catalog/sen
 # Add your code here.
 ```
 
-![](https://i.imgur.com/xkxpkS1.png)
+![](https://i.imgur.com/wD0VamV.png)
