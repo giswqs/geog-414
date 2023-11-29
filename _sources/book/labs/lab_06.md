@@ -13,18 +13,14 @@ kernelspec:
 
 # Lab 6
 
-**Submission instructions**
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/labs/lab_07.ipynb)
 
-Submit the Colab link to your notebook in Canvas. In addition, take screenshots of the map for each question and submit them to Canvas as well.
+## Submission requirements
 
-```{code-cell} ipython3
-import ee
-import geemap
-```
+1. Upload a screenshot of your map for each question.
+2. Provide a link to your notebook on Colab. See instructions [here](https://geog-414.gishub.org/book/labs/instructions.html).
 
-```{code-cell} ipython3
-geemap.ee_initialize()
-```
++++
 
 ## Question 1
 
