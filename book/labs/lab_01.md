@@ -31,7 +31,7 @@ To complete this question, follow the steps below:
 5. Run the code cell to generate an interactive map.
 6. Ensure that your name is visible on the map.
 7. Take a screenshot of your map and save it as an image.
-8. Upload the screenshot to Canvas.
+8. Submit your screenshot and the link to your Colab notebook.
 
 ```{code-cell} ipython3
 import leafmap
