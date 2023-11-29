@@ -9,7 +9,7 @@ jupytext:
 
 # Submission Instructions
 
-1. Click on the `Open in Colab` button at the top of each lab notebook. This will open the lab in Google Colab.
+1. Click on the ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) button at the top of each lab notebook. This will open the lab in Google Colab.
 2. Copy the notebook to your Google Drive. The notebook will be saved to **My Drive -> Colab Notebooks ->  Copy of lab_x.ipynb**. You can change the filename back to **lab_x.ipynb**.
 
     ![](https://i.imgur.com/1bxdiTz.png)
