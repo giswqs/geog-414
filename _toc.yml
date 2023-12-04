@@ -81,6 +81,7 @@ parts:
       - file: book/labs/lab_08
       - file: book/labs/lab_09
       - file: book/labs/lab_10
+      - file: book/labs/final_project
   # - caption: Appendix
   #   chapters:
   #     - file: book/gee/bibliography
