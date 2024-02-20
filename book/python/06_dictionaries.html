@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6. Dictionaries &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/06_dictionaries';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/python/06_dictionaries.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="7. Looping" href="07_user_input_while_loops.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/06_dictionaries.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/06_dictionaries.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/python/06_dictionaries.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/python/06_dictionaries.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -548,10 +539,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dictionaries">
-<h1><span class="section-number">6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#a-simple-dictionary" id="id1">A SIMPLE DICTIONARY</a></p></li>
@@ -587,14 +578,14 @@ document.write(`
 <p>In this lecture you’ll learn how to use Python’s dictionaries, which allow you to connect pieces of related information. You’ll learn how to access the information once it’s in a dictionary and how to modify that information. Because dictionaries can store an almost limitless amount of information, I’ll show you how to loop through the data in a dictionary. Additionally, you’ll learn to nest dictionaries inside lists, lists inside dictionaries, and even dictionaries inside other dictionaries.</p>
 <p>Understanding dictionaries allows you to model a variety of real-world objects more accurately. You’ll be able to create a dictionary representing a person and then store as much information as you want about that person. You can store their name, age, location, profession, and any other aspect of a person you can describe. You’ll be able to store any two kinds of information that can be matched up, such as a list of words and their meanings, a list of people’s names and their favorite numbers, a list of mountains and their elevations, and so forth.</p>
 <ul class="simple">
-<li><p><span class="xref myst">A SIMPLE DICTIONARY</span></p></li>
-<li><p><span class="xref myst">WORKING WITH DICTIONARIES</span></p></li>
-<li><p><span class="xref myst">LOOPING THROUGH A DICTIONARY</span></p></li>
-<li><p><span class="xref myst">NESTING</span></p></li>
-<li><p><span class="xref myst">SUMMARY</span></p></li>
+<li><p><a class="reference internal" href="#a-simple-dictionary"><span class="xref myst">A SIMPLE DICTIONARY</span></a></p></li>
+<li><p><a class="reference internal" href="#working-with-dictionaries"><span class="xref myst">WORKING WITH DICTIONARIES</span></a></p></li>
+<li><p><a class="reference internal" href="#looping-through-a-dictionary"><span class="xref myst">LOOPING THROUGH A DICTIONARY</span></a></p></li>
+<li><p><a class="reference internal" href="#nesting"><span class="xref myst">NESTING</span></a></p></li>
+<li><p><a class="reference internal" href="#summary"><span class="xref myst">SUMMARY</span></a></p></li>
 </ul>
 <section id="a-simple-dictionary">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">6.1. </span>A SIMPLE DICTIONARY</a><a class="headerlink" href="#a-simple-dictionary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">6.1. </span>A SIMPLE DICTIONARY</a><a class="headerlink" href="#a-simple-dictionary" title="Link to this heading">#</a></h2>
 <p>Consider a game featuring aliens that can have different colors and point values. This simple dictionary stores information about a particular alien:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -608,7 +599,7 @@ document.write(`
 </div>
 </section>
 <section id="working-with-dictionaries">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">6.2. </span>WORKING WITH DICTIONARIES</a><a class="headerlink" href="#working-with-dictionaries" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">6.2. </span>WORKING WITH DICTIONARIES</a><a class="headerlink" href="#working-with-dictionaries" title="Link to this heading">#</a></h2>
 <p>A dictionary in Python is a collection of key-value pairs. Each key is connected to a value, and you can use a key to access the value associated with that key. A key’s value can be a number, a string, a list, or even another dictionary. In fact, you can use any object that you can create in Python as a value in a dictionary.</p>
 <p>In Python, a dictionary is wrapped in braces, {}, with a series of key-value pairs inside the braces, as shown in the earlier example:</p>
 <div class="cell docutils container">
@@ -627,7 +618,7 @@ document.write(`
 </div>
 </div>
 <section id="accessing-values-in-a-dictionary">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">6.2.1. </span>Accessing Values in a Dictionary</a><a class="headerlink" href="#accessing-values-in-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">6.2.1. </span>Accessing Values in a Dictionary</a><a class="headerlink" href="#accessing-values-in-a-dictionary" title="Link to this heading">#</a></h3>
 <p>To get the value associated with a key, give the name of the dictionary and then place the key inside a set of square brackets, as shown here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,7 +630,7 @@ document.write(`
 </div>
 </section>
 <section id="adding-new-key-value-pairs">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">6.2.2. </span>Adding New Key-Value Pairs</a><a class="headerlink" href="#adding-new-key-value-pairs" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">6.2.2. </span>Adding New Key-Value Pairs</a><a class="headerlink" href="#adding-new-key-value-pairs" title="Link to this heading">#</a></h3>
 <p>Dictionaries are dynamic structures, and you can add new key-value pairs to a dictionary at any time. For example, to add a new key-value pair, you would give the name of the dictionary followed by the new key in square brackets along with the new value.</p>
 <p>Let’s add two new pieces of information to the alien_0 dictionary: the alien’s x- and y-coordinates, which will help us display the alien in a particular position on the screen. Let’s place the alien on the left edge of the screen, 25 pixels down from the top. Because screen coordinates usually start at the upper-left corner of the screen, we’ll place the alien on the left edge of the screen by setting the x-coordinate to 0 and 25 pixels from the top by setting its y-coordinate to positive 25, as shown here:</p>
 <div class="cell docutils container">
@@ -655,7 +646,7 @@ document.write(`
 </div>
 </section>
 <section id="starting-with-an-empty-dictionary">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">6.2.3. </span>Starting with an Empty Dictionary</a><a class="headerlink" href="#starting-with-an-empty-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">6.2.3. </span>Starting with an Empty Dictionary</a><a class="headerlink" href="#starting-with-an-empty-dictionary" title="Link to this heading">#</a></h3>
 <p>It’s sometimes convenient, or even necessary, to start with an empty dictionary and then add each new item to it. To start filling an empty dictionary, define a dictionary with an empty set of braces and then add each key-value pair on its own line. For example, here’s how to build the alien_0 dictionary using this approach:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -670,7 +661,7 @@ document.write(`
 </div>
 </section>
 <section id="modifying-values-in-a-dictionary">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">6.2.4. </span>Modifying Values in a Dictionary</a><a class="headerlink" href="#modifying-values-in-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">6.2.4. </span>Modifying Values in a Dictionary</a><a class="headerlink" href="#modifying-values-in-a-dictionary" title="Link to this heading">#</a></h3>
 <p>To modify a value in a dictionary, give the name of the dictionary with the key in square brackets and then the new value you want associated with that key. For example, consider an alien that changes from green to yellow as a game progresses:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,7 +700,7 @@ document.write(`
 </div>
 </section>
 <section id="removing-key-value-pairs">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">6.2.5. </span>Removing Key-Value Pairs</a><a class="headerlink" href="#removing-key-value-pairs" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">6.2.5. </span>Removing Key-Value Pairs</a><a class="headerlink" href="#removing-key-value-pairs" title="Link to this heading">#</a></h3>
 <p>When you no longer need a piece of information that’s stored in a dictionary, you can use the del statement to completely remove a key-value pair. All del needs is the name of the dictionary and the key that you want to remove.</p>
 <p>For example, let’s remove the key ‘points’ from the alien_0 dictionary along with its value:</p>
 <div class="cell docutils container">
@@ -725,7 +716,7 @@ document.write(`
 </div>
 </section>
 <section id="a-dictionary-of-similar-objects">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">6.2.6. </span>A Dictionary of Similar Objects</a><a class="headerlink" href="#a-dictionary-of-similar-objects" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">6.2.6. </span>A Dictionary of Similar Objects</a><a class="headerlink" href="#a-dictionary-of-similar-objects" title="Link to this heading">#</a></h3>
 <p>The previous example involved storing different kinds of information about one object, an alien in a game. You can also use a dictionary to store one kind of information about many objects. For example, say you want to poll a number of people and ask them what their favorite programming language is. A dictionary is useful for storing the results of a simple poll, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,7 +725,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -747,7 +738,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="n">language</span> <span class="o">=</span> <span class="n">favorite_languages</span><span class="p">[</span><span class="s1">&#39;sarah&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sarah&#39;s favorite language is </span><span class="si">{</span><span class="n">language</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
@@ -757,7 +748,7 @@ document.write(`
 </div>
 </section>
 <section id="using-get-to-access-values">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">6.2.7. </span>Using get() to Access Values</a><a class="headerlink" href="#using-get-to-access-values" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">6.2.7. </span>Using get() to Access Values</a><a class="headerlink" href="#using-get-to-access-values" title="Link to this heading">#</a></h3>
 <p>Using keys in square brackets to retrieve the value you’re interested in from a dictionary might cause one potential problem: if the key you ask for doesn’t exist, you’ll get an error.</p>
 <p>Let’s see what happens when you ask for the point value of an alien that doesn’t have a point value set:</p>
 <div class="cell docutils container">
@@ -791,10 +782,10 @@ document.write(`
 </section>
 </section>
 <section id="looping-through-a-dictionary">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">6.3. </span>LOOPING THROUGH A DICTIONARY</a><a class="headerlink" href="#looping-through-a-dictionary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">6.3. </span>LOOPING THROUGH A DICTIONARY</a><a class="headerlink" href="#looping-through-a-dictionary" title="Link to this heading">#</a></h2>
 <p>A single Python dictionary can contain just a few key-value pairs or millions of pairs. Because a dictionary can contain large amounts of data, Python lets you loop through a dictionary. Dictionaries can be used to store information in a variety of ways; therefore, several different ways exist to loop through them. You can loop through all of a dictionary’s key-value pairs, through its keys, or through its values.</p>
 <section id="looping-through-all-key-value-pairs">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.3.1. </span>Looping Through All Key-Value Pairs</a><a class="headerlink" href="#looping-through-all-key-value-pairs" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.3.1. </span>Looping Through All Key-Value Pairs</a><a class="headerlink" href="#looping-through-all-key-value-pairs" title="Link to this heading">#</a></h3>
 <p>Before we explore the different approaches to looping, let’s consider a new dictionary designed to store information about a user on a website. The following dictionary would store one person’s username, first name, and last name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -802,7 +793,7 @@ document.write(`
     <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;efermi&#39;</span><span class="p">,</span>
     <span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;enrico&#39;</span><span class="p">,</span>
     <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="s1">&#39;fermi&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -814,7 +805,7 @@ document.write(`
     <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;efermi&#39;</span><span class="p">,</span>
     <span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;enrico&#39;</span><span class="p">,</span>
     <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="s1">&#39;fermi&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">user_0</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -827,7 +818,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">k,</span> <span class="pre">v</span> <span class="pre">in</span> <span class="pre">user_0.items()</span></code></p>
 </section>
 <section id="looping-through-all-the-keys-in-a-dictionary">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.3.2. </span>Looping Through All the Keys in a Dictionary</a><a class="headerlink" href="#looping-through-all-the-keys-in-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.3.2. </span>Looping Through All the Keys in a Dictionary</a><a class="headerlink" href="#looping-through-all-the-keys-in-a-dictionary" title="Link to this heading">#</a></h3>
 <p>The keys() method is useful when you don’t need to work with all of the values in a dictionary. Let’s loop through the favorite_languages dictionary and print the names of everyone who took the poll:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -836,7 +827,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">favorite_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
@@ -857,7 +848,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="n">friends</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phil&#39;</span><span class="p">,</span> <span class="s1">&#39;sarah&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">favorite_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
@@ -878,7 +869,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="k">if</span> <span class="s1">&#39;erin&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">favorite_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erin, please take our poll!&quot;</span><span class="p">)</span>
@@ -888,7 +879,7 @@ document.write(`
 </div>
 </section>
 <section id="looping-through-a-dictionarys-keys-in-a-particular-order">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.3.3. </span>Looping Through a Dictionary’s Keys in a Particular Order</a><a class="headerlink" href="#looping-through-a-dictionarys-keys-in-a-particular-order" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.3.3. </span>Looping Through a Dictionary’s Keys in a Particular Order</a><a class="headerlink" href="#looping-through-a-dictionarys-keys-in-a-particular-order" title="Link to this heading">#</a></h3>
 <p>Starting in Python 3.7, looping through a dictionary returns the items in the same order they were inserted. Sometimes, though, you’ll want to loop through a dictionary in a different order.</p>
 <p>One way to do this is to sort the keys as they’re returned in the for loop. You can use the sorted() function to get a copy of the keys in order:</p>
 <div class="cell docutils container">
@@ -898,7 +889,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">favorite_languages</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">, thank you for taking the poll.&quot;</span><span class="p">)</span>
@@ -908,7 +899,7 @@ document.write(`
 </div>
 </section>
 <section id="looping-through-all-values-in-a-dictionary">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.3.4. </span>Looping Through All Values in a Dictionary</a><a class="headerlink" href="#looping-through-all-values-in-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.3.4. </span>Looping Through All Values in a Dictionary</a><a class="headerlink" href="#looping-through-all-values-in-a-dictionary" title="Link to this heading">#</a></h3>
 <p>If you are primarily interested in the values that a dictionary contains, you can use the values() method to return a list of values without any keys. For example, say we simply want a list of all languages chosen in our programming language poll without the name of the person who chose each language:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -917,7 +908,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following languages have been mentioned:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">favorite_languages</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
@@ -934,7 +925,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="s1">&#39;ruby&#39;</span><span class="p">,</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The following languages have been mentioned:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">favorite_languages</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
@@ -947,10 +938,10 @@ document.write(`
 </section>
 </section>
 <section id="nesting">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">6.4. </span>NESTING</a><a class="headerlink" href="#nesting" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">6.4. </span>NESTING</a><a class="headerlink" href="#nesting" title="Link to this heading">#</a></h2>
 <p>Sometimes you’ll want to store multiple dictionaries in a list, or a list of items as a value in a dictionary. This is called nesting. You can nest dictionaries inside a list, a list of items inside a dictionary, or even a dictionary inside another dictionary. Nesting is a powerful feature, as the following examples will demonstrate.</p>
 <section id="a-list-of-dictionaries">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">6.4.1. </span>A List of Dictionaries</a><a class="headerlink" href="#a-list-of-dictionaries" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">6.4.1. </span>A List of Dictionaries</a><a class="headerlink" href="#a-list-of-dictionaries" title="Link to this heading">#</a></h3>
 <p>The alien_0 dictionary contains a variety of information about one alien, but it has no room to store information about a second alien, much less a screen full of aliens. How can you manage a fleet of aliens? One way is to make a list of aliens in which each alien is a dictionary of information about that alien. For example, the following code builds a list of three aliens:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -990,20 +981,19 @@ document.write(`
 <p>It’s common to store a number of dictionaries in a list when each dictionary contains many kinds of information about one object. For example, you might create a dictionary for each user on a website. All of the dictionaries in the list should have an identical structure so you can loop through the list and work with each dictionary object in the same way.</p>
 </section>
 <section id="a-list-in-a-dictionary">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">6.4.2. </span>A List in a Dictionary</a><a class="headerlink" href="#a-list-in-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">6.4.2. </span>A List in a Dictionary</a><a class="headerlink" href="#a-list-in-a-dictionary" title="Link to this heading">#</a></h3>
 <p>Rather than putting a dictionary inside a list, it’s sometimes useful to put a list inside a dictionary. For example, consider how you might describe a pizza that someone is ordering. If you were to use only a list, all you could really store is a list of the pizza’s toppings. With a dictionary, a list of toppings can be just one aspect of the pizza you’re describing.</p>
 <p>In the following example, two kinds of information are stored for each pizza: a type of crust and a list of toppings. The list of toppings is a value associated with the key ‘toppings’. To use the items in the list, we give the name of the dictionary and the key ‘toppings’, as we would any value in the dictionary. Instead of returning a single value, we get a list of toppings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Store information about a pizza being ordered.</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Store information about a pizza being ordered.</span>
 <span class="n">pizza</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;crust&#39;</span><span class="p">:</span> <span class="s1">&#39;thick&#39;</span><span class="p">,</span>
     <span class="s1">&#39;toppings&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mushrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;extra cheese&#39;</span><span class="p">],</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="c1"># Summarize the order.</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You ordered a </span><span class="si">{</span><span class="n">pizza</span><span class="p">[</span><span class="s1">&#39;crust&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-crust pizza &quot;</span>
-    <span class="s2">&quot;with the following toppings:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;You ordered a </span><span class="si">{</span><span class="n">pizza</span><span class="p">[</span><span class="s1">&#39;crust&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">-crust pizza &quot;</span> <span class="s2">&quot;with the following toppings:&quot;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">pizza</span><span class="p">[</span><span class="s1">&#39;toppings&#39;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">topping</span><span class="p">)</span>
@@ -1019,7 +1009,7 @@ document.write(`
     <span class="s1">&#39;sarah&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>
     <span class="s1">&#39;edward&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ruby&#39;</span><span class="p">,</span> <span class="s1">&#39;go&#39;</span><span class="p">],</span>
     <span class="s1">&#39;phil&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;haskell&#39;</span><span class="p">],</span>
-    <span class="p">}</span>
+<span class="p">}</span>
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">languages</span> <span class="ow">in</span> <span class="n">favorite_languages</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">&#39;s favorite languages are:&quot;</span><span class="p">)</span>
@@ -1031,7 +1021,7 @@ document.write(`
 </div>
 </section>
 <section id="a-dictionary-in-a-dictionary">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">6.4.3. </span>A Dictionary in a Dictionary</a><a class="headerlink" href="#a-dictionary-in-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">6.4.3. </span>A Dictionary in a Dictionary</a><a class="headerlink" href="#a-dictionary-in-a-dictionary" title="Link to this heading">#</a></h3>
 <p>You can nest a dictionary inside another dictionary, but your code can get complicated quickly when you do. For example, if you have several users for a website, each with a unique username, you can use the usernames as the keys in a dictionary. You can then store information about each user by using a dictionary as the value associated with their username. In the following listing, we store three pieces of information about each user: their first name, last name, and location. We’ll access this information by looping through the usernames and the dictionary of information associated with each username:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,15 +1030,13 @@ document.write(`
         <span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;albert&#39;</span><span class="p">,</span>
         <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="s1">&#39;einstein&#39;</span><span class="p">,</span>
         <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;princeton&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-
+    <span class="p">},</span>
     <span class="s1">&#39;mcurie&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="s1">&#39;marie&#39;</span><span class="p">,</span>
         <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="s1">&#39;curie&#39;</span><span class="p">,</span>
         <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;paris&#39;</span><span class="p">,</span>
-        <span class="p">},</span>
-
-    <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">}</span>
 
 <span class="k">for</span> <span class="n">username</span><span class="p">,</span> <span class="n">user_info</span> <span class="ow">in</span> <span class="n">users</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Username: </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1064,7 +1052,7 @@ document.write(`
 </section>
 </section>
 <section id="summary">
-<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">6.5. </span>SUMMARY</a><a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">6.5. </span>SUMMARY</a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>In this chapter you learned how to define a dictionary and how to work with the information stored in a dictionary. You learned how to access and modify individual elements in a dictionary, and how to loop through all of the information in a dictionary. You learned to loop through a dictionary’s key-value pairs, its keys, and its values. You also learned how to nest multiple dictionaries in a list, nest lists in a dictionary, and nest a dictionary inside a dictionary.</p>
 </section>
 </section>
@@ -1125,6 +1113,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1205,8 +1194,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>16. Analyzing Geospatial Data &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/gee/06_data_analysis';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/gee/06_data_analysis.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="17. Exporting Earth Engine Data" href="07_data_export.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/gee/06_data_analysis.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/gee/06_data_analysis.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/gee/06_data_analysis.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/gee/06_data_analysis.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -578,10 +569,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyzing-geospatial-data">
-<h1><span class="section-number">16. </span>Analyzing Geospatial Data<a class="headerlink" href="#analyzing-geospatial-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">16. </span>Analyzing Geospatial Data<a class="headerlink" href="#analyzing-geospatial-data" title="Link to this heading">#</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
@@ -643,10 +634,10 @@ document.write(`
 </ul>
 </nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">16.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">16.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 </section>
 <section id="technical-requirements">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">16.2. </span>Technical requirements</a><a class="headerlink" href="#technical-requirements" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">16.2. </span>Technical requirements</a><a class="headerlink" href="#technical-requirements" title="Link to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gee<span class="w"> </span>python
 conda<span class="w"> </span>activate<span class="w"> </span>gee
 conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>mamba
@@ -680,9 +671,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="earth-engine-data-reductions">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">16.3. </span>Earth Engine data reductions</a><a class="headerlink" href="#earth-engine-data-reductions" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">16.3. </span>Earth Engine data reductions</a><a class="headerlink" href="#earth-engine-data-reductions" title="Link to this heading">#</a></h2>
 <section id="list-reductions">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">16.3.1. </span>List reductions</a><a class="headerlink" href="#list-reductions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">16.3.1. </span>List reductions</a><a class="headerlink" href="#list-reductions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">List</span><span class="o">.</span><span class="n">sequence</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -757,7 +748,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="imagecollection-reductions">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">16.3.2. </span>ImageCollection reductions</a><a class="headerlink" href="#imagecollection-reductions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">16.3.2. </span>ImageCollection reductions</a><a class="headerlink" href="#imagecollection-reductions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -793,7 +784,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="image-reductions">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">16.3.3. </span>Image reductions</a><a class="headerlink" href="#image-reductions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">16.3.3. </span>Image reductions</a><a class="headerlink" href="#image-reductions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -809,7 +800,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="featurecollection-reductions">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">16.3.4. </span>FeatureCollection reductions</a><a class="headerlink" href="#featurecollection-reductions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">16.3.4. </span>FeatureCollection reductions</a><a class="headerlink" href="#featurecollection-reductions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -854,7 +845,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </section>
 </section>
 <section id="image-descriptive-statistics">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">16.4. </span>Image descriptive statistics</a><a class="headerlink" href="#image-descriptive-statistics" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">16.4. </span>Image descriptive statistics</a><a class="headerlink" href="#image-descriptive-statistics" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -902,9 +893,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="zonal-statistics-with-earth-engine">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">16.5. </span>Zonal statistics with Earth Engine</a><a class="headerlink" href="#zonal-statistics-with-earth-engine" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">16.5. </span>Zonal statistics with Earth Engine</a><a class="headerlink" href="#zonal-statistics-with-earth-engine" title="Link to this heading">#</a></h2>
 <section id="zonal-statistics">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">16.5.1. </span>Zonal statistics</a><a class="headerlink" href="#zonal-statistics" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">16.5.1. </span>Zonal statistics</a><a class="headerlink" href="#zonal-statistics" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -959,7 +950,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="zonal-statistics-by-group">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">16.5.2. </span>Zonal statistics by group</a><a class="headerlink" href="#zonal-statistics-by-group" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">16.5.2. </span>Zonal statistics by group</a><a class="headerlink" href="#zonal-statistics-by-group" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1015,7 +1006,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="zonal-statistics-with-two-images">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">16.5.3. </span>Zonal statistics with two images</a><a class="headerlink" href="#zonal-statistics-with-two-images" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">16.5.3. </span>Zonal statistics with two images</a><a class="headerlink" href="#zonal-statistics-with-two-images" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1061,9 +1052,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </section>
 </section>
 <section id="coordinate-grids-and-fishnets">
-<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">16.6. </span>Coordinate grids and fishnets</a><a class="headerlink" href="#coordinate-grids-and-fishnets" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">16.6. </span>Coordinate grids and fishnets</a><a class="headerlink" href="#coordinate-grids-and-fishnets" title="Link to this heading">#</a></h2>
 <section id="creating-coordinate-grids">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">16.6.1. </span>Creating coordinate grids</a><a class="headerlink" href="#creating-coordinate-grids" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">16.6.1. </span>Creating coordinate grids</a><a class="headerlink" href="#creating-coordinate-grids" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lat_grid</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">latitude_grid</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">west</span><span class="o">=-</span><span class="mi">180</span><span class="p">,</span> <span class="n">east</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">south</span><span class="o">=-</span><span class="mi">85</span><span class="p">,</span> <span class="n">north</span><span class="o">=</span><span class="mi">85</span><span class="p">)</span>
@@ -1127,7 +1118,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="creating-fishnets">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">16.6.2. </span>Creating fishnets</a><a class="headerlink" href="#creating-fishnets" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">16.6.2. </span>Creating fishnets</a><a class="headerlink" href="#creating-fishnets" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -1206,9 +1197,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </section>
 </section>
 <section id="extracting-pixel-values">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">16.7. </span>Extracting pixel values</a><a class="headerlink" href="#extracting-pixel-values" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">16.7. </span>Extracting pixel values</a><a class="headerlink" href="#extracting-pixel-values" title="Link to this heading">#</a></h2>
 <section id="extracting-values-to-points">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">16.7.1. </span>Extracting values to points</a><a class="headerlink" href="#extracting-values-to-points" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">16.7.1. </span>Extracting values to points</a><a class="headerlink" href="#extracting-values-to-points" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1280,7 +1271,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="extracting-pixel-values-along-a-transect">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">16.7.2. </span>Extracting pixel values along a transect</a><a class="headerlink" href="#extracting-pixel-values-along-a-transect" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">16.7.2. </span>Extracting pixel values along a transect</a><a class="headerlink" href="#extracting-pixel-values-along-a-transect" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1346,7 +1337,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="interactive-region-reduction">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">16.7.3. </span>Interactive region reduction</a><a class="headerlink" href="#interactive-region-reduction" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">16.7.3. </span>Interactive region reduction</a><a class="headerlink" href="#interactive-region-reduction" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -1407,7 +1398,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </section>
 </section>
 <section id="mapping-available-image-count">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">16.8. </span>Mapping available image count</a><a class="headerlink" href="#mapping-available-image-count" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">16.8. </span>Mapping available image count</a><a class="headerlink" href="#mapping-available-image-count" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s2">&quot;LANDSAT/LC08/C02/T1_L2&quot;</span><span class="p">)</span>
@@ -1435,7 +1426,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="cloud-free-composites">
-<h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">16.9. </span>Cloud-free composites</a><a class="headerlink" href="#cloud-free-composites" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">16.9. </span>Cloud-free composites</a><a class="headerlink" href="#cloud-free-composites" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -1505,7 +1496,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="quality-mosaicking">
-<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">16.10. </span>Quality mosaicking</a><a class="headerlink" href="#quality-mosaicking" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">16.10. </span>Quality mosaicking</a><a class="headerlink" href="#quality-mosaicking" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1631,12 +1622,12 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="interactive-charts">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">16.11. </span>Interactive charts</a><a class="headerlink" href="#interactive-charts" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">16.11. </span>Interactive charts</a><a class="headerlink" href="#interactive-charts" title="Link to this heading">#</a></h2>
 <section id="chart-overview">
-<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">16.11.1. </span>Chart Overview</a><a class="headerlink" href="#chart-overview" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">16.11.1. </span>Chart Overview</a><a class="headerlink" href="#chart-overview" title="Link to this heading">#</a></h3>
 </section>
 <section id="data-table-charts">
-<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">16.11.2. </span>Data table charts</a><a class="headerlink" href="#data-table-charts" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">16.11.2. </span>Data table charts</a><a class="headerlink" href="#data-table-charts" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">examples</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;countries.geojson&#39;</span><span class="p">)</span>
@@ -1709,7 +1700,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="earth-engine-object-charts">
-<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">16.11.3. </span>Earth Engine object charts</a><a class="headerlink" href="#earth-engine-object-charts" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">16.11.3. </span>Earth Engine object charts</a><a class="headerlink" href="#earth-engine-object-charts" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geemap.chart</span> <span class="k">as</span> <span class="nn">chart</span>
@@ -1728,7 +1719,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </div>
 <section id="chart-by-feature">
-<h4><span class="section-number">16.11.3.1. </span>Chart by feature<a class="headerlink" href="#chart-by-feature" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">16.11.3.1. </span>Chart by feature<a class="headerlink" href="#chart-by-feature" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;[0-9][0-9]_tmean|label&#39;</span><span class="p">)</span>
@@ -1802,7 +1793,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="chart-by-property">
-<h4><span class="section-number">16.11.3.2. </span>Chart by property<a class="headerlink" href="#chart-by-property" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">16.11.3.2. </span>Chart by property<a class="headerlink" href="#chart-by-property" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;[0-9][0-9]_ppt|label&#39;</span><span class="p">)</span>
@@ -1858,7 +1849,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="feature-histograms">
-<h4><span class="section-number">16.11.3.3. </span>Feature histograms<a class="headerlink" href="#feature-histograms" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">16.11.3.3. </span>Feature histograms<a class="headerlink" href="#feature-histograms" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">ImageCollection</span><span class="p">(</span><span class="s1">&#39;OREGONSTATE/PRISM/Norm81m&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">toBands</span><span class="p">()</span>
@@ -1913,7 +1904,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </section>
 </section>
 <section id="unsupervised-classification">
-<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">16.12. </span>Unsupervised classification</a><a class="headerlink" href="#unsupervised-classification" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">16.12. </span>Unsupervised classification</a><a class="headerlink" href="#unsupervised-classification" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -2010,16 +2001,13 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
     <span class="s1">&#39;Developed, High Intensity&#39;</span><span class="p">:</span> <span class="s1">&#39;#ab0000&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Developed, Low Intensity&#39;</span><span class="p">:</span> <span class="s1">&#39;#d99282&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Forest&#39;</span><span class="p">:</span> <span class="s1">&#39;#1c5f2c&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;Cropland&#39;</span><span class="p">:</span> <span class="s1">&#39;#ab6c28&#39;</span>
-
+    <span class="s1">&#39;Cropland&#39;</span><span class="p">:</span> <span class="s1">&#39;#ab6c28&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">palette</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">legend_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 
-<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span>
-    <span class="n">result</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">palette</span><span class="p">},</span> <span class="s1">&#39;Labelled clusters&#39;</span>
-<span class="p">)</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Land Cover Type&#39;</span><span class="p">,</span><span class="n">legend_dict</span><span class="o">=</span><span class="n">legend_dict</span> <span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomright&#39;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="n">palette</span><span class="p">},</span> <span class="s1">&#39;Labelled clusters&#39;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Land Cover Type&#39;</span><span class="p">,</span> <span class="n">legend_dict</span><span class="o">=</span><span class="n">legend_dict</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomright&#39;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -2034,7 +2022,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="supervised-classification">
-<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">16.13. </span>Supervised classification</a><a class="headerlink" href="#supervised-classification" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">16.13. </span>Supervised classification</a><a class="headerlink" href="#supervised-classification" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -2135,11 +2123,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-
     <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">features</span><span class="p">,</span>
     <span class="s1">&#39;classProperty&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
     <span class="s1">&#39;inputProperties&#39;</span><span class="p">:</span> <span class="n">bands</span><span class="p">,</span>
-
 <span class="p">}</span>
 <span class="n">classifier</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Classifier</span><span class="o">.</span><span class="n">smileCart</span><span class="p">(</span><span class="n">maxNodes</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
@@ -2166,10 +2152,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">class_values</span> <span class="o">=</span> <span class="n">nlcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;landcover_class_values&#39;</span><span class="p">)</span>
 <span class="n">class_palette</span> <span class="o">=</span> <span class="n">nlcd</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;landcover_class_palette&#39;</span><span class="p">)</span>
-<span class="n">classified</span> <span class="o">=</span> <span class="n">classified</span><span class="o">.</span><span class="n">set</span><span class="p">({</span>
-    <span class="s1">&#39;landcover_class_values&#39;</span><span class="p">:</span> <span class="n">class_values</span><span class="p">,</span>
-    <span class="s1">&#39;landcover_class_palette&#39;</span><span class="p">:</span> <span class="n">class_palette</span>
-<span class="p">})</span>
+<span class="n">classified</span> <span class="o">=</span> <span class="n">classified</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">&#39;landcover_class_values&#39;</span><span class="p">:</span> <span class="n">class_values</span><span class="p">,</span> <span class="s1">&#39;landcover_class_palette&#39;</span><span class="p">:</span> <span class="n">class_palette</span><span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2186,18 +2171,15 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">download_ee_image</span><span class="p">(</span>
-    <span class="n">landcover</span><span class="p">,</span>
-    <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;supervised.tif&#39;</span><span class="p">,</span>
-    <span class="n">region</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
-    <span class="n">scale</span><span class="o">=</span><span class="mi">30</span>
-    <span class="p">)</span>
+    <span class="n">landcover</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;supervised.tif&#39;</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="n">image</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span> <span class="n">scale</span><span class="o">=</span><span class="mi">30</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="accuracy-assessment">
-<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">16.14. </span>Accuracy assessment</a><a class="headerlink" href="#accuracy-assessment" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">16.14. </span>Accuracy assessment</a><a class="headerlink" href="#accuracy-assessment" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
@@ -2212,7 +2194,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
     <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;B.*&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">3500</span><span class="p">,</span> <span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B11&#39;</span><span class="p">,</span>  <span class="s1">&#39;B8&#39;</span><span class="p">,</span>  <span class="s1">&#39;B3&#39;</span><span class="p">]}</span>
+<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">3500</span><span class="p">,</span> <span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B11&#39;</span><span class="p">,</span> <span class="s1">&#39;B8&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">]}</span>
 
 <span class="n">Map</span><span class="o">.</span><span class="n">centerObject</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="s2">&quot;Sentinel-2&quot;</span><span class="p">)</span>
@@ -2234,13 +2216,15 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span><span class="o">.</span><span class="n">stratifiedSample</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
-  <span class="s1">&#39;numPoints&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
-  <span class="s1">&#39;classBand&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
-  <span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
-  <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;geometries&#39;</span><span class="p">:</span> <span class="kc">True</span>
-<span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">addBands</span><span class="p">(</span><span class="n">lc</span><span class="p">)</span><span class="o">.</span><span class="n">stratifiedSample</span><span class="p">(</span>
+    <span class="o">**</span><span class="p">{</span>
+        <span class="s1">&#39;numPoints&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s1">&#39;classBand&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+        <span class="s1">&#39;region&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">geometry</span><span class="p">(),</span>
+        <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s1">&#39;geometries&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2256,11 +2240,13 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainedClassifier</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Classifier</span><span class="o">.</span><span class="n">smileRandomForest</span><span class="p">(</span><span class="n">numberOfTrees</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="p">{</span>
-  <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">trainingSample</span><span class="p">,</span>
-  <span class="s1">&#39;classProperty&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
-  <span class="s1">&#39;inputProperties&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">()</span>
-<span class="p">})</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainedClassifier</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">Classifier</span><span class="o">.</span><span class="n">smileRandomForest</span><span class="p">(</span><span class="n">numberOfTrees</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+    <span class="o">**</span><span class="p">{</span>
+        <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">trainingSample</span><span class="p">,</span>
+        <span class="s1">&#39;classProperty&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span>
+        <span class="s1">&#39;inputProperties&#39;</span><span class="p">:</span> <span class="n">img</span><span class="o">.</span><span class="n">bandNames</span><span class="p">(),</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2349,10 +2335,21 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classVis</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-  <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;006400&#39;</span> <span class="p">,</span><span class="s1">&#39;ffbb22&#39;</span><span class="p">,</span> <span class="s1">&#39;ffff4c&#39;</span><span class="p">,</span> <span class="s1">&#39;f096ff&#39;</span><span class="p">,</span> <span class="s1">&#39;fa0000&#39;</span><span class="p">,</span> <span class="s1">&#39;b4b4b4&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;f0f0f0&#39;</span><span class="p">,</span> <span class="s1">&#39;0064c8&#39;</span><span class="p">,</span> <span class="s1">&#39;0096a0&#39;</span><span class="p">,</span> <span class="s1">&#39;00cf75&#39;</span><span class="p">,</span> <span class="s1">&#39;fae6a0&#39;</span><span class="p">]</span>
+    <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;006400&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ffbb22&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;ffff4c&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;f096ff&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fa0000&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;b4b4b4&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;f0f0f0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;0064c8&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;0096a0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;00cf75&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fae6a0&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
 <span class="p">}</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">lc</span><span class="p">,</span> <span class="n">classVis</span><span class="p">,</span> <span class="s1">&#39;ESA Land Cover&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">imgClassified</span><span class="p">,</span> <span class="n">classVis</span><span class="p">,</span> <span class="s1">&#39;Classified&#39;</span><span class="p">)</span>
@@ -2367,7 +2364,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="using-locally-trained-machine-learning-models">
-<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">16.15. </span>Using locally trained machine learning models</a><a class="headerlink" href="#using-locally-trained-machine-learning-models" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">16.15. </span>Using locally trained machine learning models</a><a class="headerlink" href="#using-locally-trained-machine-learning-models" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -2378,7 +2375,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </div>
 <section id="train-a-model-locally-using-scikit-learn">
-<h3><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">16.15.1. </span>Train a model locally using scikit-learn</a><a class="headerlink" href="#train-a-model-locally-using-scikit-learn" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">16.15.1. </span>Train a model locally using scikit-learn</a><a class="headerlink" href="#train-a-model-locally-using-scikit-learn" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/gee-community/geemap/master/examples/data/rf_example.csv&quot;</span>
@@ -2408,7 +2405,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="convert-a-sklearn-classifier-object-to-a-list-of-strings">
-<h3><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">16.15.2. </span>Convert a sklearn classifier object to a list of strings</a><a class="headerlink" href="#convert-a-sklearn-classifier-object-to-a-list-of-strings" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">16.15.2. </span>Convert a sklearn classifier object to a list of strings</a><a class="headerlink" href="#convert-a-sklearn-classifier-object-to-a-list-of-strings" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trees</span> <span class="o">=</span> <span class="n">ml</span><span class="o">.</span><span class="n">rf_to_strings</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">feature_names</span><span class="p">)</span>
@@ -2432,7 +2429,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="convert-sklearn-classifier-to-gee-classifier">
-<h3><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">16.15.3. </span>Convert sklearn classifier to GEE classifier</a><a class="headerlink" href="#convert-sklearn-classifier-to-gee-classifier" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">16.15.3. </span>Convert sklearn classifier to GEE classifier</a><a class="headerlink" href="#convert-sklearn-classifier-to-gee-classifier" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ee_classifier</span> <span class="o">=</span> <span class="n">ml</span><span class="o">.</span><span class="n">strings_to_classifier</span><span class="p">(</span><span class="n">trees</span><span class="p">)</span>
@@ -2443,7 +2440,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="classify-image-using-gee-classifier">
-<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">16.15.4. </span>Classify image using GEE classifier</a><a class="headerlink" href="#classify-image-using-gee-classifier" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">16.15.4. </span>Classify image using GEE classifier</a><a class="headerlink" href="#classify-image-using-gee-classifier" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a cloud-free Landsat 8 TOA composite (from raw imagery).</span>
@@ -2484,7 +2481,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="save-trees-to-the-cloud">
-<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">16.15.5. </span>Save trees to the cloud</a><a class="headerlink" href="#save-trees-to-the-cloud" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">16.15.5. </span>Save trees to the cloud</a><a class="headerlink" href="#save-trees-to-the-cloud" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_id</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_user_id</span><span class="p">()</span>
@@ -2512,7 +2509,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="save-trees-locally">
-<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">16.15.6. </span>Save trees locally</a><a class="headerlink" href="#save-trees-locally" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">16.15.6. </span>Save trees locally</a><a class="headerlink" href="#save-trees-locally" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">out_csv</span> <span class="o">=</span> <span class="s2">&quot;trees.csv&quot;</span>
@@ -2526,7 +2523,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </section>
 </section>
 <section id="sankey-diagrams">
-<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">16.16. </span>Sankey diagrams</a><a class="headerlink" href="#sankey-diagrams" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">16.16. </span>Sankey diagrams</a><a class="headerlink" href="#sankey-diagrams" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sankee</span>
@@ -2551,7 +2548,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 </section>
 <section id="summary">
-<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">16.17. </span>Summary</a><a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">16.17. </span>Summary</a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -2611,6 +2608,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -2721,8 +2719,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

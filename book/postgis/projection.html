@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>41. Projecting Data &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/postgis/projection';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/postgis/projection.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="42. Using GeoPandas" href="geopandas.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/postgis/projection.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/postgis/projection.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/postgis/projection.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/postgis/projection.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -528,10 +519,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="projecting-data">
-<h1><span class="section-number">41. </span>Projecting Data<a class="headerlink" href="#projecting-data" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">41. </span>Projecting Data<a class="headerlink" href="#projecting-data" title="Link to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -548,24 +539,24 @@ document.write(`
 <li><p><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/sql-and-enterprise-geodatabases.htm">Using SQL with Geodatabases</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">41.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">41.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
 <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;nyc&quot;</span>
 <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_USER&#39;</span><span class="p">)</span>
 <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_PASSWORD&#39;</span><span class="p">)</span>
@@ -575,30 +566,139 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">connection_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connection_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%sql $connection_string
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> $connection_string
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">nyc_subway_stations</span> <span class="n">LIMIT</span> <span class="mi">5</span>
+SELECT * from nyc_subway_stations LIMIT 5
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+5 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>id</th>
+        <th>geom</th>
+        <th>objectid</th>
+        <th>name</th>
+        <th>alt_name</th>
+        <th>cross_st</th>
+        <th>long_name</th>
+        <th>label</th>
+        <th>borough</th>
+        <th>nghbhd</th>
+        <th>routes</th>
+        <th>transfers</th>
+        <th>color</th>
+        <th>express</th>
+        <th>closed</th>
+    </tr>
+    <tr>
+        <td>376</td>
+        <td>010100002026690000371775B5C3CE2141CBD2347771315141</td>
+        <td>1</td>
+        <td>Cortlandt St</td>
+        <td>None</td>
+        <td>Church St</td>
+        <td>Cortlandt St (R,W) Manhattan</td>
+        <td>Cortlandt St (R,W)</td>
+        <td>Manhattan</td>
+        <td>None</td>
+        <td>R,W</td>
+        <td>R,W</td>
+        <td>YELLOW</td>
+        <td>None</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>010100002026690000CBE327F938CD21415EDBE1572D315141</td>
+        <td>2</td>
+        <td>Rector St</td>
+        <td>None</td>
+        <td>None</td>
+        <td>Rector St (1) Manhattan</td>
+        <td>Rector St (1)</td>
+        <td>Manhattan</td>
+        <td>None</td>
+        <td>1</td>
+        <td>1</td>
+        <td>RED</td>
+        <td>None</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>010100002026690000C676635D10CD2141A0ECDB6975305141</td>
+        <td>3</td>
+        <td>South Ferry</td>
+        <td>None</td>
+        <td>None</td>
+        <td>South Ferry (1) Manhattan</td>
+        <td>South Ferry (1)</td>
+        <td>Manhattan</td>
+        <td>None</td>
+        <td>1</td>
+        <td>1</td>
+        <td>RED</td>
+        <td>None</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>125</td>
+        <td>010100002026690000F4CF3E3654032241B5704681A73C5141</td>
+        <td>4</td>
+        <td>138th St</td>
+        <td>Grand Concourse</td>
+        <td>Grand Concourse</td>
+        <td>138th St / Grand Concourse (4,5) Bronx</td>
+        <td>138th St / Grand Concourse (4,5)</td>
+        <td>Bronx</td>
+        <td>None</td>
+        <td>4,5</td>
+        <td>4,5</td>
+        <td>GREEN</td>
+        <td>None</td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td>126</td>
+        <td>01010000202669000084DADF7AED0422410C380E6E3A3D5141</td>
+        <td>5</td>
+        <td>149th St</td>
+        <td>Grand Concourse</td>
+        <td>Grand Concourse</td>
+        <td>149th St / Grand Concourse (4) Bronx</td>
+        <td>149th St / Grand Concourse (4)</td>
+        <td>Bronx</td>
+        <td>None</td>
+        <td>4</td>
+        <td>2,4,5</td>
+        <td>GREEN</td>
+        <td>express</td>
+        <td>None</td>
+    </tr>
+</table></div></div>
 </div>
 </section>
 <section id="checking-srid">
-<h2><span class="section-number">41.2. </span>Checking SRID<a class="headerlink" href="#checking-srid" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">41.2. </span>Checking SRID<a class="headerlink" href="#checking-srid" title="Link to this heading">#</a></h2>
 <p>The earth is not flat, and there is no simple way of putting it down on
 a flat paper map (or computer screen), so people have come up with all
 sorts of ingenious solutions, each with pros and cons. Some projections
@@ -620,12 +720,25 @@ PostGIS provides the <code class="docutils literal notranslate"><span class="pre
 <p>We can confirm the SRID of our data with the <code class="docutils literal notranslate"><span class="pre">ST_SRID</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">ST_SRID</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">nyc_streets</span> <span class="n">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+SELECT ST_SRID(geom) FROM nyc_streets LIMIT 1;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>st_srid</th>
+    </tr>
+    <tr>
+        <td>26918</td>
+    </tr>
+</table></div></div>
 </div>
 <p>And what is definition of “26918”? As we saw in
 <a class="reference external" href="https://postgis.gishub.org/chapters/postgis_intro.html">loading data section</a>,
@@ -636,24 +749,58 @@ column, and there is a second definition in “proj.4” format in the
 <code class="docutils literal notranslate"><span class="pre">proj4text</span></code> column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">spatial_ref_sys</span> <span class="n">WHERE</span> <span class="n">srid</span> <span class="o">=</span> <span class="mi">26918</span>
+SELECT * FROM spatial_ref_sys WHERE srid = 26918
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>srid</th>
+        <th>auth_name</th>
+        <th>auth_srid</th>
+        <th>srtext</th>
+        <th>proj4text</th>
+    </tr>
+    <tr>
+        <td>26918</td>
+        <td>EPSG</td>
+        <td>26918</td>
+        <td>PROJCS[&quot;NAD83 / UTM zone 18N&quot;,GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-75],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;26918&quot;]]</td>
+        <td>+proj=utm +zone=18 +datum=NAD83 +units=m +no_defs </td>
+    </tr>
+</table></div></div>
 </div>
 <p>In fact, for the internal PostGIS re-projection calculations, it is the
 contents of the <code class="docutils literal notranslate"><span class="pre">proj4text</span></code> column that are used. For our 26918
 projection, here is the proj.4 text:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">proj4text</span> <span class="n">FROM</span> <span class="n">spatial_ref_sys</span> <span class="n">WHERE</span> <span class="n">srid</span> <span class="o">=</span> <span class="mi">26918</span>
+SELECT proj4text FROM spatial_ref_sys WHERE srid = 26918
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>proj4text</th>
+    </tr>
+    <tr>
+        <td>+proj=utm +zone=18 +datum=NAD83 +units=m +no_defs </td>
+    </tr>
+</table></div></div>
 </div>
 <p>In practice, both the <code class="docutils literal notranslate"><span class="pre">srtext</span></code> and the <code class="docutils literal notranslate"><span class="pre">proj4text</span></code> columns are
 important: the <code class="docutils literal notranslate"><span class="pre">srtext</span></code> column is used by external programs like
@@ -662,7 +809,7 @@ important: the <code class="docutils literal notranslate"><span class="pre">srte
 internally.</p>
 </section>
 <section id="comparing-data">
-<h2><span class="section-number">41.3. </span>Comparing Data<a class="headerlink" href="#comparing-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">41.3. </span>Comparing Data<a class="headerlink" href="#comparing-data" title="Link to this heading">#</a></h2>
 <p>Taken together, a coordinate and an SRID define a location on the globe.
 Without an SRID, a coordinate is just an abstract notion. A
 “Cartesian” coordinate plane is defined as a “flat” coordinate
@@ -673,7 +820,7 @@ represented in the same SRID.</p>
 error:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%sql</span>
 
 <span class="c1"># SELECT ST_Equals(</span>
 <span class="c1">#          ST_GeomFromText(&#39;POINT(0 0)&#39;, 4326),</span>
@@ -692,7 +839,7 @@ the tables in your database. Only use the transformation function when
 you are reading or writing data to external applications.</p>
 </section>
 <section id="transforming-data">
-<h2><span class="section-number">41.4. </span>Transforming Data<a class="headerlink" href="#transforming-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">41.4. </span>Transforming Data<a class="headerlink" href="#transforming-data" title="Link to this heading">#</a></h2>
 <p>If we return to our proj4 definition for SRID 26918, we can see that our
 working projection is UTM (Universal Transverse Mercator) of zone 18,
 with meters as the unit of measurement.</p>
@@ -714,36 +861,75 @@ the definition at the <a class="reference external" href="http://spatialreferenc
 <p>You can also pull the definitions from the <code class="docutils literal notranslate"><span class="pre">spatial_ref_sys</span></code> table:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">srtext</span> <span class="n">FROM</span> <span class="n">spatial_ref_sys</span> <span class="n">WHERE</span> <span class="n">srid</span> <span class="o">=</span> <span class="mi">4326</span><span class="p">;</span>
+SELECT srtext FROM spatial_ref_sys WHERE srid = 4326;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>srtext</th>
+    </tr>
+    <tr>
+        <td>GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</td>
+    </tr>
+</table></div></div>
 </div>
 <p>Let’s convert the coordinates of the ‘Broad St’ subway station into
 geographics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">ST_AsText</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-<span class="n">FROM</span> <span class="n">nyc_subway_stations</span> 
-<span class="n">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Broad St&#39;</span><span class="p">;</span>
+SELECT ST_AsText(geom)
+FROM nyc_subway_stations 
+WHERE name = &#39;Broad St&#39;;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>st_astext</th>
+    </tr>
+    <tr>
+        <td>POINT(583571.905921312 4506714.34119218)</td>
+    </tr>
+</table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">ST_AsText</span><span class="p">(</span><span class="n">ST_Transform</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span><span class="mi">4326</span><span class="p">))</span> 
-<span class="n">FROM</span> <span class="n">nyc_subway_stations</span> 
-<span class="n">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Broad St&#39;</span><span class="p">;</span>
+SELECT ST_AsText(ST_Transform(geom,4326)) 
+FROM nyc_subway_stations 
+WHERE name = &#39;Broad St&#39;;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+1 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>st_astext</th>
+    </tr>
+    <tr>
+        <td>POINT(-74.0106714688734 40.7071048155876)</td>
+    </tr>
+</table></div></div>
 </div>
 <p>If you load data or create a new geometry without specifying an SRID,
 the SRID value will be 0. Recall in <code class="docutils literal notranslate"><span class="pre">geometries</span></code>, that when we created our <code class="docutils literal notranslate"><span class="pre">geometries</span></code> table we didn’t
@@ -754,34 +940,94 @@ defaulted to an SRID of 0.</p>
 <code class="docutils literal notranslate"><span class="pre">geometry_columns</span></code> table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">f_table_name</span> <span class="n">AS</span> <span class="n">name</span><span class="p">,</span> <span class="n">srid</span> 
-<span class="n">FROM</span> <span class="n">geometry_columns</span><span class="p">;</span>
+SELECT f_table_name AS name, srid 
+FROM geometry_columns;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+6 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>name</th>
+        <th>srid</th>
+    </tr>
+    <tr>
+        <td>nyc_homicides</td>
+        <td>26918</td>
+    </tr>
+    <tr>
+        <td>nyc_census_blocks</td>
+        <td>26918</td>
+    </tr>
+    <tr>
+        <td>nyc_neighborhoods</td>
+        <td>26918</td>
+    </tr>
+    <tr>
+        <td>nyc_streets</td>
+        <td>26918</td>
+    </tr>
+    <tr>
+        <td>nyc_subway_stations</td>
+        <td>26918</td>
+    </tr>
+    <tr>
+        <td>geometries</td>
+        <td>0</td>
+    </tr>
+</table></div></div>
 </div>
 <p>However, if you know what the SRID of the coordinates is supposed to be,
 you can set it post-facto, using <code class="docutils literal notranslate"><span class="pre">ST_SetSRID</span></code> on the geometry. Then you will be able to transform the
 geometry into other systems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">ST_AsText</span><span class="p">(</span>
- <span class="n">ST_Transform</span><span class="p">(</span>
-   <span class="n">ST_SetSRID</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span><span class="mi">26918</span><span class="p">),</span>
- <span class="mi">4326</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">FROM</span> <span class="n">geometries</span><span class="p">;</span>
+SELECT ST_AsText(
+ ST_Transform(
+   ST_SetSRID(geom,26918),
+ 4326)
+)
+FROM geometries;
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
+5 rows affected.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <tr>
+        <th>st_astext</th>
+    </tr>
+    <tr>
+        <td>POINT(-79.488743884387 0)</td>
+    </tr>
+    <tr>
+        <td>LINESTRING(-79.488743884387 0,-79.4887349253904 0.000009019375921,-79.4887259663935 0.000009019376033,-79.4887259663937 0.000018038752065)</td>
+    </tr>
+    <tr>
+        <td>POLYGON((-79.488743884387 0,-79.4887349253903 0,-79.4887349253904 0.000009019375921,-79.4887438843871 0.00000901937581,-79.488743884387 0))</td>
+    </tr>
+    <tr>
+        <td>POLYGON((-79.488743884387 0,-79.4886542944147 0,-79.4886542944202 0.000090193769243,-79.4887438843926 0.000090193758097,-79.488743884387 0),(-79.4887349253904 0.000009019375921,-79.4887349253905 0.000018038751842,-79.4887259663937 0.000018038752065,-79.4887259663935 0.000009019376033,-79.4887349253904 0.000009019375921))</td>
+    </tr>
+    <tr>
+        <td>GEOMETRYCOLLECTION(POINT(-79.4887259663935 0),POLYGON((-79.488743884387 0,-79.4887349253903 0,-79.4887349253904 0.000009019375921,-79.4887438843871 0.00000901937581,-79.488743884387 0)))</td>
+    </tr>
+</table></div></div>
 </div>
 </section>
 <section id="function-list">
-<h2><span class="section-number">41.5. </span>Function List<a class="headerlink" href="#function-list" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">41.5. </span>Function List<a class="headerlink" href="#function-list" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://postgis.net/docs/ST_AsText.html">ST_AsText</a>: Returns the
 Well-Known Text (WKT) representation of the geometry/geography without
 SRID metadata.</p>
@@ -854,6 +1100,7 @@ integer parameter.</p>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -913,8 +1160,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

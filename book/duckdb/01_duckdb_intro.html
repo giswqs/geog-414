@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>22. Introduction &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/duckdb/01_duckdb_intro';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/duckdb/01_duckdb_intro.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="23. SQL Basics" href="02_sql_basics.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -282,6 +290,55 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/duckdb/01_duckdb_intro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/duckdb/01_duckdb_intro.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -307,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/duckdb/01_duckdb_intro.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/duckdb/01_duckdb_intro.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +411,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/book/duckdb/01_duckdb_intro.md" target="_blank"
+      <li><a href="../../_sources/book/duckdb/01_duckdb_intro.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -364,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -469,12 +526,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1><span class="section-number">22. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <section id="spatial-databases">
-<h2><span class="section-number">22.1. </span>Spatial databases<a class="headerlink" href="#spatial-databases" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Spatial databases<a class="headerlink" href="#spatial-databases" title="Link to this heading">#</a></h2>
 <p>A database management system (DBMS) allows users to store, insert, delete, and update information in a database. Spatial databases go a step further because they record data with geographic coordinates.</p>
 <p>From Esri Geodatabase to PostGIS, spatial databases have quickly become the primary method of managing spatial data.</p>
 <p>To learn more about spatial databases, check out the resources below:</p>
@@ -488,7 +545,7 @@ document.write(`
 </ul>
 </section>
 <section id="duckdb">
-<h2><span class="section-number">22.2. </span>DuckDB<a class="headerlink" href="#duckdb" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>DuckDB<a class="headerlink" href="#duckdb" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://duckdb.org">DuckDB</a> is an in-process SQL OLAP database management system. It is designed to be used as an embedded database in applications, but it can also be used as a standalone SQL database.</p>
 <ul class="simple">
 <li><p><em>In-process SQL</em> means that DuckDB’s features run in your application, not an external process to which your application connects. In other words: there is no client sending instructions nor a server to read and process them. SQLite works the same way, while PostgreSQL, MySQL…, do not.</p></li>
@@ -500,9 +557,9 @@ document.write(`
 <p>To me, DuckDB feels like the <a class="reference external" href="https://tenor.com/view/breeze-nicolas-cage-con-air-smile-gif-14443307">fresh air</a> in the database space. It is a modern database that is built from the ground up to be fast, lightweight, and easy to use. It is also open source and free to use. It has a <a class="reference external" href="https://duckdb.org/docs/extensions/spatial.html">spatial extension</a> that allows you to perform spatial queries and analysis.</p>
 </section>
 <section id="installation">
-<h2><span class="section-number">22.3. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
 <section id="command-line">
-<h3><span class="section-number">22.3.1. </span>Command line<a class="headerlink" href="#command-line" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.1. </span>Command line<a class="headerlink" href="#command-line" title="Link to this heading">#</a></h3>
 <p>Go to <a class="reference external" href="https://duckdb.org/#quickinstall">https://duckdb.org/#quickinstall</a> and click the link under the <strong>Command Line</strong> section that corresponds to your operating system. Save the file to your computer and unzip it. You should now have a <code class="docutils literal notranslate"><span class="pre">duckdb</span></code> executable file. It is recommended that you move this file to a directory that is in your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable.</p>
 <p>For Windows users, it is recommended that you move the <code class="docutils literal notranslate"><span class="pre">duckdb</span></code> executable file to the <code class="docutils literal notranslate"><span class="pre">C:\Windows</span></code> directory. If you do not have permission to move the file to this directory, you can create a new directory under your user directory and add it to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable by following the instructions below:</p>
 <ol class="arabic simple">
@@ -515,7 +572,7 @@ document.write(`
 </ol>
 </section>
 <section id="python">
-<h3><span class="section-number">22.3.2. </span>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.3.2. </span>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
 <p>To install the required Python package for this course, it is recommended that you create a new conda environment and install the package using the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>geo<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
 conda<span class="w"> </span>activate<span class="w"> </span>geo
@@ -526,7 +583,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <p>You can also install the packages using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%pip install duckdb duckdb-engine jupysql leafmap
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">duckdb</span> <span class="n">duckdb</span><span class="o">-</span><span class="n">engine</span> <span class="n">jupysql</span> <span class="n">leafmap</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +597,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
 </section>
 </section>
 <section id="setting-up-vs-code">
-<h2><span class="section-number">22.4. </span>Setting up VS Code<a class="headerlink" href="#setting-up-vs-code" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>Setting up VS Code<a class="headerlink" href="#setting-up-vs-code" title="Link to this heading">#</a></h2>
 <p>To make it easier to run DuckDB commands and SQL queries, it is recommended that you create a keyboard shortcut to run selected text in VS Code. To do this, open VS Code and press <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+P</span></code> to open the Command Palette. Then, search for “Preferences: Open Keyboard Shortcuts (JSON)” and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>. This will open the <code class="docutils literal notranslate"><span class="pre">keybindings.json</span></code> file. Add the following keyboard binding within the square brackets:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift+ctrl+enter&quot;</span><span class="p">,</span>
@@ -560,13 +617,13 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
 <p><img alt="" src="https://i.imgur.com/5mGW8hj.png" /></p>
 <p>To stop the DuckDB process, press <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> in the terminal. To exit the terminal, press <code class="docutils literal notranslate"><span class="pre">Ctrl+D</span></code>.</p>
 <section id="dbeaver-sql-ide">
-<h3><span class="section-number">22.4.1. </span>DBeaver SQL IDE<a class="headerlink" href="#dbeaver-sql-ide" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">22.4.1. </span>DBeaver SQL IDE<a class="headerlink" href="#dbeaver-sql-ide" title="Link to this heading">#</a></h3>
 <p><a class="reference external" href="https://dbeaver.io">DBeaver</a> is a powerful and popular desktop sql editor and integrated development environment (IDE). It has both an open source and enterprise version. It is useful for visually inspecting the available tables in DuckDB and for quickly building complex queries. To install DBeaver, go to <a class="reference external" href="https://dbeaver.io/download">https://dbeaver.io/download</a> and download the Community Edition for your operating system. Once installed, follow the instructions <a class="reference external" href="https://duckdb.org/docs/guides/sql_editors/dbeaver.html">here</a> to connect to DuckDB. You can then run SQL queries in DBeaver and view the results in a table format.</p>
 <p><img alt="" src="https://i.imgur.com/59clo36.png" /></p>
 </section>
 </section>
 <section id="references">
-<h2><span class="section-number">22.5. </span>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">22.5. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://towardsdatascience.com/forget-about-sqlite-use-duckdb-instead-and-thank-me-later-df76ee9bb777">Forget about SQLite, Use DuckDB Instead — And Thank Me Later</a></p></li>
 <li><p><a class="reference external" href="https://medium.com/radiant-earth-insights/duckdb-the-indispensable-geospatial-tool-you-didnt-know-you-were-missing-5fe11c5633e5">DuckDB: The indispensable geospatial tool you didn’t know you were missing</a></p></li>
@@ -632,6 +689,7 @@ python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;i
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -699,8 +757,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

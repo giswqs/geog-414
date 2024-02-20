@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. Working with Lists &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/04_working_with_lists';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/python/04_working_with_lists.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="5. Conditional Statements" href="05_if_statements.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/04_working_with_lists.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/04_working_with_lists.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/python/04_working_with_lists.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/python/04_working_with_lists.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -555,10 +546,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="working-with-lists">
-<h1><span class="section-number">4. </span>Working with Lists<a class="headerlink" href="#working-with-lists" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>Working with Lists<a class="headerlink" href="#working-with-lists" title="Link to this heading">#</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#looping-through-an-entire-list" id="id2">Looping Through an Entire List</a></p>
@@ -602,15 +593,15 @@ document.write(`
 </nav>
 <p>In this lecture you’ll learn how to loop through an entire list using just a few lines of code regardless of how long the list is. Looping allows you to take the same action, or set of actions, with every item in a list. As a result, you’ll be able to work efficiently with lists of any length, including those with thousands or even millions of items.</p>
 <ul class="simple">
-<li><p><span class="xref myst">Looping Through an Entire List</span></p></li>
-<li><p><span class="xref myst">Avoiding Indentation Errors</span></p></li>
-<li><p><span class="xref myst">Making Numerical Lists</span></p></li>
-<li><p><span class="xref myst">Working with Part of a List</span></p></li>
-<li><p><span class="xref myst">Tuples</span></p></li>
-<li><p><span class="xref myst">Styling Your Code</span></p></li>
+<li><p><a class="reference internal" href="#what-is-a-list"><span class="xref myst">Looping Through an Entire List</span></a></p></li>
+<li><p><a class="reference internal" href="#changing-elements"><span class="xref myst">Avoiding Indentation Errors</span></a></p></li>
+<li><p><a class="reference internal" href="#organizing-a-list"><span class="xref myst">Making Numerical Lists</span></a></p></li>
+<li><p><a class="reference internal" href="#avoiding-index-errors"><span class="xref myst">Working with Part of a List</span></a></p></li>
+<li><p><a class="reference internal" href="#organizing-a-list"><span class="xref myst">Tuples</span></a></p></li>
+<li><p><a class="reference internal" href="#avoiding-index-errors"><span class="xref myst">Styling Your Code</span></a></p></li>
 </ul>
 <section id="looping-through-an-entire-list">
-<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">4.1. </span>Looping Through an Entire List</a><a class="headerlink" href="#looping-through-an-entire-list" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">4.1. </span>Looping Through an Entire List</a><a class="headerlink" href="#looping-through-an-entire-list" title="Link to this heading">#</a></h2>
 <p>You’ll often want to run through all entries in a list, performing the same task with each item. For example, in a game you might want to move every element on the screen by the same amount, or in a list of numbers you might want to perform the same statistical operation on every element. Or perhaps you’ll want to display each headline from a list of articles on a website. When you want to do the same action with every item in a list, you can use Python’s for loop.
 Let’s say we have a list of magicians’ names, and we want to print out each name in the list. We could do this by retrieving each name from the list individually, but this approach could cause several problems. For one, it would be repetitive to do this with a long list of names. Also, we’d have to change our code each time the list’s length changed. A for loop avoids both of these issues by letting Python manage these issues internally. Let’s use a for loop to print out each name in a list of magicians:</p>
 <div class="cell docutils container">
@@ -625,7 +616,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 <p>When you’re using loops for the first time, keep in mind that the set of steps is repeated once for each item in the list, no matter how many items are in the list. If you have a million items in your list, Python repeats these steps a million times—and usually very quickly. Also keep in mind when writing your own for loops that you can choose any name you want for the temporary variable that will be associated with each value in the list. However, it’s helpful to choose a meaningful name that represents a single item from the list.</p>
 <p>These naming conventions can help you follow the action being done on each item within a for loop. Using singular and plural names can help you identify whether a section of code is working with a single element from the list or the entire list.</p>
 <section id="doing-more-work-within-a-for-loop">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">4.1.1. </span>Doing More Work Within a for Loop</a><a class="headerlink" href="#doing-more-work-within-a-for-loop" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">4.1.1. </span>Doing More Work Within a for Loop</a><a class="headerlink" href="#doing-more-work-within-a-for-loop" title="Link to this heading">#</a></h3>
 <p>You can do just about anything with each item in a for loop. Let’s build on the previous example by printing a message to each magician, telling them that they performed a great trick:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -648,7 +639,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="doing-something-after-a-for-loop">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">4.1.2. </span>Doing Something After a for Loop</a><a class="headerlink" href="#doing-something-after-a-for-loop" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">4.1.2. </span>Doing Something After a for Loop</a><a class="headerlink" href="#doing-something-after-a-for-loop" title="Link to this heading">#</a></h3>
 <p>What happens once a for loop has finished executing? Usually, you’ll want to summarize a block of output or move on to other work that your program must accomplish. Any lines of code after the for loop that are not indented are executed once without repetition. Let’s write a thank you to the group of magicians as a whole, thanking them for putting on an excellent show. To display this group message after all of the individual messages have been printed, we place the thank you message after the for loop without indentation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -665,12 +656,12 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </section>
 </section>
 <section id="avoiding-indentation-errors">
-<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">4.2. </span>Avoiding Indentation Errors</a><a class="headerlink" href="#avoiding-indentation-errors" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">4.2. </span>Avoiding Indentation Errors</a><a class="headerlink" href="#avoiding-indentation-errors" title="Link to this heading">#</a></h2>
 <p>Python uses indentation to determine how a line, or group of lines, is related to the rest of the program. In the previous examples, the lines that printed messages to individual magicians were part of the for loop because they were indented. Python’s use of indentation makes code very easy to read. Basically, it uses whitespace to force you to write neatly formatted code with a clear visual structure. In longer Python programs, you’ll notice blocks of code indented at a few different levels. These indentation levels help you gain a general sense of the overall program’s organization.</p>
 <p>As you begin to write code that relies on proper indentation, you’ll need to watch for a few common indentation errors. For example, people sometimes indent lines of code that don’t need to be indented or forget to indent lines that need to be indented. Seeing examples of these errors now will help you avoid them in the future and correct them when they do appear in your own programs.</p>
 <p>Let’s examine some of the more common indentation errors.</p>
 <section id="forgetting-to-indent">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">4.2.1. </span>Forgetting to Indent</a><a class="headerlink" href="#forgetting-to-indent" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">4.2.1. </span>Forgetting to Indent</a><a class="headerlink" href="#forgetting-to-indent" title="Link to this heading">#</a></h3>
 <p>Always indent the line after the for statement in a loop. If you forget, Python will remind you:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -683,7 +674,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="forgetting-to-indent-additional-lines">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">4.2.2. </span>Forgetting to Indent Additional Lines</a><a class="headerlink" href="#forgetting-to-indent-additional-lines" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">4.2.2. </span>Forgetting to Indent Additional Lines</a><a class="headerlink" href="#forgetting-to-indent-additional-lines" title="Link to this heading">#</a></h3>
 <p>Sometimes your loop will run without any errors but won’t produce the expected result. This can happen when you’re trying to do several tasks in a loop and you forget to indent some of its lines. For example, this is what happens when we forget to indent the second line in the loop that tells each magician we’re looking forward to their next trick:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -697,7 +688,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="indenting-unnecessarily">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">4.2.3. </span>Indenting Unnecessarily</a><a class="headerlink" href="#indenting-unnecessarily" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">4.2.3. </span>Indenting Unnecessarily</a><a class="headerlink" href="#indenting-unnecessarily" title="Link to this heading">#</a></h3>
 <p>If you accidentally indent a line that doesn’t need to be indented, Python informs you about the unexpected indent:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,7 +700,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="id1">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">4.2.4. </span>Indenting Unnecessarily</a><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">4.2.4. </span>Indenting Unnecessarily</a><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>After the Loop If you accidentally indent code that should run after a loop has finished, that code will be repeated once for each item in the list. Sometimes this prompts Python to report an error, but often this will result in a logical error. For example, let’s see what happens when we accidentally indent the line that thanked the magicians as a group for putting on a good show:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -735,7 +726,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="forgetting-the-colon">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">4.2.5. </span>Forgetting the Colon</a><a class="headerlink" href="#forgetting-the-colon" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">4.2.5. </span>Forgetting the Colon</a><a class="headerlink" href="#forgetting-the-colon" title="Link to this heading">#</a></h3>
 <p>The colon at the end of a for statement tells Python to interpret the next line as the start of a loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -749,11 +740,11 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </section>
 </section>
 <section id="making-numerical-lists">
-<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">4.3. </span>Making Numerical Lists</a><a class="headerlink" href="#making-numerical-lists" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">4.3. </span>Making Numerical Lists</a><a class="headerlink" href="#making-numerical-lists" title="Link to this heading">#</a></h2>
 <p>Many reasons exist to store a set of numbers. For example, you’ll need to keep track of the positions of each character in a game, and you might want to keep track of a player’s high scores as well. In data visualizations, you’ll almost always work with sets of numbers, such as temperatures, distances, population sizes, or latitude and longitude values, among other types of numerical sets.</p>
 <p>Lists are ideal for storing sets of numbers, and Python provides a variety of tools to help you work efficiently with lists of numbers. Once you understand how to use these tools effectively, your code will work well even when your lists contain millions of items.</p>
 <section id="using-the-range-function">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">4.3.1. </span>Using the range() Function</a><a class="headerlink" href="#using-the-range-function" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">4.3.1. </span>Using the range() Function</a><a class="headerlink" href="#using-the-range-function" title="Link to this heading">#</a></h3>
 <p>Python’s range() function makes it easy to generate a series of numbers. For example, you can use the range() function to print a series of numbers like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -774,7 +765,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="using-range-to-make-a-list-of-numbers">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">4.3.2. </span>Using range() to Make a List of Numbers</a><a class="headerlink" href="#using-range-to-make-a-list-of-numbers" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">4.3.2. </span>Using range() to Make a List of Numbers</a><a class="headerlink" href="#using-range-to-make-a-list-of-numbers" title="Link to this heading">#</a></h3>
 <p>If you want to make a list of numbers, you can convert the results of range() directly into a list using the list() function. When you wrap list() around a call to the range() function, the output will be a list of numbers. In the example in the previous section, we simply printed out a series of numbers. We can use list() to convert that same set of numbers into a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -798,7 +789,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-    <span class="n">square</span> <span class="o">=</span> <span class="n">value</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="n">value</span><span class="o">**</span><span class="mi">2</span>
     <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 </pre></div>
@@ -809,7 +800,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
     <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
 </pre></div>
@@ -818,7 +809,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="simple-statistics-with-a-list-of-numbers">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">4.3.3. </span>Simple Statistics with a List of Numbers</a><a class="headerlink" href="#simple-statistics-with-a-list-of-numbers" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">4.3.3. </span>Simple Statistics with a List of Numbers</a><a class="headerlink" href="#simple-statistics-with-a-list-of-numbers" title="Link to this heading">#</a></h3>
 <p>A few Python functions are helpful when working with lists of numbers. For example, you can easily find the minimum, maximum, and sum of a list of numbers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -844,7 +835,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="list-comprehensions">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">4.3.4. </span>List Comprehensions</a><a class="headerlink" href="#list-comprehensions" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">4.3.4. </span>List Comprehensions</a><a class="headerlink" href="#list-comprehensions" title="Link to this heading">#</a></h3>
 <p>The approach described earlier for generating the list squares consisted of using three or four lines of code. A list comprehension allows you to generate this same list in just one line of code. A list comprehension combines the for loop and the creation of new elements into one line, and automatically appends each new element. List comprehensions are not always presented to beginners, but I have included them here because you’ll most likely see them as soon as you start looking at other people’s code.</p>
 <p>The following example builds the same list of square numbers you saw earlier but uses a list comprehension:</p>
 <div class="cell docutils container">
@@ -859,10 +850,10 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </section>
 </section>
 <section id="working-with-part-of-a-list">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">4.4. </span>Working with Part of a List</a><a class="headerlink" href="#working-with-part-of-a-list" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">4.4. </span>Working with Part of a List</a><a class="headerlink" href="#working-with-part-of-a-list" title="Link to this heading">#</a></h2>
 <p>In Lecture 3 you learned how to access single elements in a list, and in this chapter you’ve been learning how to work through all the elements in a list. You can also work with a specific group of items in a list, which Python calls a slice.</p>
 <section id="slicing-a-list">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">4.4.1. </span>Slicing a List</a><a class="headerlink" href="#slicing-a-list" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">4.4.1. </span>Slicing a List</a><a class="headerlink" href="#slicing-a-list" title="Link to this heading">#</a></h3>
 <p>To make a slice, you specify the index of the first and last elements you want to work with. As with the range() function, Python stops one item before the second index you specify. To output the first three elements in a list, you would request indices 0 through 3, which would return elements 0, 1, and 2. The following example involves a list of players on a team:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -909,7 +900,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="looping-through-a-slice">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">4.4.2. </span>Looping Through a Slice</a><a class="headerlink" href="#looping-through-a-slice" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">4.4.2. </span>Looping Through a Slice</a><a class="headerlink" href="#looping-through-a-slice" title="Link to this heading">#</a></h3>
 <p>You can use a slice in a for loop if you want to loop through a subset of the elements in a list. In the next example we loop through the first three players and print their names as part of a simple roster:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,7 +914,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="copying-a-list">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">4.4.3. </span>Copying a List</a><a class="headerlink" href="#copying-a-list" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">4.4.3. </span>Copying a List</a><a class="headerlink" href="#copying-a-list" title="Link to this heading">#</a></h3>
 <p>Often, you’ll want to start with an existing list and make an entirely new list based on the first one. Let’s explore how copying a list works and examine one situation in which copying a list is useful.</p>
 <p>To copy a list, you can make a slice that includes the entire original list by omitting the first index and the second index ([:]). This tells Python to make a slice that starts at the first item and ends with the last item, producing a copy of the entire list.</p>
 <p>For example, imagine we have a list of our favorite foods and want to make a separate list of foods that a friend likes. This friend likes everything in our list so far, so we can create their list by copying ours:</p>
@@ -972,10 +963,10 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </section>
 </section>
 <section id="tuples">
-<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">4.5. </span>Tuples</a><a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h2>
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">4.5. </span>Tuples</a><a class="headerlink" href="#tuples" title="Link to this heading">#</a></h2>
 <p>Lists work well for storing collections of items that can change throughout the life of a program. The ability to modify lists is particularly important when you’re working with a list of users on a website or a list of characters in a game. However, sometimes you’ll want to create a list of items that cannot change. Tuples allow you to do just that. Python refers to values that cannot change as immutable, and an immutable list is called a tuple.</p>
 <section id="defining-a-tuple">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">4.5.1. </span>Defining a Tuple</a><a class="headerlink" href="#defining-a-tuple" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">4.5.1. </span>Defining a Tuple</a><a class="headerlink" href="#defining-a-tuple" title="Link to this heading">#</a></h3>
 <p>A tuple looks just like a list except you use parentheses instead of square brackets. Once you define a tuple, you can access individual elements by using each item’s index, just as you would for a list. For example, if we have a rectangle that should always be a certain size, we can ensure that its size doesn’t change by putting the dimensions into a tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1005,7 +996,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="looping-through-all-values-in-a-tuple">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">4.5.2. </span>Looping Through All Values in a Tuple</a><a class="headerlink" href="#looping-through-all-values-in-a-tuple" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">4.5.2. </span>Looping Through All Values in a Tuple</a><a class="headerlink" href="#looping-through-all-values-in-a-tuple" title="Link to this heading">#</a></h3>
 <p>You can loop over all the values in a tuple using a for loop, just as you did with a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1018,7 +1009,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
 </div>
 </section>
 <section id="writing-over-a-tuple">
-<h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">4.5.3. </span>Writing over a Tuple</a><a class="headerlink" href="#writing-over-a-tuple" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">4.5.3. </span>Writing over a Tuple</a><a class="headerlink" href="#writing-over-a-tuple" title="Link to this heading">#</a></h3>
 <p>Although you can’t modify a tuple, you can assign a new value to a variable that represents a tuple. So if we wanted to change our dimensions, we could redefine the entire tuple:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1095,6 +1086,7 @@ Let’s say we have a list of magicians’ names, and we want to print out each 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1182,8 +1174,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>37. SQL Basics &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/postgis/sql_basics';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/postgis/sql_basics.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="38. Introduction to PostGIS" href="postgis_intro.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/postgis/sql_basics.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/postgis/sql_basics.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/postgis/sql_basics.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/postgis/sql_basics.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -546,10 +537,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sql-basics">
-<h1><span class="section-number">37. </span>SQL Basics<a class="headerlink" href="#sql-basics" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">37. </span>SQL Basics<a class="headerlink" href="#sql-basics" title="Link to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -562,24 +553,24 @@ document.write(`
 <li><p><a class="reference external" href="https://raw.githubusercontent.com/giswqs/postgis/master/data/countries.csv">countries.csv</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">37.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
 <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;sdb&quot;</span>
 <span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_USER&#39;</span><span class="p">)</span>
 <span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_PASSWORD&#39;</span><span class="p">)</span>
@@ -589,198 +580,198 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">connection_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connection_string</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;postgresql://</span><span class="si">{</span><span class="n">user</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">password</span><span class="si">}</span><span class="s2">@</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%sql $connection_string
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> $connection_string
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT * FROM cities LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="the-sql-select-statement">
-<h2><span class="section-number">37.2. </span>The SQL SELECT statement<a class="headerlink" href="#the-sql-select-statement" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.2. </span>The SQL SELECT statement<a class="headerlink" href="#the-sql-select-statement" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span>
+SELECT * FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT * FROM cities LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">country</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT name, country FROM cities LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">DISTINCT</span> <span class="n">country</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT DISTINCT country FROM cities LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">DISTINCT</span> <span class="n">country</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+SELECT COUNT(DISTINCT country) FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">MAX</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+SELECT MAX(population) FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">SUM</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+SELECT SUM(population) FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">AVG</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+SELECT AVG(population) FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">country</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT * FROM cities ORDER BY country LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">ORDER</span> <span class="n">BY</span> <span class="n">country</span> <span class="n">ASC</span><span class="p">,</span> <span class="n">population</span> <span class="n">DESC</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT * FROM cities ORDER BY country ASC, population DESC LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="the-where-clause">
-<h2><span class="section-number">37.3. </span>The WHERE Clause<a class="headerlink" href="#the-where-clause" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.3. </span>The WHERE Clause<a class="headerlink" href="#the-where-clause" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span>
+SELECT * FROM cities WHERE country=&#39;USA&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span> <span class="n">OR</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;CAN&#39;</span>
+SELECT * FROM cities WHERE country=&#39;USA&#39; OR country=&#39;CAN&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span> <span class="n">AND</span> <span class="n">population</span><span class="o">&gt;</span><span class="mi">1000000</span>
+SELECT * FROM cities WHERE country=&#39;USA&#39; AND population&gt;1000000
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">LIKE</span> <span class="s1">&#39;U%&#39;</span>
+SELECT * FROM cities WHERE country LIKE &#39;U%&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">LIKE</span> <span class="s1">&#39;%A&#39;</span>
+SELECT * FROM cities WHERE country LIKE &#39;%A&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">LIKE</span> <span class="s1">&#39;_S_&#39;</span>
+SELECT * FROM cities WHERE country LIKE &#39;_S_&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">country</span> <span class="n">IN</span> <span class="p">(</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;CAN&#39;</span><span class="p">,</span> <span class="s1">&#39;CHN&#39;</span><span class="p">)</span>
+SELECT * FROM cities WHERE country IN (&#39;USA&#39;, &#39;CAN&#39;, &#39;CHN&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">WHERE</span> <span class="n">population</span> <span class="n">BETWEEN</span> <span class="mi">1000000</span> <span class="n">AND</span> <span class="mi">10000000</span>
+SELECT * FROM cities WHERE population BETWEEN 1000000 AND 10000000
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sql-joins">
-<h2><span class="section-number">37.4. </span>SQL Joins<a class="headerlink" href="#sql-joins" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.4. </span>SQL Joins<a class="headerlink" href="#sql-joins" title="Link to this heading">#</a></h2>
 <p>Reference: <a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp">https://www.w3schools.com/sql/sql_join.asp</a></p>
 <p>Here are the different types of the JOINs in SQL:</p>
 <ul class="simple">
@@ -792,106 +783,106 @@ document.write(`
 <p><img alt="" src="https://i.imgur.com/mITYzuS.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">cities</span>
+SELECT COUNT(*) FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT * FROM cities LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="n">FROM</span> <span class="n">countries</span>
+SELECT COUNT(*) FROM countries
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">countries</span> <span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT * FROM countries LIMIT 10
 </pre></div>
 </div>
 </div>
 </div>
 <section id="sql-inner-join">
-<h3><span class="section-number">37.4.1. </span>SQL Inner Join<a class="headerlink" href="#sql-inner-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.4.1. </span>SQL Inner Join<a class="headerlink" href="#sql-inner-join" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+SELECT * FROM cities INNER JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">country</span><span class="p">,</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">INNER</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+SELECT name, country, countries.&quot;Country&quot; FROM cities INNER JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sql-left-join">
-<h3><span class="section-number">37.4.2. </span>SQL Left Join<a class="headerlink" href="#sql-left-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.4.2. </span>SQL Left Join<a class="headerlink" href="#sql-left-join" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+SELECT * FROM cities LEFT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sql-right-join">
-<h3><span class="section-number">37.4.3. </span>SQL Right Join<a class="headerlink" href="#sql-right-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.4.3. </span>SQL Right Join<a class="headerlink" href="#sql-right-join" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">RIGHT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+SELECT * FROM cities RIGHT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sql-full-join">
-<h3><span class="section-number">37.4.4. </span>SQL Full Join<a class="headerlink" href="#sql-full-join" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.4.4. </span>SQL Full Join<a class="headerlink" href="#sql-full-join" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">FULL</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
+SELECT * FROM cities FULL JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sql-union">
-<h3><span class="section-number">37.4.5. </span>SQL Union<a class="headerlink" href="#sql-union" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.4.5. </span>SQL Union<a class="headerlink" href="#sql-union" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">country</span> <span class="n">FROM</span> <span class="n">cities</span>
-<span class="n">UNION</span> 
-<span class="n">SELECT</span> <span class="s2">&quot;Alpha3_code&quot;</span> <span class="n">FROM</span> <span class="n">countries</span>
+SELECT country FROM cities
+UNION 
+SELECT &quot;Alpha3_code&quot; FROM countries
 </pre></div>
 </div>
 </div>
@@ -899,60 +890,60 @@ document.write(`
 </section>
 </section>
 <section id="aggregation">
-<h2><span class="section-number">37.5. </span>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.5. </span>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">#</a></h2>
 <section id="group-by">
-<h3><span class="section-number">37.5.1. </span>Group By<a class="headerlink" href="#group-by" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.5.1. </span>Group By<a class="headerlink" href="#group-by" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">country</span> 
-<span class="n">FROM</span> <span class="n">cities</span> 
-<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">country</span> 
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+SELECT COUNT(name), country 
+FROM cities 
+GROUP BY country 
+ORDER BY COUNT(name) DESC
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="n">FROM</span> <span class="n">cities</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
-<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+SELECT countries.&quot;Country&quot;, COUNT(name)
+FROM cities
+LEFT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
+GROUP BY countries.&quot;Country&quot;
+ORDER BY COUNT(name) DESC
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="having">
-<h3><span class="section-number">37.5.2. </span>Having<a class="headerlink" href="#having" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.5.2. </span>Having<a class="headerlink" href="#having" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">country</span>
-<span class="n">FROM</span> <span class="n">cities</span>
-<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">country</span>
-<span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+SELECT COUNT(name), country
+FROM cities
+GROUP BY country
+HAVING COUNT(name) &gt; 40
+ORDER BY COUNT(name) DESC
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<span class="n">FROM</span> <span class="n">cities</span>
-<span class="n">LEFT</span> <span class="n">JOIN</span> <span class="n">countries</span> <span class="n">ON</span> <span class="n">cities</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Alpha3_code&quot;</span>
-<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">countries</span><span class="o">.</span><span class="s2">&quot;Country&quot;</span>
-<span class="n">HAVING</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">40</span>
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
+SELECT countries.&quot;Country&quot;, COUNT(name)
+FROM cities
+LEFT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
+GROUP BY countries.&quot;Country&quot;
+HAVING COUNT(name) &gt; 40
+ORDER BY COUNT(name) DESC
 </pre></div>
 </div>
 </div>
@@ -960,92 +951,92 @@ document.write(`
 </section>
 </section>
 <section id="conditional-statements">
-<h2><span class="section-number">37.6. </span>Conditional statements<a class="headerlink" href="#conditional-statements" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.6. </span>Conditional statements<a class="headerlink" href="#conditional-statements" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span>
-<span class="n">CASE</span>
-    <span class="n">WHEN</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">10000000</span> <span class="n">THEN</span> <span class="s1">&#39;Megacity&#39;</span>
-    <span class="n">WHEN</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">1000000</span> <span class="n">THEN</span> <span class="s1">&#39;Large city&#39;</span>
-    <span class="n">ELSE</span> <span class="s1">&#39;Small city&#39;</span>
-<span class="n">END</span> <span class="n">AS</span> <span class="n">category</span>
-<span class="n">FROM</span> <span class="n">cities</span>
+SELECT name, population,
+CASE
+    WHEN population &gt; 10000000 THEN &#39;Megacity&#39;
+    WHEN population &gt; 1000000 THEN &#39;Large city&#39;
+    ELSE &#39;Small city&#39;
+END AS category
+FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="saving-results">
-<h2><span class="section-number">37.7. </span>Saving results<a class="headerlink" href="#saving-results" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.7. </span>Saving results<a class="headerlink" href="#saving-results" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span>
-<span class="n">INTO</span> <span class="n">cities_new</span>
-<span class="n">FROM</span> <span class="n">cities</span>
+SELECT *
+INTO cities_new
+FROM cities
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">DROP</span> <span class="n">TABLE</span> <span class="n">IF</span> <span class="n">EXISTS</span> <span class="n">cities_usa</span><span class="p">;</span>
+DROP TABLE IF EXISTS cities_usa;
 
-<span class="n">SELECT</span> <span class="o">*</span>
-<span class="n">INTO</span> <span class="n">cities_usa</span>
-<span class="n">FROM</span> <span class="n">cities</span>
-<span class="n">WHERE</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;USA&#39;</span>
+SELECT *
+INTO cities_usa
+FROM cities
+WHERE country = &#39;USA&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
 
-<span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">cities_usa</span>
-<span class="n">SELECT</span> <span class="o">*</span>
-<span class="n">FROM</span> <span class="n">cities</span>
-<span class="n">WHERE</span> <span class="n">country</span> <span class="o">=</span> <span class="s1">&#39;CAN&#39;</span>
+INSERT INTO cities_usa
+SELECT *
+FROM cities
+WHERE country = &#39;CAN&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="sql-comments">
-<h2><span class="section-number">37.8. </span>SQL Comments<a class="headerlink" href="#sql-comments" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">37.8. </span>SQL Comments<a class="headerlink" href="#sql-comments" title="Link to this heading">#</a></h2>
 <section id="single-line-coments">
-<h3><span class="section-number">37.8.1. </span>Single line coments<a class="headerlink" href="#single-line-coments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.8.1. </span>Single line coments<a class="headerlink" href="#single-line-coments" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="o">*</span> <span class="n">FROM</span> <span class="n">cities</span> <span class="n">LIMIT</span> <span class="mi">10</span> <span class="o">--</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">comment</span><span class="p">;</span>
+SELECT * FROM cities LIMIT 10 -- This is a comment;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="multi-line-comments">
-<h3><span class="section-number">37.8.2. </span>Multi-line comments<a class="headerlink" href="#multi-line-comments" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">37.8.2. </span>Multi-line comments<a class="headerlink" href="#multi-line-comments" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">sql</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
 
-<span class="n">SELECT</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">country</span> 
-<span class="n">FROM</span> <span class="n">cities</span> 
-<span class="o">/*</span>
- <span class="o">*</span> <span class="n">Adding</span> <span class="n">Group</span> <span class="n">by</span>
- <span class="o">*</span> <span class="n">Adding</span> <span class="n">Order</span> <span class="n">by</span>
- <span class="o">*/</span>
-<span class="n">GROUP</span> <span class="n">BY</span> <span class="n">country</span> 
-<span class="n">ORDER</span> <span class="n">BY</span> <span class="n">COUNT</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">DESC</span>
-<span class="n">LIMIT</span> <span class="mi">10</span>
+SELECT COUNT(name), country 
+FROM cities 
+/*
+ * Adding Group by
+ * Adding Order by
+ */
+GROUP BY country 
+ORDER BY COUNT(name) DESC
+LIMIT 10
 </pre></div>
 </div>
 </div>
@@ -1110,6 +1101,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1188,8 +1180,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

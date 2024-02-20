@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. Classes &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/09_classes';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/python/09_classes.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="10. Files and Exceptions" href="10_files_and_exceptions.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/09_classes.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/09_classes.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/python/09_classes.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/python/09_classes.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -514,7 +505,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-a-class-a-class-anchor-id-creating-a-class-a">9.1. CREATING AND USING A CLASS <a class="anchor" id="creating-a-class"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-a-class">9.1. CREATING AND USING A CLASS <a class="anchor" id="creating-a-class"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-dog-class">9.1.1. Creating the Dog Class</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-method">9.1.1.1. The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method</a></li>
 </ul>
@@ -527,7 +518,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-classes-and-instances-a-class-anchor-id-working-with-classes-a">9.2. WORKING WITH CLASSES AND INSTANCES <a class="anchor" id="working-with-classes"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-classes-and-instances">9.2. WORKING WITH CLASSES AND INSTANCES <a class="anchor" id="working-with-classes"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-car-class">9.2.1. The Car Class</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-default-value-for-an-attribute">9.2.2. Setting a Default Value for an Attribute</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-attribute-values">9.2.3. Modifying Attribute Values</a><ul class="nav section-nav flex-column">
@@ -538,9 +529,9 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-standard-library-a-class-anchor-id-standard-library-a">9.3. THE PYTHON STANDARD LIBRARY <a class="anchor" id="standard-library"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-classes-a-class-anchor-id-styling-classes-a">9.4. STYLING CLASSES <a class="anchor" id="styling-classes"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-a-class-anchor-id-summary-a">9.5. SUMMARY <a class="anchor" id="summary"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-standard-library">9.3. THE PYTHON STANDARD LIBRARY <a class="anchor" id="standard-library"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-classes">9.4. STYLING CLASSES <a class="anchor" id="styling-classes"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">9.5. SUMMARY <a class="anchor" id="summary"></a></a></li>
 </ul>
             </nav>
         </div>
@@ -550,28 +541,28 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="classes">
-<h1><span class="section-number">9. </span>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#creating-and-using-a-class-a-class-anchor-id-creating-a-class-a" id="id1">CREATING AND USING A CLASS <a class='anchor' id='creating-a-class'></a></a></p>
+<li><p><a class="reference internal" href="#creating-and-using-a-class" id="id1">CREATING AND USING A CLASS <a class='anchor' id='creating-a-class'></a></a></p>
 <ul>
 <li><p><a class="reference internal" href="#creating-the-dog-class" id="id2">Creating the Dog Class</a></p></li>
 <li><p><a class="reference internal" href="#making-an-instance-from-a-class" id="id3">Making an Instance from a Class</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#working-with-classes-and-instances-a-class-anchor-id-working-with-classes-a" id="id4">WORKING WITH CLASSES AND INSTANCES <a class='anchor' id='working-with-classes'></a></a></p>
+<li><p><a class="reference internal" href="#working-with-classes-and-instances" id="id4">WORKING WITH CLASSES AND INSTANCES <a class='anchor' id='working-with-classes'></a></a></p>
 <ul>
 <li><p><a class="reference internal" href="#the-car-class" id="id5">The Car Class</a></p></li>
 <li><p><a class="reference internal" href="#setting-a-default-value-for-an-attribute" id="id6">Setting a Default Value for an Attribute</a></p></li>
 <li><p><a class="reference internal" href="#modifying-attribute-values" id="id7">Modifying Attribute Values</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#the-python-standard-library-a-class-anchor-id-standard-library-a" id="id8">THE PYTHON STANDARD LIBRARY <a class='anchor' id='standard-library'></a></a></p></li>
-<li><p><a class="reference internal" href="#styling-classes-a-class-anchor-id-styling-classes-a" id="id9">STYLING CLASSES <a class='anchor' id='styling-classes'></a></a></p></li>
-<li><p><a class="reference internal" href="#summary-a-class-anchor-id-summary-a" id="id10">SUMMARY <a class='anchor' id='summary'></a></a></p></li>
+<li><p><a class="reference internal" href="#the-python-standard-library" id="id8">THE PYTHON STANDARD LIBRARY <a class='anchor' id='standard-library'></a></a></p></li>
+<li><p><a class="reference internal" href="#styling-classes" id="id9">STYLING CLASSES <a class='anchor' id='styling-classes'></a></a></p></li>
+<li><p><a class="reference internal" href="#summary" id="id10">SUMMARY <a class='anchor' id='summary'></a></a></p></li>
 </ul>
 </nav>
 <p>Object-oriented programming is one of the most effective approaches to writing software. In object-oriented programming you write classes that represent real-world things and situations, and you create objects based on these classes. When you write a class, you define the general behavior that a whole category of objects can have. When you create individual objects from the class, each object is automatically equipped with the general behavior; you can then give each object whatever unique traits you desire. You’ll be amazed how well real-world situations can be modeled with object-oriented programming.</p>
@@ -579,17 +570,17 @@ document.write(`
 <p>Understanding object-oriented programming will help you see the world as a programmer does. It’ll help you really know your code, not just what’s happening line by line, but also the bigger concepts behind it. Knowing the logic behind classes will train you to think logically so you can write programs that effectively address almost any problem you encounter.</p>
 <p>Classes also make life easier for you and the other programmers you’ll work with as you take on increasingly complex challenges. When you and other programmers write code based on the same kind of logic, you’ll be able to understand each other’s work. Your programs will make sense to many collaborators, allowing everyone to accomplish more.</p>
 <ul class="simple">
-<li><p><span class="xref myst">CREATING AND USING A CLASS</span></p></li>
-<li><p><span class="xref myst">WORKING WITH CLASSES AND INSTANCES</span></p></li>
-<li><p><span class="xref myst">THE PYTHON STANDARD LIBRARY</span></p></li>
-<li><p><span class="xref myst">STYLING CLASSES</span></p></li>
-<li><p><span class="xref myst">SUMMARY</span></p></li>
+<li><p><a class="reference internal" href="#creating-a-class"><span class="xref myst">CREATING AND USING A CLASS</span></a></p></li>
+<li><p><a class="reference internal" href="#working-with-classes"><span class="xref myst">WORKING WITH CLASSES AND INSTANCES</span></a></p></li>
+<li><p><a class="reference internal" href="#standard-library"><span class="xref myst">THE PYTHON STANDARD LIBRARY</span></a></p></li>
+<li><p><a class="reference internal" href="#styling-classes"><span class="xref myst">STYLING CLASSES</span></a></p></li>
+<li><p><a class="reference internal" href="#summary"><span class="xref myst">SUMMARY</span></a></p></li>
 </ul>
-<section id="creating-and-using-a-class-a-class-anchor-id-creating-a-class-a">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">9.1. </span>CREATING AND USING A CLASS <a class='anchor' id='creating-a-class'></a></a><a class="headerlink" href="#creating-and-using-a-class-a-class-anchor-id-creating-a-class-a" title="Permalink to this heading">#</a></h2>
+<section id="creating-and-using-a-class">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">9.1. </span>CREATING AND USING A CLASS <a class='anchor' id='creating-a-class'></a></a><a class="headerlink" href="#creating-and-using-a-class" title="Link to this heading">#</a></h2>
 <p>You can model almost anything using classes. Let’s start by writing a simple class, Dog, that represents a dog—not one dog in particular, but any dog. What do we know about most pet dogs? Well, they all have a name and age. We also know that most dogs sit and roll over. Those two pieces of information (name and age) and those two behaviors (sit and roll over) will go in our Dog class because they’re common to most dogs. This class will tell Python how to make an object representing a dog. After our class is written, we’ll use it to make individual instances, each of which represents one specific dog.</p>
 <section id="creating-the-dog-class">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">9.1.1. </span>Creating the Dog Class</a><a class="headerlink" href="#creating-the-dog-class" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">9.1.1. </span>Creating the Dog Class</a><a class="headerlink" href="#creating-the-dog-class" title="Link to this heading">#</a></h3>
 <p>Each instance created from the Dog class will store a name and an age, and we’ll give each dog the ability to sit() and roll_over():</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -614,7 +605,7 @@ document.write(`
 </div>
 <p>There’s a lot to notice here, but don’t worry. You’ll see this structure throughout this chapter and have lots of time to get used to it. At ➊ we define a class called Dog. By convention, capitalized names refer to classes in Python. There are no parentheses in the class definition because we’re creating this class from scratch. At ➋ we write a docstring describing what this class does.</p>
 <section id="the-init-method">
-<h4><span class="section-number">9.1.1.1. </span>The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method<a class="headerlink" href="#the-init-method" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.1.1.1. </span>The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method<a class="headerlink" href="#the-init-method" title="Link to this heading">#</a></h4>
 <p>A function that’s part of a class is a method. Everything you learned about functions applies to methods as well; the only practical difference for now is the way we’ll call methods. The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method at ➌ is a special method that Python runs automatically whenever we create a new instance based on the Dog class. This method has two leading underscores and two trailing underscores, a convention that helps prevent Python’s default method names from conflicting with your method names. Make sure to use two underscores on each side of <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>. If you use just one on each side, the method won’t be called automatically when you use your class, which can result in errors that are difficult to identify.</p>
 <p>We define the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method to have three parameters: self, name, and age. The self parameter is required in the method definition, and it must come first before the other parameters. It must be included in the definition because when Python calls this method later (to create an instance of Dog), the method call will automatically pass the self argument. Every method call associated with an instance automatically passes self, which is a reference to the instance itself; it gives the individual instance access to the attributes and methods in the class. When we make an instance of Dog, Python will call the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method from the Dog class. We’ll pass Dog() a name and an age as arguments; self is passed automatically, so we don’t need to pass it. Whenever we want to make an instance from the Dog class, we’ll provide values for only the last two parameters, name and age.</p>
 <p>The two variables defined at ➍ each have the prefix self. Any variable prefixed with self is available to every method in the class, and we’ll also be able to access these variables through any instance created from the class. The line <a class="reference external" href="http://self.name">self.name</a> = name takes the value associated with the parameter name and assigns it to the variable name, which is then attached to the instance being created. The same process happens with self.age = age. Variables that are accessible through instances like this are called attributes.</p>
@@ -622,7 +613,7 @@ document.write(`
 </section>
 </section>
 <section id="making-an-instance-from-a-class">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9.1.2. </span>Making an Instance from a Class</a><a class="headerlink" href="#making-an-instance-from-a-class" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">9.1.2. </span>Making an Instance from a Class</a><a class="headerlink" href="#making-an-instance-from-a-class" title="Link to this heading">#</a></h3>
 <p>Think of a class as a set of instructions for how to make an instance. The class Dog is a set of instructions that tells Python how to make individual instances representing specific dogs.</p>
 <p>Let’s make an instance representing a specific dog:</p>
 <div class="cell docutils container">
@@ -636,7 +627,7 @@ document.write(`
 </div>
 <p>The Dog class we’re using here is the one we just wrote in the previous example. At ➊ we tell Python to create a dog whose name is ‘Willie’ and whose age is 6. When Python reads this line, it calls the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method in Dog with the arguments ‘Willie’ and 6. The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method creates an instance representing this particular dog and sets the name and age attributes using the values we provided. Python then returns an instance representing this dog. We assign that instance to the variable my_dog. The naming convention is helpful here: we can usually assume that a capitalized name like Dog refers to a class, and a lowercase name like my_dog refers to a single instance created from a class.</p>
 <section id="accessing-attributes">
-<h4><span class="section-number">9.1.2.1. </span>Accessing Attributes<a class="headerlink" href="#accessing-attributes" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.1.2.1. </span>Accessing Attributes<a class="headerlink" href="#accessing-attributes" title="Link to this heading">#</a></h4>
 <p>To access the attributes of an instance, you use dot notation. At ➋ we access the value of my_dog’s attribute name by writing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_dog</span><span class="o">.</span><span class="n">name</span>
 </pre></div>
@@ -644,7 +635,7 @@ document.write(`
 <p>Dot notation is used often in Python. This syntax demonstrates how Python finds an attribute’s value. Here Python looks at the instance my_dog and then finds the attribute name associated with my_dog. This is the same attribute referred to as <a class="reference external" href="http://self.name">self.name</a> in the class Dog. At ➌ we use the same approach to work with the attribute age.</p>
 </section>
 <section id="calling-methods">
-<h4><span class="section-number">9.1.2.2. </span>Calling Methods<a class="headerlink" href="#calling-methods" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.1.2.2. </span>Calling Methods<a class="headerlink" href="#calling-methods" title="Link to this heading">#</a></h4>
 <p>After we create an instance from the class Dog, we can use dot notation to call any method defined in Dog. Let’s make our dog sit and roll over:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,7 +650,7 @@ document.write(`
 <p>This syntax is quite useful. When attributes and methods have been given appropriately descriptive names like name, age, sit(), and roll_over(), we can easily infer what a block of code, even one we’ve never seen before, is supposed to do.</p>
 </section>
 <section id="creating-multiple-instances">
-<h4><span class="section-number">9.1.2.3. </span>Creating Multiple Instances<a class="headerlink" href="#creating-multiple-instances" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.1.2.3. </span>Creating Multiple Instances<a class="headerlink" href="#creating-multiple-instances" title="Link to this heading">#</a></h4>
 <p>You can create as many instances from a class as you need. Let’s create a second dog called your_dog:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -682,11 +673,11 @@ document.write(`
 </section>
 </section>
 </section>
-<section id="working-with-classes-and-instances-a-class-anchor-id-working-with-classes-a">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.2. </span>WORKING WITH CLASSES AND INSTANCES <a class='anchor' id='working-with-classes'></a></a><a class="headerlink" href="#working-with-classes-and-instances-a-class-anchor-id-working-with-classes-a" title="Permalink to this heading">#</a></h2>
+<section id="working-with-classes-and-instances">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">9.2. </span>WORKING WITH CLASSES AND INSTANCES <a class='anchor' id='working-with-classes'></a></a><a class="headerlink" href="#working-with-classes-and-instances" title="Link to this heading">#</a></h2>
 <p>You can use classes to represent many real-world situations. Once you write a class, you’ll spend most of your time working with instances created from that class. One of the first tasks you’ll want to do is modify the attributes associated with a particular instance. You can modify the attributes of an instance directly or write methods that update attributes in specific ways.</p>
 <section id="the-car-class">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.2.1. </span>The Car Class</a><a class="headerlink" href="#the-car-class" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">9.2.1. </span>The Car Class</a><a class="headerlink" href="#the-car-class" title="Link to this heading">#</a></h3>
 <p>Let’s write a new class representing a car. Our class will store information about the kind of car we’re working with, and it will have a method that summarizes this information:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,6 +695,7 @@ document.write(`
         <span class="n">long_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">make</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="k">return</span> <span class="n">long_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 
+
 <span class="n">my_new_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_new_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
 </pre></div>
@@ -712,7 +704,7 @@ document.write(`
 </div>
 </section>
 <section id="setting-a-default-value-for-an-attribute">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">9.2.2. </span>Setting a Default Value for an Attribute</a><a class="headerlink" href="#setting-a-default-value-for-an-attribute" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">9.2.2. </span>Setting a Default Value for an Attribute</a><a class="headerlink" href="#setting-a-default-value-for-an-attribute" title="Link to this heading">#</a></h3>
 <p>When an instance is created, attributes can be defined without being passed in as parameters. These attributes can be defined in the <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> method, where they are assigned a default value.</p>
 <p>Let’s add an attribute called odometer_reading that always starts with a value of 0. We’ll also add a method read_odometer() that helps us read each car’s odometer:</p>
 <div class="cell docutils container">
@@ -736,6 +728,7 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Print a statement showing the car&#39;s mileage.&quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This car has </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span><span class="si">}</span><span class="s2"> miles on it.&quot;</span><span class="p">)</span>
 
+
 <span class="n">my_new_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_new_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
 <span class="n">my_new_car</span><span class="o">.</span><span class="n">read_odometer</span><span class="p">()</span>
@@ -745,10 +738,10 @@ document.write(`
 </div>
 </section>
 <section id="modifying-attribute-values">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">9.2.3. </span>Modifying Attribute Values</a><a class="headerlink" href="#modifying-attribute-values" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">9.2.3. </span>Modifying Attribute Values</a><a class="headerlink" href="#modifying-attribute-values" title="Link to this heading">#</a></h3>
 <p>You can change an attribute’s value in three ways: you can change the value directly through an instance, set the value through a method, or increment the value (add a certain amount to it) through a method. Let’s look at each of these approaches.</p>
 <section id="modifying-an-attributes-value-directly">
-<h4><span class="section-number">9.2.3.1. </span>Modifying an Attribute’s Value Directly<a class="headerlink" href="#modifying-an-attributes-value-directly" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.2.3.1. </span>Modifying an Attribute’s Value Directly<a class="headerlink" href="#modifying-an-attributes-value-directly" title="Link to this heading">#</a></h4>
 <p>The simplest way to modify the value of an attribute is to access the attribute directly through an instance. Here we set the odometer reading to 23 directly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -762,7 +755,7 @@ document.write(`
 </div>
 </section>
 <section id="modifying-an-attributes-value-through-a-method">
-<h4><span class="section-number">9.2.3.2. </span>Modifying an Attribute’s Value Through a Method<a class="headerlink" href="#modifying-an-attributes-value-through-a-method" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.2.3.2. </span>Modifying an Attribute’s Value Through a Method<a class="headerlink" href="#modifying-an-attributes-value-through-a-method" title="Link to this heading">#</a></h4>
 <p>It can be helpful to have methods that update certain attributes for you. Instead of accessing the attribute directly, you pass the new value to a method that handles the updating internally. Here’s an example showing a method called update_odometer():</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -791,6 +784,7 @@ document.write(`
 <span class="sd">        Reject the change if it attempts to roll the odometer back.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">=</span> <span class="n">mileage</span>
+
 
 <span class="n">my_new_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_new_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
@@ -833,6 +827,7 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can&#39;t roll back an odometer!&quot;</span><span class="p">)</span>
 
+
 <span class="n">my_new_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;a4&#39;</span><span class="p">,</span> <span class="mi">2019</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_new_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
 
@@ -847,7 +842,7 @@ document.write(`
 </div>
 </section>
 <section id="incrementing-an-attributes-value-through-a-method">
-<h4><span class="section-number">9.2.3.3. </span>Incrementing an Attribute’s Value Through a Method<a class="headerlink" href="#incrementing-an-attributes-value-through-a-method" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">9.2.3.3. </span>Incrementing an Attribute’s Value Through a Method<a class="headerlink" href="#incrementing-an-attributes-value-through-a-method" title="Link to this heading">#</a></h4>
 <p>Sometimes you’ll want to increment an attribute’s value by a certain amount rather than set an entirely new value. Say we buy a used car and put 100 miles on it between the time we buy it and the time we register it. Here’s a method that allows us to pass this incremental amount and add that value to the odometer reading:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -884,6 +879,7 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Add the given amount to the odometer reading.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">odometer_reading</span> <span class="o">+=</span> <span class="n">miles</span>
 
+
 <span class="n">my_used_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s1">&#39;subaru&#39;</span><span class="p">,</span> <span class="s1">&#39;outback&#39;</span><span class="p">,</span> <span class="mi">2015</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_used_car</span><span class="o">.</span><span class="n">get_descriptive_name</span><span class="p">())</span>
 
@@ -899,14 +895,15 @@ document.write(`
 </section>
 </section>
 </section>
-<section id="the-python-standard-library-a-class-anchor-id-standard-library-a">
-<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">9.3. </span>THE PYTHON STANDARD LIBRARY <a class='anchor' id='standard-library'></a></a><a class="headerlink" href="#the-python-standard-library-a-class-anchor-id-standard-library-a" title="Permalink to this heading">#</a></h2>
+<section id="the-python-standard-library">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">9.3. </span>THE PYTHON STANDARD LIBRARY <a class='anchor' id='standard-library'></a></a><a class="headerlink" href="#the-python-standard-library" title="Link to this heading">#</a></h2>
 <p>The Python standard library is a set of modules included with every Python installation. Now that you have a basic understanding of how functions and classes work, you can start to use modules like these that other programmers have written. You can use any function or class in the standard library by including a simple import statement at the top of your file. Let’s look at one module, random, which can be useful in modeling many real-world situations.</p>
 <p>One interesting function from the random module is randint(). This function takes two integer arguments and returns a randomly selected integer between (and including) those numbers.</p>
 <p>Here’s how to generate a random number between 1 and 6:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
 <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -916,6 +913,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span>
+
 <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;charles&#39;</span><span class="p">,</span> <span class="s1">&#39;martina&#39;</span><span class="p">,</span> <span class="s1">&#39;michael&#39;</span><span class="p">,</span> <span class="s1">&#39;florence&#39;</span><span class="p">,</span> <span class="s1">&#39;eli&#39;</span><span class="p">]</span>
 <span class="n">first_up</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
 <span class="n">first_up</span>
@@ -924,16 +922,16 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="styling-classes-a-class-anchor-id-styling-classes-a">
-<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">9.4. </span>STYLING CLASSES <a class='anchor' id='styling-classes'></a></a><a class="headerlink" href="#styling-classes-a-class-anchor-id-styling-classes-a" title="Permalink to this heading">#</a></h2>
+<section id="styling-classes">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">9.4. </span>STYLING CLASSES <a class='anchor' id='styling-classes'></a></a><a class="headerlink" href="#styling-classes" title="Link to this heading">#</a></h2>
 <p>A few styling issues related to classes are worth clarifying, especially as your programs become more complicated.</p>
 <p>Class names should be written in CamelCase. To do this, capitalize the first letter of each word in the name, and don’t use underscores. Instance and module names should be written in lowercase with underscores between words.</p>
 <p>Every class should have a docstring immediately following the class definition. The docstring should be a brief description of what the class does, and you should follow the same formatting conventions you used for writing docstrings in functions. Each module should also have a docstring describing what the classes in a module can be used for.</p>
 <p>You can use blank lines to organize code, but don’t use them excessively. Within a class you can use one blank line between methods, and within a module you can use two blank lines to separate classes.</p>
 <p>If you need to import a module from the standard library and a module that you wrote, place the import statement for the standard library module first. Then add a blank line and the import statement for the module you wrote. In programs with multiple import statements, this convention makes it easier to see where the different modules used in the program come from.</p>
 </section>
-<section id="summary-a-class-anchor-id-summary-a">
-<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">9.5. </span>SUMMARY <a class='anchor' id='summary'></a></a><a class="headerlink" href="#summary-a-class-anchor-id-summary-a" title="Permalink to this heading">#</a></h2>
+<section id="summary">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">9.5. </span>SUMMARY <a class='anchor' id='summary'></a></a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>In this chapter you learned how to write your own classes. You learned how to store information in a class using attributes and how to write methods that give your classes the behavior they need. You learned to write <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> methods that create instances from your classes with exactly the attributes you want. You saw how to modify the attributes of an instance directly and through methods. Y</p>
 <p>You saw how storing classes in modules and importing classes you need into the files where they’ll be used can keep your projects organized. You started learning about the Python standard library, and you saw an example based on the random module. Finally, you learned to style your classes using Python conventions.</p>
 </section>
@@ -996,13 +994,14 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-a-class-a-class-anchor-id-creating-a-class-a">9.1. CREATING AND USING A CLASS <a class="anchor" id="creating-a-class"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-and-using-a-class">9.1. CREATING AND USING A CLASS <a class="anchor" id="creating-a-class"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-the-dog-class">9.1.1. Creating the Dog Class</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-init-method">9.1.1.1. The <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> Method</a></li>
 </ul>
@@ -1015,7 +1014,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-classes-and-instances-a-class-anchor-id-working-with-classes-a">9.2. WORKING WITH CLASSES AND INSTANCES <a class="anchor" id="working-with-classes"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-classes-and-instances">9.2. WORKING WITH CLASSES AND INSTANCES <a class="anchor" id="working-with-classes"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-car-class">9.2.1. The Car Class</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-a-default-value-for-an-attribute">9.2.2. Setting a Default Value for an Attribute</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-attribute-values">9.2.3. Modifying Attribute Values</a><ul class="nav section-nav flex-column">
@@ -1026,9 +1025,9 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-standard-library-a-class-anchor-id-standard-library-a">9.3. THE PYTHON STANDARD LIBRARY <a class="anchor" id="standard-library"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-classes-a-class-anchor-id-styling-classes-a">9.4. STYLING CLASSES <a class="anchor" id="styling-classes"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-a-class-anchor-id-summary-a">9.5. SUMMARY <a class="anchor" id="summary"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-python-standard-library">9.3. THE PYTHON STANDARD LIBRARY <a class="anchor" id="standard-library"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-classes">9.4. STYLING CLASSES <a class="anchor" id="styling-classes"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">9.5. SUMMARY <a class="anchor" id="summary"></a></a></li>
 </ul>
   </nav></div>
 
@@ -1077,8 +1076,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

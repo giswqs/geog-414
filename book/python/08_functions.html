@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>8. Functions &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/08_functions';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/python/08_functions.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9. Classes" href="09_classes.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/08_functions.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/08_functions.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/python/08_functions.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/python/08_functions.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -514,12 +505,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-a-class-anchor-id-defining-a-function-a">8.1. DEFINING A FUNCTION <a class="anchor" id="defining-a-function"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function">8.1. DEFINING A FUNCTION <a class="anchor" id="defining-a-function"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-information-to-a-function">8.1.1. Passing Information to a Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments-and-parameters">8.1.2. Arguments and Parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arguments-a-class-anchor-id-passing-arguments-a">8.2. PASSING ARGUMENTS <a class="anchor" id="passing-arguments"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arguments">8.2. PASSING ARGUMENTS <a class="anchor" id="passing-arguments"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">8.2.1. Positional Arguments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-function-calls">8.2.2. Multiple Function Calls</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-matters-in-positional-arguments">8.2.3. Order Matters in Positional Arguments</a></li>
@@ -527,20 +518,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values">8.2.5. Default Values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-function-calls">8.2.6. Equivalent Function Calls</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-argument-errors">8.2.7. Avoiding Argument Errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values-a-class-anchor-id-return-values-a">8.2.8. RETURN VALUES <a class="anchor" id="return-values"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values">8.2.8. RETURN VALUES <a class="anchor" id="return-values"></a></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-a-simple-value">8.2.9. Returning a Simple Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-an-argument-optional">8.2.10. Making an Argument Optional</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-a-dictionary">8.2.11. Returning a Dictionary</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-function-with-a-while-loop">8.2.12. Using a Function with a while Loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-a-list-a-class-anchor-id-passing-a-list-a">8.2.13. PASSING A LIST <a class="anchor" id="passing-a-list"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-a-list">8.2.13. PASSING A LIST <a class="anchor" id="passing-a-list"></a></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-a-list-in-a-function">8.2.14. Modifying a List in a Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preventing-a-function-from-modifying-a-list">8.2.15. Preventing a Function from Modifying a List</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-arbitrary-number-of-arguments-a-class-anchor-id-passing-arbitrary-arguments-a">8.2.16. PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class="anchor" id="passing-arbitrary-arguments"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-arbitrary-number-of-arguments">8.2.16. PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class="anchor" id="passing-arbitrary-arguments"></a></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-positional-and-arbitrary-arguments">8.2.17. Mixing Positional and Arbitrary Arguments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-arbitrary-keyword-arguments">8.2.18. Using Arbitrary Keyword Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-a-class-anchor-id-summary-a">8.3. SUMMARY <a class="anchor" id="summary"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8.3. SUMMARY <a class="anchor" id="summary"></a></a></li>
 </ul>
             </nav>
         </div>
@@ -550,19 +541,19 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="functions">
-<h1><span class="section-number">8. </span>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">8. </span>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h1>
 <nav class="contents local" id="contents">
 <ul class="simple">
-<li><p><a class="reference internal" href="#defining-a-function-a-class-anchor-id-defining-a-function-a" id="id1">DEFINING A FUNCTION <a class='anchor' id='defining-a-function'></a></a></p>
+<li><p><a class="reference internal" href="#defining-a-function" id="id1">DEFINING A FUNCTION <a class='anchor' id='defining-a-function'></a></a></p>
 <ul>
 <li><p><a class="reference internal" href="#passing-information-to-a-function" id="id2">Passing Information to a Function</a></p></li>
 <li><p><a class="reference internal" href="#arguments-and-parameters" id="id3">Arguments and Parameters</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#passing-arguments-a-class-anchor-id-passing-arguments-a" id="id4">PASSING ARGUMENTS <a class='anchor' id='passing-arguments'></a></a></p>
+<li><p><a class="reference internal" href="#passing-arguments" id="id4">PASSING ARGUMENTS <a class='anchor' id='passing-arguments'></a></a></p>
 <ul>
 <li><p><a class="reference internal" href="#positional-arguments" id="id5">Positional Arguments</a></p></li>
 <li><p><a class="reference internal" href="#multiple-function-calls" id="id6">Multiple Function Calls</a></p></li>
@@ -571,34 +562,34 @@ document.write(`
 <li><p><a class="reference internal" href="#default-values" id="id9">Default Values</a></p></li>
 <li><p><a class="reference internal" href="#equivalent-function-calls" id="id10">Equivalent Function Calls</a></p></li>
 <li><p><a class="reference internal" href="#avoiding-argument-errors" id="id11">Avoiding Argument Errors</a></p></li>
-<li><p><a class="reference internal" href="#return-values-a-class-anchor-id-return-values-a" id="id12">RETURN VALUES <a class='anchor' id='return-values'></a></a></p></li>
+<li><p><a class="reference internal" href="#return-values" id="id12">RETURN VALUES <a class='anchor' id='return-values'></a></a></p></li>
 <li><p><a class="reference internal" href="#returning-a-simple-value" id="id13">Returning a Simple Value</a></p></li>
 <li><p><a class="reference internal" href="#making-an-argument-optional" id="id14">Making an Argument Optional</a></p></li>
 <li><p><a class="reference internal" href="#returning-a-dictionary" id="id15">Returning a Dictionary</a></p></li>
 <li><p><a class="reference internal" href="#using-a-function-with-a-while-loop" id="id16">Using a Function with a while Loop</a></p></li>
-<li><p><a class="reference internal" href="#passing-a-list-a-class-anchor-id-passing-a-list-a" id="id17">PASSING A LIST <a class='anchor' id='passing-a-list'></a></a></p></li>
+<li><p><a class="reference internal" href="#passing-a-list" id="id17">PASSING A LIST <a class='anchor' id='passing-a-list'></a></a></p></li>
 <li><p><a class="reference internal" href="#modifying-a-list-in-a-function" id="id18">Modifying a List in a Function</a></p></li>
 <li><p><a class="reference internal" href="#preventing-a-function-from-modifying-a-list" id="id19">Preventing a Function from Modifying a List</a></p></li>
-<li><p><a class="reference internal" href="#passing-an-arbitrary-number-of-arguments-a-class-anchor-id-passing-arbitrary-arguments-a" id="id20">PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class='anchor' id='passing-arbitrary-arguments'></a></a></p></li>
+<li><p><a class="reference internal" href="#passing-an-arbitrary-number-of-arguments" id="id20">PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class='anchor' id='passing-arbitrary-arguments'></a></a></p></li>
 <li><p><a class="reference internal" href="#mixing-positional-and-arbitrary-arguments" id="id21">Mixing Positional and Arbitrary Arguments</a></p></li>
 <li><p><a class="reference internal" href="#using-arbitrary-keyword-arguments" id="id22">Using Arbitrary Keyword Arguments</a></p></li>
 </ul>
 </li>
-<li><p><a class="reference internal" href="#summary-a-class-anchor-id-summary-a" id="id23">SUMMARY <a class='anchor' id='summary'></a></a></p></li>
+<li><p><a class="reference internal" href="#summary" id="id23">SUMMARY <a class='anchor' id='summary'></a></a></p></li>
 </ul>
 </nav>
 <p>In this lecture you’ll learn to write functions, which are named blocks of code that are designed to do one specific job. When you want to perform a particular task that you’ve defined in a function, you call the function responsible for it. If you need to perform that task multiple times throughout your program, you don’t need to type all the code for the same task again and again; you just call the function dedicated to handling that task, and the call tells Python to run the code inside the function. You’ll find that using functions makes your programs easier to write, read, test, and fix.</p>
 <p>In this lecture you’ll also learn ways to pass information to functions. You’ll learn how to write certain functions whose primary job is to display information and other functions designed to process data and return a value or set of values. Finally, you’ll learn to store functions in separate files called modules to help organize your main program files.</p>
 <ul class="simple">
-<li><p><span class="xref myst">DEFINING A FUNCTION</span></p></li>
-<li><p><span class="xref myst">PASSING ARGUMENTS</span></p></li>
-<li><p><span class="xref myst">RETURN VALUES</span></p></li>
-<li><p><span class="xref myst">PASSING A LIST</span></p></li>
-<li><p><span class="xref myst">PASSING AN ARBITRARY NUMBER OF ARGUMENTS</span></p></li>
-<li><p><span class="xref myst">SUMMARY</span></p></li>
+<li><p><a class="reference internal" href="#defining-a-function"><span class="xref myst">DEFINING A FUNCTION</span></a></p></li>
+<li><p><a class="reference internal" href="#passing-arguments"><span class="xref myst">PASSING ARGUMENTS</span></a></p></li>
+<li><p><a class="reference internal" href="#return-values"><span class="xref myst">RETURN VALUES</span></a></p></li>
+<li><p><a class="reference internal" href="#passing-a-list"><span class="xref myst">PASSING A LIST</span></a></p></li>
+<li><p><a class="reference internal" href="#passing-arbitrary-arguments"><span class="xref myst">PASSING AN ARBITRARY NUMBER OF ARGUMENTS</span></a></p></li>
+<li><p><a class="reference internal" href="#summary"><span class="xref myst">SUMMARY</span></a></p></li>
 </ul>
-<section id="defining-a-function-a-class-anchor-id-defining-a-function-a">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">8.1. </span>DEFINING A FUNCTION <a class='anchor' id='defining-a-function'></a></a><a class="headerlink" href="#defining-a-function-a-class-anchor-id-defining-a-function-a" title="Permalink to this heading">#</a></h2>
+<section id="defining-a-function">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">8.1. </span>DEFINING A FUNCTION <a class='anchor' id='defining-a-function'></a></a><a class="headerlink" href="#defining-a-function" title="Link to this heading">#</a></h2>
 <p>Here’s a simple function named greet_user() that prints a greeting:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>➊ def greet_user():
 ➋     &quot;&quot;&quot;Display a simple greeting.&quot;&quot;&quot;
@@ -617,19 +608,21 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
 
+
 <span class="n">greet_user</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="passing-information-to-a-function">
-<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">8.1.1. </span>Passing Information to a Function</a><a class="headerlink" href="#passing-information-to-a-function" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">8.1.1. </span>Passing Information to a Function</a><a class="headerlink" href="#passing-information-to-a-function" title="Link to this heading">#</a></h3>
 <p>Modified slightly, the function greet_user() can not only tell the user Hello! but also greet them by name. For the function to do this, you enter username in the parentheses of the function’s definition at def greet_user(). By adding username here you allow the function to accept any value of username you specify. The function now expects you to provide a value for username each time you call it. When you call greet_user(), you can pass it a name, such as ‘jesse’, inside the parentheses:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet_user</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display a simple greeting.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">username</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
 
 <span class="n">greet_user</span><span class="p">(</span><span class="s1">&#39;jesse&#39;</span><span class="p">)</span>
 </pre></div>
@@ -638,16 +631,16 @@ document.write(`
 </div>
 </section>
 <section id="arguments-and-parameters">
-<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">8.1.2. </span>Arguments and Parameters</a><a class="headerlink" href="#arguments-and-parameters" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">8.1.2. </span>Arguments and Parameters</a><a class="headerlink" href="#arguments-and-parameters" title="Link to this heading">#</a></h3>
 <p>In the preceding greet_user() function, we defined greet_user() to require a value for the variable username. Once we called the function and gave it the information (a person’s name), it printed the right greeting.</p>
 <p>The variable username in the definition of greet_user() is an example of a parameter, a piece of information the function needs to do its job. The value ‘jesse’ in greet_user(‘jesse’) is an example of an argument. An argument is a piece of information that’s passed from a function call to a function. When we call the function, we place the value we want the function to work with in parentheses. In this case the argument ‘jesse’ was passed to the function greet_user(), and the value was assigned to the parameter username.</p>
 </section>
 </section>
-<section id="passing-arguments-a-class-anchor-id-passing-arguments-a">
-<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">8.2. </span>PASSING ARGUMENTS <a class='anchor' id='passing-arguments'></a></a><a class="headerlink" href="#passing-arguments-a-class-anchor-id-passing-arguments-a" title="Permalink to this heading">#</a></h2>
+<section id="passing-arguments">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">8.2. </span>PASSING ARGUMENTS <a class='anchor' id='passing-arguments'></a></a><a class="headerlink" href="#passing-arguments" title="Link to this heading">#</a></h2>
 <p>Because a function definition can have multiple parameters, a function call may need multiple arguments. You can pass arguments to your functions in a number of ways. You can use positional arguments, which need to be in the same order the parameters were written; keyword arguments, where each argument consists of a variable name and a value; and lists and dictionaries of values. Let’s look at each of these in turn.</p>
 <section id="positional-arguments">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">8.2.1. </span>Positional Arguments</a><a class="headerlink" href="#positional-arguments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">8.2.1. </span>Positional Arguments</a><a class="headerlink" href="#positional-arguments" title="Link to this heading">#</a></h3>
 <p>When you call a function, Python must match each argument in the function call with a parameter in the function definition. The simplest way to do this is based on the order of the arguments provided. Values matched up this way are called positional arguments.</p>
 <p>To see how this works, consider a function that displays information about pets. The function tells us what kind of animal each pet is and the pet’s name, as shown here:</p>
 <div class="cell docutils container">
@@ -657,6 +650,7 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">I have a </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">&#39;s name is </span><span class="si">{</span><span class="n">pet_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
+
 <span class="n">describe_pet</span><span class="p">(</span><span class="s1">&#39;hamster&#39;</span><span class="p">,</span> <span class="s1">&#39;harry&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -664,7 +658,7 @@ document.write(`
 </div>
 </section>
 <section id="multiple-function-calls">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">8.2.2. </span>Multiple Function Calls</a><a class="headerlink" href="#multiple-function-calls" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">8.2.2. </span>Multiple Function Calls</a><a class="headerlink" href="#multiple-function-calls" title="Link to this heading">#</a></h3>
 <p>You can call a function as many times as needed. Describing a second, different pet requires just one more call to describe_pet():</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -672,6 +666,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display information about a pet.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">I have a </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">&#39;s name is </span><span class="si">{</span><span class="n">pet_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
 
 <span class="n">describe_pet</span><span class="p">(</span><span class="s1">&#39;hamster&#39;</span><span class="p">,</span> <span class="s1">&#39;harry&#39;</span><span class="p">)</span>
 <span class="n">describe_pet</span><span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;willie&#39;</span><span class="p">)</span>
@@ -683,7 +678,7 @@ document.write(`
 <p>You can use as many positional arguments as you need in your functions. Python works through the arguments you provide when calling the function and matches each one with the corresponding parameter in the function’s definition.</p>
 </section>
 <section id="order-matters-in-positional-arguments">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">8.2.3. </span>Order Matters in Positional Arguments</a><a class="headerlink" href="#order-matters-in-positional-arguments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">8.2.3. </span>Order Matters in Positional Arguments</a><a class="headerlink" href="#order-matters-in-positional-arguments" title="Link to this heading">#</a></h3>
 <p>You can get unexpected results if you mix up the order of the arguments in a function call when using positional arguments:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,6 +686,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display information about a pet.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">I have a </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">&#39;s name is </span><span class="si">{</span><span class="n">pet_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
 
 <span class="n">describe_pet</span><span class="p">(</span><span class="s1">&#39;harry&#39;</span><span class="p">,</span> <span class="s1">&#39;hamster&#39;</span><span class="p">)</span>
 </pre></div>
@@ -701,7 +697,7 @@ document.write(`
 <p>If you get funny results like this, check to make sure the order of the arguments in your function call matches the order of the parameters in the function’s definition.</p>
 </section>
 <section id="keyword-arguments">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">8.2.4. </span>Keyword Arguments</a><a class="headerlink" href="#keyword-arguments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">8.2.4. </span>Keyword Arguments</a><a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h3>
 <p>A keyword argument is a name-value pair that you pass to a function. You directly associate the name and the value within the argument, so when you pass the argument to the function, there’s no confusion (you won’t end up with a harry named Hamster). Keyword arguments free you from having to worry about correctly ordering your arguments in the function call, and they clarify the role of each value in the function call.</p>
 <p>Let’s rewrite <a class="reference external" href="http://pets.py">pets.py</a> using keyword arguments to call describe_pet():</p>
 <div class="cell docutils container">
@@ -710,6 +706,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display information about a pet.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">I have a </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">&#39;s name is </span><span class="si">{</span><span class="n">pet_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
 
 <span class="n">describe_pet</span><span class="p">(</span><span class="n">animal_type</span><span class="o">=</span><span class="s1">&#39;hamster&#39;</span><span class="p">,</span> <span class="n">pet_name</span><span class="o">=</span><span class="s1">&#39;harry&#39;</span><span class="p">)</span>
 </pre></div>
@@ -728,7 +725,7 @@ document.write(`
 </div>
 </section>
 <section id="default-values">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">8.2.5. </span>Default Values</a><a class="headerlink" href="#default-values" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">8.2.5. </span>Default Values</a><a class="headerlink" href="#default-values" title="Link to this heading">#</a></h3>
 <p>When writing a function, you can define a default value for each parameter. If an argument for a parameter is provided in the function call, Python uses the argument value. If not, it uses the parameter’s default value. So when you define a default value for a parameter, you can exclude the corresponding argument you’d usually write in the function call. Using default values can simplify your function calls and clarify the ways in which your functions are typically used.</p>
 <p>For example, if you notice that most of the calls to describe_pet() are being used to describe dogs, you can set the default value of animal_type to ‘dog’. Now anyone calling describe_pet() for a dog can omit that information:</p>
 <div class="cell docutils container">
@@ -737,6 +734,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display information about a pet.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">I have a </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">&#39;s name is </span><span class="si">{</span><span class="n">pet_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
 
 <span class="n">describe_pet</span><span class="p">(</span><span class="n">pet_name</span><span class="o">=</span><span class="s1">&#39;willie&#39;</span><span class="p">)</span>
 </pre></div>
@@ -756,7 +754,7 @@ document.write(`
 <p>Because an explicit argument for animal_type is provided, Python will ignore the parameter’s default value.</p>
 </section>
 <section id="equivalent-function-calls">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">8.2.6. </span>Equivalent Function Calls</a><a class="headerlink" href="#equivalent-function-calls" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">8.2.6. </span>Equivalent Function Calls</a><a class="headerlink" href="#equivalent-function-calls" title="Link to this heading">#</a></h3>
 <p>Because positional arguments, keyword arguments, and default values can all be used together, often you’ll have several equivalent ways to call a function. Consider the following definition for describe_pet() with one default value provided:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">describe_pet</span><span class="p">(</span><span class="n">pet_name</span><span class="p">,</span> <span class="n">animal_type</span><span class="o">=</span><span class="s1">&#39;dog&#39;</span><span class="p">):</span>
 </pre></div>
@@ -779,7 +777,7 @@ document.write(`
 </div>
 </section>
 <section id="avoiding-argument-errors">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">8.2.7. </span>Avoiding Argument Errors</a><a class="headerlink" href="#avoiding-argument-errors" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">8.2.7. </span>Avoiding Argument Errors</a><a class="headerlink" href="#avoiding-argument-errors" title="Link to this heading">#</a></h3>
 <p>When you start to use functions, don’t be surprised if you encounter errors about unmatched arguments. Unmatched arguments occur when you provide fewer or more arguments than a function needs to do its work. For example, here’s what happens if we try to call describe_pet() with no arguments:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -788,18 +786,19 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">I have a </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My </span><span class="si">{</span><span class="n">animal_type</span><span class="si">}</span><span class="s2">&#39;s name is </span><span class="si">{</span><span class="n">pet_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 
+
 <span class="c1"># describe_pet()</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="return-values-a-class-anchor-id-return-values-a">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">8.2.8. </span>RETURN VALUES <a class='anchor' id='return-values'></a></a><a class="headerlink" href="#return-values-a-class-anchor-id-return-values-a" title="Permalink to this heading">#</a></h3>
+<section id="return-values">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">8.2.8. </span>RETURN VALUES <a class='anchor' id='return-values'></a></a><a class="headerlink" href="#return-values" title="Link to this heading">#</a></h3>
 <p>A function doesn’t always have to display its output directly. Instead, it can process some data and then return a value or set of values. The value the function returns is called a return value. The return statement takes a value from inside a function and sends it back to the line that called the function. Return values allow you to move much of your program’s grunt work into functions, which can simplify the body of your program.</p>
 </section>
 <section id="returning-a-simple-value">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">8.2.9. </span>Returning a Simple Value</a><a class="headerlink" href="#returning-a-simple-value" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">8.2.9. </span>Returning a Simple Value</a><a class="headerlink" href="#returning-a-simple-value" title="Link to this heading">#</a></h3>
 <p>Let’s look at a function that takes a first and last name, and returns a neatly formatted full name:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -807,6 +806,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a full name, neatly formatted.&quot;&quot;&quot;</span>
     <span class="n">full_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
 
 <span class="n">musician</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">&#39;jimi&#39;</span><span class="p">,</span> <span class="s1">&#39;hendrix&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">musician</span><span class="p">)</span>
@@ -816,7 +816,7 @@ document.write(`
 </div>
 </section>
 <section id="making-an-argument-optional">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">8.2.10. </span>Making an Argument Optional</a><a class="headerlink" href="#making-an-argument-optional" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">8.2.10. </span>Making an Argument Optional</a><a class="headerlink" href="#making-an-argument-optional" title="Link to this heading">#</a></h3>
 <p>Sometimes it makes sense to make an argument optional so that people using the function can choose to provide extra information only if they want to. You can use default values to make an argument optional.</p>
 <p>For example, say we want to expand get_formatted_name() to handle middle names as well. A first attempt to include middle names might look like this:</p>
 <div class="cell docutils container">
@@ -825,6 +825,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a full name, neatly formatted.&quot;&quot;&quot;</span>
     <span class="n">full_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">middle_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
 
 <span class="n">musician</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;lee&#39;</span><span class="p">,</span> <span class="s1">&#39;hooker&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">musician</span><span class="p">)</span>
@@ -844,6 +845,7 @@ document.write(`
         <span class="n">full_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
 
+
 <span class="n">musician</span> <span class="o">=</span> <span class="n">get_formatted_name</span><span class="p">(</span><span class="s1">&#39;jimi&#39;</span><span class="p">,</span> <span class="s1">&#39;hendrix&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">musician</span><span class="p">)</span>
 
@@ -855,7 +857,7 @@ document.write(`
 </div>
 </section>
 <section id="returning-a-dictionary">
-<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">8.2.11. </span>Returning a Dictionary</a><a class="headerlink" href="#returning-a-dictionary" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">8.2.11. </span>Returning a Dictionary</a><a class="headerlink" href="#returning-a-dictionary" title="Link to this heading">#</a></h3>
 <p>A function can return any kind of value you need it to, including more complicated data structures like lists and dictionaries. For example, the following function takes in parts of a name and returns a dictionary representing a person:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -863,6 +865,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a dictionary of information about a person.&quot;&quot;&quot;</span>
     <span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="n">first_name</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="n">last_name</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">person</span>
+
 
 <span class="n">musician</span> <span class="o">=</span> <span class="n">build_person</span><span class="p">(</span><span class="s1">&#39;jimi&#39;</span><span class="p">,</span> <span class="s1">&#39;hendrix&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">musician</span><span class="p">)</span>
@@ -880,6 +883,7 @@ document.write(`
         <span class="n">person</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">age</span>
     <span class="k">return</span> <span class="n">person</span>
 
+
 <span class="n">musician</span> <span class="o">=</span> <span class="n">build_person</span><span class="p">(</span><span class="s1">&#39;jimi&#39;</span><span class="p">,</span> <span class="s1">&#39;hendrix&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">musician</span><span class="p">)</span>
 </pre></div>
@@ -889,7 +893,7 @@ document.write(`
 <p>We add a new optional parameter age to the function definition and assign the parameter the special value None, which is used when a variable has no specific value assigned to it. You can think of None as a placeholder value. In conditional tests, None evaluates to False. If the function call includes a value for age, that value is stored in the dictionary. This function always stores a person’s name, but it can also be modified to store any other information you want about a person.</p>
 </section>
 <section id="using-a-function-with-a-while-loop">
-<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">8.2.12. </span>Using a Function with a while Loop</a><a class="headerlink" href="#using-a-function-with-a-while-loop" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">8.2.12. </span>Using a Function with a while Loop</a><a class="headerlink" href="#using-a-function-with-a-while-loop" title="Link to this heading">#</a></h3>
 <p>You can use functions with all the Python structures you’ve learned about so far. For example, let’s use the get_formatted_name() function with a while loop to greet users more formally. Here’s a first attempt at greeting people using their first and last names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -897,6 +901,7 @@ document.write(`
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a full name, neatly formatted.&quot;&quot;&quot;</span>
     <span class="n">full_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="k">return</span> <span class="n">full_name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+
 
 <span class="c1"># # This is an infinite loop!</span>
 <span class="c1"># while True:</span>
@@ -918,8 +923,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="passing-a-list-a-class-anchor-id-passing-a-list-a">
-<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">8.2.13. </span>PASSING A LIST <a class='anchor' id='passing-a-list'></a></a><a class="headerlink" href="#passing-a-list-a-class-anchor-id-passing-a-list-a" title="Permalink to this heading">#</a></h3>
+<section id="passing-a-list">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">8.2.13. </span>PASSING A LIST <a class='anchor' id='passing-a-list'></a></a><a class="headerlink" href="#passing-a-list" title="Link to this heading">#</a></h3>
 <p>You’ll often find it useful to pass a list to a function, whether it’s a list of names, numbers, or more complex objects, such as dictionaries. When you pass a list to a function, the function gets direct access to the contents of the list. Let’s use functions to make working with lists more efficient.</p>
 <p>Say we have a list of users and want to print a greeting to each. The following example sends a list of names to a function called greet_users(), which greets each person in the list individually:</p>
 <div class="cell docutils container">
@@ -930,6 +935,7 @@ document.write(`
         <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">!&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
+
 <span class="n">usernames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hannah&#39;</span><span class="p">,</span> <span class="s1">&#39;ty&#39;</span><span class="p">,</span> <span class="s1">&#39;margot&#39;</span><span class="p">]</span>
 <span class="n">greet_users</span><span class="p">(</span><span class="n">usernames</span><span class="p">)</span>
 </pre></div>
@@ -938,7 +944,7 @@ document.write(`
 </div>
 </section>
 <section id="modifying-a-list-in-a-function">
-<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">8.2.14. </span>Modifying a List in a Function</a><a class="headerlink" href="#modifying-a-list-in-a-function" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">8.2.14. </span>Modifying a List in a Function</a><a class="headerlink" href="#modifying-a-list-in-a-function" title="Link to this heading">#</a></h3>
 <p>When you pass a list to a function, the function can modify the list. Any changes made to the list inside the function’s body are permanent, allowing you to work efficiently even when you’re dealing with large amounts of data.</p>
 <p>Consider a company that creates 3D printed models of designs that users submit. Designs that need to be printed are stored in a list, and after being printed they’re moved to a separate list. The following code does this without using functions:</p>
 <div class="cell docutils container">
@@ -948,7 +954,7 @@ document.write(`
 <span class="n">completed_models</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Simulate printing each design, until none are left.</span>
-<span class="c1">#  Move each design to completed_models after printing.</span>
+<span class="c1">#  Move each design to completed_models after printing.</span>
 <span class="k">while</span> <span class="n">unprinted_designs</span><span class="p">:</span>
     <span class="n">current_design</span> <span class="o">=</span> <span class="n">unprinted_designs</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Printing model: </span><span class="si">{</span><span class="n">current_design</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -976,11 +982,13 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Printing model: </span><span class="si">{</span><span class="n">current_design</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">completed_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_design</span><span class="p">)</span>
 
+
 <span class="k">def</span> <span class="nf">show_completed_models</span><span class="p">(</span><span class="n">completed_models</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Show all the models that were printed.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The following models have been printed:&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">completed_model</span> <span class="ow">in</span> <span class="n">completed_models</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">completed_model</span><span class="p">)</span>
+
 
 <span class="n">unprinted_designs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phone case&#39;</span><span class="p">,</span> <span class="s1">&#39;robot pendant&#39;</span><span class="p">,</span> <span class="s1">&#39;dodecahedron&#39;</span><span class="p">]</span>
 <span class="n">completed_models</span> <span class="o">=</span> <span class="p">[]</span>
@@ -996,7 +1004,7 @@ document.write(`
 <p>This example also demonstrates the idea that every function should have one specific job. The first function prints each design, and the second displays the completed models. This is more beneficial than using one function to do both jobs. If you’re writing a function and notice the function is doing too many different tasks, try to split the code into two functions. Remember that you can always call a function from another function, which can be helpful when splitting a complex task into a series of steps.</p>
 </section>
 <section id="preventing-a-function-from-modifying-a-list">
-<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">8.2.15. </span>Preventing a Function from Modifying a List</a><a class="headerlink" href="#preventing-a-function-from-modifying-a-list" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">8.2.15. </span>Preventing a Function from Modifying a List</a><a class="headerlink" href="#preventing-a-function-from-modifying-a-list" title="Link to this heading">#</a></h3>
 <p>Sometimes you’ll want to prevent a function from modifying a list. For example, say that you start with a list of unprinted designs and write a function to move them to a list of completed models, as in the previous example. You may decide that even though you’ve printed all the designs, you want to keep the original list of unprinted designs for your records. But because you moved all the design names out of unprinted_designs, the list is now empty, and the empty list is the only version you have; the original is gone. In this case, you can address this issue by passing the function a copy of the list, not the original. Any changes the function makes to the list will affect only the copy, leaving the original list intact.</p>
 <p>You can send a copy of a list to a function like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_name</span><span class="p">(</span><span class="n">list_name</span><span class="p">[:])</span>
@@ -1015,11 +1023,13 @@ document.write(`
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Printing model: </span><span class="si">{</span><span class="n">current_design</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">completed_models</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_design</span><span class="p">)</span>
 
+
 <span class="k">def</span> <span class="nf">show_completed_models</span><span class="p">(</span><span class="n">completed_models</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Show all the models that were printed.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The following models have been printed:&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">completed_model</span> <span class="ow">in</span> <span class="n">completed_models</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">completed_model</span><span class="p">)</span>
+
 
 <span class="n">unprinted_designs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phone case&#39;</span><span class="p">,</span> <span class="s1">&#39;robot pendant&#39;</span><span class="p">,</span> <span class="s1">&#39;dodecahedron&#39;</span><span class="p">]</span>
 <span class="n">completed_models</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1032,8 +1042,8 @@ document.write(`
 <p>The function print_models() can do its work because it still receives the names of all unprinted designs. But this time it uses a copy of the original unprinted designs list, not the actual unprinted_designs list. The list completed_models will fill up with the names of printed models like it did before, but the original list of unprinted designs will be unaffected by the function.</p>
 <p>Even though you can preserve the contents of a list by passing a copy of it to your functions, you should pass the original list to functions unless you have a specific reason to pass a copy. It’s more efficient for a function to work with an existing list to avoid using the time and memory needed to make a separate copy, especially when you’re working with large lists.</p>
 </section>
-<section id="passing-an-arbitrary-number-of-arguments-a-class-anchor-id-passing-arbitrary-arguments-a">
-<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">8.2.16. </span>PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class='anchor' id='passing-arbitrary-arguments'></a></a><a class="headerlink" href="#passing-an-arbitrary-number-of-arguments-a-class-anchor-id-passing-arbitrary-arguments-a" title="Permalink to this heading">#</a></h3>
+<section id="passing-an-arbitrary-number-of-arguments">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">8.2.16. </span>PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class='anchor' id='passing-arbitrary-arguments'></a></a><a class="headerlink" href="#passing-an-arbitrary-number-of-arguments" title="Link to this heading">#</a></h3>
 <p>Sometimes you won’t know ahead of time how many arguments a function needs to accept. Fortunately, Python allows a function to collect an arbitrary number of arguments from the calling statement.</p>
 <p>For example, consider a function that builds a pizza. It needs to accept a number of toppings, but you can’t know ahead of time how many toppings a person will want. The function in the following example has one parameter, *toppings, but this parameter collects as many arguments as the calling line provides:</p>
 <div class="cell docutils container">
@@ -1041,6 +1051,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_pizza</span><span class="p">(</span><span class="o">*</span><span class="n">toppings</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the list of toppings that have been requested.&quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">toppings</span><span class="p">)</span>
+
 
 <span class="n">make_pizza</span><span class="p">(</span><span class="s1">&#39;pepperoni&#39;</span><span class="p">)</span>
 <span class="n">make_pizza</span><span class="p">(</span><span class="s1">&#39;mushrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;green peppers&#39;</span><span class="p">,</span> <span class="s1">&#39;extra cheese&#39;</span><span class="p">)</span>
@@ -1058,6 +1069,7 @@ document.write(`
     <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">topping</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+
 <span class="n">make_pizza</span><span class="p">(</span><span class="s1">&#39;pepperoni&#39;</span><span class="p">)</span>
 <span class="n">make_pizza</span><span class="p">(</span><span class="s1">&#39;mushrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;green peppers&#39;</span><span class="p">,</span> <span class="s1">&#39;extra cheese&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1066,7 +1078,7 @@ document.write(`
 </div>
 </section>
 <section id="mixing-positional-and-arbitrary-arguments">
-<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">8.2.17. </span>Mixing Positional and Arbitrary Arguments</a><a class="headerlink" href="#mixing-positional-and-arbitrary-arguments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">8.2.17. </span>Mixing Positional and Arbitrary Arguments</a><a class="headerlink" href="#mixing-positional-and-arbitrary-arguments" title="Link to this heading">#</a></h3>
 <p>If you want a function to accept several different kinds of arguments, the parameter that accepts an arbitrary number of arguments must be placed last in the function definition. Python matches positional and keyword arguments first and then collects any remaining arguments in the final parameter.</p>
 <p>For example, if the function needs to take in a size for the pizza, that parameter must come before the parameter <code class="docutils literal notranslate"><span class="pre">*toppings</span></code>:</p>
 <div class="cell docutils container">
@@ -1077,6 +1089,7 @@ document.write(`
     <span class="k">for</span> <span class="n">topping</span> <span class="ow">in</span> <span class="n">toppings</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">topping</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
+
 <span class="n">make_pizza</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s1">&#39;pepperoni&#39;</span><span class="p">)</span>
 <span class="n">make_pizza</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;mushrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;green peppers&#39;</span><span class="p">,</span> <span class="s1">&#39;extra cheese&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1085,7 +1098,7 @@ document.write(`
 </div>
 </section>
 <section id="using-arbitrary-keyword-arguments">
-<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">8.2.18. </span>Using Arbitrary Keyword Arguments</a><a class="headerlink" href="#using-arbitrary-keyword-arguments" title="Permalink to this heading">#</a></h3>
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">8.2.18. </span>Using Arbitrary Keyword Arguments</a><a class="headerlink" href="#using-arbitrary-keyword-arguments" title="Link to this heading">#</a></h3>
 <p>Sometimes you’ll want to accept an arbitrary number of arguments, but you won’t know ahead of time what kind of information will be passed to the function. In this case, you can write functions that accept as many key-value pairs as the calling statement provides. One example involves building user profiles: you know you’ll get information about a user, but you’re not sure what kind of information you’ll receive. The function build_profile() in the following example always takes in a first and last name, but it accepts an arbitrary number of keyword arguments as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1095,9 +1108,10 @@ document.write(`
     <span class="n">user_info</span><span class="p">[</span><span class="s1">&#39;last_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last</span>
     <span class="k">return</span> <span class="n">user_info</span>
 
-<span class="n">user_profile</span> <span class="o">=</span> <span class="n">build_profile</span><span class="p">(</span><span class="s1">&#39;albert&#39;</span><span class="p">,</span> <span class="s1">&#39;einstein&#39;</span><span class="p">,</span>
-                             <span class="n">location</span><span class="o">=</span><span class="s1">&#39;princeton&#39;</span><span class="p">,</span>
-                             <span class="n">field</span><span class="o">=</span><span class="s1">&#39;physics&#39;</span><span class="p">)</span>
+
+<span class="n">user_profile</span> <span class="o">=</span> <span class="n">build_profile</span><span class="p">(</span>
+    <span class="s1">&#39;albert&#39;</span><span class="p">,</span> <span class="s1">&#39;einstein&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;princeton&#39;</span><span class="p">,</span> <span class="n">field</span><span class="o">=</span><span class="s1">&#39;physics&#39;</span>
+<span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">user_profile</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1107,8 +1121,8 @@ document.write(`
 <p>You can mix positional, keyword, and arbitrary values in many different ways when writing your own functions. It’s useful to know that all these argument types exist because you’ll see them often when you start reading other people’s code. It takes practice to learn to use the different types correctly and to know when to use each type. For now, remember to use the simplest approach that gets the job done. As you progress you’ll learn to use the most efficient approach each time.</p>
 </section>
 </section>
-<section id="summary-a-class-anchor-id-summary-a">
-<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">8.3. </span>SUMMARY <a class='anchor' id='summary'></a></a><a class="headerlink" href="#summary-a-class-anchor-id-summary-a" title="Permalink to this heading">#</a></h2>
+<section id="summary">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">8.3. </span>SUMMARY <a class='anchor' id='summary'></a></a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>In this chapter you learned how to write functions and to pass arguments so that your functions have access to the information they need to do their work. You learned how to use positional and keyword arguments, and how to accept an arbitrary number of arguments. You saw functions that display output and functions that return values. You learned how to use functions with lists, dictionaries, if statements, and while loops.</p>
 <p>One of your goals as a programmer should be to write simple code that does what you want it to, and functions help you do this. They allow you to write blocks of code and leave them alone once you know they work. When you know a function does its job correctly, you can trust that it will continue to work and move on to your next coding task.</p>
 <p>Functions allow you to write code once and then reuse that code as many times as you want. When you need to run the code in a function, all you need to do is write a one-line call and the function does its job. When you need to modify a function’s behavior, you only have to modify one block of code, and your change takes effect everywhere you’ve made a call to that function.</p>
@@ -1174,18 +1188,19 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-a-class-anchor-id-defining-a-function-a">8.1. DEFINING A FUNCTION <a class="anchor" id="defining-a-function"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function">8.1. DEFINING A FUNCTION <a class="anchor" id="defining-a-function"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-information-to-a-function">8.1.1. Passing Information to a Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments-and-parameters">8.1.2. Arguments and Parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arguments-a-class-anchor-id-passing-arguments-a">8.2. PASSING ARGUMENTS <a class="anchor" id="passing-arguments"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-arguments">8.2. PASSING ARGUMENTS <a class="anchor" id="passing-arguments"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positional-arguments">8.2.1. Positional Arguments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-function-calls">8.2.2. Multiple Function Calls</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-matters-in-positional-arguments">8.2.3. Order Matters in Positional Arguments</a></li>
@@ -1193,20 +1208,20 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-values">8.2.5. Default Values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-function-calls">8.2.6. Equivalent Function Calls</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-argument-errors">8.2.7. Avoiding Argument Errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values-a-class-anchor-id-return-values-a">8.2.8. RETURN VALUES <a class="anchor" id="return-values"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-values">8.2.8. RETURN VALUES <a class="anchor" id="return-values"></a></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-a-simple-value">8.2.9. Returning a Simple Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-an-argument-optional">8.2.10. Making an Argument Optional</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returning-a-dictionary">8.2.11. Returning a Dictionary</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-function-with-a-while-loop">8.2.12. Using a Function with a while Loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-a-list-a-class-anchor-id-passing-a-list-a">8.2.13. PASSING A LIST <a class="anchor" id="passing-a-list"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-a-list">8.2.13. PASSING A LIST <a class="anchor" id="passing-a-list"></a></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-a-list-in-a-function">8.2.14. Modifying a List in a Function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preventing-a-function-from-modifying-a-list">8.2.15. Preventing a Function from Modifying a List</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-arbitrary-number-of-arguments-a-class-anchor-id-passing-arbitrary-arguments-a">8.2.16. PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class="anchor" id="passing-arbitrary-arguments"></a></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#passing-an-arbitrary-number-of-arguments">8.2.16. PASSING AN ARBITRARY NUMBER OF ARGUMENTS <a class="anchor" id="passing-arbitrary-arguments"></a></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mixing-positional-and-arbitrary-arguments">8.2.17. Mixing Positional and Arbitrary Arguments</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-arbitrary-keyword-arguments">8.2.18. Using Arbitrary Keyword Arguments</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-a-class-anchor-id-summary-a">8.3. SUMMARY <a class="anchor" id="summary"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">8.3. SUMMARY <a class="anchor" id="summary"></a></a></li>
 </ul>
   </nav></div>
 
@@ -1255,8 +1270,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

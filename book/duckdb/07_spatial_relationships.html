@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>28. Spatial Relationships &#8212; Spatial Data Management with Earth Engine</title>
   
@@ -19,52 +18,48 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/duckdb/07_spatial_relationships';</script>
     <link rel="canonical" href="https://geog-414.gishub.org/book/duckdb/07_spatial_relationships.html" />
-    <link rel="shortcut icon" href="../../_static/fav.ico"/>
+    <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="29. Data Visualization" href="08_data_viz.html" />
@@ -78,10 +73,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -160,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
 <ul class="nav bd-sidenav">
@@ -356,7 +364,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/duckdb/07_spatial_relationships.md" target="_blank"
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/duckdb/07_spatial_relationships.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,23 +412,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       <li><a href="../../_sources/book/duckdb/07_spatial_relationships.ipynb" target="_blank"
-   class="btn btn-sm btn-download-notebook-button dropdown-item"
-   title="Download notebook file"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  <i class="fas fa-code"></i>
-  </span>
-<span class="btn__text-container">.ipynb</span>
-</a>
-</li>
-      
-      
-      
-      
-      <li><a href="../../_sources/book/duckdb/07_spatial_relationships.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -430,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -535,30 +526,30 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="spatial-relationships">
-<h1><span class="section-number">28. </span>Spatial Relationships<a class="headerlink" href="#spatial-relationships" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">28. </span>Spatial Relationships<a class="headerlink" href="#spatial-relationships" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><span class="section-number">28.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>This notebook demonstrates how to analyze spatial relationships between features in a dataset.</p>
 </section>
 <section id="installation">
-<h2><span class="section-number">28.2. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.2. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
 <p>Uncomment the following cell to install the required packages if needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb leafmap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb leafmap</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="library-import-and-configuration">
-<h2><span class="section-number">28.3. </span>Library Import and Configuration<a class="headerlink" href="#library-import-and-configuration" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.3. </span>Library Import and Configuration<a class="headerlink" href="#library-import-and-configuration" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">duckdb</span>
 <span class="kn">import</span> <span class="nn">leafmap</span>
 </pre></div>
 </div>
@@ -566,30 +557,38 @@ document.write(`
 </div>
 </section>
 <section id="sample-data">
-<h2><span class="section-number">28.4. </span>Sample Data<a class="headerlink" href="#sample-data" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.4. </span>Sample Data<a class="headerlink" href="#sample-data" title="Link to this heading">#</a></h2>
 <p>The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/duckdb/nyc_data.db.zip&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://open.gishub.org/data/duckdb/nyc_data.db.zip&quot;</span>
 <span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nyc_data.db.zip already exists. Skip downloading. Set overwrite=True to overwrite.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/media/hdd/Dropbox/git/geog-414/book/duckdb/nyc_data.db.zip&#39;
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="connecting-to-duckdb">
-<h2><span class="section-number">28.5. </span>Connecting to DuckDB<a class="headerlink" href="#connecting-to-duckdb" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.5. </span>Connecting to DuckDB<a class="headerlink" href="#connecting-to-duckdb" title="Link to this heading">#</a></h2>
 <p>Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may either connect to an in memory DuckDB, or a file backed db.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;nyc_data.db&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;nyc_data.db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">install_extension</span><span class="p">(</span><span class="s1">&#39;spatial&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">install_extension</span><span class="p">(</span><span class="s1">&#39;spatial&#39;</span><span class="p">)</span>
 <span class="n">con</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="s1">&#39;spatial&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -597,21 +596,52 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SHOW TABLES;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SHOW TABLES;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌─────────────────────┐
+│        name         │
+│       varchar       │
+├─────────────────────┤
+│ nyc_census_blocks   │
+│ nyc_homicides       │
+│ nyc_neighborhoods   │
+│ nyc_streets         │
+│ nyc_subway_stations │
+│ samples             │
+└─────────────────────┘
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT * from nyc_subway_stations LIMIT 5&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT * from nyc_subway_stations LIMIT 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌──────────┬────────┬──────────────┬─────────────────┬───┬─────────┬─────────┬─────────┬──────────────────────┐
+│ OBJECTID │   ID   │     NAME     │    ALT_NAME     │ … │  COLOR  │ EXPRESS │ CLOSED  │         geom         │
+│  double  │ double │   varchar    │     varchar     │   │ varchar │ varchar │ varchar │       geometry       │
+├──────────┼────────┼──────────────┼─────────────────┼───┼─────────┼─────────┼─────────┼──────────────────────┤
+│      1.0 │  376.0 │ Cortlandt St │ NULL            │ … │ YELLOW  │ NULL    │ NULL    │ POINT (583521.8544…  │
+│      2.0 │    2.0 │ Rector St    │ NULL            │ … │ RED     │ NULL    │ NULL    │ POINT (583324.4866…  │
+│      3.0 │    1.0 │ South Ferry  │ NULL            │ … │ RED     │ NULL    │ NULL    │ POINT (583304.1823…  │
+│      4.0 │  125.0 │ 138th St     │ Grand Concourse │ … │ GREEN   │ NULL    │ NULL    │ POINT (590250.1059…  │
+│      5.0 │  126.0 │ 149th St     │ Grand Concourse │ … │ GREEN   │ express │ NULL    │ POINT (590454.7399…  │
+├──────────┴────────┴──────────────┴─────────────────┴───┴─────────┴─────────┴─────────┴──────────────────────┤
+│ 5 rows                                                                                 15 columns (8 shown) │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id1">
-<h2><span class="section-number">28.6. </span>Spatial Relationships<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.6. </span>Spatial Relationships<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>So far we have only used spatial functions that measure (<code class="docutils literal notranslate"><span class="pre">ST_Area</span></code>,
 <code class="docutils literal notranslate"><span class="pre">ST_Length</span></code>), serialize (<code class="docutils literal notranslate"><span class="pre">ST_GeomFromText</span></code>) or deserialize (<code class="docutils literal notranslate"><span class="pre">ST_AsGML</span></code>)
 geometries. What these functions have in common is that they only work
@@ -627,7 +657,7 @@ lines.</p>
 geometries.</p>
 </section>
 <section id="st-equals">
-<h2><span class="section-number">28.7. </span>ST_Equals<a class="headerlink" href="#st-equals" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.7. </span>ST_Equals<a class="headerlink" href="#st-equals" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Equals(geometry</span> <span class="pre">A,</span> <span class="pre">geometry</span> <span class="pre">B)</span></code>tests the spatial equality of two geometries.</p>
 <p><img alt="" src="https://postgis.net/workshops/postgis-intro/_images/st_equals.png" /></p>
 <p>ST_Equals returns TRUE if two geometries of the same type have identical
@@ -638,11 +668,21 @@ the first shape.</p>
 St’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT name, geom, ST_AsText(geom)</span>
 <span class="s2">FROM nyc_subway_stations</span>
 <span class="s2">WHERE name = &#39;Broad St&#39;;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌──────────┬─────────────────────────────────────────────┬─────────────────────────────────────────────┐
+│   NAME   │                    geom                     │               st_astext(geom)               │
+│ varchar  │                  geometry                   │                   varchar                   │
+├──────────┼─────────────────────────────────────────────┼─────────────────────────────────────────────┤
+│ Broad St │ POINT (583571.9059213118 4506714.341192182) │ POINT (583571.9059213118 4506714.341192182) │
+└──────────┴─────────────────────────────────────────────┴─────────────────────────────────────────────┘
 </pre></div>
 </div>
 </div>
@@ -651,7 +691,7 @@ St’.</p>
 <code class="docutils literal notranslate"><span class="pre">ST_Equals</span></code> test:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT name</span>
 <span class="s2">FROM nyc_subway_stations</span>
 <span class="s2">WHERE ST_Equals(geom, ST_GeomFromText(&#39;POINT (583571.9059213118 4506714.341192182)&#39;));</span>
@@ -659,10 +699,20 @@ St’.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌──────────┐
+│   NAME   │
+│ varchar  │
+├──────────┤
+│ Broad St │
+└──────────┘
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="st-intersects-st-disjoint-st-crosses-and-st-overlaps">
-<h2><span class="section-number">28.8. </span>ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps<a class="headerlink" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.8. </span>ST_Intersects, ST_Disjoint, ST_Crosses and ST_Overlaps<a class="headerlink" href="#st-intersects-st-disjoint-st-crosses-and-st-overlaps" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Intersects</span></code>,
 <code class="docutils literal notranslate"><span class="pre">ST_Crosses</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">ST_Overlaps</span></code> test whether the
@@ -694,7 +744,7 @@ neighborhood using the <code class="docutils literal notranslate"><span class="p
 function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT name, ST_AsText(geom)</span>
 <span class="s2">FROM nyc_subway_stations</span>
 <span class="s2">WHERE name = &#39;Broad St&#39;;</span>
@@ -702,17 +752,41 @@ function:</p>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_neighborhoods LIMIT 5&quot;</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌──────────┬─────────────────────────────────────────────┐
+│   NAME   │               st_astext(geom)               │
+│ varchar  │                   varchar                   │
+├──────────┼─────────────────────────────────────────────┤
+│ Broad St │ POINT (583571.9059213118 4506714.341192182) │
+└──────────┴─────────────────────────────────────────────┘
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_neighborhoods LIMIT 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌───────────┬──────────────────────┬───────────────────────────────────────────────────────────────────────────────────┐
+│ BORONAME  │         NAME         │                                       geom                                        │
+│  varchar  │       varchar        │                                     geometry                                      │
+├───────────┼──────────────────────┼───────────────────────────────────────────────────────────────────────────────────┤
+│ Brooklyn  │ Bensonhurst          │ MULTIPOLYGON (((582771.4257198056 4495167.427365481, 584651.2943549604 4497541.…  │
+│ Manhattan │ East Village         │ MULTIPOLYGON (((585508.7534890148 4509691.267208001, 586826.3570590394 4508984.…  │
+│ Manhattan │ West Village         │ MULTIPOLYGON (((583263.2776595836 4509242.626023987, 583276.8199068634 4509378.…  │
+│ The Bronx │ Throggs Neck         │ MULTIPOLYGON (((597640.0090688139 4520272.719938631, 597647.7457808304 4520617.…  │
+│ The Bronx │ Wakefield-Williams…  │ MULTIPOLYGON (((595285.2053417757 4525938.79838847, 595348.5452399419 4526158.7…  │
+└───────────┴──────────────────────┴───────────────────────────────────────────────────────────────────────────────────┘
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT name, boroname</span>
 <span class="s2">FROM nyc_neighborhoods</span>
 <span class="s2">WHERE ST_Intersects(geom, ST_GeomFromText(&#39;POINT(583571 4506714)&#39;));</span>
@@ -720,10 +794,20 @@ function:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌────────────────────┬───────────┐
+│        NAME        │ BORONAME  │
+│      varchar       │  varchar  │
+├────────────────────┼───────────┤
+│ Financial District │ Manhattan │
+└────────────────────┴───────────┘
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="st-touches">
-<h2><span class="section-number">28.9. </span>ST_Touches<a class="headerlink" href="#st-touches" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.9. </span>ST_Touches<a class="headerlink" href="#st-touches" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Touches</span></code> tests whether two
 geometries touch at their boundaries, but do not intersect in their
 interiors</p>
@@ -733,7 +817,7 @@ returns TRUE if either of the geometries’ boundaries intersect or if
 only one of the geometry’s interiors intersects the other’s boundary.</p>
 </section>
 <section id="st-within-and-st-contains">
-<h2><span class="section-number">28.10. </span>ST_Within and ST_Contains<a class="headerlink" href="#st-within-and-st-contains" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.10. </span>ST_Within and ST_Contains<a class="headerlink" href="#st-within-and-st-contains" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">ST_Within</span></code> and
 <code class="docutils literal notranslate"><span class="pre">ST_Contains</span></code> test whether one
 geometry is fully within the other.</p>
@@ -746,7 +830,7 @@ returns TRUE if the second geometry is completely contained by the first
 geometry.</p>
 </section>
 <section id="st-distance-and-st-dwithin">
-<h2><span class="section-number">28.11. </span>ST_Distance and ST_DWithin<a class="headerlink" href="#st-distance-and-st-dwithin" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.11. </span>ST_Distance and ST_DWithin<a class="headerlink" href="#st-distance-and-st-dwithin" title="Link to this heading">#</a></h2>
 <p>An extremely common GIS question is “find all the stuff within distance
 X of this other stuff”.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ST_Distance(geometry</span> <span class="pre">A,</span> <span class="pre">geometry</span> <span class="pre">B)</span></code> calculates the <em>shortest</em> distance between two
@@ -754,11 +838,21 @@ geometries and returns it as a float. This is useful for actually
 reporting back the distance between objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT ST_Distance(</span>
 <span class="s2">  ST_GeomFromText(&#39;POINT(0 5)&#39;),</span>
 <span class="s2">  ST_GeomFromText(&#39;LINESTRING(-2 2, 2 2)&#39;)) as dist;</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌────────┐
+│  dist  │
+│ double │
+├────────┤
+│    3.0 │
+└────────┘
 </pre></div>
 </div>
 </div>
@@ -774,14 +868,28 @@ distance relationship.</p>
 nearby (within 10 meters of) the subway stop:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_streets LIMIT 5&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_streets LIMIT 5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌───────┬─────────────┬─────────┬───────────────┬──────────────────────────────────────────────────────────────────────┐
+│  ID   │    NAME     │ ONEWAY  │     TYPE      │                                 geom                                 │
+│ int32 │   varchar   │ varchar │    varchar    │                               geometry                               │
+├───────┼─────────────┼─────────┼───────────────┼──────────────────────────────────────────────────────────────────────┤
+│     1 │ Shore Pky S │ NULL    │ residential   │ MULTILINESTRING ((586785.4767897038 4492901.0014554765, 586898.232…  │
+│     2 │ NULL        │ NULL    │ footway       │ MULTILINESTRING ((586645.0073625665 4504977.750360583, 586664.2248…  │
+│     3 │ Avenue O    │ NULL    │ residential   │ MULTILINESTRING ((586750.3019977848 4496109.72213903, 586837.37268…  │
+│     4 │ Walsh Ct    │ NULL    │ residential   │ MULTILINESTRING ((586728.695515043 4497971.05313857, 586886.358225…  │
+│     5 │ NULL        │ NULL    │ motorway_link │ MULTILINESTRING ((586587.0531467082 4510088.250402982, 586641.7339…  │
+└───────┴─────────────┴─────────┴───────────────┴──────────────────────────────────────────────────────────────────────┘
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT name</span>
 <span class="s2">FROM nyc_streets</span>
 <span class="s2">WHERE ST_DWithin(</span>
@@ -793,13 +901,25 @@ nearby (within 10 meters of) the subway stop:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>┌───────────┐
+│   NAME    │
+│  varchar  │
+├───────────┤
+│ Wall St   │
+│ Broad St  │
+│ Nassau St │
+└───────────┘
+</pre></div>
+</div>
+</div>
 </div>
 <p>And we can verify the answer on a map. The Broad St station is actually
 at the intersection of Wall, Broad and Nassau Streets.</p>
 <p><img alt="image" src="https://postgis.net/workshops/postgis-intro/_images/broad_st.jpg" /></p>
 </section>
 <section id="function-list">
-<h2><span class="section-number">28.12. </span>Function List<a class="headerlink" href="#function-list" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.12. </span>Function List<a class="headerlink" href="#function-list" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://postgis.net/docs/ST_Contains.html">ST_Contains(geometry A, geometry
 B)</a>: Returns true if and only
 if no points of B lie in the exterior of A, and at least one point of
@@ -896,6 +1016,7 @@ geometry A is completely inside geometry B</p>
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -962,8 +1083,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
