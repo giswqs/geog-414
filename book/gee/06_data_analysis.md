@@ -102,7 +102,7 @@ Map = geemap.Map()
 
 # Load an image collection, filtered so it's not too much data.
 collection = (
-    ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
+    ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
     .filterDate('2021-01-01', '2021-12-31')
     .filter(ee.Filter.eq('WRS_PATH', 44))
     .filter(ee.Filter.eq('WRS_ROW', 34))
@@ -128,7 +128,7 @@ print(median.bandNames().getInfo())
 
 ```{code-cell} ipython3
 Map = geemap.Map()
-image = ee.Image('LANDSAT/LC08/C01/T1/LC08_044034_20140318').select(['B4', 'B3', 'B2'])
+image = ee.Image('LANDSAT/LC08/C02/T1/LC08_044034_20140318').select(['B4', 'B3', 'B2'])
 maxValue = image.reduce(ee.Reducer.max())
 Map.centerObject(image, 8)
 Map.addLayer(image, {}, 'Original image')
@@ -662,7 +662,7 @@ Map
 start_date = '2020-01-01'
 end_date = '2021-01-01'
 collection = (
-    ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
+    ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
     .filterBounds(roi)
     .filterDate(start_date, end_date)
 )
@@ -1330,7 +1330,7 @@ ee_classifier.getInfo()
 
 ```{code-cell} ipython3
 # Make a cloud-free Landsat 8 TOA composite (from raw imagery).
-l8 = ee.ImageCollection('LANDSAT/LC08/C01/T1')
+l8 = ee.ImageCollection('LANDSAT/LC08/C02/T1')
 
 image = ee.Algorithms.Landsat.simpleComposite(
     collection=l8.filterDate('2018-01-01', '2018-12-31'), asFloat=True
