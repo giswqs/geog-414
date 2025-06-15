@@ -37,7 +37,7 @@ import leafmap
 The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.
 
 ```{code-cell} ipython3
-url = "https://open.gishub.org/data/duckdb/nyc_data.db.zip"
+url = "https://opengeos.org/data/duckdb/nyc_data.db.zip"
 leafmap.download_file(url, unzip=True)
 ```
 
@@ -73,7 +73,7 @@ INSERT INTO samples VALUES
   ('Collection', ST_GeomFromText('GEOMETRYCOLLECTION(POINT(2 0),POLYGON((0 0, 1 0, 1 1, 0 1, 0 0)))'));
 
 SELECT * FROM samples;
-          
+
   """)
 ```
 
@@ -83,9 +83,9 @@ con.sql("SELECT name, ST_AsText(geom) AS geometry FROM samples;")
 
 ```{code-cell} ipython3
 con.sql("""
-        
+
 COPY samples TO 'samples.geojson' (FORMAT GDAL, DRIVER GeoJSON);
-        
+
 """)
 ```
 
@@ -101,7 +101,7 @@ con.sql("""
 SELECT ST_AsText(geom)
   FROM samples
   WHERE name = 'Point';
-        
+
 """)
 ```
 
@@ -118,7 +118,7 @@ con.sql("""
 SELECT ST_X(geom), ST_Y(geom)
   FROM samples
   WHERE name = 'Point';
-        
+
 """)
 ```
 
@@ -126,7 +126,7 @@ SELECT ST_X(geom), ST_Y(geom)
 con.sql("""
 
 SELECT * FROM nyc_subway_stations
-        
+
 """)
 ```
 
@@ -136,14 +136,13 @@ con.sql("""
 SELECT name, ST_AsText(geom)
   FROM nyc_subway_stations
   LIMIT 10;
-        
+
 """)
 ```
 
 ## Linestrings
 
 ![](https://postgis.net/workshops/postgis-intro/_images/lines.png)
-
 
 A **linestring** is a path between locations. It takes the form of an
 ordered series of two or more points. Roads and rivers are typically
@@ -162,21 +161,21 @@ linestring (in the `ST_AsText` column).
 
 ```{code-cell} ipython3
 con.sql("""
-        
+
 SELECT ST_AsText(geom)
   FROM samples
   WHERE name = 'Linestring';
-        
+
 """)
 ```
 
 Some of the specific spatial functions for working with linestrings are:
 
--   `ST_Length(geom)` returns the length of the linestring
--   `ST_StartPoint(geom)` returns the first coordinate as a point
--   `ST_EndPoint(geom)` returns the last coordinate as a point
--   `ST_NPoints(geom)` returns the number of coordinates in the
-    linestring
+- `ST_Length(geom)` returns the length of the linestring
+- `ST_StartPoint(geom)` returns the first coordinate as a point
+- `ST_EndPoint(geom)` returns the last coordinate as a point
+- `ST_NPoints(geom)` returns the number of coordinates in the
+  linestring
 
 So, the length of our linestring is:
 
@@ -186,7 +185,7 @@ con.sql("""
 SELECT ST_Length(geom)
   FROM samples
   WHERE name = 'Linestring';
-        
+
 """)
 ```
 
@@ -216,29 +215,29 @@ con.sql("""
 SELECT ST_AsText(geom)
   FROM samples
   WHERE name LIKE 'Polygon%';
-        
+
 """)
 ```
 
 Some of the specific spatial functions for working with polygons are:
 
--   `ST_Area(geom)` returns the area of the polygons
--   `ST_NRings(geom)` returns the number of rings (usually 1, more
-    of there are holes)
--   `ST_ExteriorRing(geom)` returns the outer ring as a linestring
--   `ST_InteriorRingN(geometry,n)` returns a specified interior ring as
-    a linestring
--   `ST_Perimeter(geom)` returns the length of all the rings
+- `ST_Area(geom)` returns the area of the polygons
+- `ST_NRings(geom)` returns the number of rings (usually 1, more
+  of there are holes)
+- `ST_ExteriorRing(geom)` returns the outer ring as a linestring
+- `ST_InteriorRingN(geometry,n)` returns a specified interior ring as
+  a linestring
+- `ST_Perimeter(geom)` returns the length of all the rings
 
 We can calculate the area of our polygons using the area function:
 
 ```{code-cell} ipython3
 con.sql("""
-        
+
 SELECT name, ST_Area(geom)
   FROM samples
   WHERE name LIKE 'Polygon%';
-        
+
 """)
 ```
 
@@ -247,11 +246,11 @@ SELECT name, ST_Area(geom)
 There are four collection types, which group multiple simple samples
 into sets.
 
--   **MultiPoint**, a collection of points
--   **MultiLineString**, a collection of linestrings
--   **MultiPolygon**, a collection of polygons
--   **GeometryCollection**, a heterogeneous collection of any geometry
-    (including other collections)
+- **MultiPoint**, a collection of points
+- **MultiLineString**, a collection of linestrings
+- **MultiPolygon**, a collection of polygons
+- **GeometryCollection**, a heterogeneous collection of any geometry
+  (including other collections)
 
 Collections are another concept that shows up in GIS software more than
 in generic graphics software. They are useful for directly modeling real
@@ -267,7 +266,7 @@ con.sql("""
 SELECT name, ST_AsText(geom)
   FROM samples
   WHERE name = 'Collection';
-        
+
 """)
 ```
 

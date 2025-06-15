@@ -22,8 +22,8 @@ kernelspec:
 
 The following datasets are used in this lab. You don't need to download them manually, they can be accessed directly from the notebook.
 
-- [nyc_subway_stations.tsv](https://open.gishub.org/data/duckdb/nyc_subway_stations.tsv)
-- [nyc_neighborhoods.tsv](https://open.gishub.org/data/duckdb/nyc_neighborhoods.tsv)
+- [nyc_subway_stations.tsv](https://opengeos.org/data/duckdb/nyc_subway_stations.tsv)
+- [nyc_neighborhoods.tsv](https://opengeos.org/data/duckdb/nyc_neighborhoods.tsv)
 
 ```{code-cell} ipython3
 # %pip install duckdb duckdb-engine jupysql

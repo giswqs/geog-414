@@ -37,7 +37,7 @@ import leafmap
 The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.
 
 ```{code-cell} ipython3
-url = "https://open.gishub.org/data/duckdb/nyc_data.db.zip"
+url = "https://opengeos.org/data/duckdb/nyc_data.db.zip"
 leafmap.download_file(url, unzip=True)
 ```
 
@@ -62,7 +62,7 @@ con.sql("SHOW TABLES;")
 
 In the previous section, we explored spatial relationships using a two-step process: first we extracted a subway station point for ‘Broad St’; then, we used that point to ask further questions such as “what neighborhood is the ‘Broad St’ station in?”
 
-Using a spatial join, we can answer the question in one step, retrieving information about the subway station and the neighborhood that contains it. 
+Using a spatial join, we can answer the question in one step, retrieving information about the subway station and the neighborhood that contains it.
 
 Let's start by looking at the subway stations and neighborhoods separately.
 
@@ -89,7 +89,7 @@ WHERE subways.NAME = 'Broad St';
 """)
 ```
 
-Note that the subway stations table has a `color` column. 
+Note that the subway stations table has a `color` column.
 
 ```{code-cell} ipython3
 con.sql("""
@@ -212,7 +212,7 @@ As before, the joins create a virtual table of all the possible combinations ava
 DuckDB provides the `ST_Transform` function to transform geometries from one projection to another. The function takes three arguments: the geometry to transform, and the EPSG code of the projection of the input geometry, and the EPSG code of the projection to transform to.
 
 ```{code-cell} ipython3
-url = 'https://open.gishub.org/data/duckdb/cities.parquet'
+url = 'https://opengeos.org/data/duckdb/cities.parquet'
 con.sql(f"SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) AS geometry FROM '{url}'")
 ```
 

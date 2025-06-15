@@ -14,7 +14,7 @@ kernelspec:
 ## Data Visualization
 
 ```{code-cell} ipython3
-# %pip install -U leafmap lonboard 
+# %pip install -U leafmap lonboard
 ```
 
 ```{code-cell} ipython3
@@ -24,7 +24,7 @@ import leafmap
 ## Visualizing point data
 
 ```{code-cell} ipython3
-url = 'https://open.gishub.org/data/duckdb/cities.parquet'
+url = 'https://opengeos.org/data/duckdb/cities.parquet'
 ```
 
 Read GeoParquet and return a GeoPandas GeoDataFrame.
@@ -110,8 +110,8 @@ import leafmap.deckgl as leafmap
 
 ```{code-cell} ipython3
 m = leafmap.Map()
-countries = 'https://open.gishub.org/data/duckdb/countries.geojson'
-cities = 'https://open.gishub.org/data/duckdb/cities.geojson'
+countries = 'https://opengeos.org/data/duckdb/countries.geojson'
+cities = 'https://opengeos.org/data/duckdb/cities.geojson'
 m.add_vector(countries, get_fill_color='blue', opacity=0.1)
 m.add_vector(cities, get_radius=20000, get_fill_color='red', opacity=0.5)
 m

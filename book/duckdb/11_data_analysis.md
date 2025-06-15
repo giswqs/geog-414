@@ -43,7 +43,7 @@ Then, run the script below:
 import leafmap
 import pandas as pd
 
-url = 'https://open.gishub.org/data/us/us_states.csv'
+url = 'https://opengeos.org/data/us/us_states.csv'
 df = pd.read_csv(url)
 ids = df['id'].tolist()
 ids.sort()
@@ -59,7 +59,7 @@ The script below was used to convert the data from the original Geodatabase form
 import leafmap
 import pandas as pd
 
-url = 'https://open.gishub.org/data/us/us_states.csv'
+url = 'https://opengeos.org/data/us/us_states.csv'
 df = pd.read_csv(url)
 ids = df['id'].tolist()
 
@@ -92,7 +92,7 @@ Inspect the table schema:
 con.sql(f"DESCRIBE FROM '{url}'")
 ```
 
-Alternatively, you can use the aws cli to access the data directly from the S3 bucket. The can be very useful when you need to access multiple files. 
+Alternatively, you can use the aws cli to access the data directly from the S3 bucket. The can be very useful when you need to access multiple files.
 
 ```bash
 aws s3 ls s3://us-west-2.opendata.source.coop/giswqs/nwi/wetlands/
@@ -143,7 +143,6 @@ leafmap.Legend(title="Wetland Type", legend_dict=color_map)
 
 ## Data analysis
 
-
 Find out the total number of wetlands in the United States by aggregating the 51 parquet files.
 
 ```{code-cell} ipython3
@@ -190,21 +189,21 @@ con.sql("CREATE OR REPLACE TABLE wetlands AS FROM count_df")
 con.sql("FROM wetlands")
 ```
 
-To visualize the data on the map, we need a GeoDataFrame. Let's create a `states` table from the [us_states.parquet](https://open.gishub.org/data/us/us_states.parquet) file.
+To visualize the data on the map, we need a GeoDataFrame. Let's create a `states` table from the [us_states.parquet](https://opengeos.org/data/us/us_states.parquet) file.
 
 ```{code-cell} ipython3
-url = 'https://open.gishub.org/data/us/us_states.parquet'
+url = 'https://opengeos.org/data/us/us_states.parquet'
 con.sql(
     f"""
 CREATE OR REPLACE TABLE states AS
-SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) 
+SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry)
 AS geometry FROM '{url}'
 """
 )
 con.sql("FROM states")
 ```
 
-Join the `wetlands` table with the `states` table. 
+Join the `wetlands` table with the `states` table.
 
 ```{code-cell} ipython3
 con.sql("""
