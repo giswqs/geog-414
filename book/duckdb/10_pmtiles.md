@@ -296,7 +296,7 @@ url = f'http://127.0.0.1:8000/{pmtiles}'
 # leafmap.pmtiles_metadata(url)
 ```
 
-Diplay the PMTiles on the map.
+Display the PMTiles on the map.
 
 ```{code-cell} ipython3
 m = leafmap.Map()

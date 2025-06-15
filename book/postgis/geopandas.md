@@ -24,9 +24,11 @@ mamba install ipython-sql sqlalchemy psycopg2 -c conda-forge
 ```
 
 **Sample dataset:**
+
 - [nyc_data.zip](https://github.com/giswqs/postgis/raw/master/data/nyc_data.zip) (Watch this [video](https://youtu.be/fROzLrjNDrs) to load data into PostGIS)
 
 **References**:
+
 - [Introduction to PostGIS](https://postgis.net/workshops/postgis-intro)
 - [Using SQL with Geodatabases](https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/sql-and-enterprise-geodatabases.htm)
 
@@ -118,7 +120,7 @@ gdf["area"] = gdf.area
 gdf["area"]
 ```
 
-## Getting polygon bounary
+## Getting polygon boundary
 
 ```{code-cell} ipython3
 gdf['boundary'] = gdf.boundary
@@ -178,7 +180,7 @@ gdf_crs
 geojson = gdf_crs.__geo_interface__
 ```
 
-## Displaying data on an interative map
+## Displaying data on an interactive map
 
 ```{code-cell} ipython3
 import geemap

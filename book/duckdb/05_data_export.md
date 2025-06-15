@@ -128,7 +128,7 @@ con.sql(
 
 ## To Shapefile
 
-Doens't work on Linux.
+Doesn't work on Linux.
 
 ```{code-cell} ipython3
 # con.sql("COPY cities TO 'cities.shp' WITH (FORMAT GDAL, DRIVER 'ESRI Shapefile')")
