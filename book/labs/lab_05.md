@@ -34,7 +34,7 @@ Visualize the [USGS Watershed Boundary Dataset](https://developers.google.com/ea
 
 +++
 
-## Question 2 
+## Question 2
 
 Filter the USGS Watershed Boundary dataset and select the watershed that intersects the county of your choice.
 

@@ -55,18 +55,18 @@ When you’re using variables in Python, you need to adhere to a few rules and g
 
 ### Avoiding Name Errors When Using Variables
 
-Every programmer makes mistakes, and most make mistakes every day. Although good programmers might create errors, they also know how to respond to those errors efficiently. Let’s look at an error you’re likely to make early on and learn how to fix it. We’ll write some code that generates an error on purpose. Enter the following code, including the misspelled word `mesage` shown in bold:
+Every programmer makes mistakes, and most make mistakes every day. Although good programmers might create errors, they also know how to respond to those errors efficiently. Let’s look at an error you’re likely to make early on and learn how to fix it. We’ll write some code that generates an error on purpose. Enter the following code, including the misspelled word `message` shown in bold:
 
 ```{code-cell} ipython3
 message = "Hello Python Crash Course reader!"
-# print(mesage)
+# print(message)
 ```
 
 When an error occurs in your program, the Python interpreter does its best to help you figure out where the problem is. The interpreter provides a traceback when a program cannot run successfully. A traceback is a record of where the interpreter ran into trouble when trying to execute your code. Here’s an example of the traceback that Python provides after you’ve accidentally misspelled a variable’s name. Let's fix it:
 
 ```{code-cell} ipython3
-mesage = "Hello Python Crash Course reader!"
-print(mesage)
+message = "Hello Python Crash Course reader!"
+print(message)
 ```
 
 ### Strings

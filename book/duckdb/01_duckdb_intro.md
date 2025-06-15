@@ -29,9 +29,9 @@ To learn more about spatial databases, check out the resources below:
 [DuckDB](https://duckdb.org) is an in-process SQL OLAP database management system. It is designed to be used as an embedded database in applications, but it can also be used as a standalone SQL database.
 
 * _In-process SQL_ means that DuckDB’s features run in your application, not an external process to which your application connects. In other words: there is no client sending instructions nor a server to read and process them. SQLite works the same way, while PostgreSQL, MySQL…, do not.
-* _OLAP_ stands for OnLine Analytical Processing, and Microsoft defines it as a technology that organizes large business databases and supports complex analysis. It can be used to perform complex analytical queries without negatively affecting transactional systems. 
+* _OLAP_ stands for OnLine Analytical Processing, and Microsoft defines it as a technology that organizes large business databases and supports complex analysis. It can be used to perform complex analytical queries without negatively affecting transactional systems.
 
-DuckDB is a great option if you’re looking for a serverless data analytics database management system. 
+DuckDB is a great option if you’re looking for a serverless data analytics database management system.
 
 ![](https://i.imgur.com/BEDGstx.png)
 

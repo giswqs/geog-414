@@ -52,7 +52,7 @@ connection_string = f"postgresql://{user}:{password}@{host}/{database}"
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * from cities LIMIT 10
 ```
@@ -60,7 +60,7 @@ SELECT * from cities LIMIT 10
 ```{code-cell} ipython3
 :tags: [remove-output]
 
-%%sql 
+%%sql
 
 SELECT * from cities
 ```

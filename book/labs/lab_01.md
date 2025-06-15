@@ -47,7 +47,7 @@ m.add_text(text, fontsize=20, position='bottomright')
 logo = 'https://i.imgur.com/at4Qprk.png'
 m.add_image(logo, position='bottomright')
 # Add GeoJSON data to the map
-cables = 'https://open.gishub.org/data/vector/cables.geojson'
+cables = 'https://opengeos.org/data/vector/cables.geojson'
 callback = lambda feat: {"color": feat["properties"]["color"], "weight": 1}
 m.add_geojson(cables, layer_name="Cable lines", style_callback=callback)
 # Display the map

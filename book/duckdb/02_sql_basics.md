@@ -21,8 +21,8 @@ This notebook is a short introduction to SQL. It is based on the [DuckDB](https:
 
 The following datasets are used in this notebook. You don't need to download them, they can be accessed directly from the notebook.
 
-- [cities.csv](https://open.gishub.org/data/duckdb/cities.csv)
-- [countries.csv](https://open.gishub.org/data/duckdb/countries.csv)
+- [cities.csv](https://opengeos.org/data/duckdb/cities.csv)
+- [countries.csv](https://opengeos.org/data/duckdb/countries.csv)
 
 ## References
 
@@ -66,14 +66,13 @@ Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may ei
 # %sql duckdb:///path/to/file.db
 ```
 
- If your SQL query is one line only, you may use the `%sql` magic command. For multi-line SQL query, you may use the `%%sql` magic command. 
+If your SQL query is one line only, you may use the `%sql` magic command. For multi-line SQL query, you may use the `%%sql` magic command.
 
 +++
 
 ## Install extensions
 
 +++
-
 
 Check available DuckDB extensions.
 
@@ -83,7 +82,7 @@ Check available DuckDB extensions.
 SELECT * FROM duckdb_extensions();
 ```
 
-DuckDB's [httpfs extension](https://duckdb.org/docs/extensions/httpfs) allows parquet and csv files to be queried remotely over http. This is useful for querying large datasets without having to download them locally. Let's install the extension and load the extension. 
+DuckDB's [httpfs extension](https://duckdb.org/docs/extensions/httpfs) allows parquet and csv files to be queried remotely over http. This is useful for querying large datasets without having to download them locally. Let's install the extension and load the extension.
 
 ```{code-cell} ipython3
 %%sql
@@ -94,18 +93,18 @@ LOAD httpfs;
 
 ## Read CSV
 
-Use the `httpfs` extension to read the `cities.csv` file from the web. 
+Use the `httpfs` extension to read the `cities.csv` file from the web.
 
 ```{code-cell} ipython3
 %%sql
 
-SELECT * FROM 'https://open.gishub.org/data/duckdb/cities.csv';
+SELECT * FROM 'https://opengeos.org/data/duckdb/cities.csv';
 ```
 
 ```{code-cell} ipython3
 %%sql
 
-SELECT * FROM 'https://open.gishub.org/data/duckdb/countries.csv';
+SELECT * FROM 'https://opengeos.org/data/duckdb/countries.csv';
 ```
 
 ## Create Table
@@ -113,29 +112,29 @@ SELECT * FROM 'https://open.gishub.org/data/duckdb/countries.csv';
 Create a table named `cities` from the `cities.csv` file.
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
-CREATE TABLE cities AS SELECT * FROM 'https://open.gishub.org/data/duckdb/cities.csv';
+CREATE TABLE cities AS SELECT * FROM 'https://opengeos.org/data/duckdb/cities.csv';
 ```
 
 Create a table named `countries` from the `countries.csv` file.
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
-CREATE TABLE countries AS SELECT * FROM 'https://open.gishub.org/data/duckdb/countries.csv';
+CREATE TABLE countries AS SELECT * FROM 'https://opengeos.org/data/duckdb/countries.csv';
 ```
 
 Display the table content in the database.
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 FROM cities;
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 FROM countries;
 ```
@@ -149,7 +148,7 @@ The `SELECT` statement is used to select data from a database. Use either `SELEC
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities;
 ```
@@ -226,10 +225,10 @@ To order the results, use the `ORDER BY column` clause. For example, `SELECT * F
 SELECT * FROM cities ORDER BY country LIMIT 10;
 ```
 
-To order the results in descending order, use the `ORDER BY column DESC` clause. For example, `SELECT * FROM cities ORDER BY country ASC, population DESC` will return the rows ordered by the `country` column alphabetical order and then by the `population` column in descending order. 
+To order the results in descending order, use the `ORDER BY column DESC` clause. For example, `SELECT * FROM cities ORDER BY country ASC, population DESC` will return the rows ordered by the `country` column alphabetical order and then by the `population` column in descending order.
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM cities ORDER BY country ASC, population DESC LIMIT 10;
 ```
@@ -261,7 +260,7 @@ To select US cities with a population greater than 1 million, use the following 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities WHERE country='USA' AND population>1000000;
 ```
@@ -291,7 +290,7 @@ To select cities with the country name containing the letter `S` in the middle, 
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities WHERE country LIKE '_S_';
 ```
@@ -311,7 +310,7 @@ To select cities with a population between 1 and 10 million, use the following q
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities WHERE population BETWEEN 1000000 AND 10000000;
 ```
@@ -334,25 +333,25 @@ We have two sample tables: `cities` and `countries`.
 There are 1,249 cities in the `cities` table and 243 countries in the `countries` table.
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT COUNT(*) FROM cities;
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM cities LIMIT 10;
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT COUNT(*) FROM countries;
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM countries LIMIT 10;
 ```
@@ -417,7 +416,7 @@ SELECT * FROM cities FULL JOIN countries ON cities.country = countries."Alpha3_c
 
 ### SQL Union
 
-The `UNION` operator is used to combine the result-set of two or more `SELECT` statements. 
+The `UNION` operator is used to combine the result-set of two or more `SELECT` statements.
 
 ```{code-cell} ipython3
 :tags: [hide-output]
@@ -425,7 +424,7 @@ The `UNION` operator is used to combine the result-set of two or more `SELECT` s
 %%sql
 
 SELECT country FROM cities
-UNION 
+UNION
 SELECT "Alpha3_code" FROM countries;
 ```
 
@@ -442,9 +441,9 @@ The `GROUP BY` statement is often used with aggregate functions (`COUNT`, `MAX`,
 
 %%sql
 
-SELECT COUNT(name), country 
-FROM cities 
-GROUP BY country 
+SELECT COUNT(name), country
+FROM cities
+GROUP BY country
 ORDER BY COUNT(name) DESC;
 ```
 
@@ -467,7 +466,7 @@ The `HAVING` clause was added to SQL because the `WHERE` keyword could not be us
 For example, to select countries with more than 40 cities:
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT COUNT(name), country
 FROM cities
@@ -543,7 +542,7 @@ FROM cities_usa;
 Use the `INSERT INTO` statement to insert rows into a table.
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 INSERT INTO cities_usa (SELECT * FROM cities WHERE country = 'CAN');
 ```
@@ -551,7 +550,6 @@ INSERT INTO cities_usa (SELECT * FROM cities WHERE country = 'CAN');
 ## SQL Comments
 
 Comments are used to explain sections of SQL statements, or to prevent execution of SQL statements.
-
 
 ### Single line comMents
 
@@ -578,13 +576,13 @@ The following example uses a multi-line comment as an explanation:
 ```{code-cell} ipython3
 %%sql
 
-SELECT COUNT(name), country 
-FROM cities 
+SELECT COUNT(name), country
+FROM cities
 /*
  * Adding Group by
  * Adding Order by
  */
-GROUP BY country 
+GROUP BY country
 ORDER BY COUNT(name) DESC
 LIMIT 10;
 ```

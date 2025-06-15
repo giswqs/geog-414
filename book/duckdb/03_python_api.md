@@ -23,8 +23,8 @@ In this notebook, we will explore the [DuckDB Python API](https://duckdb.org/doc
 
 The following datasets are used in this notebook. You don't need to download them, they can be accessed directly from the notebook.
 
-- [cities.csv](https://open.gishub.org/data/duckdb/cities.csv)
-- [countries.csv](https://open.gishub.org/data/duckdb/countries.csv)
+- [cities.csv](https://opengeos.org/data/duckdb/cities.csv)
+- [countries.csv](https://opengeos.org/data/duckdb/countries.csv)
 
 ## Installation
 
@@ -60,16 +60,16 @@ con.sql('SELECT 42').show()
 ```
 
 ```{code-cell} ipython3
-con.read_csv('https://open.gishub.org/data/duckdb/cities.csv')
+con.read_csv('https://opengeos.org/data/duckdb/cities.csv')
 ```
 
 ```{code-cell} ipython3
-con.read_csv('https://open.gishub.org/data/duckdb/countries.csv')
+con.read_csv('https://opengeos.org/data/duckdb/countries.csv')
 ```
 
 ## DataFrames
 
-DuckDB can also directly query Pandas DataFrames. 
+DuckDB can also directly query Pandas DataFrames.
 
 ```{code-cell} ipython3
 pandas_df = pd.DataFrame({'a': [42]})
@@ -79,7 +79,7 @@ con.sql('SELECT * FROM pandas_df')
 DuckDB can also ingest data from remote sources (e.g., HTTP, S3) and return a Pandas DataFrame.
 
 ```{code-cell} ipython3
-df = con.read_csv('https://open.gishub.org/data/duckdb/cities.csv').df()
+df = con.read_csv('https://opengeos.org/data/duckdb/cities.csv').df()
 df.head()
 ```
 
@@ -118,7 +118,7 @@ By default DuckDB operates on an **in-memory** database. That means that any tab
 con = duckdb.connect('file.db')
 # create a table and load data into it
 con.sql(
-    'CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://open.gishub.org/data/duckdb/cities.csv")'
+    'CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://opengeos.org/data/duckdb/cities.csv")'
 )
 # query the table
 con.table('cities').show()
@@ -135,7 +135,7 @@ You can also use a context manager to ensure that the connection is closed:
 ```{code-cell} ipython3
 with duckdb.connect('file.db') as con:
     con.sql(
-        'CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://open.gishub.org/data/duckdb/cities.csv")'
+        'CREATE TABLE IF NOT EXISTS cities AS FROM read_csv_auto("https://opengeos.org/data/duckdb/cities.csv")'
     )
     con.table('cities').show()
     # the context manager closes the connection automatically

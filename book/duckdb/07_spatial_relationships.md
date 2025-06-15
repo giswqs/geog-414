@@ -15,7 +15,7 @@ kernelspec:
 
 ## Introduction
 
-This notebook demonstrates how to analyze spatial relationships between features in a dataset. 
+This notebook demonstrates how to analyze spatial relationships between features in a dataset.
 
 ## Installation
 
@@ -37,7 +37,7 @@ import leafmap
 The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.
 
 ```{code-cell} ipython3
-url = "https://open.gishub.org/data/duckdb/nyc_data.db.zip"
+url = "https://opengeos.org/data/duckdb/nyc_data.db.zip"
 leafmap.download_file(url, unzip=True)
 ```
 
@@ -70,8 +70,8 @@ geometries. What these functions have in common is that they only work
 on one geometry at a time.
 
 Spatial databases are powerful because they not only store geometry,
-they also have the ability to compare *relationships between
-geometries*.
+they also have the ability to compare _relationships between
+geometries_.
 
 Questions like "Which are the closest bike racks to a park?" or "Where
 are the intersections of subway lines and streets?" can only be answered
@@ -210,7 +210,7 @@ geometry.
 An extremely common GIS question is \"find all the stuff within distance
 X of this other stuff\".
 
-The `ST_Distance(geometry A, geometry B)` calculates the *shortest* distance between two
+The `ST_Distance(geometry A, geometry B)` calculates the _shortest_ distance between two
 geometries and returns it as a float. This is useful for actually
 reporting back the distance between objects.
 

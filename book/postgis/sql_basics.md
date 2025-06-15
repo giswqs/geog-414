@@ -21,8 +21,8 @@ conda activate sql
 conda install ipython-sql sqlalchemy psycopg2 notebook pandas -c conda-forge
 ```
 
-
 **Sample dataset:**
+
 - [cities.csv](https://github.com/giswqs/postgis/blob/master/data/cities.csv)
 - [countries.csv](https://raw.githubusercontent.com/giswqs/postgis/master/data/countries.csv)
 
@@ -54,7 +54,7 @@ connection_string = f"postgresql://{user}:{password}@{host}/{database}"
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM cities LIMIT 10
 ```
@@ -64,7 +64,7 @@ SELECT * FROM cities LIMIT 10
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities
 ```
@@ -118,7 +118,7 @@ SELECT * FROM cities ORDER BY country LIMIT 10
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM cities ORDER BY country ASC, population DESC LIMIT 10
 ```
@@ -144,7 +144,7 @@ SELECT * FROM cities WHERE country='USA' OR country='CAN'
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities WHERE country='USA' AND population>1000000
 ```
@@ -168,7 +168,7 @@ SELECT * FROM cities WHERE country LIKE '%A'
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities WHERE country LIKE '_S_'
 ```
@@ -184,7 +184,7 @@ SELECT * FROM cities WHERE country IN ('USA', 'CAN', 'CHN')
 ```{code-cell} ipython3
 :tags: [hide-output]
 
-%%sql 
+%%sql
 
 SELECT * FROM cities WHERE population BETWEEN 1000000 AND 10000000
 ```
@@ -203,25 +203,25 @@ Here are the different types of the JOINs in SQL:
 ![](https://i.imgur.com/mITYzuS.png)
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT COUNT(*) FROM cities
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM cities LIMIT 10
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT COUNT(*) FROM countries
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM countries LIMIT 10
 ```
@@ -282,7 +282,7 @@ SELECT * FROM cities FULL JOIN countries ON cities.country = countries."Alpha3_c
 %%sql
 
 SELECT country FROM cities
-UNION 
+UNION
 SELECT "Alpha3_code" FROM countries
 ```
 
@@ -295,9 +295,9 @@ SELECT "Alpha3_code" FROM countries
 
 %%sql
 
-SELECT COUNT(name), country 
-FROM cities 
-GROUP BY country 
+SELECT COUNT(name), country
+FROM cities
+GROUP BY country
 ORDER BY COUNT(name) DESC
 ```
 
@@ -316,7 +316,7 @@ ORDER BY COUNT(name) DESC
 ### Having
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT COUNT(name), country
 FROM cities
@@ -374,7 +374,7 @@ WHERE country = 'USA'
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 INSERT INTO cities_usa
 SELECT *
@@ -384,7 +384,7 @@ WHERE country = 'CAN'
 
 ## SQL Comments
 
-### Single line coments
+### Single line comments
 
 ```{code-cell} ipython3
 %%sql
@@ -397,13 +397,13 @@ SELECT * FROM cities LIMIT 10 -- This is a comment;
 ```{code-cell} ipython3
 %%sql
 
-SELECT COUNT(name), country 
-FROM cities 
+SELECT COUNT(name), country
+FROM cities
 /*
  * Adding Group by
  * Adding Order by
  */
-GROUP BY country 
+GROUP BY country
 ORDER BY COUNT(name) DESC
 LIMIT 10
 ```

@@ -56,7 +56,7 @@ connection_string = f"postgresql://{user}:{password}@{host}/{database}"
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * from nyc_subway_stations LIMIT 5
 ```

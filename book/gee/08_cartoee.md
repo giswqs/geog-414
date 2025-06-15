@@ -274,7 +274,7 @@ bbox = [180, -88, -180, 88]
 ax = cartoee.get_map(styled_fc, region=bbox)
 ax.set_title(label='Global Power Plant Database', fontsize=15)
 cartoee.add_gridlines(ax, interval=30)
-cartoee.add_legend(ax, legend_elements=legend, font_size=10, title='Fule Type', title_fontize=12, loc='lower left')
+cartoee.add_legend(ax, legend_elements=legend, font_size=10, title='File Type', title_fontize=12, loc='lower left')
 ax.coastlines(color="black")
 
 plt.show()
@@ -664,4 +664,3 @@ geemap.show_image('timelapse/animation.gif')
 ```
 
 ## Summary
-

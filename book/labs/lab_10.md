@@ -33,7 +33,7 @@ import leafmap
 
 ## Question 1
 
-Download the [nyc_data.zip](https://github.com/opengeos/data/raw/main/duckdb/nyc_data.zip) dataset using leafmap. The zip file contains the following datasets. Create a new DuckDB database and import the datasets into the database. Each dataset should be imported into a separate table. 
+Download the [nyc_data.zip](https://github.com/opengeos/data/raw/main/duckdb/nyc_data.zip) dataset using leafmap. The zip file contains the following datasets. Create a new DuckDB database and import the datasets into the database. Each dataset should be imported into a separate table.
 
 - nyc_census_blocks
 - nyc_homicides
