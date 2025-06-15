@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="2. Variables and Data Types" href="02_variables_data_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
@@ -244,14 +255,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -461,16 +467,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -596,7 +610,7 @@
 <p>A list is a collection of items in a particular order. You can make a list that includes the letters of the alphabet, the digits from 0–9, or the names of all the people in your family. You can put anything you want into a list, and the items in your list don’t have to be related in any particular way. Because a list usually contains more than one element, it’s a good idea to make the name of your list plural, such as letters, digits, or names. In Python, square brackets ([]) indicate a list, and individual elements in the list are separated by commas. Here’s a simple example of a list that contains a few kinds of bicycles:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;trek&#39;</span><span class="p">,</span> <span class="s1">&#39;cannondale&#39;</span><span class="p">,</span> <span class="s1">&#39;redline&#39;</span><span class="p">,</span> <span class="s1">&#39;specialized&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;trek&quot;</span><span class="p">,</span> <span class="s2">&quot;cannondale&quot;</span><span class="p">,</span> <span class="s2">&quot;redline&quot;</span><span class="p">,</span> <span class="s2">&quot;specialized&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bicycles</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -637,7 +651,7 @@
 <p>Python has a special syntax for accessing the last element in a list. By ask ing for the item at index -1, Python always returns the last item in the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;trek&#39;</span><span class="p">,</span> <span class="s1">&#39;cannondale&#39;</span><span class="p">,</span> <span class="s1">&#39;redline&#39;</span><span class="p">,</span> <span class="s1">&#39;specialized&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;trek&quot;</span><span class="p">,</span> <span class="s2">&quot;cannondale&quot;</span><span class="p">,</span> <span class="s2">&quot;redline&quot;</span><span class="p">,</span> <span class="s2">&quot;specialized&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bicycles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -649,7 +663,7 @@
 <p>You can use individual values from a list just as you would any other variable. For example, you can use f-strings to create a message based on a value from a list. Let’s try pulling the first bicycle from the list and composing a message using that value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;trek&#39;</span><span class="p">,</span> <span class="s1">&#39;cannondale&#39;</span><span class="p">,</span> <span class="s1">&#39;redline&#39;</span><span class="p">,</span> <span class="s1">&#39;specialized&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bicycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;trek&quot;</span><span class="p">,</span> <span class="s2">&quot;cannondale&quot;</span><span class="p">,</span> <span class="s2">&quot;redline&quot;</span><span class="p">,</span> <span class="s2">&quot;specialized&quot;</span><span class="p">]</span>
 <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;My first bicycle was a </span><span class="si">{</span><span class="n">bicycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>
@@ -667,7 +681,7 @@
 For example, let’s say we have a list of motorcycles, and the first item in the list is ‘honda’. How would we change the value of this first item?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -675,7 +689,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ducati&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ducati&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -690,7 +704,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>The simplest way to add a new element to a list is to append the item to the list. When you append an item to a list, the new element is added to the end of the list. Using the same list we had in the previous example, we’ll add the new element ‘ducati’ to the end of the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ducati&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;ducati&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -701,9 +715,9 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;honda&#39;</span><span class="p">)</span>
-<span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;yamaha&#39;</span><span class="p">)</span>
-<span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;suzuki&#39;</span><span class="p">)</span>
+<span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;honda&quot;</span><span class="p">)</span>
+<span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;yamaha&quot;</span><span class="p">)</span>
+<span class="n">motorcycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;suzuki&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 </pre></div>
@@ -717,8 +731,8 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>You can add a new element at any position in your list by using the insert() method. You do this by specifying the index of the new element and the value of the new item.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
-<span class="n">motorcycles</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ducati&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
+<span class="n">motorcycles</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ducati&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -730,7 +744,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>Often, you’ll want to remove an item or a set of items from a list. For example, when a player shoots down an alien from the sky, you’ll most likely want to remove it from the list of active aliens. Or when a user decides to cancel their account on a web application you created, you’ll want to remove that user from the list of active users. You can remove an item according to its position in the list or according to its value. Removing an Item Using the del Statement If you know the position of the item you want to remove from a list, you can use the del statement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 <span class="k">del</span> <span class="n">motorcycles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
@@ -752,7 +766,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>Sometimes you’ll want to use the value of an item after you remove it from a list. For example, you might want to get the x and y position of an alien that was just shot down, so you can draw an explosion at that position. In a web application, you might want to remove a user from a list of active members and then add that user to a list of inactive members. The pop() method removes the last item in a list, but it lets you work with that item after removing it. The term pop comes from thinking of a list as a stack of items and popping one item off the top of the stack. In this analogy, the top of a stack corresponds to the end of a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 <span class="n">popped_motorcycle</span> <span class="o">=</span> <span class="n">motorcycles</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
@@ -763,7 +777,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="n">last_owned</span> <span class="o">=</span> <span class="n">motorcycles</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The last motorcycle I owned was a </span><span class="si">{</span><span class="n">last_owned</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -776,7 +790,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>You can use pop() to remove an item from any position in a list by including the index of the item you want to remove in parentheses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="n">first_owned</span> <span class="o">=</span> <span class="n">motorcycles</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The first motorcycle I owned was a </span><span class="si">{</span><span class="n">first_owned</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -796,9 +810,9 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>Sometimes you won’t know the position of the value you want to remove from a list. If you only know the value of the item you want to remove, you can use the remove() method. For example, let’s say we want to remove the value ‘ducati’ from the list of motorcycles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">,</span> <span class="s1">&#39;ducati&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">,</span> <span class="s2">&quot;ducati&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
-<span class="n">motorcycles</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;ducati&#39;</span><span class="p">)</span>
+<span class="n">motorcycles</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;ducati&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -807,9 +821,9 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>You can also use the remove() method to work with a value that’s being removed from a list. Let’s remove the value ‘ducati’ and print a reason for removing it from the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">,</span> <span class="s1">&#39;ducati&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">,</span> <span class="s2">&quot;ducati&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
-<span class="n">too_expensive</span> <span class="o">=</span> <span class="s1">&#39;ducati&#39;</span>
+<span class="n">too_expensive</span> <span class="o">=</span> <span class="s2">&quot;ducati&quot;</span>
 <span class="n">motorcycles</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">too_expensive</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">A </span><span class="si">{</span><span class="n">too_expensive</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2"> is too expensive for me.&quot;</span><span class="p">)</span>
@@ -827,7 +841,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>Python’s sort() method makes it relatively easy to sort a list. Imagine we have a list of cars and want to change the order of the list to store them alphabetically. To keep the task simple, let’s assume that all the values in the list are lowercase.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bmw&#39;</span><span class="p">,</span> <span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;subaru&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bmw&quot;</span><span class="p">,</span> <span class="s2">&quot;audi&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;subaru&quot;</span><span class="p">]</span>
 <span class="n">cars</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
 </pre></div>
@@ -837,7 +851,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>You can also sort this list in reverse alphabetical order by passing the argument reverse=True to the sort() method. The following example sorts the list of cars in reverse alphabetical order:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bmw&#39;</span><span class="p">,</span> <span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;subaru&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bmw&quot;</span><span class="p">,</span> <span class="s2">&quot;audi&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;subaru&quot;</span><span class="p">]</span>
 <span class="n">cars</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
 </pre></div>
@@ -850,7 +864,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>To maintain the original order of a list but present it in a sorted order, you can use the sorted() function. The sorted() function lets you display your list in a particular order but doesn’t affect the actual order of the list. Let’s try this function on the list of cars.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bmw&#39;</span><span class="p">,</span> <span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;subaru&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bmw&quot;</span><span class="p">,</span> <span class="s2">&quot;audi&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;subaru&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Here is the original list:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Here is the sorted list:&quot;</span><span class="p">)</span>
@@ -867,7 +881,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>To reverse the original order of a list, you can use the reverse() method. If we originally stored the list of cars in chronological order according to when we owned them, we could easily rearrange the list into reverse chronological order:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bmw&#39;</span><span class="p">,</span> <span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;subaru&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bmw&quot;</span><span class="p">,</span> <span class="s2">&quot;audi&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;subaru&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
 <span class="n">cars</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
@@ -881,7 +895,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>You can quickly find the length of a list by using the len() function. The list in this example has four items, so its length is 4:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bmw&#39;</span><span class="p">,</span> <span class="s1">&#39;audi&#39;</span><span class="p">,</span> <span class="s1">&#39;toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;subaru&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cars</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bmw&quot;</span><span class="p">,</span> <span class="s2">&quot;audi&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">,</span> <span class="s2">&quot;subaru&quot;</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">cars</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -894,7 +908,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>One type of error is common to see when you’re working with lists for the first time. Let’s say you have a list with three items, and you ask for the fourth item:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="c1"># print(motorcycles[3])</span>
 </pre></div>
 </div>
@@ -905,7 +919,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
 <p>Keep in mind that whenever you want to access the last item in a list you use the index -1. This will always work, even if your list has changed size since the last time you accessed it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;honda&#39;</span><span class="p">,</span> <span class="s1">&#39;yamaha&#39;</span><span class="p">,</span> <span class="s1">&#39;suzuki&#39;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">motorcycles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honda&quot;</span><span class="p">,</span> <span class="s2">&quot;yamaha&quot;</span><span class="p">,</span> <span class="s2">&quot;suzuki&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">motorcycles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -977,8 +991,7 @@ For example, let’s say we have a list of motorcycles, and the first item in th
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1063,8 +1076,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

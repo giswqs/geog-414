@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="13. Using Earth Engine Data" href="03_gee_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
@@ -244,14 +255,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -461,16 +467,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -641,8 +655,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">14.3.1. </span>Single-band imagery</a><a class="headerlink" href="#single-band-imagery" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/giswqs/data/raw/main/raster/srtm90.tif&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;dem.tif&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/giswqs/data/raw/main/raster/srtm90.tif&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;dem.tif&quot;</span>
 <span class="n">geemap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -651,9 +665,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
-<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">4000</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="s1">&#39;terrain&#39;</span><span class="p">}</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_colorbar</span><span class="p">(</span><span class="n">vis_params</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">4000</span><span class="p">,</span> <span class="s2">&quot;palette&quot;</span><span class="p">:</span> <span class="s2">&quot;terrain&quot;</span><span class="p">}</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_colorbar</span><span class="p">(</span><span class="n">vis_params</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Elevation (m)&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -680,8 +694,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">14.3.2. </span>Multi-band imagery</a><a class="headerlink" href="#multi-band-imagery" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/giswqs/leafmap/raw/master/examples/data/cog.tif&#39;</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;cog.tif&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/giswqs/leafmap/raw/master/examples/data/cog.tif&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;cog.tif&quot;</span>
 <span class="n">geemap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -707,7 +721,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">14.4.1. </span>Visualizing COG</a><a class="headerlink" href="#visualizing-cog" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/24bo8umr&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://tinyurl.com/24bo8umr&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -751,7 +765,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/2awjl66w&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url2</span> <span class="o">=</span> <span class="s2">&quot;https://tinyurl.com/2awjl66w&quot;</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_cog_layer</span><span class="p">(</span><span class="n">url2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Fire (post-event)&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
@@ -796,8 +810,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">out_cog</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Local COG&quot;</span><span class="p">)</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_cog_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;gist_earth&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Remote COG&quot;</span><span class="p">)</span>
-<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">4000</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="s1">&#39;gist_earth&#39;</span><span class="p">}</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_colorbar</span><span class="p">(</span><span class="n">vis_params</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Elevation (m)&#39;</span><span class="p">)</span>
+<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">4000</span><span class="p">,</span> <span class="s2">&quot;palette&quot;</span><span class="p">:</span> <span class="s2">&quot;gist_earth&quot;</span><span class="p">}</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_colorbar</span><span class="p">(</span><span class="n">vis_params</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Elevation (m)&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -808,8 +822,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">14.4.3. </span>Converting NumPy arrays to COG</a><a class="headerlink" href="#converting-numpy-arrays-to-cog" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/giswqs/leafmap/raw/master/examples/data/cog.tif&#39;</span>
-<span class="n">in_cog</span> <span class="o">=</span> <span class="s1">&#39;cog.tif&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/giswqs/leafmap/raw/master/examples/data/cog.tif&quot;</span>
+<span class="n">in_cog</span> <span class="o">=</span> <span class="s2">&quot;cog.tif&quot;</span>
 <span class="n">out_cog</span> <span class="o">=</span> <span class="s2">&quot;ndvi.tif&quot;</span>
 <span class="n">geemap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">in_cog</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -866,8 +880,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">14.4.4. </span>Clipping image by mask</a><a class="headerlink" href="#clipping-image-by-mask" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/giswqs/data/raw/main/raster/srtm90.tif&#39;</span>
-<span class="n">dem</span> <span class="o">=</span> <span class="s1">&#39;dem.tif&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/giswqs/data/raw/main/raster/srtm90.tif&quot;</span>
+<span class="n">dem</span> <span class="o">=</span> <span class="s2">&quot;dem.tif&quot;</span>
 <span class="n">geemap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">dem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -876,7 +890,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;terrain&#39;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;DEM&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -885,7 +899,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/mask.geojson&#39;</span>
+    <span class="s2">&quot;https://raw.githubusercontent.com/giswqs/leafmap/master/examples/data/mask.geojson&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -913,9 +927,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s1">&#39;clip.tif&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="s2">&quot;clip.tif&quot;</span>
 <span class="n">geemap</span><span class="o">.</span><span class="n">clip_image</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">output</span><span class="p">)</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Clip Image&quot;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_raster</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Clip Image&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -927,7 +941,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">14.5. </span>SpatioTemporal Asset Catalog (STAC)</a><a class="headerlink" href="#spatiotemporal-asset-catalog-stac" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://tinyurl.com/22vptbws&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://tinyurl.com/22vptbws&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -955,7 +969,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">stac_tile</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">stac_tile</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;B3&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -963,8 +977,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_stac_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pan&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Panchromatic&#39;</span><span class="p">)</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">add_stac_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;False color&#39;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_stac_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pan&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Panchromatic&quot;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_stac_layer</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;B3&quot;</span><span class="p">,</span> <span class="s2">&quot;B2&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;False color&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -977,7 +991,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">14.6.1. </span>GeoJSON</a><a class="headerlink" href="#geojson" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in_geojson</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/cable_geo.geojson&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in_geojson</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/cable_geo.geojson&quot;</span>
 <span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Cable lines&quot;</span><span class="p">,</span> <span class="n">info_mode</span><span class="o">=</span><span class="s2">&quot;on_hover&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
@@ -1001,7 +1015,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/countries.geojson&quot;</span>
 <span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span>
-    <span class="n">url</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Countries&quot;</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]</span>
+    <span class="n">url</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Countries&quot;</span><span class="p">,</span> <span class="n">fill_colors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
@@ -1017,9 +1031,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 
 <span class="k">def</span><span class="w"> </span><span class="nf">random_color</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-        <span class="s1">&#39;fillColor&#39;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">]),</span>
+        <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]),</span>
     <span class="p">}</span>
 
 
@@ -1106,7 +1120,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;countries.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;countries.shp&quot;</span><span class="p">)</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_gdf</span><span class="p">(</span><span class="n">gdf</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;US States&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
@@ -1120,7 +1134,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/countries.gpkg&#39;</span>
+    <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/countries.gpkg&quot;</span>
 <span class="p">)</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">add_vector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;Countries&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
@@ -1136,7 +1150,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">14.7.1. </span>CSV to vector</a><a class="headerlink" href="#csv-to-vector" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/us_cities.csv&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/us_cities.csv&quot;</span>
 <span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_df</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1145,7 +1159,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_geojson</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;cities.geojson&#39;</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span>
+    <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;cities.geojson&quot;</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1153,21 +1167,21 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_shp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;cities.shp&#39;</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_shp</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;cities.shp&quot;</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_gdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_gdf</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_vector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;cities.gpkg&#39;</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_vector</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;cities.gpkg&quot;</span><span class="p">,</span> <span class="n">latitude</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1178,9 +1192,9 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/us_cities.csv&#39;</span>
+    <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/us_cities.csv&quot;</span>
 <span class="p">)</span>
-<span class="n">regions</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/us_regions.geojson&#39;</span>
+<span class="n">regions</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/us_regions.geojson&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1198,15 +1212,15 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">],</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-<span class="n">Map</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;US Regions&#39;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">add_geojson</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;US Regions&quot;</span><span class="p">)</span>
 
 <span class="n">Map</span><span class="o">.</span><span class="n">add_points_from_xy</span><span class="p">(</span>
     <span class="n">cities</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span>
-    <span class="n">layer_name</span><span class="o">=</span><span class="s1">&#39;US Cities&#39;</span><span class="p">,</span>
-    <span class="n">color_column</span><span class="o">=</span><span class="s1">&#39;region&#39;</span><span class="p">,</span>
-    <span class="n">icon_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gear&#39;</span><span class="p">,</span> <span class="s1">&#39;map&#39;</span><span class="p">,</span> <span class="s1">&#39;leaf&#39;</span><span class="p">,</span> <span class="s1">&#39;globe&#39;</span><span class="p">],</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;longitude&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;latitude&quot;</span><span class="p">,</span>
+    <span class="n">layer_name</span><span class="o">=</span><span class="s2">&quot;US Cities&quot;</span><span class="p">,</span>
+    <span class="n">color_column</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
+    <span class="n">icon_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gear&quot;</span><span class="p">,</span> <span class="s2">&quot;map&quot;</span><span class="p">,</span> <span class="s2">&quot;leaf&quot;</span><span class="p">,</span> <span class="s2">&quot;globe&quot;</span><span class="p">],</span>
     <span class="n">spin</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">add_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span>
@@ -1220,7 +1234,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">14.7.3. </span>Circle markers from points</a><a class="headerlink" href="#circle-markers-from-points" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/us_cities.csv&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/us_cities.csv&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1248,10 +1262,10 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">14.8. </span>Vector data to Earth Engine</a><a class="headerlink" href="#vector-data-to-earth-engine" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in_geojson</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/countries.geojson&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">in_geojson</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/countries.geojson&quot;</span>
 <span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
 <span class="n">fc</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">geojson_to_ee</span><span class="p">(</span><span class="n">in_geojson</span><span class="p">)</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;ff0000&#39;</span><span class="p">,</span> <span class="s1">&#39;fillColor&#39;</span><span class="p">:</span> <span class="s1">&#39;00000000&#39;</span><span class="p">}),</span> <span class="p">{},</span> <span class="s1">&#39;Countries&#39;</span><span class="p">)</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">style</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;ff0000&quot;</span><span class="p">,</span> <span class="s2">&quot;fillColor&quot;</span><span class="p">:</span> <span class="s2">&quot;00000000&quot;</span><span class="p">}),</span> <span class="p">{},</span> <span class="s2">&quot;Countries&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -1296,8 +1310,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
-<span class="n">countries</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">geemap</span><span class="o">.</span><span class="n">examples</span><span class="o">.</span><span class="n">get_ee_path</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">))</span>
-<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="p">{},</span> <span class="s1">&#39;Countries&#39;</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">ee</span><span class="o">.</span><span class="n">FeatureCollection</span><span class="p">(</span><span class="n">geemap</span><span class="o">.</span><span class="n">examples</span><span class="o">.</span><span class="n">get_ee_path</span><span class="p">(</span><span class="s2">&quot;countries&quot;</span><span class="p">))</span>
+<span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="p">{},</span> <span class="s2">&quot;Countries&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -1312,7 +1326,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/country_centroids.csv&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/country_centroids.csv&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">csv_to_df</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -1321,7 +1335,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_join_table</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">src_key</span><span class="o">=</span><span class="s1">&#39;ISO_A2&#39;</span><span class="p">,</span> <span class="n">dst_key</span><span class="o">=</span><span class="s1">&#39;country&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">ee_join_table</span><span class="p">(</span><span class="n">countries</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">src_key</span><span class="o">=</span><span class="s2">&quot;ISO_A2&quot;</span><span class="p">,</span> <span class="n">dst_key</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1335,7 +1349,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="p">{},</span> <span class="s1">&#39;Countries with attr&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="p">{},</span> <span class="s2">&quot;Countries with attr&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
 </div>
@@ -1348,8 +1362,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/gee-community/geemap/blob/master/examples/data/wind_global.nc&#39;</span>
-<span class="n">nc_file</span> <span class="o">=</span> <span class="s1">&#39;wind_global.nc&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/gee-community/geemap/blob/master/examples/data/wind_global.nc&quot;</span>
+<span class="n">nc_file</span> <span class="o">=</span> <span class="s2">&quot;wind_global.nc&quot;</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">nc_file</span><span class="p">):</span>
     <span class="n">geemap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
@@ -1359,8 +1373,8 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">netcdf_to_ee</span><span class="p">(</span><span class="n">nc_file</span><span class="o">=</span><span class="n">nc_file</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="s1">&#39;u_wind&#39;</span><span class="p">)</span>
-<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="s1">&#39;YlOrRd&#39;</span><span class="p">,</span> <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">}</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">netcdf_to_ee</span><span class="p">(</span><span class="n">nc_file</span><span class="o">=</span><span class="n">nc_file</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="s2">&quot;u_wind&quot;</span><span class="p">)</span>
+<span class="n">vis_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;palette&quot;</span><span class="p">:</span> <span class="s2">&quot;YlOrRd&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">}</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">vis_params</span><span class="p">,</span> <span class="s2">&quot;u_wind&quot;</span><span class="p">)</span>
 <span class="n">Map</span>
 </pre></div>
@@ -1370,10 +1384,10 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
-<span class="n">img</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">netcdf_to_ee</span><span class="p">(</span><span class="n">nc_file</span><span class="o">=</span><span class="n">nc_file</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;u_wind&#39;</span><span class="p">,</span> <span class="s1">&#39;v_wind&#39;</span><span class="p">])</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">netcdf_to_ee</span><span class="p">(</span><span class="n">nc_file</span><span class="o">=</span><span class="n">nc_file</span><span class="p">,</span> <span class="n">var_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;u_wind&quot;</span><span class="p">,</span> <span class="s2">&quot;v_wind&quot;</span><span class="p">])</span>
 <span class="n">Map</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span>
     <span class="n">img</span><span class="p">,</span>
-    <span class="p">{</span><span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;v_wind&#39;</span><span class="p">],</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span> <span class="s1">&#39;opacity&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;bands&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;v_wind&quot;</span><span class="p">],</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;palette&quot;</span><span class="p">:</span> <span class="s2">&quot;coolwarm&quot;</span><span class="p">,</span> <span class="s2">&quot;opacity&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">},</span>
     <span class="s2">&quot;v_wind&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">Map</span>
@@ -1521,7 +1535,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM nyc_neighborhoods&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM nyc_neighborhoods&quot;</span>
 <span class="n">gdf</span> <span class="o">=</span> <span class="n">geemap</span><span class="o">.</span><span class="n">read_postgis</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">con</span><span class="p">)</span>
 <span class="n">gdf</span>
 </pre></div>
@@ -1611,8 +1625,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> <
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1710,8 +1723,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="41. Projecting Data" href="projection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
@@ -244,14 +255,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -461,16 +467,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -498,11 +512,11 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-postgis">42.2. Reading data from PostGIS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">42.3. Writing files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">42.4. Measuring area</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-bounary">42.5. Getting polygon bounary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-boundary">42.5. Getting polygon boundary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-centroid">42.6. Getting polygon centroid</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-maps">42.7. Making maps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-data">42.8. Reprojecting data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interative-map">42.9. Displaying data on an interative map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interactive-map">42.9. Displaying data on an interactive map</a></li>
 </ul>
             </nav>
         </div>
@@ -547,8 +561,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
 <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;nyc&quot;</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_USER&#39;</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_PASSWORD&#39;</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SQL_USER&quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SQL_PASSWORD&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -581,17 +595,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;spatial_ref_sys&#39;,
- &#39;nyc_neighborhoods&#39;,
- &#39;nyc_streets&#39;,
- &#39;nyc_homicides&#39;,
- &#39;geometries&#39;,
- &#39;nyc_census_blocks&#39;,
- &#39;nyc_subway_stations&#39;]
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="reading-data-from-postgis">
@@ -605,7 +608,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM nyc_neighborhoods&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM nyc_neighborhoods&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -623,135 +626,10 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>geom</th>
-      <th>boroname</th>
-      <th>name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>MULTIPOLYGON (((582771.426 4495167.427, 584651...</td>
-      <td>Brooklyn</td>
-      <td>Bensonhurst</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>MULTIPOLYGON (((585508.753 4509691.267, 586826...</td>
-      <td>Manhattan</td>
-      <td>East Village</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>MULTIPOLYGON (((583263.278 4509242.626, 583276...</td>
-      <td>Manhattan</td>
-      <td>West Village</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>MULTIPOLYGON (((597640.009 4520272.720, 597647...</td>
-      <td>The Bronx</td>
-      <td>Throggs Neck</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>MULTIPOLYGON (((595285.205 4525938.798, 595348...</td>
-      <td>The Bronx</td>
-      <td>Wakefield-Williamsbridge</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>125</td>
-      <td>MULTIPOLYGON (((584212.898 4502321.474, 584306...</td>
-      <td>Brooklyn</td>
-      <td>Red Hook</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>126</td>
-      <td>MULTIPOLYGON (((605082.288 4513540.148, 605091...</td>
-      <td>Queens</td>
-      <td>Douglastown-Little Neck</td>
-    </tr>
-    <tr>
-      <th>126</th>
-      <td>127</td>
-      <td>MULTIPOLYGON (((600138.493 4516909.499, 600138...</td>
-      <td>Queens</td>
-      <td>Whitestone</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>128</td>
-      <td>MULTIPOLYGON (((593231.553 4515088.539, 593306...</td>
-      <td>Queens</td>
-      <td>Steinway</td>
-    </tr>
-    <tr>
-      <th>128</th>
-      <td>129</td>
-      <td>MULTIPOLYGON (((579051.030 4495284.647, 579062...</td>
-      <td>Staten Island</td>
-      <td>Rosebank</td>
-    </tr>
-  </tbody>
-</table>
-<p>129 rows × 4 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:26918&gt;
-Name: NAD83 / UTM zone 18N
-Axis Info [cartesian]:
-- E[east]: Easting (metre)
-- N[north]: Northing (metre)
-Area of Use:
-- name: North America - 78°W to 72°W and NAD83 by country
-- bounds: (-78.0, 28.28, -72.0, 84.0)
-Coordinate Operation:
-- name: UTM zone 18N
-- method: Transverse Mercator
-Datum: North American Datum 1983
-- Ellipsoid: GRS 1980
-- Prime Meridian: Greenwich
 </pre></div>
 </div>
 </div>
@@ -761,7 +639,7 @@ Datum: North American Datum 1983
 <h2><span class="section-number">42.3. </span>Writing files<a class="headerlink" href="#writing-files" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Downloads&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/Downloads&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_dir</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
 </pre></div>
@@ -770,7 +648,7 @@ Datum: North American Datum 1983
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_json</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s1">&#39;nyc_neighborhoods.geojson&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_json</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s2">&quot;nyc_neighborhoods.geojson&quot;</span><span class="p">)</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">out_json</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -778,7 +656,7 @@ Datum: North American Datum 1983
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_shp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s1">&#39;nyc_neighborhoods.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out_shp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="s2">&quot;nyc_neighborhoods.shp&quot;</span><span class="p">)</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">out_shp</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -787,24 +665,6 @@ Datum: North American Datum 1983
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Projected CRS: EPSG:26918&gt;
-Name: NAD83 / UTM zone 18N
-Axis Info [cartesian]:
-- E[east]: Easting (metre)
-- N[north]: Northing (metre)
-Area of Use:
-- name: North America - 78°W to 72°W and NAD83 by country
-- bounds: (-78.0, 28.28, -72.0, 84.0)
-Coordinate Operation:
-- name: UTM zone 18N
-- method: Transverse Mercator
-Datum: North American Datum 1983
-- Ellipsoid: GRS 1980
-- Prime Meridian: Greenwich
 </pre></div>
 </div>
 </div>
@@ -826,48 +686,14 @@ Datum: North American Datum 1983
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name
-Bensonhurst                 5.828014e+06
-East Village                1.632117e+06
-West Village                1.044615e+06
-Throggs Neck                8.274104e+06
-Wakefield-Williamsbridge    6.925334e+06
-                                ...     
-Red Hook                    1.146229e+05
-Douglastown-Little Neck     1.753248e+07
-Whitestone                  2.804182e+04
-Steinway                    1.232809e+06
-Rosebank                    4.855008e+04
-Name: area, Length: 129, dtype: float64
-</pre></div>
-</div>
-</div>
 </div>
 </section>
-<section id="getting-polygon-bounary">
-<h2><span class="section-number">42.5. </span>Getting polygon bounary<a class="headerlink" href="#getting-polygon-bounary" title="Link to this heading">#</a></h2>
+<section id="getting-polygon-boundary">
+<h2><span class="section-number">42.5. </span>Getting polygon boundary<a class="headerlink" href="#getting-polygon-boundary" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;boundary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">boundary</span>
-<span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;boundary&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name
-Bensonhurst                 MULTILINESTRING ((582771.426 4495167.427, 5846...
-East Village                MULTILINESTRING ((585508.753 4509691.267, 5868...
-West Village                MULTILINESTRING ((583263.278 4509242.626, 5832...
-Throggs Neck                MULTILINESTRING ((597640.009 4520272.720, 5976...
-Wakefield-Williamsbridge    MULTILINESTRING ((595285.205 4525938.798, 5953...
-                                                  ...                        
-Red Hook                    MULTILINESTRING ((584212.898 4502321.474, 5843...
-Douglastown-Little Neck     MULTILINESTRING ((605082.288 4513540.148, 6050...
-Whitestone                  MULTILINESTRING ((600138.493 4516909.499, 6001...
-Steinway                    MULTILINESTRING ((593231.553 4515088.539, 5933...
-Rosebank                    MULTILINESTRING ((579051.030 4495284.647, 5790...
-Name: boundary, Length: 129, dtype: geometry
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">boundary</span>
+<span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;boundary&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -877,25 +703,8 @@ Name: boundary, Length: 129, dtype: geometry
 <h2><span class="section-number">42.6. </span>Getting polygon centroid<a class="headerlink" href="#getting-polygon-centroid" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;centroid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">centroid</span>
-<span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;centroid&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name
-Bensonhurst                 POINT (584653.928 4495863.485)
-East Village                POINT (585979.191 4508859.571)
-West Village                POINT (583832.311 4509898.957)
-Throggs Neck                POINT (599226.101 4519629.728)
-Wakefield-Williamsbridge    POINT (596720.653 4527170.627)
-                                         ...              
-Red Hook                    POINT (583382.229 4501563.758)
-Douglastown-Little Neck     POINT (607360.858 4511731.933)
-Whitestone                  POINT (599563.892 4517128.417)
-Steinway                    POINT (592429.851 4515507.528)
-Rosebank                    POINT (579260.556 4495409.906)
-Name: centroid, Length: 129, dtype: geometry
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">centroid</span>
+<span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -909,24 +718,12 @@ Name: centroid, Length: 129, dtype: geometry
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../_images/a193494302e336ea760d0f533b7653eda8f3eddacddac1c1566be8025a20e2e8.png" src="../../_images/a193494302e336ea760d0f533b7653eda8f3eddacddac1c1566be8025a20e2e8.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;area&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../_images/21a007b367ec469e30a7dc54492a7e7b5f29b6150c5c2ad4e719c09784df60d5.png" src="../../_images/21a007b367ec469e30a7dc54492a7e7b5f29b6150c5c2ad4e719c09784df60d5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -936,12 +733,6 @@ Name: centroid, Length: 129, dtype: geometry
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../_images/b207d979629c9d0869fb4711c2919aa3e8cb789efcfe170bfbdc3120e15acc8f.png" src="../../_images/b207d979629c9d0869fb4711c2919aa3e8cb789efcfe170bfbdc3120e15acc8f.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,12 +740,6 @@ Name: centroid, Length: 129, dtype: geometry
 <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;centroid&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="../../_images/8c50ebb52c31cf313bdfa12374bce8a6162717c6d9d42aa3ded8d92da9026224.png" src="../../_images/8c50ebb52c31cf313bdfa12374bce8a6162717c6d9d42aa3ded8d92da9026224.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -969,7 +754,7 @@ Name: centroid, Length: 129, dtype: geometry
 <h2><span class="section-number">42.8. </span>Reprojecting data<a class="headerlink" href="#reprojecting-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM nyc_neighborhoods&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM nyc_neighborhoods&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -994,113 +779,6 @@ Name: centroid, Length: 129, dtype: geometry
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>geom</th>
-      <th>boroname</th>
-      <th>name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>MULTIPOLYGON (((-74.02167 40.60318, -73.99913 ...</td>
-      <td>Brooklyn</td>
-      <td>Bensonhurst</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>MULTIPOLYGON (((-73.98734 40.73372, -73.97184 ...</td>
-      <td>Manhattan</td>
-      <td>East Village</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>MULTIPOLYGON (((-74.01399 40.72991, -74.01381 ...</td>
-      <td>Manhattan</td>
-      <td>West Village</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>MULTIPOLYGON (((-73.84204 40.82767, -73.84190 ...</td>
-      <td>The Bronx</td>
-      <td>Throggs Neck</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>MULTIPOLYGON (((-73.86910 40.87898, -73.86831 ...</td>
-      <td>The Bronx</td>
-      <td>Wakefield-Williamsbridge</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>125</td>
-      <td>MULTIPOLYGON (((-74.00367 40.66747, -74.00256 ...</td>
-      <td>Brooklyn</td>
-      <td>Red Hook</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>126</td>
-      <td>MULTIPOLYGON (((-73.75494 40.76612, -73.75483 ...</td>
-      <td>Queens</td>
-      <td>Douglastown-Little Neck</td>
-    </tr>
-    <tr>
-      <th>126</th>
-      <td>127</td>
-      <td>MULTIPOLYGON (((-73.81296 40.79708, -73.81296 ...</td>
-      <td>Queens</td>
-      <td>Whitestone</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>128</td>
-      <td>MULTIPOLYGON (((-73.89509 40.78149, -73.89419 ...</td>
-      <td>Queens</td>
-      <td>Steinway</td>
-    </tr>
-    <tr>
-      <th>128</th>
-      <td>129</td>
-      <td>MULTIPOLYGON (((-74.06562 40.60460, -74.06548 ...</td>
-      <td>Staten Island</td>
-      <td>Rosebank</td>
-    </tr>
-  </tbody>
-</table>
-<p>129 rows × 4 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1110,8 +788,8 @@ Name: centroid, Length: 129, dtype: geometry
 </div>
 </div>
 </section>
-<section id="displaying-data-on-an-interative-map">
-<h2><span class="section-number">42.9. </span>Displaying data on an interative map<a class="headerlink" href="#displaying-data-on-an-interative-map" title="Link to this heading">#</a></h2>
+<section id="displaying-data-on-an-interactive-map">
+<h2><span class="section-number">42.9. </span>Displaying data on an interactive map<a class="headerlink" href="#displaying-data-on-an-interactive-map" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">geemap</span>
@@ -1126,8 +804,6 @@ Name: centroid, Length: 129, dtype: geometry
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "24d4aaa905794a74b1d2ccdde402d838", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1153,7 +829,7 @@ Name: centroid, Length: 129, dtype: geometry
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql2</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM nyc_subway_stations&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sql2</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM nyc_subway_stations&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -1314,8 +990,7 @@ Name: centroid, Length: 129, dtype: geometry
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1328,11 +1003,11 @@ Name: centroid, Length: 129, dtype: geometry
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-data-from-postgis">42.2. Reading data from PostGIS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files">42.3. Writing files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-area">42.4. Measuring area</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-bounary">42.5. Getting polygon bounary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-boundary">42.5. Getting polygon boundary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-polygon-centroid">42.6. Getting polygon centroid</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-maps">42.7. Making maps</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reprojecting-data">42.8. Reprojecting data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interative-map">42.9. Displaying data on an interative map</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#displaying-data-on-an-interactive-map">42.9. Displaying data on an interactive map</a></li>
 </ul>
   </nav></div>
 
@@ -1381,8 +1056,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

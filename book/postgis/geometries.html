@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="38. Introduction to PostGIS" href="postgis_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
@@ -244,14 +255,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -461,16 +467,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -552,8 +566,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
 <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;nyc&quot;</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_USER&#39;</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_PASSWORD&#39;</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SQL_USER&quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SQL_PASSWORD&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -580,19 +594,6 @@ SELECT * FROM nyc_neighborhoods WHERE FALSE
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-0 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>id</th>
-        <th>geom</th>
-        <th>boroname</th>
-        <th>name</th>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="creating-geometries">
@@ -614,15 +615,6 @@ SELECT name, ST_AsText(geom) FROM geometries;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-(psycopg2.errors.DuplicateTable) relation &quot;geometries&quot; already exists
-
-[SQL: CREATE TABLE geometries (name varchar, geom geometry);]
-(Background on this error at: http://sqlalche.me/e/13/f405)
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="metadata-tables">
@@ -635,90 +627,6 @@ SELECT * FROM spatial_ref_sys LIMIT 10
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-10 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>srid</th>
-        <th>auth_name</th>
-        <th>auth_srid</th>
-        <th>srtext</th>
-        <th>proj4text</th>
-    </tr>
-    <tr>
-        <td>3819</td>
-        <td>EPSG</td>
-        <td>3819</td>
-        <td>GEOGCS[&quot;HD1909&quot;,DATUM[&quot;Hungarian_Datum_1909&quot;,SPHEROID[&quot;Bessel 1841&quot;,6377397.155,299.1528128,AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]],TOWGS84[595.48,121.69,515.35,4.115,-2.9383,0.853,-3.408],AUTHORITY[&quot;EPSG&quot;,&quot;1024&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;3819&quot;]]</td>
-        <td>+proj=longlat +ellps=bessel +towgs84=595.48,121.69,515.35,4.115,-2.9383,0.853,-3.408 +no_defs </td>
-    </tr>
-    <tr>
-        <td>3821</td>
-        <td>EPSG</td>
-        <td>3821</td>
-        <td>GEOGCS[&quot;TWD67&quot;,DATUM[&quot;Taiwan_Datum_1967&quot;,SPHEROID[&quot;GRS 1967 Modified&quot;,6378160,298.25,AUTHORITY[&quot;EPSG&quot;,&quot;7050&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;1025&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;3821&quot;]]</td>
-        <td>+proj=longlat +ellps=aust_SA +no_defs </td>
-    </tr>
-    <tr>
-        <td>3824</td>
-        <td>EPSG</td>
-        <td>3824</td>
-        <td>GEOGCS[&quot;TWD97&quot;,DATUM[&quot;Taiwan_Datum_1997&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[&quot;EPSG&quot;,&quot;1026&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;3824&quot;]]</td>
-        <td>+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs </td>
-    </tr>
-    <tr>
-        <td>3889</td>
-        <td>EPSG</td>
-        <td>3889</td>
-        <td>GEOGCS[&quot;IGRS&quot;,DATUM[&quot;Iraqi_Geospatial_Reference_System&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[&quot;EPSG&quot;,&quot;1029&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;3889&quot;]]</td>
-        <td>+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs </td>
-    </tr>
-    <tr>
-        <td>3906</td>
-        <td>EPSG</td>
-        <td>3906</td>
-        <td>GEOGCS[&quot;MGI 1901&quot;,DATUM[&quot;MGI_1901&quot;,SPHEROID[&quot;Bessel 1841&quot;,6377397.155,299.1528128,AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]],TOWGS84[682,-203,480,0,0,0,0],AUTHORITY[&quot;EPSG&quot;,&quot;1031&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;3906&quot;]]</td>
-        <td>+proj=longlat +ellps=bessel +towgs84=682,-203,480,0,0,0,0 +no_defs </td>
-    </tr>
-    <tr>
-        <td>4001</td>
-        <td>EPSG</td>
-        <td>4001</td>
-        <td>GEOGCS[&quot;Unknown datum based upon the Airy 1830 ellipsoid&quot;,DATUM[&quot;Not_specified_based_on_Airy_1830_ellipsoid&quot;,SPHEROID[&quot;Airy 1830&quot;,6377563.396,299.3249646,AUTHORITY[&quot;EPSG&quot;,&quot;7001&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6001&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4001&quot;]]</td>
-        <td>+proj=longlat +ellps=airy +no_defs </td>
-    </tr>
-    <tr>
-        <td>4002</td>
-        <td>EPSG</td>
-        <td>4002</td>
-        <td>GEOGCS[&quot;Unknown datum based upon the Airy Modified 1849 ellipsoid&quot;,DATUM[&quot;Not_specified_based_on_Airy_Modified_1849_ellipsoid&quot;,SPHEROID[&quot;Airy Modified 1849&quot;,6377340.189,299.3249646,AUTHORITY[&quot;EPSG&quot;,&quot;7002&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6002&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4002&quot;]]</td>
-        <td>+proj=longlat +ellps=mod_airy +no_defs </td>
-    </tr>
-    <tr>
-        <td>4003</td>
-        <td>EPSG</td>
-        <td>4003</td>
-        <td>GEOGCS[&quot;Unknown datum based upon the Australian National Spheroid&quot;,DATUM[&quot;Not_specified_based_on_Australian_National_Spheroid&quot;,SPHEROID[&quot;Australian National Spheroid&quot;,6378160,298.25,AUTHORITY[&quot;EPSG&quot;,&quot;7003&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6003&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4003&quot;]]</td>
-        <td>+proj=longlat +ellps=aust_SA +no_defs </td>
-    </tr>
-    <tr>
-        <td>4004</td>
-        <td>EPSG</td>
-        <td>4004</td>
-        <td>GEOGCS[&quot;Unknown datum based upon the Bessel 1841 ellipsoid&quot;,DATUM[&quot;Not_specified_based_on_Bessel_1841_ellipsoid&quot;,SPHEROID[&quot;Bessel 1841&quot;,6377397.155,299.1528128,AUTHORITY[&quot;EPSG&quot;,&quot;7004&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6004&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4004&quot;]]</td>
-        <td>+proj=longlat +ellps=bessel +no_defs </td>
-    </tr>
-    <tr>
-        <td>4005</td>
-        <td>EPSG</td>
-        <td>4005</td>
-        <td>GEOGCS[&quot;Unknown datum based upon the Bessel Modified ellipsoid&quot;,DATUM[&quot;Not_specified_based_on_Bessel_Modified_ellipsoid&quot;,SPHEROID[&quot;Bessel Modified&quot;,6377492.018,299.1528128,AUTHORITY[&quot;EPSG&quot;,&quot;7005&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6005&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4005&quot;]]</td>
-        <td>+proj=longlat +a=6377492.018 +b=6356173.508712696 +no_defs </td>
-    </tr>
-</table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -728,76 +636,6 @@ SELECT * FROM geometry_columns
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-6 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>f_table_catalog</th>
-        <th>f_table_schema</th>
-        <th>f_table_name</th>
-        <th>f_geometry_column</th>
-        <th>coord_dimension</th>
-        <th>srid</th>
-        <th>type</th>
-    </tr>
-    <tr>
-        <td>nyc</td>
-        <td>public</td>
-        <td>nyc_homicides</td>
-        <td>geom</td>
-        <td>2</td>
-        <td>26918</td>
-        <td>POINT</td>
-    </tr>
-    <tr>
-        <td>nyc</td>
-        <td>public</td>
-        <td>nyc_census_blocks</td>
-        <td>geom</td>
-        <td>2</td>
-        <td>26918</td>
-        <td>MULTIPOLYGON</td>
-    </tr>
-    <tr>
-        <td>nyc</td>
-        <td>public</td>
-        <td>nyc_neighborhoods</td>
-        <td>geom</td>
-        <td>2</td>
-        <td>26918</td>
-        <td>MULTIPOLYGON</td>
-    </tr>
-    <tr>
-        <td>nyc</td>
-        <td>public</td>
-        <td>nyc_streets</td>
-        <td>geom</td>
-        <td>2</td>
-        <td>26918</td>
-        <td>MULTILINESTRING</td>
-    </tr>
-    <tr>
-        <td>nyc</td>
-        <td>public</td>
-        <td>nyc_subway_stations</td>
-        <td>geom</td>
-        <td>2</td>
-        <td>26918</td>
-        <td>POINT</td>
-    </tr>
-    <tr>
-        <td>nyc</td>
-        <td>public</td>
-        <td>geometries</td>
-        <td>geom</td>
-        <td>2</td>
-        <td>0</td>
-        <td>GEOMETRY</td>
-    </tr>
-</table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -808,49 +646,6 @@ SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-5 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>name</th>
-        <th>st_geometrytype</th>
-        <th>st_ndims</th>
-        <th>st_srid</th>
-    </tr>
-    <tr>
-        <td>Point</td>
-        <td>ST_Point</td>
-        <td>2</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Linestring</td>
-        <td>ST_LineString</td>
-        <td>2</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Polygon</td>
-        <td>ST_Polygon</td>
-        <td>2</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>PolygonWithHole</td>
-        <td>ST_Polygon</td>
-        <td>2</td>
-        <td>0</td>
-    </tr>
-    <tr>
-        <td>Collection</td>
-        <td>ST_GeometryCollection</td>
-        <td>2</td>
-        <td>0</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="points">
@@ -867,19 +662,6 @@ SELECT ST_AsText(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>POINT(0 0)</td>
-    </tr>
-</table></div></div>
 </div>
 <p>Some of the specific spatial functions for working with points are:</p>
 <ul class="simple">
@@ -897,21 +679,6 @@ SELECT ST_X(geom), ST_Y(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_x</th>
-        <th>st_y</th>
-    </tr>
-    <tr>
-        <td>0.0</td>
-        <td>0.0</td>
-    </tr>
-</table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -923,57 +690,6 @@ SELECT name, ST_AsText(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-10 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>name</th>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>Cortlandt St</td>
-        <td>POINT(583521.854408956 4507077.86259909)</td>
-    </tr>
-    <tr>
-        <td>Rector St</td>
-        <td>POINT(583324.48663246 4506805.37316021)</td>
-    </tr>
-    <tr>
-        <td>South Ferry</td>
-        <td>POINT(583304.182399475 4506069.65404812)</td>
-    </tr>
-    <tr>
-        <td>138th St</td>
-        <td>POINT(590250.10594797 4518558.01992433)</td>
-    </tr>
-    <tr>
-        <td>149th St</td>
-        <td>POINT(590454.739989117 4519145.71961785)</td>
-    </tr>
-    <tr>
-        <td>149th St</td>
-        <td>POINT(590465.893419111 4519168.6974832)</td>
-    </tr>
-    <tr>
-        <td>161st St</td>
-        <td>POINT(590573.169495527 4520214.76617728)</td>
-    </tr>
-    <tr>
-        <td>167th St</td>
-        <td>POINT(591252.83141041 4520950.35335555)</td>
-    </tr>
-    <tr>
-        <td>167th St</td>
-        <td>POINT(590946.3972263 4521077.31897688)</td>
-    </tr>
-    <tr>
-        <td>170th St</td>
-        <td>POINT(591583.611145281 4521434.84662681)</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="linestrings">
@@ -1001,19 +717,6 @@ SELECT ST_AsText(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>LINESTRING(0 0,1 1,2 1,2 2)</td>
-    </tr>
-</table></div></div>
 </div>
 <p>Some of the specific spatial functions for working with linestrings are:</p>
 <ul class="simple">
@@ -1034,19 +737,6 @@ SELECT ST_Length(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_length</th>
-    </tr>
-    <tr>
-        <td>3.414213562373095</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="polygons">
@@ -1073,22 +763,6 @@ SELECT ST_AsText(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-2 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>POLYGON((0 0,1 0,1 1,0 1,0 0))</td>
-    </tr>
-    <tr>
-        <td>POLYGON((0 0,10 0,10 10,0 10,0 0),(1 1,1 2,2 2,2 1,1 1))</td>
-    </tr>
-</table></div></div>
 </div>
 <p>Some of the specific spatial functions for working with polygons are:</p>
 <ul class="simple">
@@ -1111,25 +785,6 @@ SELECT name, ST_Area(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-2 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>name</th>
-        <th>st_area</th>
-    </tr>
-    <tr>
-        <td>Polygon</td>
-        <td>1.0</td>
-    </tr>
-    <tr>
-        <td>PolygonWithHole</td>
-        <td>99.0</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="collections">
@@ -1159,21 +814,6 @@ SELECT name, ST_AsText(geom)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>name</th>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>Collection</td>
-        <td>GEOMETRYCOLLECTION(POINT(2 0),POLYGON((0 0,1 0,1 1,0 1,0 0)))</td>
-    </tr>
-</table></div></div>
 </div>
 <p>Some of the specific spatial functions for working with collections are:</p>
 <ul class="simple">
@@ -1253,23 +893,6 @@ SELECT &#39;SRID=4326;POINT(2 2)&#39;::geometry;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>geometry</th>
-    </tr>
-    <tr>
-        <td>0101000020E610000000000000000000400000000000000040</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="casting-from-text">
@@ -1289,19 +912,6 @@ SELECT 0.9::text;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>text</th>
-    </tr>
-    <tr>
-        <td>0.9</td>
-    </tr>
-</table></div></div>
 </div>
 <p>Less trivially, this SQL converts a WKT string into a geometry:</p>
 <div class="cell docutils container">
@@ -1312,19 +922,6 @@ SELECT &#39;POINT(0 0)&#39;::geometry;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>geometry</th>
-    </tr>
-    <tr>
-        <td>010100000000000000000000000000000000000000</td>
-    </tr>
-</table></div></div>
 </div>
 <p>One thing to note about using casting to create geometries: unless you specify the SRID, you will get a geometry with an unknown SRID. You can specify the SRID using the “extended” well-known text form, which includes an SRID block at the front:</p>
 <div class="cell docutils container">
@@ -1335,19 +932,6 @@ SELECT &#39;SRID=4326;POINT(0 0)&#39;::geometry;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>geometry</th>
-    </tr>
-    <tr>
-        <td>0101000020E610000000000000000000000000000000000000</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="function-list">
@@ -1451,8 +1035,7 @@ reference and geogra</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1519,8 +1102,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

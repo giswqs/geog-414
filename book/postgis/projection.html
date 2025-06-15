@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -69,7 +66,6 @@
     <link rel="prev" title="40. Spatial Relationships" href="spatial_relationships.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -85,8 +81,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -94,6 +101,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -101,8 +109,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -118,8 +126,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -149,17 +156,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
@@ -244,14 +255,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -461,16 +467,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -547,8 +561,8 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
 <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;nyc&quot;</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_USER&#39;</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;SQL_PASSWORD&#39;</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SQL_USER&quot;</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;SQL_PASSWORD&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -575,115 +589,6 @@ SELECT * from nyc_subway_stations LIMIT 5
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-5 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>id</th>
-        <th>geom</th>
-        <th>objectid</th>
-        <th>name</th>
-        <th>alt_name</th>
-        <th>cross_st</th>
-        <th>long_name</th>
-        <th>label</th>
-        <th>borough</th>
-        <th>nghbhd</th>
-        <th>routes</th>
-        <th>transfers</th>
-        <th>color</th>
-        <th>express</th>
-        <th>closed</th>
-    </tr>
-    <tr>
-        <td>376</td>
-        <td>010100002026690000371775B5C3CE2141CBD2347771315141</td>
-        <td>1</td>
-        <td>Cortlandt St</td>
-        <td>None</td>
-        <td>Church St</td>
-        <td>Cortlandt St (R,W) Manhattan</td>
-        <td>Cortlandt St (R,W)</td>
-        <td>Manhattan</td>
-        <td>None</td>
-        <td>R,W</td>
-        <td>R,W</td>
-        <td>YELLOW</td>
-        <td>None</td>
-        <td>None</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>010100002026690000CBE327F938CD21415EDBE1572D315141</td>
-        <td>2</td>
-        <td>Rector St</td>
-        <td>None</td>
-        <td>None</td>
-        <td>Rector St (1) Manhattan</td>
-        <td>Rector St (1)</td>
-        <td>Manhattan</td>
-        <td>None</td>
-        <td>1</td>
-        <td>1</td>
-        <td>RED</td>
-        <td>None</td>
-        <td>None</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>010100002026690000C676635D10CD2141A0ECDB6975305141</td>
-        <td>3</td>
-        <td>South Ferry</td>
-        <td>None</td>
-        <td>None</td>
-        <td>South Ferry (1) Manhattan</td>
-        <td>South Ferry (1)</td>
-        <td>Manhattan</td>
-        <td>None</td>
-        <td>1</td>
-        <td>1</td>
-        <td>RED</td>
-        <td>None</td>
-        <td>None</td>
-    </tr>
-    <tr>
-        <td>125</td>
-        <td>010100002026690000F4CF3E3654032241B5704681A73C5141</td>
-        <td>4</td>
-        <td>138th St</td>
-        <td>Grand Concourse</td>
-        <td>Grand Concourse</td>
-        <td>138th St / Grand Concourse (4,5) Bronx</td>
-        <td>138th St / Grand Concourse (4,5)</td>
-        <td>Bronx</td>
-        <td>None</td>
-        <td>4,5</td>
-        <td>4,5</td>
-        <td>GREEN</td>
-        <td>None</td>
-        <td>None</td>
-    </tr>
-    <tr>
-        <td>126</td>
-        <td>01010000202669000084DADF7AED0422410C380E6E3A3D5141</td>
-        <td>5</td>
-        <td>149th St</td>
-        <td>Grand Concourse</td>
-        <td>Grand Concourse</td>
-        <td>149th St / Grand Concourse (4) Bronx</td>
-        <td>149th St / Grand Concourse (4)</td>
-        <td>Bronx</td>
-        <td>None</td>
-        <td>4</td>
-        <td>2,4,5</td>
-        <td>GREEN</td>
-        <td>express</td>
-        <td>None</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="checking-srid">
@@ -715,19 +620,6 @@ SELECT ST_SRID(geom) FROM nyc_streets LIMIT 1;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_srid</th>
-    </tr>
-    <tr>
-        <td>26918</td>
-    </tr>
-</table></div></div>
 </div>
 <p>And what is definition of “26918”? As we saw in
 <a class="reference external" href="https://postgis.gishub.org/chapters/postgis_intro.html">loading data section</a>,
@@ -744,27 +636,6 @@ SELECT * FROM spatial_ref_sys WHERE srid = 26918
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>srid</th>
-        <th>auth_name</th>
-        <th>auth_srid</th>
-        <th>srtext</th>
-        <th>proj4text</th>
-    </tr>
-    <tr>
-        <td>26918</td>
-        <td>EPSG</td>
-        <td>26918</td>
-        <td>PROJCS[&quot;NAD83 / UTM zone 18N&quot;,GEOGCS[&quot;NAD83&quot;,DATUM[&quot;North_American_Datum_1983&quot;,SPHEROID[&quot;GRS 1980&quot;,6378137,298.257222101,AUTHORITY[&quot;EPSG&quot;,&quot;7019&quot;]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY[&quot;EPSG&quot;,&quot;6269&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4269&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,-75],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;26918&quot;]]</td>
-        <td>+proj=utm +zone=18 +datum=NAD83 +units=m +no_defs </td>
-    </tr>
-</table></div></div>
 </div>
 <p>In fact, for the internal PostGIS re-projection calculations, it is the
 contents of the <code class="docutils literal notranslate"><span class="pre">proj4text</span></code> column that are used. For our 26918
@@ -777,19 +648,6 @@ SELECT proj4text FROM spatial_ref_sys WHERE srid = 26918
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>proj4text</th>
-    </tr>
-    <tr>
-        <td>+proj=utm +zone=18 +datum=NAD83 +units=m +no_defs </td>
-    </tr>
-</table></div></div>
 </div>
 <p>In practice, both the <code class="docutils literal notranslate"><span class="pre">srtext</span></code> and the <code class="docutils literal notranslate"><span class="pre">proj4text</span></code> columns are
 important: the <code class="docutils literal notranslate"><span class="pre">srtext</span></code> column is used by external programs like
@@ -856,19 +714,6 @@ SELECT srtext FROM spatial_ref_sys WHERE srid = 4326;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>srtext</th>
-    </tr>
-    <tr>
-        <td>GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]]</td>
-    </tr>
-</table></div></div>
 </div>
 <p>Let’s convert the coordinates of the ‘Broad St’ subway station into
 geographics:</p>
@@ -882,19 +727,6 @@ WHERE name = &#39;Broad St&#39;;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>POINT(583571.905921312 4506714.34119218)</td>
-    </tr>
-</table></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -906,19 +738,6 @@ WHERE name = &#39;Broad St&#39;;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-1 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>POINT(-74.0106714688734 40.7071048155876)</td>
-    </tr>
-</table></div></div>
 </div>
 <p>If you load data or create a new geometry without specifying an SRID,
 the SRID value will be 0. Recall in <code class="docutils literal notranslate"><span class="pre">geometries</span></code>, that when we created our <code class="docutils literal notranslate"><span class="pre">geometries</span></code> table we didn’t
@@ -936,41 +755,6 @@ FROM geometry_columns;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-6 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>name</th>
-        <th>srid</th>
-    </tr>
-    <tr>
-        <td>nyc_homicides</td>
-        <td>26918</td>
-    </tr>
-    <tr>
-        <td>nyc_census_blocks</td>
-        <td>26918</td>
-    </tr>
-    <tr>
-        <td>nyc_neighborhoods</td>
-        <td>26918</td>
-    </tr>
-    <tr>
-        <td>nyc_streets</td>
-        <td>26918</td>
-    </tr>
-    <tr>
-        <td>nyc_subway_stations</td>
-        <td>26918</td>
-    </tr>
-    <tr>
-        <td>geometries</td>
-        <td>0</td>
-    </tr>
-</table></div></div>
 </div>
 <p>However, if you know what the SRID of the coordinates is supposed to be,
 you can set it post-facto, using <code class="docutils literal notranslate"><span class="pre">ST_SetSRID</span></code> on the geometry. Then you will be able to transform the
@@ -988,31 +772,6 @@ FROM geometries;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * postgresql://postgres:***@localhost/nyc
-5 rows affected.
-</pre></div>
-</div>
-<div class="output text_html"><table>
-    <tr>
-        <th>st_astext</th>
-    </tr>
-    <tr>
-        <td>POINT(-79.488743884387 0)</td>
-    </tr>
-    <tr>
-        <td>LINESTRING(-79.488743884387 0,-79.4887349253904 0.000009019375921,-79.4887259663935 0.000009019376033,-79.4887259663937 0.000018038752065)</td>
-    </tr>
-    <tr>
-        <td>POLYGON((-79.488743884387 0,-79.4887349253903 0,-79.4887349253904 0.000009019375921,-79.4887438843871 0.00000901937581,-79.488743884387 0))</td>
-    </tr>
-    <tr>
-        <td>POLYGON((-79.488743884387 0,-79.4886542944147 0,-79.4886542944202 0.000090193769243,-79.4887438843926 0.000090193758097,-79.488743884387 0),(-79.4887349253904 0.000009019375921,-79.4887349253905 0.000018038751842,-79.4887259663937 0.000018038752065,-79.4887259663935 0.000009019376033,-79.4887349253904 0.000009019375921))</td>
-    </tr>
-    <tr>
-        <td>GEOMETRYCOLLECTION(POINT(-79.4887259663935 0),POLYGON((-79.488743884387 0,-79.4887349253903 0,-79.4887349253904 0.000009019375921,-79.4887438843871 0.00000901937581,-79.488743884387 0)))</td>
-    </tr>
-</table></div></div>
 </div>
 </section>
 <section id="function-list">
@@ -1087,8 +846,7 @@ integer parameter.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1150,8 +908,8 @@ By Qiusheng Wu
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
