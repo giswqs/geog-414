@@ -56,13 +56,13 @@ connection_string = f"postgresql://{user}:{password}@{host}/{database}"
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM nyc_neighborhoods WHERE FALSE
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT id, boroname, name from nyc_neighborhoods LIMIT 10
 ```
@@ -148,7 +148,7 @@ SELECT * FROM nyc_census_blocks WHERE FALSE
 What is the population of the City of New York?
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT Sum(popn_total) AS population
 FROM nyc_census_blocks
@@ -157,7 +157,7 @@ FROM nyc_census_blocks
 What is the population of the Bronx?
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT SUM(popn_total) AS population
 FROM nyc_census_blocks

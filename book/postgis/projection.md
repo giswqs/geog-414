@@ -56,7 +56,7 @@ connection_string = f"postgresql://{user}:{password}@{host}/{database}"
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * from nyc_subway_stations LIMIT 5
 ```
@@ -160,7 +160,7 @@ If we return to our proj4 definition for SRID 26918, we can see that our
 working projection is UTM (Universal Transverse Mercator) of zone 18,
 with meters as the unit of measurement.
 
-    +proj=utm +zone=18 +ellps=GRS80 +datum=NAD83 +units=m +no_defs 
+    +proj=utm +zone=18 +ellps=GRS80 +datum=NAD83 +units=m +no_defs
 
 Let\'s convert some data from our working projection to geographic
 coordinates \-- also known as \"longitude/latitude\".
@@ -191,15 +191,15 @@ geographics:
 %%sql
 
 SELECT ST_AsText(geom)
-FROM nyc_subway_stations 
+FROM nyc_subway_stations
 WHERE name = 'Broad St';
 ```
 
 ```{code-cell} ipython3
 %%sql
 
-SELECT ST_AsText(ST_Transform(geom,4326)) 
-FROM nyc_subway_stations 
+SELECT ST_AsText(ST_Transform(geom,4326))
+FROM nyc_subway_stations
 WHERE name = 'Broad St';
 ```
 
@@ -215,7 +215,7 @@ To view a table\'s SRID assignment, query the database\'s
 ```{code-cell} ipython3
 %%sql
 
-SELECT f_table_name AS name, srid 
+SELECT f_table_name AS name, srid
 FROM geometry_columns;
 ```
 

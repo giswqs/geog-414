@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.11.5
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -322,11 +322,15 @@ Copying the authentication code.
 
 Congratulations! You have successfully authenticated Earth Engine for use in your Jupyter notebook. In general, authentication for local installations is a one-time step that generates a persistent authorization token stored on a local computer. The token can be found in the following file path depending on your operating system. Note that you might need to show the hidden directories on your computer in order to see the `.config` folder under the home directory.
 
-```{code-cell}
-Windows: C:\\Users\\USERNAME\\.config\\earthengine\\credentials
++++
+
+```text
+Windows: C:\Users\USERNAME\.config\earthengine\credentials
 Linux: /home/USERNAME/.config/earthengine/credentials
 MacOS: /Users/USERNAME/.config/earthengine/credentials
 ```
+
++++
 
 Once Earth Engine is authenticated, you can run the following script to initialize Earth Engine for a new Python session.
 

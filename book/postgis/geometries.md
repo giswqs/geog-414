@@ -56,7 +56,7 @@ connection_string = f"postgresql://{user}:{password}@{host}/{database}"
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM nyc_neighborhoods WHERE FALSE
 ```
@@ -81,7 +81,7 @@ SELECT name, ST_AsText(geom) FROM geometries;
 ## Metadata tables
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT * FROM spatial_ref_sys LIMIT 10
 ```
@@ -93,7 +93,7 @@ SELECT * FROM geometry_columns
 ```
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
   FROM geometries;
@@ -175,7 +175,7 @@ Some of the specific spatial functions for working with linestrings are:
 So, the length of our linestring is:
 
 ```{code-cell} ipython3
-%%sql 
+%%sql
 
 SELECT ST_Length(geom)
   FROM geometries

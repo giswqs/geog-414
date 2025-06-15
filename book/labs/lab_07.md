@@ -47,7 +47,7 @@ Create a fishnet with a 4-degree interval based on the extent of `[-112.5439, 34
 
 ## Question 2
 
-Create annual cloud-free Landsat imagery for the years 2017-2023 for a US county of your choice. Download the images to your computer. 
+Create annual cloud-free Landsat imagery for the years 2017-2023 for a US county of your choice. Download the images to your computer.
 
 ![](https://i.imgur.com/MN2UXHx.png)
 
@@ -67,7 +67,7 @@ Create annual cloud-free Sentinel-2 imagery for the years 2017-2023 for a US cou
 
 ## Question 4
 
-Create annual cloud-free NAIP imagery for the years 2010-2023 for a US county of your choice. Download the images to your computer. You can download a coarse resolution image to speed up the download process. 
+Create annual cloud-free NAIP imagery for the years 2010-2023 for a US county of your choice. Download the images to your computer. You can download a coarse resolution image to speed up the download process.
 
 ![](https://i.imgur.com/h66FC8h.png)
 
@@ -77,7 +77,7 @@ Create annual cloud-free NAIP imagery for the years 2010-2023 for a US county of
 
 ## Question 5
 
-Download a US county of your choice and save it as a shapefile or GeoJSON file. 
+Download a US county of your choice and save it as a shapefile or GeoJSON file.
 
 ![](https://i.imgur.com/PuK2Vp3.png)
 
