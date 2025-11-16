@@ -1,0 +1,1045 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7. Looping &#8212; Spatial Data Management with Earth Engine</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/python/07_user_input_while_loops';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/python/07_user_input_while_loops.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8. Functions" href="08_functions.html" />
+    <link rel="prev" title="6. Dictionaries" href="06_dictionaries.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/software.html">Software</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_getting_started.html">1. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_variables_data_types.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_introducing_lists.html">3. Introducing List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_working_with_lists.html">4. Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_if_statements.html">5. Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_dictionaries.html">6. Dictionaries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Looping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_classes.html">9. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_files_and_exceptions.html">10. Files and Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Earth Engine</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gee/01_introduction.html">11. Introducing GEE and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/02_maps.html">12. Creating Interactive Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/03_gee_data.html">13. Using Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/04_local_data.html">14. Using Local Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/05_data_viz.html">15. Visualizing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/06_data_analysis.html">16. Analyzing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/07_data_export.html">17. Exporting Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/08_cartoee.html">18. Making Maps with Cartoee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/09_timelapse.html">19. Creating Timelapse Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/10_webapps.html">20. Building Interactive Web Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/11_applications.html">21. Earth Engine Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DuckDB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/01_duckdb_intro.html">22. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/02_sql_basics.html">23. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/03_python_api.html">24. Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/04_data_import.html">25. Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/05_data_export.html">26. Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/06_geometries.html">27. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/07_spatial_relationships.html">28. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/08_data_viz.html">29. Data Visualization</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">33. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/10_pmtiles.html">34. Visualizing PMTiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/11_data_analysis.html">35. Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">36. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">37. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">38. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">39. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">40. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">41. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">42. Using GeoPandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/instructions.html">Submission Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_02.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_03.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_04.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_05.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_06.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_07.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_08.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_09.html">Lab 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_10.html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/final_project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/python/07_user_input_while_loops.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/python/07_user_input_while_loops.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/python/07_user_input_while_loops.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/python/07_user_input_while_loops.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/python/07_user_input_while_loops.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Looping</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-input-function-works">7.1. HOW THE INPUT() FUNCTION WORKS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-clear-prompts">7.2. Writing Clear Prompts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-int-to-accept-numerical-input">7.3. Using int() to Accept Numerical Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-modulo-operator">7.4. The Modulo Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-while-loops">7.5. INTRODUCING WHILE LOOPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-loop-in-action">7.6. The while Loop in Action</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#letting-the-user-choose-when-to-quit">7.7. Letting the User Choose When to Quit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-flag">7.8. Using a Flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-break-to-exit-a-loop">7.9. Using break to Exit a Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-continue-in-a-loop">7.10. Using continue in a Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-infinite-loops">7.11. Avoiding Infinite Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-while-loop-with-lists-and-dictionaries">7.12. USING A WHILE LOOP WITH LISTS AND DICTIONARIES <a class="anchor" id="using-while-loops"> </a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-items-from-one-list-to-another">7.13. Moving Items from One List to Another</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-all-instances-of-specific-values-from-a-list">7.14. Removing All Instances of Specific Values from a List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filling-a-dictionary-with-user-input">7.15. Filling a Dictionary with User Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.16. SUMMARY</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="looping">
+<h1><span class="section-number">7. </span>Looping<a class="headerlink" href="#looping" title="Link to this heading">#</a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-the-input-function-works" id="id1">HOW THE INPUT() FUNCTION WORKS</a></p></li>
+<li><p><a class="reference internal" href="#writing-clear-prompts" id="id2">Writing Clear Prompts</a></p></li>
+<li><p><a class="reference internal" href="#using-int-to-accept-numerical-input" id="id3">Using int() to Accept Numerical Input</a></p></li>
+<li><p><a class="reference internal" href="#the-modulo-operator" id="id4">The Modulo Operator</a></p></li>
+<li><p><a class="reference internal" href="#introducing-while-loops" id="id5">INTRODUCING WHILE LOOPS</a></p></li>
+<li><p><a class="reference internal" href="#the-while-loop-in-action" id="id6">The while Loop in Action</a></p></li>
+<li><p><a class="reference internal" href="#letting-the-user-choose-when-to-quit" id="id7">Letting the User Choose When to Quit</a></p></li>
+<li><p><a class="reference internal" href="#using-a-flag" id="id8">Using a Flag</a></p></li>
+<li><p><a class="reference internal" href="#using-break-to-exit-a-loop" id="id9">Using break to Exit a Loop</a></p></li>
+<li><p><a class="reference internal" href="#using-continue-in-a-loop" id="id10">Using continue in a Loop</a></p></li>
+<li><p><a class="reference internal" href="#avoiding-infinite-loops" id="id11">Avoiding Infinite Loops</a></p></li>
+<li><p><a class="reference internal" href="#using-a-while-loop-with-lists-and-dictionaries" id="id12">USING A WHILE LOOP WITH LISTS AND DICTIONARIES <a class='anchor' id='using-while-loops'> </a></a></p></li>
+<li><p><a class="reference internal" href="#moving-items-from-one-list-to-another" id="id13">Moving Items from One List to Another</a></p></li>
+<li><p><a class="reference internal" href="#removing-all-instances-of-specific-values-from-a-list" id="id14">Removing All Instances of Specific Values from a List</a></p></li>
+<li><p><a class="reference internal" href="#filling-a-dictionary-with-user-input" id="id15">Filling a Dictionary with User Input</a></p></li>
+<li><p><a class="reference internal" href="#summary" id="id16">SUMMARY</a></p></li>
+</ul>
+</nav>
+<p>Most programs are written to solve an end user’s problem. To do so, you usually need to get some information from the user. For a simple example, let’s say someone wants to find out whether they’re old enough to vote. If you write a program to answer this question, you need to know the user’s age before you can provide an answer. The program will need to ask the user to enter, or input, their age; once the program has this input, it can compare it to the voting age to determine if the user is old enough and then report the result.</p>
+<p>In this chapter you’ll learn how to accept user input so your program can then work with it. When your program needs a name, you’ll be able to prompt the user for a name. When your program needs a list of names, you’ll be able to prompt the user for a series of names. To do this, you’ll use the input() function.</p>
+<p>You’ll also learn how to keep programs running as long as users want them to, so they can enter as much information as they need to; then, your program can work with that information. You’ll use Python’s while loop to keep programs running as long as certain conditions remain true.</p>
+<p>With the ability to work with user input and the ability to control how long your programs run, you’ll be able to write fully interactive programs.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#how-the-input-function-works"><span class="xref myst">HOW THE INPUT() FUNCTION WORKS</span></a></p></li>
+<li><p><a class="reference internal" href="#introducing-while-loops"><span class="xref myst">INTRODUCING WHILE LOOPS</span></a></p></li>
+<li><p><a class="reference internal" href="#using-while-loops"><span class="xref myst">USING A WHILE LOOP WITH LISTS AND DICTIONARIES</span></a></p></li>
+<li><p><a class="reference internal" href="#summary"><span class="xref myst">SUMMARY</span></a></p></li>
+</ul>
+<section id="how-the-input-function-works">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink"><span class="section-number">7.1. </span>HOW THE INPUT() FUNCTION WORKS</a><a class="headerlink" href="#how-the-input-function-works" title="Link to this heading">#</a></h2>
+<p>The input() function pauses your program and waits for the user to enter some text. Once Python receives the user’s input, it assigns that input to a variable to make it convenient for you to work with.</p>
+<p>For example, the following program asks the user to enter some text, then displays that message back to the user:</p>
+<!-- #endregion --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># message = input(&quot;Tell me something, and I will repeat it back to you: &quot;)</span>
+<span class="c1"># print(message)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The input() function takes one argument: the prompt, or instructions, that we want to display to the user so they know what to do. In this example, when Python runs the first line, the user sees the prompt Tell me something, and I will repeat it back to you: . The program waits while the user enters their response and continues after the user presses ENTER. The response is assigned to the variable message, then print(message) displays the input back to the user:</p>
+</section>
+<section id="writing-clear-prompts">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">7.2. </span>Writing Clear Prompts</a><a class="headerlink" href="#writing-clear-prompts" title="Link to this heading">#</a></h2>
+<p>Each time you use the input() function, you should include a clear, easy-to-follow prompt that tells the user exactly what kind of information you’re looking for. Any statement that tells the user what to enter should work. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># name = input(&quot;Please enter your name: &quot;)</span>
+<span class="c1"># print(f&quot;\nHello, {name}!&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes you’ll want to write a prompt that’s longer than one line. For example, you might want to tell the user why you’re asking for certain input. You can assign your prompt to a variable and pass that variable to the input() function. This allows you to build your prompt over several lines, then write a clean input() statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;If you tell us who you are, we can personalize the messages you see.&quot;</span>
+<span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">What is your first name? &quot;</span>
+
+<span class="c1"># name = input(prompt)</span>
+<span class="c1"># print(f&quot;\nHello, {name}!&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example shows one way to build a multi-line string. The first line assigns the first part of the message to the variable prompt. In the second line, the operator += takes the string that was assigned to prompt and adds the new string onto the end.</p>
+<p>The prompt now spans two lines, again with space after the question mark for clarity:</p>
+</section>
+<section id="using-int-to-accept-numerical-input">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">7.3. </span>Using int() to Accept Numerical Input</a><a class="headerlink" href="#using-int-to-accept-numerical-input" title="Link to this heading">#</a></h2>
+<p>When you use the input() function, Python interprets everything the user enters as a string. Consider the following interpreter session, which asks for the user’s age:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># age = input(&quot;How old are you? &quot;)</span>
+<span class="c1"># age</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The user enters the number 21, but when we ask Python for the value of age, it returns ‘21’, the string representation of the numerical value entered. We know Python interpreted the input as a string because the number is now enclosed in quotes. If all you want to do is print the input, this works well. But if you try to use the input as a number, you’ll get an error. We can resolve this issue by using the int() function, which tells Python to treat the input as a numerical value. The int() function converts a string representation of a number to a numerical representation, as shown here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># age = input(&quot;How old are you? &quot;)</span>
+<span class="c1"># age = int(age)</span>
+<span class="c1"># age</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>How do you use the int() function in an actual program? Consider a program that determines whether people are tall enough to ride a roller coaster:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># height = input(&quot;How tall are you, in inches? &quot;)</span>
+<span class="c1"># height = int(height)</span>
+
+<span class="c1"># if height &gt;= 48:</span>
+<span class="c1">#     print(&quot;\nYou&#39;re tall enough to ride!&quot;)</span>
+<span class="c1"># else:</span>
+<span class="c1">#     print(&quot;\nYou&#39;ll be able to ride when you&#39;re a little older.&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-modulo-operator">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">7.4. </span>The Modulo Operator</a><a class="headerlink" href="#the-modulo-operator" title="Link to this heading">#</a></h2>
+<p>A useful tool for working with numerical information is the modulo operator (%), which divides one number by another number and returns the remainder:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">%</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">%</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span> <span class="o">%</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">%</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The modulo operator doesn’t tell you how many times one number fits into another; it just tells you what the remainder is.</p>
+<p>When one number is divisible by another number, the remainder is 0, so the modulo operator always returns 0. You can use this fact to determine if a number is even or odd:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># number = input(&quot;Enter a number, and I&#39;ll tell you if it&#39;s even or odd: &quot;)</span>
+<span class="c1"># number = int(number)</span>
+
+<span class="c1"># if number % 2 == 0:</span>
+<span class="c1">#     print(f&quot;\nThe number {number} is even.&quot;)</span>
+<span class="c1"># else:</span>
+<span class="c1">#     print(f&quot;\nThe number {number} is odd.&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="introducing-while-loops">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">7.5. </span>INTRODUCING WHILE LOOPS</a><a class="headerlink" href="#introducing-while-loops" title="Link to this heading">#</a></h2>
+<p>The for loop takes a collection of items and executes a block of code once for each item in the collection. In contrast, the while loop runs as long as, or while, a certain condition is true.</p>
+</section>
+<section id="the-while-loop-in-action">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">7.6. </span>The while Loop in Action</a><a class="headerlink" href="#the-while-loop-in-action" title="Link to this heading">#</a></h2>
+<p>You can use a while loop to count up through a series of numbers. For example, the following while loop counts from 1 to 5:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">current_number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">current_number</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">current_number</span><span class="p">)</span>
+    <span class="n">current_number</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first line, we start counting from 1 by assigning current_number the value 1. The while loop is then set to keep running as long as the value of current_number is less than or equal to 5. The code inside the loop prints the value of current_number and then adds 1 to that value with current_number += 1. (The += operator is shorthand for current_number = current_number + 1.)</p>
+<p>Python repeats the loop as long as the condition current_number &lt;= 5 is true. Because 1 is less than 5, Python prints 1 and then adds 1, making the current number 2. Because 2 is less than 5, Python prints 2 and adds 1 again, making the current number 3, and so on. Once the value of current_number is greater than 5, the loop stops running and the program end.</p>
+<p>The programs you use every day most likely contain while loops. For example, a game needs a while loop to keep running as long as you want to keep playing, and so it can stop running as soon as you ask it to quit. Programs wouldn’t be fun to use if they stopped running before we told them to or kept running even after we wanted to quit, so while loops are quite useful.</p>
+</section>
+<section id="letting-the-user-choose-when-to-quit">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">7.7. </span>Letting the User Choose When to Quit</a><a class="headerlink" href="#letting-the-user-choose-when-to-quit" title="Link to this heading">#</a></h2>
+<p>We can make the <a class="reference external" href="http://parrot.py">parrot.py</a> program run as long as the user wants by putting most of the program inside a while loop. We’ll define a quit value and then keep the program running as long as the user has not entered the quit value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tell me something, and I will repeat it back to you:&quot;</span>
+<span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Enter &#39;quit&#39; to end the program. &quot;</span>
+
+<span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="c1"># while message != &#39;quit&#39;:</span>
+<span class="c1">#     message = input(prompt)</span>
+
+<span class="c1">#     if message != &#39;quit&#39;:</span>
+<span class="c1">#         print(message)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first time through the loop, message is just an empty string, so Python enters the loop. At message = input(prompt), Python displays the prompt and waits for the user to enter their input. Whatever they enter is assigned to message and printed; then, Python reevaluates the condition in the while statement. As long as the user has not entered the word ‘quit’, the prompt is displayed again and Python waits for more input. When the user finally enters ‘quit’, Python stops executing the while loop and the program end.</p>
+</section>
+<section id="using-a-flag">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">7.8. </span>Using a Flag</a><a class="headerlink" href="#using-a-flag" title="Link to this heading">#</a></h2>
+<p>In the previous example, we had the program perform certain tasks while a given condition was true. But what about more complicated programs in which many different events could cause the program to stop running?</p>
+<p>For example, in a game, several different events can end the game. When the player runs out of ships, their time runs out, or the cities they were supposed to protect are all destroyed, the game should end. It needs to end if any one of these events happens. If many possible events might occur to stop the program, trying to test all these conditions in one while statement becomes complicated and difficult.</p>
+<p>For a program that should run only as long as many conditions are true, you can define one variable that determines whether or not the entire program is active. This variable, called a flag, acts as a signal to the program. We can write our programs so they run while the flag is set to True and stop running when any of several events sets the value of the flag to False. As a result, our overall while statement needs to check only one condition: whether or not the flag is currently True. Then, all our other tests (to see if an event has occurred that should set the flag to False) can be neatly organized in the rest of the program.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tell me something, and I will repeat it back to you:&quot;</span>
+<span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Enter &#39;quit&#39; to end the program. &quot;</span>
+
+<span class="n">active</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># while active:</span>
+<span class="c1">#     message = input(prompt)</span>
+
+<span class="c1">#     if message == &#39;quit&#39;:</span>
+<span class="c1">#         active = False</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         print(message)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-break-to-exit-a-loop">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">7.9. </span>Using break to Exit a Loop</a><a class="headerlink" href="#using-break-to-exit-a-loop" title="Link to this heading">#</a></h2>
+<p>To exit a while loop immediately without running any remaining code in the loop, regardless of the results of any conditional test, use the break statement. The break statement directs the flow of your program; you can use it to control which lines of code are executed and which aren’t, so the program only executes code that you want it to, when you want it to.</p>
+<p>For example, consider a program that asks the user about places they’ve visited. We can stop the while loop in this program by calling break as soon as the user enters the ‘quit’ value:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prompt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Please enter the name of a city you have visited:&quot;</span>
+<span class="n">prompt</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">(Enter &#39;quit&#39; when you are finished.) &quot;</span>
+
+<span class="c1"># while True:</span>
+<span class="c1">#     city = input(prompt)</span>
+
+<span class="c1">#     if city == &#39;quit&#39;:</span>
+<span class="c1">#         break</span>
+<span class="c1">#     else:</span>
+<span class="c1">#         print(f&quot;I&#39;d love to go to {city.title()}!&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A loop that starts with while True will run forever unless it reaches a break statement. The loop in this program continues asking the user to enter the names of cities they’ve been to until they enter ‘quit’. When they enter ‘quit’, the break statement runs, causing Python to exit the loop.</p>
+</section>
+<section id="using-continue-in-a-loop">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">7.10. </span>Using continue in a Loop</a><a class="headerlink" href="#using-continue-in-a-loop" title="Link to this heading">#</a></h2>
+<p>Rather than breaking out of a loop entirely without executing the rest of its code, you can use the continue statement to return to the beginning of the loop based on the result of a conditional test. For example, consider a loop that counts from 1 to 10 but prints only the odd numbers in that range:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">current_number</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">current_number</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">current_number</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">current_number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">current_number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="avoiding-infinite-loops">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">7.11. </span>Avoiding Infinite Loops</a><a class="headerlink" href="#avoiding-infinite-loops" title="Link to this heading">#</a></h2>
+<p>Every while loop needs a way to stop running so it won’t continue to run forever. For example, this counting loop should count from 1 to 5:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>But if you accidentally omit the line x += 1 (as shown next), the loop will run forever:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># # This loop runs forever!</span>
+<span class="c1"># x = 1</span>
+<span class="c1"># while x &lt;= 5:</span>
+<span class="c1">#     print(x)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every programmer accidentally writes an infinite while loop from time to time, especially when a program’s loops have subtle exit conditions. If your program gets stuck in an infinite loop, press CTRL-C or just close the terminal window displaying your program’s output.</p>
+<p>To avoid writing infinite loops, test every while loop and make sure the loop stops when you expect it to. If you want your program to end when the user enters a certain input value, run the program and enter that value. If the program doesn’t end, scrutinize the way your program handles the value that should cause the loop to exit. Make sure at least one part of the program can make the loop’s condition False or cause it to reach a break statement.</p>
+</section>
+<section id="using-a-while-loop-with-lists-and-dictionaries">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">7.12. </span>USING A WHILE LOOP WITH LISTS AND DICTIONARIES <a class='anchor' id='using-while-loops'> </a></a><a class="headerlink" href="#using-a-while-loop-with-lists-and-dictionaries" title="Link to this heading">#</a></h2>
+<p>So far, we’ve worked with only one piece of user information at a time. We received the user’s input and then printed the input or a response to it. The next time through the while loop, we’d receive another input value and respond to that. But to keep track of many users and pieces of information, we’ll need to use lists and dictionaries with our while loops.</p>
+<p>A for loop is effective for looping through a list, but you shouldn’t modify a list inside a for loop because Python will have trouble keeping track of the items in the list. To modify a list as you work through it, use a while loop. Using while loops with lists and dictionaries allows you to collect, store, and organize lots of input to examine and report on later.</p>
+</section>
+<section id="moving-items-from-one-list-to-another">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">7.13. </span>Moving Items from One List to Another</a><a class="headerlink" href="#moving-items-from-one-list-to-another" title="Link to this heading">#</a></h2>
+<p>Consider a list of newly registered but unverified users of a website. After we verify these users, how can we move them to a separate list of confirmed users? One way would be to use a while loop to pull users from the list of unconfirmed users as we verify them and then add them to a separate list of confirmed users. Here’s what that code might look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with users that need to be verified,</span>
+<span class="c1">#  and an empty list to hold confirmed users.</span>
+<span class="n">unconfirmed_users</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="s2">&quot;brian&quot;</span><span class="p">,</span> <span class="s2">&quot;candace&quot;</span><span class="p">]</span>
+<span class="n">confirmed_users</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Verify each user until there are no more unconfirmed users.</span>
+<span class="c1">#  Move each verified user into the list of confirmed users.</span>
+<span class="k">while</span> <span class="n">unconfirmed_users</span><span class="p">:</span>
+    <span class="n">current_user</span> <span class="o">=</span> <span class="n">unconfirmed_users</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Verifying user: </span><span class="si">{</span><span class="n">current_user</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">confirmed_users</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+
+<span class="c1"># Display all confirmed users.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">The following users have been confirmed:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">confirmed_user</span> <span class="ow">in</span> <span class="n">confirmed_users</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">confirmed_user</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="removing-all-instances-of-specific-values-from-a-list">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">7.14. </span>Removing All Instances of Specific Values from a List</a><a class="headerlink" href="#removing-all-instances-of-specific-values-from-a-list" title="Link to this heading">#</a></h2>
+<p>In Chapter 3 we used remove() to remove a specific value from a list. The remove() function worked because the value we were interested in appeared only once in the list. But what if you want to remove all instances of a value from a list?</p>
+<p>Say you have a list of pets with the value ‘cat’ repeated several times. To remove all instances of that value, you can run a while loop until ‘cat’ is no longer in the list, as shown here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;goldfish&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;rabbit&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pets</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="s2">&quot;cat&quot;</span> <span class="ow">in</span> <span class="n">pets</span><span class="p">:</span>
+    <span class="n">pets</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;cat&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pets</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filling-a-dictionary-with-user-input">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">7.15. </span>Filling a Dictionary with User Input</a><a class="headerlink" href="#filling-a-dictionary-with-user-input" title="Link to this heading">#</a></h2>
+<p>You can prompt for as much input as you need in each pass through a while loop. Let’s make a polling program in which each pass through the loop prompts for the participant’s name and response. We’ll store the data we gather in a dictionary, because we want to connect each response with a particular user:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">responses</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Set a flag to indicate that polling is active.</span>
+<span class="n">polling_active</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># while polling_active:</span>
+<span class="c1">#     # Prompt for the person&#39;s name and response.</span>
+<span class="c1">#     name = input(&quot;\nWhat is your name? &quot;)</span>
+<span class="c1">#     response = input(&quot;Which mountain would you like to climb someday? &quot;)</span>
+
+<span class="c1">#     # Store the response in the dictionary.</span>
+<span class="c1">#     responses[name] = response</span>
+
+<span class="c1">#     # Find out if anyone else is going to take the poll.</span>
+<span class="c1">#     repeat = input(&quot;Would you like to let another person respond? (yes/ no) &quot;)</span>
+<span class="c1">#     if repeat == &#39;no&#39;:</span>
+<span class="c1">#         polling_active = False</span>
+
+<span class="c1"># # Polling is complete. Show the results.</span>
+<span class="c1"># print(&quot;\n--- Poll Results ---&quot;)</span>
+<span class="c1"># for name, response in responses.items():</span>
+<span class="c1">#     print(f&quot;{name} would like to climb {response}.&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">7.16. </span>SUMMARY</a><a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this chapter you learned how to use input() to allow users to provide their own information in your programs. You learned to work with both text and numerical input and how to use while loops to make your programs run as long as your users want them to. You saw several ways to control the flow of a while loop by setting an active flag, using the break statement, and using the continue statement. You learned how to use a while loop to move items from one list to another and how to remove all instances of a value from a list. You also learned how while loops can be used with dictionaries.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_dictionaries.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Dictionaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-input-function-works">7.1. HOW THE INPUT() FUNCTION WORKS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-clear-prompts">7.2. Writing Clear Prompts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-int-to-accept-numerical-input">7.3. Using int() to Accept Numerical Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-modulo-operator">7.4. The Modulo Operator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-while-loops">7.5. INTRODUCING WHILE LOOPS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-loop-in-action">7.6. The while Loop in Action</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#letting-the-user-choose-when-to-quit">7.7. Letting the User Choose When to Quit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-flag">7.8. Using a Flag</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-break-to-exit-a-loop">7.9. Using break to Exit a Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-continue-in-a-loop">7.10. Using continue in a Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#avoiding-infinite-loops">7.11. Avoiding Infinite Loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-a-while-loop-with-lists-and-dictionaries">7.12. USING A WHILE LOOP WITH LISTS AND DICTIONARIES <a class="anchor" id="using-while-loops"> </a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-items-from-one-list-to-another">7.13. Moving Items from One List to Another</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-all-instances-of-specific-values-from-a-list">7.14. Removing All Instances of Specific Values from a List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filling-a-dictionary-with-user-input">7.15. Filling a Dictionary with User Input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">7.16. SUMMARY</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

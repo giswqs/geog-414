@@ -1,0 +1,947 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>33. Spatial Joins &#8212; Spatial Data Management with Earth Engine</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/duckdb/09_spatial_joins';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/duckdb/09_spatial_joins.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="34. Visualizing PMTiles" href="10_pmtiles.html" />
+    <link rel="prev" title="29. Data Visualization" href="08_data_viz.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/software.html">Software</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/01_getting_started.html">1. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/02_variables_data_types.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/03_introducing_lists.html">3. Introducing List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/04_working_with_lists.html">4. Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/05_if_statements.html">5. Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/06_dictionaries.html">6. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/07_user_input_while_loops.html">7. Looping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/08_functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/09_classes.html">9. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/10_files_and_exceptions.html">10. Files and Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Earth Engine</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gee/01_introduction.html">11. Introducing GEE and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/02_maps.html">12. Creating Interactive Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/03_gee_data.html">13. Using Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/04_local_data.html">14. Using Local Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/05_data_viz.html">15. Visualizing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/06_data_analysis.html">16. Analyzing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/07_data_export.html">17. Exporting Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/08_cartoee.html">18. Making Maps with Cartoee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/09_timelapse.html">19. Creating Timelapse Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/10_webapps.html">20. Building Interactive Web Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/11_applications.html">21. Earth Engine Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DuckDB</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_duckdb_intro.html">22. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_sql_basics.html">23. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_api.html">24. Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_data_import.html">25. Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data_export.html">26. Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_geometries.html">27. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_spatial_relationships.html">28. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_data_viz.html">29. Data Visualization</a></li>
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">33. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pmtiles.html">34. Visualizing PMTiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_data_analysis.html">35. Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">36. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">37. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">38. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">39. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">40. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">41. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">42. Using GeoPandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/instructions.html">Submission Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_02.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_03.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_04.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_05.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_06.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_07.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_08.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_09.html">Lab 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_10.html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/final_project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/duckdb/09_spatial_joins.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/duckdb/09_spatial_joins.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/duckdb/09_spatial_joins.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/duckdb/09_spatial_joins.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/duckdb/09_spatial_joins.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Spatial Joins</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">33.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">33.2. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import-and-configuration">33.3. Library Import and Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-data">33.4. Sample Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-duckdb">33.5. Connecting to DuckDB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intersection">33.6. Intersection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-within">33.7. Distance Within</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-join">33.8. Advanced Join</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection">33.9. Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">33.10. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">33.11. References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="spatial-joins">
+<h1><span class="section-number">33. </span>Spatial Joins<a class="headerlink" href="#spatial-joins" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">33.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Spatial joins are the bread-and-butter of spatial databases. They allow you to combine information from different tables by using spatial relationships as the join key. Much of what we think of as “standard GIS analysis” can be expressed as spatial joins.</p>
+</section>
+<section id="installation">
+<h2><span class="section-number">33.2. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>Uncomment the following cell to install the required packages if needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb leafmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="library-import-and-configuration">
+<h2><span class="section-number">33.3. </span>Library Import and Configuration<a class="headerlink" href="#library-import-and-configuration" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">duckdb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">leafmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sample-data">
+<h2><span class="section-number">33.4. </span>Sample Data<a class="headerlink" href="#sample-data" title="Link to this heading">#</a></h2>
+<p>The datasets in the database are in NAD83 / UTM zone 18N projection, EPSG:26918.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opengeos.org/data/duckdb/nyc_data.db.zip&quot;</span>
+<span class="n">leafmap</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="connecting-to-duckdb">
+<h2><span class="section-number">33.5. </span>Connecting to DuckDB<a class="headerlink" href="#connecting-to-duckdb" title="Link to this heading">#</a></h2>
+<p>Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may either connect to an in memory DuckDB, or a file backed db.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">duckdb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;nyc_data.db&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">install_extension</span><span class="p">(</span><span class="s2">&quot;spatial&quot;</span><span class="p">)</span>
+<span class="n">con</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="s2">&quot;spatial&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SHOW TABLES;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="intersection">
+<h2><span class="section-number">33.6. </span>Intersection<a class="headerlink" href="#intersection" title="Link to this heading">#</a></h2>
+<p>In the previous section, we explored spatial relationships using a two-step process: first we extracted a subway station point for ‘Broad St’; then, we used that point to ask further questions such as “what neighborhood is the ‘Broad St’ station in?”</p>
+<p>Using a spatial join, we can answer the question in one step, retrieving information about the subway station and the neighborhood that contains it.</p>
+<p>Let’s start by looking at the subway stations and neighborhoods separately.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_neighborhoods SELECT * LIMIT 5;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM nyc_subway_stations SELECT * LIMIT 5;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s find out what neighborhood the <code class="docutils literal notranslate"><span class="pre">Broad</span> <span class="pre">St</span></code> station is in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT</span>
+<span class="sd">  subways.name AS subway_name,</span>
+<span class="sd">  neighborhoods.name AS neighborhood_name,</span>
+<span class="sd">  neighborhoods.boroname AS borough</span>
+<span class="sd">FROM nyc_neighborhoods AS neighborhoods</span>
+<span class="sd">JOIN nyc_subway_stations AS subways</span>
+<span class="sd">ON ST_Intersects(neighborhoods.geom, subways.geom)</span>
+<span class="sd">WHERE subways.NAME = &#39;Broad St&#39;;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the subway stations table has a <code class="docutils literal notranslate"><span class="pre">color</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT DISTINCT COLOR FROM nyc_subway_stations;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s find out what neighborhood the <code class="docutils literal notranslate"><span class="pre">RED</span></code> subway stations are in:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT</span>
+<span class="sd">  subways.name AS subway_name,</span>
+<span class="sd">  neighborhoods.name AS neighborhood_name,</span>
+<span class="sd">  neighborhoods.boroname AS borough</span>
+<span class="sd">FROM nyc_neighborhoods AS neighborhoods</span>
+<span class="sd">JOIN nyc_subway_stations AS subways</span>
+<span class="sd">ON ST_Intersects(neighborhoods.geom, subways.geom)</span>
+<span class="sd">WHERE subways.color = &#39;RED&#39;;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="distance-within">
+<h2><span class="section-number">33.7. </span>Distance Within<a class="headerlink" href="#distance-within" title="Link to this heading">#</a></h2>
+<p>One of the common spatial operations is to find all the features within a certain distance of another feature. For example, you might want to find all the subway stations within 500 meters of a bike share station. Let’s explore the racial geography of New York using distance queries.</p>
+<p>First, let’s get the baseline racial make-up of the city.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT</span>
+<span class="sd">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
+<span class="sd">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
+<span class="sd">  Sum(popn_total) AS popn_total</span>
+<span class="sd">FROM nyc_census_blocks;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, of the 8M people in New York, about 44% are recorded as “white” and 26% are recorded as “black”.</p>
+<p>Note that the contents of the <code class="docutils literal notranslate"><span class="pre">nyc_subway_stations</span></code> table routes field is what we are interested in to find the A-train. The values in there are a little complex.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT DISTINCT routes FROM nyc_subway_stations;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So to find the A-train, we will want any row in <code class="docutils literal notranslate"><span class="pre">routes</span></code> that has an ‘A’ in it. We can do this a number of ways, but here we will use the fact that <strong>strpos(routes,’A’)</strong> will return a non-zero number only if ‘A’ is in the <code class="docutils literal notranslate"><span class="pre">routes</span></code> field.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT DISTINCT routes</span>
+<span class="sd">FROM nyc_subway_stations AS subways</span>
+<span class="sd">WHERE strpos(subways.routes,&#39;A&#39;) &gt; 0;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s summarize the racial make-up of within 200 meters of the A-train line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT</span>
+<span class="sd">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
+<span class="sd">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
+<span class="sd">  Sum(popn_total) AS popn_total</span>
+<span class="sd">FROM nyc_census_blocks AS census</span>
+<span class="sd">JOIN nyc_subway_stations AS subways</span>
+<span class="sd">ON ST_DWithin(census.geom, subways.geom, 200)</span>
+<span class="sd">WHERE strpos(subways.routes,&#39;A&#39;) &gt; 0;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So the racial make-up along the A-train isn’t radically different from the make-up of New York City as a whole.</p>
+</section>
+<section id="advanced-join">
+<h2><span class="section-number">33.8. </span>Advanced Join<a class="headerlink" href="#advanced-join" title="Link to this heading">#</a></h2>
+<p>In the last section we saw that the A-train didn’t serve a population that differed much from the racial make-up of the rest of the city. Are there any trains that have a non-average racial make-up?</p>
+<p>To answer that question, we’ll add another join to our query, so that we can simultaneously calculate the make-up of many subway lines at once. To do that, we’ll need to create a new table that enumerates all the lines we want to summarize.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">CREATE OR REPLACE TABLE subway_lines ( route char(1) );</span>
+<span class="sd">INSERT INTO subway_lines (route) VALUES</span>
+<span class="sd">  (&#39;A&#39;),(&#39;B&#39;),(&#39;C&#39;),(&#39;D&#39;),(&#39;E&#39;),(&#39;F&#39;),(&#39;G&#39;),</span>
+<span class="sd">  (&#39;J&#39;),(&#39;L&#39;),(&#39;M&#39;),(&#39;N&#39;),(&#39;Q&#39;),(&#39;R&#39;),(&#39;S&#39;),</span>
+<span class="sd">  (&#39;Z&#39;),(&#39;1&#39;),(&#39;2&#39;),(&#39;3&#39;),(&#39;4&#39;),(&#39;5&#39;),(&#39;6&#39;),</span>
+<span class="sd">  (&#39;7&#39;);</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can join the table of subway lines onto our original query.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">SELECT</span>
+<span class="sd">  lines.route,</span>
+<span class="sd">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
+<span class="sd">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
+<span class="sd">  Sum(popn_total) AS popn_total</span>
+<span class="sd">FROM nyc_census_blocks AS census</span>
+<span class="sd">JOIN nyc_subway_stations AS subways</span>
+<span class="sd">ON ST_DWithin(census.geom, subways.geom, 200)</span>
+<span class="sd">JOIN subway_lines AS lines</span>
+<span class="sd">ON strpos(subways.routes, lines.route) &gt; 0</span>
+<span class="sd">GROUP BY lines.route</span>
+<span class="sd">ORDER BY black_pct DESC;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As before, the joins create a virtual table of all the possible combinations available within the constraints of the JOIN ON restrictions, and those rows are then fed into a GROUP summary. The spatial magic is in the ST_DWithin function, that ensures only census blocks close to the appropriate subway stations are included in the calculation.</p>
+</section>
+<section id="projection">
+<h2><span class="section-number">33.9. </span>Projection<a class="headerlink" href="#projection" title="Link to this heading">#</a></h2>
+<p>DuckDB provides the <code class="docutils literal notranslate"><span class="pre">ST_Transform</span></code> function to transform geometries from one projection to another. The function takes three arguments: the geometry to transform, and the EPSG code of the projection of the input geometry, and the EPSG code of the projection to transform to.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opengeos.org/data/duckdb/cities.parquet&quot;</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) AS geometry FROM &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s convert the data from EPSG:4326 to <a class="reference external" href="https://epsg.io/5070-1252">EPSG:5070</a> (NAD83 / Conus Albers).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT * EXCLUDE geometry, ST_Transform(ST_GeomFromWKB(geometry), &#39;EPSG:4326&#39;, &#39;EPSG:5070&#39;, true) AS geometry FROM &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-list">
+<h2><span class="section-number">33.10. </span>Function List<a class="headerlink" href="#function-list" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://duckdb.org/docs/archive/0.9.2/extensions/spatial#spatial-relationships">https://duckdb.org/docs/archive/0.9.2/extensions/spatial#spatial-relationships</a></p>
+<p><img alt="" src="https://i.imgur.com/ogJojVX.png" /></p>
+</section>
+<section id="references">
+<h2><span class="section-number">33.11. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://postgis.net/workshops/postgis-intro/joins.html">Introduction to PostGIS - Spatial Joins</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/duckdb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="08_data_viz.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Data Visualization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_pmtiles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>Visualizing PMTiles</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">33.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">33.2. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import-and-configuration">33.3. Library Import and Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-data">33.4. Sample Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-duckdb">33.5. Connecting to DuckDB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intersection">33.6. Intersection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-within">33.7. Distance Within</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-join">33.8. Advanced Join</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projection">33.9. Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">33.10. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">33.11. References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

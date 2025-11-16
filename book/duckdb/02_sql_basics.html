@@ -1,0 +1,1365 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>23. SQL Basics &#8212; Spatial Data Management with Earth Engine</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/duckdb/02_sql_basics';</script>
+    <link rel="canonical" href="https://geog-414.gishub.org/book/duckdb/02_sql_basics.html" />
+    <link rel="icon" href="../../_static/fav.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="24. Python API" href="03_python_api.html" />
+    <link rel="prev" title="22. Introduction" href="01_duckdb_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Spatial Data Management with Earth Engine - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Spatial Data Management with Earth Engine - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preface</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../preface/instructor.html">Instructor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/syllabus.html">Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preface/software.html">Software</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/01_getting_started.html">1. Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/02_variables_data_types.html">2. Variables and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/03_introducing_lists.html">3. Introducing List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/04_working_with_lists.html">4. Working with Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/05_if_statements.html">5. Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/06_dictionaries.html">6. Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/07_user_input_while_loops.html">7. Looping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/08_functions.html">8. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/09_classes.html">9. Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/10_files_and_exceptions.html">10. Files and Exceptions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Earth Engine</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gee/01_introduction.html">11. Introducing GEE and Geemap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/02_maps.html">12. Creating Interactive Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/03_gee_data.html">13. Using Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/04_local_data.html">14. Using Local Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/05_data_viz.html">15. Visualizing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/06_data_analysis.html">16. Analyzing Geospatial Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/07_data_export.html">17. Exporting Earth Engine Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/08_cartoee.html">18. Making Maps with Cartoee</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/09_timelapse.html">19. Creating Timelapse Animations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/10_webapps.html">20. Building Interactive Web Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gee/11_applications.html">21. Earth Engine Applications</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">DuckDB</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_duckdb_intro.html">22. Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_python_api.html">24. Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_data_import.html">25. Data Import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_data_export.html">26. Data Export</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_geometries.html">27. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_spatial_relationships.html">28. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_data_viz.html">29. Data Visualization</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="09_spatial_joins.html">33. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pmtiles.html">34. Visualizing PMTiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_data_analysis.html">35. Data Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">36. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">37. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">38. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">39. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">40. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">41. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">42. Using GeoPandas</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../labs/instructions.html">Submission Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_01.html">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_02.html">Lab 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_03.html">Lab 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_04.html">Lab 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_05.html">Lab 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_06.html">Lab 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_07.html">Lab 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_08.html">Lab 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_09.html">Lab 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/lab_10.html">Lab 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/final_project.html">Final Project</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/giswqs/geog-414/master?urlpath=tree/book/duckdb/02_sql_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/giswqs/geog-414/blob/master/book/duckdb/02_sql_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/edit/main/book/duckdb/02_sql_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/giswqs/geog-414/issues/new?title=Issue%20on%20page%20%2Fbook/duckdb/02_sql_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/book/duckdb/02_sql_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SQL Basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">23.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">23.2. Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">23.3. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">23.4. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import-and-configuration">23.5. Library Import and Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-duckdb">23.6. Connecting to DuckDB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-extensions">23.7. Install extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv">23.8. Read CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-table">23.9. Create Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">23.10. The SQL SELECT statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">23.11. The WHERE Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">23.12. SQL Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">23.12.1. SQL Inner Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">23.12.2. SQL Left Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">23.12.3. SQL Right Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">23.12.4. SQL Full Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">23.12.5. SQL Union</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">23.13. Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">23.13.1. Group By</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">23.13.2. Having</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">23.14. Conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">23.15. Saving results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">23.16. SQL Comments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-comments">23.16.1. Single line comMents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">23.16.2. Multi-line comments</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sql-basics">
+<h1><span class="section-number">23. </span>SQL Basics<a class="headerlink" href="#sql-basics" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">23.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>This notebook is a short introduction to SQL. It is based on the <a class="reference external" href="https://duckdb.org/">DuckDB</a> database engine.</p>
+</section>
+<section id="datasets">
+<h2><span class="section-number">23.2. </span>Datasets<a class="headerlink" href="#datasets" title="Link to this heading">#</a></h2>
+<p>The following datasets are used in this notebook. You don’t need to download them, they can be accessed directly from the notebook.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://opengeos.org/data/duckdb/cities.csv">cities.csv</a></p></li>
+<li><p><a class="reference external" href="https://opengeos.org/data/duckdb/countries.csv">countries.csv</a></p></li>
+</ul>
+</section>
+<section id="references">
+<h2><span class="section-number">23.3. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.w3schools.com/sql">W3Schools SQL Tutorial</a></p></li>
+<li><p><a class="reference external" href="https://duckdb.org/docs/sql/introduction.html">DuckDB SQL Introduction</a></p></li>
+</ul>
+</section>
+<section id="installation">
+<h2><span class="section-number">23.4. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>Uncomment the following cell to install the required packages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %pip install duckdb duckdb-engine jupysql</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="library-import-and-configuration">
+<h2><span class="section-number">23.5. </span>Library Import and Configuration<a class="headerlink" href="#library-import-and-configuration" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">duckdb</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="c1"># Import jupysql Jupyter extension to create SQL cells</span>
+<span class="o">%</span><span class="k">load_ext</span> sql
+</pre></div>
+</div>
+</div>
+</div>
+<p>Set configurations on jupysql to directly output data to Pandas and to simplify the output that is printed to the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> SqlMagic.autopandas = True
+<span class="o">%</span><span class="k">config</span> SqlMagic.feedback = False
+<span class="o">%</span><span class="k">config</span> SqlMagic.displaycon = False
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="connecting-to-duckdb">
+<h2><span class="section-number">23.6. </span>Connecting to DuckDB<a class="headerlink" href="#connecting-to-duckdb" title="Link to this heading">#</a></h2>
+<p>Connect jupysql to DuckDB using a SQLAlchemy-style connection string. You may either connect to an in memory DuckDB, or a file backed db.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> duckdb:///:memory:
+<span class="c1"># %sql duckdb:///path/to/file.db</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If your SQL query is one line only, you may use the <code class="docutils literal notranslate"><span class="pre">%sql</span></code> magic command. For multi-line SQL query, you may use the <code class="docutils literal notranslate"><span class="pre">%%sql</span></code> magic command.</p>
+</section>
+<section id="install-extensions">
+<h2><span class="section-number">23.7. </span>Install extensions<a class="headerlink" href="#install-extensions" title="Link to this heading">#</a></h2>
+<p>Check available DuckDB extensions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM duckdb_extensions();
+</pre></div>
+</div>
+</div>
+</div>
+<p>DuckDB’s <a class="reference external" href="https://duckdb.org/docs/extensions/httpfs">httpfs extension</a> allows parquet and csv files to be queried remotely over http. This is useful for querying large datasets without having to download them locally. Let’s install the extension and load the extension.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+INSTALL httpfs;
+LOAD httpfs;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-csv">
+<h2><span class="section-number">23.8. </span>Read CSV<a class="headerlink" href="#read-csv" title="Link to this heading">#</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">httpfs</span></code> extension to read the <code class="docutils literal notranslate"><span class="pre">cities.csv</span></code> file from the web.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM &#39;https://opengeos.org/data/duckdb/cities.csv&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM &#39;https://opengeos.org/data/duckdb/countries.csv&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-table">
+<h2><span class="section-number">23.9. </span>Create Table<a class="headerlink" href="#create-table" title="Link to this heading">#</a></h2>
+<p>Create a table named <code class="docutils literal notranslate"><span class="pre">cities</span></code> from the <code class="docutils literal notranslate"><span class="pre">cities.csv</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+CREATE TABLE cities AS SELECT * FROM &#39;https://opengeos.org/data/duckdb/cities.csv&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create a table named <code class="docutils literal notranslate"><span class="pre">countries</span></code> from the <code class="docutils literal notranslate"><span class="pre">countries.csv</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+CREATE TABLE countries AS SELECT * FROM &#39;https://opengeos.org/data/duckdb/countries.csv&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Display the table content in the database.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+FROM countries;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-sql-select-statement">
+<h2><span class="section-number">23.10. </span>The SQL SELECT statement<a class="headerlink" href="#the-sql-select-statement" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statement is used to select data from a database. Use either <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span></code> to select all columns, or <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">column1,</span> <span class="pre">column2,</span> <span class="pre">...</span></code> to select specific columns.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">FROM</span> <span class="pre">cities</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To limit the number of rows returned, use the <code class="docutils literal notranslate"><span class="pre">LIMIT</span></code> keyword. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">LIMIT</span> <span class="pre">10</span></code> will return only the first 10 rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Select a subset of columns from the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table and display the first 10 rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT name, country FROM cities LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select distinct values, use the <code class="docutils literal notranslate"><span class="pre">DISTINCT</span></code> keyword. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">DISTINCT</span> <span class="pre">country</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> will return only the distinct values of the <code class="docutils literal notranslate"><span class="pre">country</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT DISTINCT country FROM cities LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To count the number of rows returned, use the <code class="docutils literal notranslate"><span class="pre">COUNT(*)</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">COUNT(*)</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> will return the number of rows in the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT COUNT(*) FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To count the number of distinct values, use the <code class="docutils literal notranslate"><span class="pre">COUNT(DISTINCT</span> <span class="pre">column)</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">COUNT(DISTINCT</span> <span class="pre">country)</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> will return the number of distinct values in the <code class="docutils literal notranslate"><span class="pre">country</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT COUNT(DISTINCT country) FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To calculate the maximum value, use the <code class="docutils literal notranslate"><span class="pre">MAX(column)</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">MAX(population)</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> will return the maximum value in the <code class="docutils literal notranslate"><span class="pre">population</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT MAX(population) FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To calculate the total value, use the <code class="docutils literal notranslate"><span class="pre">SUM(column)</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">SUM(population)</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> will return the total value in the <code class="docutils literal notranslate"><span class="pre">population</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT SUM(population) FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To calculate the average value, use the <code class="docutils literal notranslate"><span class="pre">AVG(column)</span></code> function. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">AVG(population)</span> <span class="pre">FROM</span> <span class="pre">cities</span></code> will return the average value in the <code class="docutils literal notranslate"><span class="pre">population</span></code> column.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT AVG(population) FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To order the results, use the <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">column</span></code> clause. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">country</span></code> will return the rows ordered by the <code class="docutils literal notranslate"><span class="pre">country</span></code> column alphabetically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities ORDER BY country LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To order the results in descending order, use the <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">column</span> <span class="pre">DESC</span></code> clause. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">ORDER</span> <span class="pre">BY</span> <span class="pre">country</span> <span class="pre">ASC,</span> <span class="pre">population</span> <span class="pre">DESC</span></code> will return the rows ordered by the <code class="docutils literal notranslate"><span class="pre">country</span></code> column alphabetical order and then by the <code class="docutils literal notranslate"><span class="pre">population</span></code> column in descending order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM cities ORDER BY country ASC, population DESC LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-where-clause">
+<h2><span class="section-number">23.11. </span>The WHERE Clause<a class="headerlink" href="#the-where-clause" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause is used to filter records. The <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause is used to extract only those records that fulfill a specified condition.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities WHERE country=&#39;USA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use boolean operators such as <code class="docutils literal notranslate"><span class="pre">AND</span></code>, <code class="docutils literal notranslate"><span class="pre">OR</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span></code> to filter records. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">country='USA'</span> <span class="pre">OR</span> <span class="pre">country='CAN'</span></code> will return the rows where the <code class="docutils literal notranslate"><span class="pre">country</span></code> column is either <code class="docutils literal notranslate"><span class="pre">USA</span></code> or <code class="docutils literal notranslate"><span class="pre">CAN</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities WHERE country=&#39;USA&#39; OR country=&#39;CAN&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select US cities with a population greater than 1 million, use the following query: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">country='USA'</span> <span class="pre">AND</span> <span class="pre">population</span> <span class="pre">&gt;</span> <span class="pre">1000000</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM cities WHERE country=&#39;USA&#39; AND population&gt;1000000;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select cities with the country name starting with the letter <code class="docutils literal notranslate"><span class="pre">U</span></code>, use the following query: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">country</span> <span class="pre">LIKE</span> <span class="pre">'U%'</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities WHERE country LIKE &#39;U%&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select cities with the country name ending with the letter <code class="docutils literal notranslate"><span class="pre">A</span></code>, use the following query: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">country</span> <span class="pre">LIKE</span> <span class="pre">'%A'</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities WHERE country LIKE &#39;%A&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select cities with the country name containing the letter <code class="docutils literal notranslate"><span class="pre">S</span></code> in the middle, use the following query: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">country</span> <span class="pre">LIKE</span> <span class="pre">'_S_'</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM cities WHERE country LIKE &#39;_S_&#39;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select cities from a list of countries, use the <code class="docutils literal notranslate"><span class="pre">IN</span></code> operator. For example, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">country</span> <span class="pre">IN</span> <span class="pre">('USA',</span> <span class="pre">'CAN')</span></code> will return the rows where the <code class="docutils literal notranslate"><span class="pre">country</span></code> column is either <code class="docutils literal notranslate"><span class="pre">USA</span></code> or <code class="docutils literal notranslate"><span class="pre">CAN</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities WHERE country IN (&#39;USA&#39;, &#39;CAN&#39;);
+</pre></div>
+</div>
+</div>
+</div>
+<p>To select cities with a population between 1 and 10 million, use the following query: <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">*</span> <span class="pre">FROM</span> <span class="pre">cities</span> <span class="pre">WHERE</span> <span class="pre">population</span> <span class="pre">BETWEEN</span> <span class="pre">1000000</span> <span class="pre">AND</span> <span class="pre">10000000</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM cities WHERE population BETWEEN 1000000 AND 10000000;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-joins">
+<h2><span class="section-number">23.12. </span>SQL Joins<a class="headerlink" href="#sql-joins" title="Link to this heading">#</a></h2>
+<p>Reference: <a class="reference external" href="https://www.w3schools.com/sql/sql_join.asp">https://www.w3schools.com/sql/sql_join.asp</a></p>
+<p>Here are the different types of the JOINs in SQL:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(INNER)</span> <span class="pre">JOIN</span></code>: Returns records that have matching values in both tables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">(OUTER)</span> <span class="pre">JOIN</span></code>: Returns all records from the left table, and the matched records from the right table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">(OUTER)</span> <span class="pre">JOIN</span></code>: Returns all records from the right table, and the matched records from the left table</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">(OUTER)</span> <span class="pre">JOIN</span></code>: Returns all records when there is a match in either left or right table</p></li>
+</ul>
+<p><img alt="" src="https://i.imgur.com/mITYzuS.png" /></p>
+<p>We have two sample tables: <code class="docutils literal notranslate"><span class="pre">cities</span></code> and <code class="docutils literal notranslate"><span class="pre">countries</span></code>.</p>
+<p>There are 1,249 cities in the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table and 243 countries in the <code class="docutils literal notranslate"><span class="pre">countries</span></code> table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT COUNT(*) FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM cities LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT COUNT(*) FROM countries;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT * FROM countries LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="sql-inner-join">
+<h3><span class="section-number">23.12.1. </span>SQL Inner Join<a class="headerlink" href="#sql-inner-join" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">INNER</span> <span class="pre">JOIN</span></code> keyword selects records that have matching values in both tables. In the example, we join the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table with the <code class="docutils literal notranslate"><span class="pre">countries</span></code> table using the <code class="docutils literal notranslate"><span class="pre">country</span></code> column in the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table and the <code class="docutils literal notranslate"><span class="pre">Alpha3_code</span></code> column in the <code class="docutils literal notranslate"><span class="pre">countries</span></code> table. The result contains 1,244 rows, indicating that there are 5 cities that do not have a matching country.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities INNER JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Only select the <code class="docutils literal notranslate"><span class="pre">city</span></code> and <code class="docutils literal notranslate"><span class="pre">country</span></code> columns from the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table and the <code class="docutils literal notranslate"><span class="pre">Country</span></code> column from the <code class="docutils literal notranslate"><span class="pre">countries</span></code> table.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT name, cities.&quot;country&quot;, countries.&quot;Country&quot; FROM cities INNER JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-left-join">
+<h3><span class="section-number">23.12.2. </span>SQL Left Join<a class="headerlink" href="#sql-left-join" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">JOIN</span></code> keyword returns all records from the left table (<code class="docutils literal notranslate"><span class="pre">cities</span></code>), and the matched records from the right table (<code class="docutils literal notranslate"><span class="pre">countries</span></code>). The result contains 1,249 rows, the same number of rows as the <code class="docutils literal notranslate"><span class="pre">cities</span></code> table.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities LEFT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-right-join">
+<h3><span class="section-number">23.12.3. </span>SQL Right Join<a class="headerlink" href="#sql-right-join" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">JOIN</span></code> keyword returns all records from the right table (<code class="docutils literal notranslate"><span class="pre">countries</span></code>), and the matched records from the left table (<code class="docutils literal notranslate"><span class="pre">cities</span></code>). The result contains 1,291 rows.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities RIGHT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-full-join">
+<h3><span class="section-number">23.12.4. </span>SQL Full Join<a class="headerlink" href="#sql-full-join" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">FULL</span> <span class="pre">JOIN</span></code> keyword returns all records when there is a match in either left or right table. The result contains 1,296 rows.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities FULL JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-union">
+<h3><span class="section-number">23.12.5. </span>SQL Union<a class="headerlink" href="#sql-union" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">UNION</span></code> operator is used to combine the result-set of two or more <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT country FROM cities
+UNION 
+SELECT &quot;Alpha3_code&quot; FROM countries;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aggregation">
+<h2><span class="section-number">23.13. </span>Aggregation<a class="headerlink" href="#aggregation" title="Link to this heading">#</a></h2>
+<section id="group-by">
+<h3><span class="section-number">23.13.1. </span>Group By<a class="headerlink" href="#group-by" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> statement groups rows that have the same values into summary rows, like “find the number of cities in each country”.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> statement is often used with aggregate functions (<code class="docutils literal notranslate"><span class="pre">COUNT</span></code>, <code class="docutils literal notranslate"><span class="pre">MAX</span></code>, <code class="docutils literal notranslate"><span class="pre">MIN</span></code>, <code class="docutils literal notranslate"><span class="pre">SUM</span></code>, <code class="docutils literal notranslate"><span class="pre">AVG</span></code>) to group the result-set by one or more columns.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT COUNT(name), country 
+FROM cities 
+GROUP BY country 
+ORDER BY COUNT(name) DESC;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT countries.&quot;Country&quot;, COUNT(name)
+FROM cities
+LEFT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
+GROUP BY countries.&quot;Country&quot;
+ORDER BY COUNT(name) DESC;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="having">
+<h3><span class="section-number">23.13.2. </span>Having<a class="headerlink" href="#having" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clause was added to SQL because the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> keyword could not be used with aggregate functions.</p>
+<p>For example, to select countries with more than 40 cities:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+SELECT COUNT(name), country
+FROM cities
+GROUP BY country
+HAVING COUNT(name) &gt; 40
+ORDER BY COUNT(name) DESC;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT countries.&quot;Country&quot;, COUNT(name)
+FROM cities
+LEFT JOIN countries ON cities.country = countries.&quot;Alpha3_code&quot;
+GROUP BY countries.&quot;Country&quot;
+HAVING COUNT(name) &gt; 40
+ORDER BY COUNT(name) DESC;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conditional-statements">
+<h2><span class="section-number">23.14. </span>Conditional statements<a class="headerlink" href="#conditional-statements" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CASE</span></code> statement goes through conditions and returns a value when the first condition is met (like an <code class="docutils literal notranslate"><span class="pre">IF-THEN-ELSE</span></code> statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the <code class="docutils literal notranslate"><span class="pre">ELSE</span></code> clause.</p>
+<p>For example, to divide cities into 3 groups based on their population:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT name, population,
+CASE
+    WHEN population &gt; 10000000 THEN &#39;Megacity&#39;
+    WHEN population &gt; 1000000 THEN &#39;Large city&#39;
+    ELSE &#39;Small city&#39;
+END AS category
+FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-results">
+<h2><span class="section-number">23.15. </span>Saving results<a class="headerlink" href="#saving-results" title="Link to this heading">#</a></h2>
+<p>You can save the results of a query to a new table using the <code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span> <span class="pre">AS</span></code> statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+CREATE TABLE cities2 AS SELECT * FROM cities;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Show the new table content.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+FROM cities2;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">TABLE</span></code> statement to delete the table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+DROP TABLE IF EXISTS cities_usa;
+CREATE TABLE cities_usa AS (SELECT * FROM cities WHERE country = &#39;USA&#39;);
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+FROM cities_usa;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement to insert rows into a table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+
+INSERT INTO cities_usa (SELECT * FROM cities WHERE country = &#39;CAN&#39;);
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sql-comments">
+<h2><span class="section-number">23.16. </span>SQL Comments<a class="headerlink" href="#sql-comments" title="Link to this heading">#</a></h2>
+<p>Comments are used to explain sections of SQL statements, or to prevent execution of SQL statements.</p>
+<section id="single-line-comments">
+<h3><span class="section-number">23.16.1. </span>Single line comMents<a class="headerlink" href="#single-line-comments" title="Link to this heading">#</a></h3>
+<p>Single line comments start with –.</p>
+<p>Any text between – and the end of the line will be ignored (will not be executed).</p>
+<p>The following example uses a single-line comment as an explanation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT * FROM cities LIMIT 10 -- This is a comment;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-line-comments">
+<h3><span class="section-number">23.16.2. </span>Multi-line comments<a class="headerlink" href="#multi-line-comments" title="Link to this heading">#</a></h3>
+<p>Multi-line comments start with <code class="docutils literal notranslate"><span class="pre">/*</span></code> and end with <code class="docutils literal notranslate"><span class="pre">*/</span></code>.</p>
+<p>Any text between <code class="docutils literal notranslate"><span class="pre">/*</span></code> and <code class="docutils literal notranslate"><span class="pre">*/</span></code> will be ignored.</p>
+<p>The following example uses a multi-line comment as an explanation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+
+SELECT COUNT(name), country 
+FROM cities 
+/*
+ * Adding Group by
+ * Adding Order by
+ */
+GROUP BY country 
+ORDER BY COUNT(name) DESC
+LIMIT 10;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/duckdb"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_duckdb_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_python_api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Python API</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">23.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datasets">23.2. Datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">23.3. References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">23.4. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-import-and-configuration">23.5. Library Import and Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-duckdb">23.6. Connecting to DuckDB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-extensions">23.7. Install extensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-csv">23.8. Read CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-table">23.9. Create Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sql-select-statement">23.10. The SQL SELECT statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-where-clause">23.11. The WHERE Clause</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-joins">23.12. SQL Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-inner-join">23.12.1. SQL Inner Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-left-join">23.12.2. SQL Left Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-right-join">23.12.3. SQL Right Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-full-join">23.12.4. SQL Full Join</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-union">23.12.5. SQL Union</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregation">23.13. Aggregation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-by">23.13.1. Group By</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#having">23.13.2. Having</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-statements">23.14. Conditional statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-results">23.15. Saving results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-comments">23.16. SQL Comments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-line-comments">23.16.1. Single line comMents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-line-comments">23.16.2. Multi-line comments</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Qiusheng Wu
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
