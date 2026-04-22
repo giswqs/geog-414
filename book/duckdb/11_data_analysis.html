@@ -675,12 +675,10 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Find out the total number of wetlands in the United States by aggregating the 51 parquet files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT COUNT(*) AS Count</span>
 <span class="s2">FROM &#39;s3://us-west-2.opendata.source.coop/giswqs/nwi/wetlands/*.parquet&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -688,14 +686,12 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Find out the number of wetlands in each state. Note that the NWI datasets do not contain a field for state names. The <code class="docutils literal notranslate"><span class="pre">filename</span></code> argument can be used to add an extra <code class="docutils literal notranslate"><span class="pre">filename</span></code> column to the result that indicates which row came from which file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT filename, COUNT(*) AS Count</span>
 <span class="s2">FROM read_parquet(&#39;s3://us-west-2.opendata.source.coop/giswqs/nwi/wetlands/*.parquet&#39;, filename=true)</span>
 <span class="s2">GROUP BY filename</span>
 <span class="s2">ORDER BY COUNT(*) DESC;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -712,14 +708,12 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Create a <code class="docutils literal notranslate"><span class="pre">State</span></code> column based on the <code class="docutils literal notranslate"><span class="pre">filename</span></code> column by extracting the state name from the filename.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT SUBSTRING(filename, LENGTH(filename) - 18, 2) AS State, COUNT(*) AS Count</span>
 <span class="s2">FROM read_parquet(&#39;s3://us-west-2.opendata.source.coop/giswqs/nwi/wetlands/*.parquet&#39;, filename=true)</span>
 <span class="s2">GROUP BY State</span>
 <span class="s2">ORDER BY COUNT(*) DESC;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
 <span class="n">count_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -738,13 +732,11 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://opengeos.org/data/us/us_states.parquet&quot;</span>
-<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">CREATE OR REPLACE TABLE states AS</span>
 <span class="s2">SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) </span>
 <span class="s2">AS geometry FROM &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;FROM states&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -753,11 +745,9 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Join the <code class="docutils literal notranslate"><span class="pre">wetlands</span></code> table with the <code class="docutils literal notranslate"><span class="pre">states</span></code> table.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT * FROM states INNER JOIN wetlands ON states.id = wetlands.State</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT * FROM states INNER JOIN wetlands ON states.id = wetlands.State</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -765,12 +755,10 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Export the joined table as a Pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT name, State, Count, ST_AsText(geometry) as geometry</span>
-<span class="sd">FROM states INNER JOIN wetlands ON states.id = wetlands.State</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, State, Count, ST_AsText(geometry) as geometry</span>
+<span class="s2">FROM states INNER JOIN wetlands ON states.id = wetlands.State</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -820,12 +808,10 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Calculate the total area of wetlands in the United States. It takes about 3 minutes to run this query. Please be patient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT SUM(Shape_Area) /  1000000 AS Area_SqKm</span>
 <span class="s2">FROM &#39;s3://us-west-2.opendata.source.coop/giswqs/nwi/wetlands/*.parquet&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -833,14 +819,12 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p>Calculate the total area of wetlands in each state. It takes about 3 minutes to run this query. Please be patient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">area_df</span> <span class="o">=</span> <span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT SUBSTRING(filename, LENGTH(filename) - 18, 2) AS State, SUM(Shape_Area) /  1000000 AS Area_SqKm</span>
 <span class="s2">FROM read_parquet(&#39;s3://us-west-2.opendata.source.coop/giswqs/nwi/wetlands/*.parquet&#39;, filename=true)</span>
 <span class="s2">GROUP BY State</span>
 <span class="s2">ORDER BY COUNT(*) DESC;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">df</span><span class="p">()</span>
 <span class="n">area_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>

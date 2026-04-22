@@ -618,18 +618,16 @@ document.write(`
 <p>Let’s find out what neighborhood the <code class="docutils literal notranslate"><span class="pre">Broad</span> <span class="pre">St</span></code> station is in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT</span>
-<span class="sd">  subways.name AS subway_name,</span>
-<span class="sd">  neighborhoods.name AS neighborhood_name,</span>
-<span class="sd">  neighborhoods.boroname AS borough</span>
-<span class="sd">FROM nyc_neighborhoods AS neighborhoods</span>
-<span class="sd">JOIN nyc_subway_stations AS subways</span>
-<span class="sd">ON ST_Intersects(neighborhoods.geom, subways.geom)</span>
-<span class="sd">WHERE subways.NAME = &#39;Broad St&#39;;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT</span>
+<span class="s2">  subways.name AS subway_name,</span>
+<span class="s2">  neighborhoods.name AS neighborhood_name,</span>
+<span class="s2">  neighborhoods.boroname AS borough</span>
+<span class="s2">FROM nyc_neighborhoods AS neighborhoods</span>
+<span class="s2">JOIN nyc_subway_stations AS subways</span>
+<span class="s2">ON ST_Intersects(neighborhoods.geom, subways.geom)</span>
+<span class="s2">WHERE subways.NAME = &#39;Broad St&#39;;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -637,11 +635,9 @@ document.write(`
 <p>Note that the subway stations table has a <code class="docutils literal notranslate"><span class="pre">color</span></code> column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT DISTINCT COLOR FROM nyc_subway_stations;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT DISTINCT COLOR FROM nyc_subway_stations;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -649,18 +645,16 @@ document.write(`
 <p>Let’s find out what neighborhood the <code class="docutils literal notranslate"><span class="pre">RED</span></code> subway stations are in:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT</span>
-<span class="sd">  subways.name AS subway_name,</span>
-<span class="sd">  neighborhoods.name AS neighborhood_name,</span>
-<span class="sd">  neighborhoods.boroname AS borough</span>
-<span class="sd">FROM nyc_neighborhoods AS neighborhoods</span>
-<span class="sd">JOIN nyc_subway_stations AS subways</span>
-<span class="sd">ON ST_Intersects(neighborhoods.geom, subways.geom)</span>
-<span class="sd">WHERE subways.color = &#39;RED&#39;;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT</span>
+<span class="s2">  subways.name AS subway_name,</span>
+<span class="s2">  neighborhoods.name AS neighborhood_name,</span>
+<span class="s2">  neighborhoods.boroname AS borough</span>
+<span class="s2">FROM nyc_neighborhoods AS neighborhoods</span>
+<span class="s2">JOIN nyc_subway_stations AS subways</span>
+<span class="s2">ON ST_Intersects(neighborhoods.geom, subways.geom)</span>
+<span class="s2">WHERE subways.color = &#39;RED&#39;;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,15 +666,13 @@ document.write(`
 <p>First, let’s get the baseline racial make-up of the city.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT</span>
-<span class="sd">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
-<span class="sd">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
-<span class="sd">  Sum(popn_total) AS popn_total</span>
-<span class="sd">FROM nyc_census_blocks;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT</span>
+<span class="s2">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
+<span class="s2">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
+<span class="s2">  Sum(popn_total) AS popn_total</span>
+<span class="s2">FROM nyc_census_blocks;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -689,11 +681,9 @@ document.write(`
 <p>Note that the contents of the <code class="docutils literal notranslate"><span class="pre">nyc_subway_stations</span></code> table routes field is what we are interested in to find the A-train. The values in there are a little complex.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT DISTINCT routes FROM nyc_subway_stations;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT DISTINCT routes FROM nyc_subway_stations;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -701,13 +691,11 @@ document.write(`
 <p>So to find the A-train, we will want any row in <code class="docutils literal notranslate"><span class="pre">routes</span></code> that has an ‘A’ in it. We can do this a number of ways, but here we will use the fact that <strong>strpos(routes,’A’)</strong> will return a non-zero number only if ‘A’ is in the <code class="docutils literal notranslate"><span class="pre">routes</span></code> field.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT DISTINCT routes</span>
-<span class="sd">FROM nyc_subway_stations AS subways</span>
-<span class="sd">WHERE strpos(subways.routes,&#39;A&#39;) &gt; 0;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT DISTINCT routes</span>
+<span class="s2">FROM nyc_subway_stations AS subways</span>
+<span class="s2">WHERE strpos(subways.routes,&#39;A&#39;) &gt; 0;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -715,18 +703,16 @@ document.write(`
 <p>Let’s summarize the racial make-up of within 200 meters of the A-train line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT</span>
-<span class="sd">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
-<span class="sd">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
-<span class="sd">  Sum(popn_total) AS popn_total</span>
-<span class="sd">FROM nyc_census_blocks AS census</span>
-<span class="sd">JOIN nyc_subway_stations AS subways</span>
-<span class="sd">ON ST_DWithin(census.geom, subways.geom, 200)</span>
-<span class="sd">WHERE strpos(subways.routes,&#39;A&#39;) &gt; 0;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT</span>
+<span class="s2">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
+<span class="s2">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
+<span class="s2">  Sum(popn_total) AS popn_total</span>
+<span class="s2">FROM nyc_census_blocks AS census</span>
+<span class="s2">JOIN nyc_subway_stations AS subways</span>
+<span class="s2">ON ST_DWithin(census.geom, subways.geom, 200)</span>
+<span class="s2">WHERE strpos(subways.routes,&#39;A&#39;) &gt; 0;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -739,16 +725,14 @@ document.write(`
 <p>To answer that question, we’ll add another join to our query, so that we can simultaneously calculate the make-up of many subway lines at once. To do that, we’ll need to create a new table that enumerates all the lines we want to summarize.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">CREATE OR REPLACE TABLE subway_lines ( route char(1) );</span>
-<span class="sd">INSERT INTO subway_lines (route) VALUES</span>
-<span class="sd">  (&#39;A&#39;),(&#39;B&#39;),(&#39;C&#39;),(&#39;D&#39;),(&#39;E&#39;),(&#39;F&#39;),(&#39;G&#39;),</span>
-<span class="sd">  (&#39;J&#39;),(&#39;L&#39;),(&#39;M&#39;),(&#39;N&#39;),(&#39;Q&#39;),(&#39;R&#39;),(&#39;S&#39;),</span>
-<span class="sd">  (&#39;Z&#39;),(&#39;1&#39;),(&#39;2&#39;),(&#39;3&#39;),(&#39;4&#39;),(&#39;5&#39;),(&#39;6&#39;),</span>
-<span class="sd">  (&#39;7&#39;);</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE OR REPLACE TABLE subway_lines ( route char(1) );</span>
+<span class="s2">INSERT INTO subway_lines (route) VALUES</span>
+<span class="s2">  (&#39;A&#39;),(&#39;B&#39;),(&#39;C&#39;),(&#39;D&#39;),(&#39;E&#39;),(&#39;F&#39;),(&#39;G&#39;),</span>
+<span class="s2">  (&#39;J&#39;),(&#39;L&#39;),(&#39;M&#39;),(&#39;N&#39;),(&#39;Q&#39;),(&#39;R&#39;),(&#39;S&#39;),</span>
+<span class="s2">  (&#39;Z&#39;),(&#39;1&#39;),(&#39;2&#39;),(&#39;3&#39;),(&#39;4&#39;),(&#39;5&#39;),(&#39;6&#39;),</span>
+<span class="s2">  (&#39;7&#39;);</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -756,22 +740,20 @@ document.write(`
 <p>Now we can join the table of subway lines onto our original query.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT</span>
-<span class="sd">  lines.route,</span>
-<span class="sd">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
-<span class="sd">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
-<span class="sd">  Sum(popn_total) AS popn_total</span>
-<span class="sd">FROM nyc_census_blocks AS census</span>
-<span class="sd">JOIN nyc_subway_stations AS subways</span>
-<span class="sd">ON ST_DWithin(census.geom, subways.geom, 200)</span>
-<span class="sd">JOIN subway_lines AS lines</span>
-<span class="sd">ON strpos(subways.routes, lines.route) &gt; 0</span>
-<span class="sd">GROUP BY lines.route</span>
-<span class="sd">ORDER BY black_pct DESC;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT</span>
+<span class="s2">  lines.route,</span>
+<span class="s2">  100.0 * Sum(popn_white) / Sum(popn_total) AS white_pct,</span>
+<span class="s2">  100.0 * Sum(popn_black) / Sum(popn_total) AS black_pct,</span>
+<span class="s2">  Sum(popn_total) AS popn_total</span>
+<span class="s2">FROM nyc_census_blocks AS census</span>
+<span class="s2">JOIN nyc_subway_stations AS subways</span>
+<span class="s2">ON ST_DWithin(census.geom, subways.geom, 200)</span>
+<span class="s2">JOIN subway_lines AS lines</span>
+<span class="s2">ON strpos(subways.routes, lines.route) &gt; 0</span>
+<span class="s2">GROUP BY lines.route</span>
+<span class="s2">ORDER BY black_pct DESC;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -792,11 +774,9 @@ document.write(`
 <p>Let’s convert the data from EPSG:4326 to <a class="reference external" href="https://epsg.io/5070-1252">EPSG:5070</a> (NAD83 / Conus Albers).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">SELECT * EXCLUDE geometry, ST_Transform(ST_GeomFromWKB(geometry), &#39;EPSG:4326&#39;, &#39;EPSG:5070&#39;, true) AS geometry FROM &#39;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">&#39;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

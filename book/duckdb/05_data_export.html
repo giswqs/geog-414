@@ -591,13 +591,11 @@ document.write(`
 <h2><span class="section-number">26.5. </span>Sample Data<a class="headerlink" href="#sample-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">CREATE TABLE IF NOT EXISTS cities AS</span>
-<span class="sd">SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) </span>
-<span class="sd">AS geometry FROM &#39;https://opengeos.org/data/duckdb/cities.parquet&#39;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">CREATE TABLE IF NOT EXISTS cities AS</span>
+<span class="s2">SELECT * EXCLUDE geometry, ST_GeomFromWKB(geometry) </span>
+<span class="s2">AS geometry FROM &#39;https://opengeos.org/data/duckdb/cities.parquet&#39;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -632,13 +632,11 @@ the first shape.</p>
 St’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT name, geom, ST_AsText(geom)</span>
-<span class="sd">FROM nyc_subway_stations</span>
-<span class="sd">WHERE name = &#39;Broad St&#39;;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, geom, ST_AsText(geom)</span>
+<span class="s2">FROM nyc_subway_stations</span>
+<span class="s2">WHERE name = &#39;Broad St&#39;;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -647,13 +645,11 @@ St’.</p>
 <code class="docutils literal notranslate"><span class="pre">ST_Equals</span></code> test:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT name</span>
-<span class="sd">FROM nyc_subway_stations</span>
-<span class="sd">WHERE ST_Equals(geom, ST_GeomFromText(&#39;POINT (583571.9059213118 4506714.341192182)&#39;));</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name</span>
+<span class="s2">FROM nyc_subway_stations</span>
+<span class="s2">WHERE ST_Equals(geom, ST_GeomFromText(&#39;POINT (583571.9059213118 4506714.341192182)&#39;));</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -692,13 +688,11 @@ neighborhood using the <code class="docutils literal notranslate"><span class="p
 function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT name, ST_AsText(geom)</span>
-<span class="sd">FROM nyc_subway_stations</span>
-<span class="sd">WHERE name = &#39;Broad St&#39;;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, ST_AsText(geom)</span>
+<span class="s2">FROM nyc_subway_stations</span>
+<span class="s2">WHERE name = &#39;Broad St&#39;;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -712,13 +706,11 @@ function:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT name, boroname</span>
-<span class="sd">FROM nyc_neighborhoods</span>
-<span class="sd">WHERE ST_Intersects(geom, ST_GeomFromText(&#39;POINT(583571 4506714)&#39;));</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name, boroname</span>
+<span class="s2">FROM nyc_neighborhoods</span>
+<span class="s2">WHERE ST_Intersects(geom, ST_GeomFromText(&#39;POINT(583571 4506714)&#39;));</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -756,13 +748,11 @@ geometries and returns it as a float. This is useful for actually
 reporting back the distance between objects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT ST_Distance(</span>
-<span class="sd">  ST_GeomFromText(&#39;POINT(0 5)&#39;),</span>
-<span class="sd">  ST_GeomFromText(&#39;LINESTRING(-2 2, 2 2)&#39;)) as dist;</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT ST_Distance(</span>
+<span class="s2">  ST_GeomFromText(&#39;POINT(0 5)&#39;),</span>
+<span class="s2">  ST_GeomFromText(&#39;LINESTRING(-2 2, 2 2)&#39;)) as dist;</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -785,17 +775,15 @@ nearby (within 10 meters of) the subway stop:</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">SELECT name</span>
-<span class="sd">FROM nyc_streets</span>
-<span class="sd">WHERE ST_DWithin(</span>
-<span class="sd">        geom,</span>
-<span class="sd">        ST_GeomFromText(&#39;POINT(583571 4506714)&#39;),</span>
-<span class="sd">        10</span>
-<span class="sd">      );</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">con</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT name</span>
+<span class="s2">FROM nyc_streets</span>
+<span class="s2">WHERE ST_DWithin(</span>
+<span class="s2">        geom,</span>
+<span class="s2">        ST_GeomFromText(&#39;POINT(583571 4506714)&#39;),</span>
+<span class="s2">        10</span>
+<span class="s2">      );</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
