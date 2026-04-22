@@ -17,14 +17,13 @@ Welcome to the official website for the _Spatial Data Management_ course (GEOG-4
 
 ## Get the Book
 
-- 🇺🇸 **English Full-Color Print Edition (446 pages):** Available on Amazon ([link](https://www.amazon.com/dp/B0G2JFMFFC))
+### Print Edition
 
-- 🇺🇸 **English PDF Edition (441 pages):** Available on Leanpub ([link](https://leanpub.com/duckdb))
+- 🇺🇸 English Full-Color Print Edition (446 pages) is available on Amazon ([link](https://www.amazon.com/dp/B0G2JFMFFC))
 
-<!-- - 🇨🇳 **Chinese PDF Edition (430 pages):** 中文电子版可在 Leanpub 购买 ([link](https://leanpub.com/duckdb-zh))
+### PDF and EPUB Editions
 
-- 🇲🇽 **Spanish PDF Edition (430 pages):** Edición en español disponible en Leanpub ([link](https://leanpub.com/duckdb-es))
- -->
+- 🇺🇸 [English](https://opengeopub.com/books/duckdb) | 🇲🇽 [Spanish](https://opengeopub.com/books/duckdb-es) | 🇨🇳 [Chinese](https://opengeopub.com/books/duckdb-zh) | 🇫🇷 [French](https://opengeopub.com/books/duckdb-fr) | 🇩🇪 [German](https://opengeopub.com/books/duckdb-de)
 
 ## Cite the Book
 
