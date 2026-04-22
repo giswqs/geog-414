@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>38. Introduction to PostGIS &#8212; Spatial Data Management with Earth Engine</title>
+    <title>35. Introduction to PostGIS &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -62,8 +62,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39. Working with Geometries" href="geometries.html" />
-    <link rel="prev" title="37. SQL Basics" href="sql_basics.html" />
+    <link rel="next" title="36. Working with Geometries" href="geometries.html" />
+    <link rel="prev" title="34. SQL Basics" href="sql_basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -219,19 +219,19 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">33. Spatial Joins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../duckdb/10_pmtiles.html">34. Visualizing PMTiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../duckdb/11_data_analysis.html">35. Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">30. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/10_pmtiles.html">31. Visualizing PMTiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/11_data_analysis.html">32. Data Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">36. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">37. SQL Basics</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">38. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometries.html">39. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">40. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projection.html">41. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopandas.html">42. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">33. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">34. SQL Basics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">35. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">36. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">37. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="projection.html">38. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">39. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -508,10 +508,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">38.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-sql">38.2. Simple SQL</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-neighborhoods">38.2.1. NYC Neighborhoods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-census-blocks">38.2.2. NYC Census Blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">35.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-sql">35.2. Simple SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-neighborhoods">35.2.1. NYC Neighborhoods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-census-blocks">35.2.2. NYC Census Blocks</a></li>
 </ul>
 </li>
 </ul>
@@ -526,7 +526,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-postgis">
-<h1><span class="section-number">38. </span>Introduction to PostGIS<a class="headerlink" href="#introduction-to-postgis" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">35. </span>Introduction to PostGIS<a class="headerlink" href="#introduction-to-postgis" title="Link to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -543,7 +543,7 @@ document.write(`
 <li><p><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/sql-and-enterprise-geodatabases.htm">Using SQL with Geodatabases</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">38.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">35.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
@@ -602,7 +602,7 @@ SELECT id, boroname, name from nyc_neighborhoods LIMIT 10
 </div>
 </section>
 <section id="simple-sql">
-<h2><span class="section-number">38.2. </span>Simple SQL<a class="headerlink" href="#simple-sql" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">35.2. </span>Simple SQL<a class="headerlink" href="#simple-sql" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
@@ -613,7 +613,7 @@ SELECT postgis_full_version()
 </div>
 </div>
 <section id="nyc-neighborhoods">
-<h3><span class="section-number">38.2.1. </span>NYC Neighborhoods<a class="headerlink" href="#nyc-neighborhoods" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">35.2.1. </span>NYC Neighborhoods<a class="headerlink" href="#nyc-neighborhoods" title="Link to this heading">#</a></h3>
 <p><img alt="" src="https://i.imgur.com/eycL547.png" /></p>
 <p>What are the names of all the neighborhoods in New York City?</p>
 <div class="cell tag_hide-output docutils container">
@@ -675,7 +675,7 @@ GROUP BY boroname
 </div>
 </section>
 <section id="nyc-census-blocks">
-<h3><span class="section-number">38.2.2. </span>NYC Census Blocks<a class="headerlink" href="#nyc-census-blocks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">35.2.2. </span>NYC Census Blocks<a class="headerlink" href="#nyc-census-blocks" title="Link to this heading">#</a></h3>
 <p><img alt="" src="https://i.imgur.com/tHyMJMm.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -763,7 +763,7 @@ GROUP BY boroname
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">37. </span>SQL Basics</p>
+        <p class="prev-next-title"><span class="section-number">34. </span>SQL Basics</p>
       </div>
     </a>
     <a class="right-next"
@@ -771,7 +771,7 @@ GROUP BY boroname
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39. </span>Working with Geometries</p>
+        <p class="prev-next-title"><span class="section-number">36. </span>Working with Geometries</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -791,10 +791,10 @@ GROUP BY boroname
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">38.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-sql">38.2. Simple SQL</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-neighborhoods">38.2.1. NYC Neighborhoods</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-census-blocks">38.2.2. NYC Census Blocks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">35.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-sql">35.2. Simple SQL</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-neighborhoods">35.2.1. NYC Neighborhoods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyc-census-blocks">35.2.2. NYC Census Blocks</a></li>
 </ul>
 </li>
 </ul>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>35. Data Analysis &#8212; Spatial Data Management with Earth Engine</title>
+    <title>32. Data Analysis &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -62,8 +62,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="36. Installation" href="../postgis/installation.html" />
-    <link rel="prev" title="34. Visualizing PMTiles" href="10_pmtiles.html" />
+    <link rel="next" title="33. Installation" href="../postgis/installation.html" />
+    <link rel="prev" title="31. Visualizing PMTiles" href="10_pmtiles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -219,19 +219,19 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="09_spatial_joins.html">33. Spatial Joins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pmtiles.html">34. Visualizing PMTiles</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">35. Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_spatial_joins.html">30. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pmtiles.html">31. Visualizing PMTiles</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">32. Data Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">36. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">37. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">38. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">39. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">40. Spatial Relationships</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">41. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">42. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/installation.html">33. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/sql_basics.html">34. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/postgis_intro.html">35. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geometries.html">36. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/spatial_relationships.html">37. Spatial Relationships</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/projection.html">38. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../postgis/geopandas.html">39. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -508,12 +508,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">35.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">35.2. Data download</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-conversion">35.3. Data conversion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">35.4. Data access</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">35.5. Data visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">35.6. Data analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">32.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">32.2. Data download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-conversion">32.3. Data conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">32.4. Data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">32.5. Data visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">32.6. Data analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -526,13 +526,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-analysis">
-<h1><span class="section-number">35. </span>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">32. </span>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><span class="section-number">35.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">32.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The tutorial uses the <a class="reference external" href="https://www.fws.gov/program/national-wetlands-inventory">National Wetlands Inventory</a> dataset as an example to demonstrate how to use DuckDB to analyze large geospatial datasets. The National Wetlands Inventory is a <a class="reference external" href="https://www.fws.gov/wetlands/Data/Data-Download.html">publicly available</a> dataset that provides information on the characteristics, extent, and status of the nation’s wetlands and deepwater habitats. The dataset is distributed as zipped Geodatabase files, and is available for download from <a class="reference external" href="https://www.fws.gov/program/national-wetlands-inventory/download-state-wetlands-data">here</a>. I have downloaded the database by state and converted the data to GeoParquet format. The GeoParquet files are available from <a class="reference external" href="https://beta.source.coop/repositories/giswqs/nwi/description">Source Cooperative</a>. The total file size of the 51 Parquet files is 75.8 GB.</p>
 </section>
 <section id="data-download">
-<h2><span class="section-number">35.2. </span>Data download<a class="headerlink" href="#data-download" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">32.2. </span>Data download<a class="headerlink" href="#data-download" title="Link to this heading">#</a></h2>
 <p>The script below was used to download the data from the National Wetlands Inventory in Geodatabase format from <a class="reference external" href="https://www.fws.gov/program/national-wetlands-inventory/download-state-wetlands-data">here</a>. The script uses the <a class="reference external" href="https://leafmap.org">leafmap</a> Python package.</p>
 <p>First, create a conda environment with the required packages:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gdal<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
@@ -571,7 +571,7 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 </div>
 </section>
 <section id="data-conversion">
-<h2><span class="section-number">35.3. </span>Data conversion<a class="headerlink" href="#data-conversion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">32.3. </span>Data conversion<a class="headerlink" href="#data-conversion" title="Link to this heading">#</a></h2>
 <p>The script below was used to convert the data from the original Geodatabase format to <a class="reference external" href="https://parquet.apache.org">Parquet</a> format. The script uses the <a class="reference external" href="https://leafmap.org">leafmap</a> Python package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,7 +593,7 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 </div>
 </section>
 <section id="data-access">
-<h2><span class="section-number">35.4. </span>Data access<a class="headerlink" href="#data-access" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">32.4. </span>Data access<a class="headerlink" href="#data-access" title="Link to this heading">#</a></h2>
 <p>The script below can be used to access the data using <a class="reference external" href="https://duckdb.org">DuckDB</a>. The script uses the <a class="reference external" href="https://duckdb.org">duckdb</a> Python package.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -624,7 +624,7 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 </div>
 </section>
 <section id="data-visualization">
-<h2><span class="section-number">35.5. </span>Data visualization<a class="headerlink" href="#data-visualization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">32.5. </span>Data visualization<a class="headerlink" href="#data-visualization" title="Link to this heading">#</a></h2>
 <p>To visualize the data, you can use the <a class="reference external" href="https://leafmap.org">leafmap</a> Python package with the <a class="reference external" href="https://github.com/developmentseed/lonboard">lonboard</a> backend. The script below shows how to visualize the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -671,7 +671,7 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
 <p><img alt="legend" src="https://i.imgur.com/fxzHHFN.png" /></p>
 </section>
 <section id="id1">
-<h2><span class="section-number">35.6. </span>Data analysis<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">32.6. </span>Data analysis<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Find out the total number of wetlands in the United States by aggregating the 51 parquet files.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -905,7 +905,7 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">34. </span>Visualizing PMTiles</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>Visualizing PMTiles</p>
       </div>
     </a>
     <a class="right-next"
@@ -913,7 +913,7 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">36. </span>Installation</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>Installation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -933,12 +933,12 @@ pip<span class="w"> </span>install<span class="w"> </span>lonboard
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">35.1. Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">35.2. Data download</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-conversion">35.3. Data conversion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">35.4. Data access</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">35.5. Data visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">35.6. Data analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">32.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-download">32.2. Data download</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-conversion">32.3. Data conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">32.4. Data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization">32.5. Data visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">32.6. Data analysis</a></li>
 </ul>
   </nav></div>
 

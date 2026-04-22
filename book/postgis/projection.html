@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>41. Projecting Data &#8212; Spatial Data Management with Earth Engine</title>
+    <title>38. Projecting Data &#8212; Spatial Data Management with Earth Engine</title>
   
   
   
@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -50,7 +50,7 @@
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -62,8 +62,8 @@
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="42. Using GeoPandas" href="geopandas.html" />
-    <link rel="prev" title="40. Spatial Relationships" href="spatial_relationships.html" />
+    <link rel="next" title="39. Using GeoPandas" href="geopandas.html" />
+    <link rel="prev" title="37. Spatial Relationships" href="spatial_relationships.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -219,19 +219,19 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">33. Spatial Joins</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../duckdb/10_pmtiles.html">34. Visualizing PMTiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../duckdb/11_data_analysis.html">35. Data Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/09_spatial_joins.html">30. Spatial Joins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/10_pmtiles.html">31. Visualizing PMTiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../duckdb/11_data_analysis.html">32. Data Analysis</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">PostGIS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">36. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">37. SQL Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">38. Introduction to PostGIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometries.html">39. Working with Geometries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">40. Spatial Relationships</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">41. Projecting Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geopandas.html">42. Using GeoPandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">33. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_basics.html">34. SQL Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgis_intro.html">35. Introduction to PostGIS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometries.html">36. Working with Geometries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spatial_relationships.html">37. Spatial Relationships</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">38. Projecting Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geopandas.html">39. Using GeoPandas</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Labs</span></p>
 <ul class="nav bd-sidenav">
@@ -508,11 +508,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">41.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-srid">41.2. Checking SRID</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data">41.3. Comparing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-data">41.4. Transforming Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">41.5. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">38.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-srid">38.2. Checking SRID</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data">38.3. Comparing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-data">38.4. Transforming Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">38.5. Function List</a></li>
 </ul>
             </nav>
         </div>
@@ -525,7 +525,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="projecting-data">
-<h1><span class="section-number">41. </span>Projecting Data<a class="headerlink" href="#projecting-data" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">38. </span>Projecting Data<a class="headerlink" href="#projecting-data" title="Link to this heading">#</a></h1>
 <p><strong>Setting up the conda env:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">sql</span> <span class="n">python</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">sql</span>
@@ -542,7 +542,7 @@ document.write(`
 <li><p><a class="reference external" href="https://desktop.arcgis.com/en/arcmap/latest/manage-data/using-sql-with-gdbs/sql-and-enterprise-geodatabases.htm">Using SQL with Geodatabases</a></p></li>
 </ul>
 <section id="connecting-to-the-database">
-<h2><span class="section-number">41.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">38.1. </span>Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
@@ -592,7 +592,7 @@ SELECT * from nyc_subway_stations LIMIT 5
 </div>
 </section>
 <section id="checking-srid">
-<h2><span class="section-number">41.2. </span>Checking SRID<a class="headerlink" href="#checking-srid" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">38.2. </span>Checking SRID<a class="headerlink" href="#checking-srid" title="Link to this heading">#</a></h2>
 <p>The earth is not flat, and there is no simple way of putting it down on
 a flat paper map (or computer screen), so people have come up with all
 sorts of ingenious solutions, each with pros and cons. Some projections
@@ -656,7 +656,7 @@ important: the <code class="docutils literal notranslate"><span class="pre">srte
 internally.</p>
 </section>
 <section id="comparing-data">
-<h2><span class="section-number">41.3. </span>Comparing Data<a class="headerlink" href="#comparing-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">38.3. </span>Comparing Data<a class="headerlink" href="#comparing-data" title="Link to this heading">#</a></h2>
 <p>Taken together, a coordinate and an SRID define a location on the globe.
 Without an SRID, a coordinate is just an abstract notion. A
 “Cartesian” coordinate plane is defined as a “flat” coordinate
@@ -686,7 +686,7 @@ the tables in your database. Only use the transformation function when
 you are reading or writing data to external applications.</p>
 </section>
 <section id="transforming-data">
-<h2><span class="section-number">41.4. </span>Transforming Data<a class="headerlink" href="#transforming-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">38.4. </span>Transforming Data<a class="headerlink" href="#transforming-data" title="Link to this heading">#</a></h2>
 <p>If we return to our proj4 definition for SRID 26918, we can see that our
 working projection is UTM (Universal Transverse Mercator) of zone 18,
 with meters as the unit of measurement.</p>
@@ -775,7 +775,7 @@ FROM geometries;
 </div>
 </section>
 <section id="function-list">
-<h2><span class="section-number">41.5. </span>Function List<a class="headerlink" href="#function-list" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">38.5. </span>Function List<a class="headerlink" href="#function-list" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="http://postgis.net/docs/ST_AsText.html">ST_AsText</a>: Returns the
 Well-Known Text (WKT) representation of the geometry/geography without
 SRID metadata.</p>
@@ -827,7 +827,7 @@ integer parameter.</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">40. </span>Spatial Relationships</p>
+        <p class="prev-next-title"><span class="section-number">37. </span>Spatial Relationships</p>
       </div>
     </a>
     <a class="right-next"
@@ -835,7 +835,7 @@ integer parameter.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">42. </span>Using GeoPandas</p>
+        <p class="prev-next-title"><span class="section-number">39. </span>Using GeoPandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -855,11 +855,11 @@ integer parameter.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">41.1. Connecting to the database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-srid">41.2. Checking SRID</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data">41.3. Comparing Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-data">41.4. Transforming Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">41.5. Function List</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-to-the-database">38.1. Connecting to the database</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-srid">38.2. Checking SRID</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-data">38.3. Comparing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transforming-data">38.4. Transforming Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-list">38.5. Function List</a></li>
 </ul>
   </nav></div>
 
